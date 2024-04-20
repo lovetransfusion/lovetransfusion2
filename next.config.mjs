@@ -1,4 +1,16 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {};
+// import withBundleAnalyzer from "@next/bundle-analyzer"
 
-export default nextConfig;
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+    ],
+  },
+}
+
+// const bundleConfig = withBundleAnalyzer(nextConfig)
+// export default bundleConfig
+export default nextConfig
