@@ -10,10 +10,9 @@ module.exports = {
       center: true,
       padding: {
         DEFAULT: '12px',
-        sm: '2rem',
-        lg: '4rem',
-        xl: '70px',
-        '2xl': '198px',
+      },
+      screens: {
+        DEFAULT: '1140px',
       },
     },
     extend: {

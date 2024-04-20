@@ -5,7 +5,11 @@ import logo from '../images/lt-logo-white.png'
 const LogoSection = () => {
   return (
     <div className={'flex bg-primary py-5 '}>
-      <div className={'container flex flex-col md:flex-row justify-between gap-[23px]'}>
+      <div
+        className={
+          'container md:px-6 lg:px-10 xl:px-0 flex flex-col md:flex-row justify-between gap-[23px]'
+        }
+      >
         <Image
           src={logo}
           priority
@@ -16,7 +20,7 @@ const LogoSection = () => {
         />
         <div
           className={
-            'flex text-white flex-col gap-[3px] justify-center md:text-right'
+            'flex text-white flex-col gap-[3px] justify-center pt-[3px] md:text-right'
           }
         >
           <p className={'text-[14.3px] leading-[17px]'}>
