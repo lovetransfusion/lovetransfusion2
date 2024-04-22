@@ -36,6 +36,7 @@ const ProfilePicture = ({
             }
             quality={100}
             fill
+            sizes="(max-width: 768px) 100vw, 100vw"
             alt="Picture of the recipient"
             priority={!notLCP && true}
             style={{ left: '-3px' }}
