@@ -16,6 +16,14 @@ module.exports = {
       },
     },
     extend: {
+      // boxShadow: {
+      //   blue: {
+      //     DEFAULT: '0px 0px 23px 0px rgba(49, 144, 221, 0.53)',
+      //   },
+      // },
+      boxShadow: {
+        'customBlue': '0 0 23px 0 rgba(49, 144, 221, 0.53)',
+      },
       fontFamily: {
         sans: ['var(--franklinGothicBook)'],
         demiCond: ['var(--franklinGothicDemiCond)'],

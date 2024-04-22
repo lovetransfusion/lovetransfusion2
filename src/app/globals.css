@@ -24,4 +24,13 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+  .quill p strong {
+    font-family: '__franklinGothicMediumCond_b3a1cd';
+  }
+
+  .quill ul {
+    padding-left: 60px;
+    list-style-type: disc;
+    line-height: 24px;
+  }
 }

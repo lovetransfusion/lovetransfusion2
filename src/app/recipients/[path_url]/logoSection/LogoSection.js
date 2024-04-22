@@ -7,7 +7,7 @@ const LogoSection = () => {
     <div className={'flex bg-primary py-5 '}>
       <div
         className={
-          'container md:px-6 lg:px-10 xl:px-0 flex flex-col md:flex-row justify-between gap-[23px]'
+          'container flex flex-col justify-between gap-[15px] md:gap-[23px] md:px-6 md:flex-row lg:px-10 xl:px-0 '
         }
       >
         <Image
@@ -16,7 +16,7 @@ const LogoSection = () => {
           alt="white-logo"
           width={396}
           height={60}
-          className="w-[280px] h-[42px] lg:w-[396px] lg:h-[60px]"
+          className="w-[321px] h-[48px] md:w-[280px] md:h-[42px] lg:w-[396px] lg:h-[60px]"
         />
         <div
           className={

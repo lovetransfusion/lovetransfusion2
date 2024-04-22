@@ -6,6 +6,8 @@ import { useQuery } from '@tanstack/react-query'
 import singleUseQuery from '@/hooks/useQuery/singleUseQuery'
 import { createClient } from '@/config/supabase/supabaseClient'
 import TitleSection from './titleSection/TitleSection'
+import { notFound } from 'next/navigation'
+import ProfileSection from './profileSection/ProfileSection'
 
 const ClientPageRecipient = ({ parameters: { path_url } }) => {
   const supabase = createClient()
@@ -18,11 +20,46 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
       supabase: supabase,
     })
   )
-  console.log({ recipient })
+  if (recipient?.length === 0) {
+    return notFound()
+  }
+  const {
+    id,
+    first_name: firstName,
+    sub_title,
+    category,
+    gender,
+    sec_one_paragraph,
+    according_to_paragraph,
+    learn_more_url,
+    learn_more_text,
+    created_at,
+    hugs,
+    what_is,
+    condition,
+    profile_picture,
+    package_image,
+    poster_image,
+    more_ways_to_support,
+    comments,
+    end_of_campaign,
+    opengraph,
+  } = recipient[0]
+
   return (
-    <div className="min-h-[2500px] bg-slate-400">
+    <div className="min-h-[2500px] bg-white">
       <LogoSection />
-      <TitleSection />
+      <TitleSection parameters={{ firstName, category, created_at }} />
+      <ProfileSection
+        parameters={{
+          profile_picture,
+          firstName,
+          sub_title,
+          sec_one_paragraph,
+          according_to_paragraph,
+          gender,
+        }}
+      />
     </div>
   )
 }
