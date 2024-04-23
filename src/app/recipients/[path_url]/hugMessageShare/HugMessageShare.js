@@ -1,9 +1,9 @@
-// import Image from 'next/image'
-// import Link from 'next/link'
+import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
-// import heartMessage from '../images/heart-message.png'
+import heartMessage from '../images/heart-message.png'
 // import HugButtonContainer from './HugButtonContainer'
-import ShareButton from './ShareButton'
+// import ShareButton from './ShareButton'
 
 const HugMessageShare = ({
   parameters: { id, path_url, firstName, hugs, package_image, sub_title },
@@ -21,7 +21,7 @@ const HugMessageShare = ({
           }
         >
           {/* ******** HugButtonContainer ******** */}
-          {/* <HugButtonContainer parameters={{ id, hugs, path_url }} />
+          {/* <HugButtonContainer parameters={{ id, hugs, path_url }} /> */}
           <Link href={`#comment-section`}>
             <div
               className={
@@ -33,16 +33,16 @@ const HugMessageShare = ({
                 <Image src={heartMessage} alt="care icon" quality={100} />
               </div>
             </div>
-          </Link> */}
-          {/* ******** Share Modal ******** */}
-          <ShareButton
+          </Link>
+          {/* ******** Share Modal ********
+          {/* <ShareButton
             parameters={{
               path_url,
               firstName,
               package_image,
               sub_title,
             }}
-          />
+          /> */}
         </div>
       </div>
     </div>
