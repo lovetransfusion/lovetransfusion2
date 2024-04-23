@@ -38,7 +38,7 @@ const ProfileSection = ({
         {/* ******** Verified ******** */}
         <div className={'flex pt-[19px] gap-[10px] flex-wrap md:flex-nowrap'}>
           <div className={'flex justify-center h-fit mx-auto'}>
-            <ProfilePicture profile_picture={profile_picture}/>
+            <ProfilePicture profile_picture={profile_picture} />
           </div>
           <div className={'flex flex-col gap-[22px] pt-5 pl-0 md:pl-5'}>
             <p className={'text-[28px] font-mediumCond leading-[33px]'}>

@@ -1,5 +1,4 @@
 'use client'
-import { franklinGothicMediumCond } from '@/utilities/fonts/fonts'
 import React from 'react'
 import LogoSection from './logoSection/LogoSection'
 import { useQuery } from '@tanstack/react-query'
@@ -8,6 +7,7 @@ import { createClient } from '@/config/supabase/supabaseClient'
 import TitleSection from './titleSection/TitleSection'
 import { notFound } from 'next/navigation'
 import ProfileSection from './profileSection/ProfileSection'
+import HugMessageShare from './hugMessageShare/HugMessageShare'
 
 const ClientPageRecipient = ({ parameters: { path_url } }) => {
   const supabase = createClient()
@@ -59,6 +59,9 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
           according_to_paragraph,
           gender,
         }}
+      />
+      <HugMessageShare
+        parameters={{ id, path_url, firstName, hugs, package_image, sub_title }}
       />
     </div>
   )

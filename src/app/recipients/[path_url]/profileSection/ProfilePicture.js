@@ -22,7 +22,7 @@ const ProfilePicture = ({
     <div className={`flex relative md:mt-9 lg:mt-0`}>
       <div
         className={
-          'flex rounded-full border-primary h-fit border-[7px] shadow-customBlue'
+          'flex rounded-full border-primary h-fit border-[7px] shadow-custom1'
         }
       >
         <div
