@@ -7,7 +7,7 @@ import { createClient } from '@/config/supabase/supabaseClient'
 import TitleSection from './titleSection/TitleSection'
 import { notFound } from 'next/navigation'
 import ProfileSection from './profileSection/ProfileSection'
-import HugMessageShare from './hugMessageShare/HugMessageShare'
+// import HugMessageShare from './hugMessageShare/HugMessageShare'
 
 const ClientPageRecipient = ({ parameters: { path_url } }) => {
   const supabase = createClient()
@@ -60,9 +60,9 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
           gender,
         }}
       />
-      <HugMessageShare
+      {/* <HugMessageShare
         parameters={{ id, path_url, firstName, hugs, package_image, sub_title }}
-      />
+      /> */}
     </div>
   )
 }
