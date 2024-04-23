@@ -70,8 +70,6 @@ const Hugbutton = ({
       },
     },
   }
-
-  console.log('buttonClick', buttonClick)
   return (
     <div>
       <div

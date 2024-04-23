@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
     .eq('path_url', path_url)
   const recipient = data[0]
   const title = recipient?.opengraph
-  console.log({ title })
+  
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_ROOT_DOMAIN),
     title: recipient?.opengraph?.title,

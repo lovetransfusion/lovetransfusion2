@@ -8,8 +8,10 @@ import TitleSection from './titleSection/TitleSection'
 import { notFound } from 'next/navigation'
 import ProfileSection from './profileSection/ProfileSection'
 import HugMessageShare from './hugMessageShare/HugMessageShare'
+import PackageSection from './packageSection/PackageSection'
 
 const ClientPageRecipient = ({ parameters: { path_url } }) => {
+  console.log('recipient rendered')
   const supabase = createClient()
   const { data: recipient } = useQuery(
     singleUseQuery({
@@ -62,6 +64,18 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
       />
       <HugMessageShare
         parameters={{ id, path_url, firstName, hugs, package_image, sub_title }}
+      />
+      <PackageSection
+        parameters={{
+          id,
+          path_url,
+          firstName,
+          condition,
+          poster_image,
+          package_image,
+          end_of_campaign,
+          opengraph,
+        }}
       />
     </div>
   )
