@@ -24,7 +24,7 @@ const LogoSection = () => {
           }
         >
           <p className={'text-[14.3px] leading-[17px]'}>
-            Love Transfusion Inc - A 501(c)(3) Nonprofit Organization1
+            Love Transfusion Inc - A 501(c)(3) Nonprofit Organization
           </p>
           <p className={'text-[18.5px] leading-[22px] font-mediumCond'}>
             Connecting People Who Hurt With Those Who Care
