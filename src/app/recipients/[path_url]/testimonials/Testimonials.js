@@ -36,7 +36,7 @@ const Testimonials = () => {
             src={testimonial1}
             alt="testimonial1"
             quality={100}
-            className="w-full h-auto shadow-custom5"
+            className="w-full max-w-[367px] h-auto shadow-custom5"
           />
 
           <Image

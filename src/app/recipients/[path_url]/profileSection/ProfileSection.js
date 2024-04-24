@@ -18,7 +18,7 @@ const ProfileSection = ({
     <div className={'flex pb-[23px]'}>
       <div
         className={
-          'flex flex-col max-w-[984px] mx-auto w-full px-[12px] md:px-6 lg:px-10 xl:px-0 '
+          'flex flex-col text-xl max-w-[984px] mx-auto w-full px-[12px] md:px-6 lg:px-10 xl:px-0 '
         }
       >
         {/* ******** Verified ******** */}
@@ -29,13 +29,10 @@ const ProfileSection = ({
             }
           >
             <IconCheck className={'fill-primary w-[39px] h-[39px]'} />
-            <p className={'text-xl text-primary mt-[-2px] font-mediumCond'}>
-              VERIFIED
-            </p>
+            <p className={'text-primary mt-[-2px] font-mediumCond'}>VERIFIED</p>
           </div>
         </div>
 
-        {/* ******** Verified ******** */}
         <div className={'flex pt-[19px] gap-[10px] flex-wrap md:flex-nowrap'}>
           <div className={'flex justify-center h-fit mx-auto'}>
             <ProfilePicture profile_picture={profile_picture} />
@@ -45,11 +42,11 @@ const ProfileSection = ({
               {sub_title}
             </p>
             <div
-              className={'quill text-xl leading-[22px] pr-0 md:pr-[10px]'}
+              className={'quill leading-[22px] pr-0 md:pr-[10px]'}
               dangerouslySetInnerHTML={{ __html: sec_one_paragraph }}
             ></div>
             <p
-              className={`leading-[22px] text-xl ${franklinGothicBookItalic.className}`}
+              className={`leading-[22px] ${franklinGothicBookItalic.className}`}
             >{`Please let ${capitalizeName} know ${
               gender.toLowerCase() === 'female' ? 'she' : 'he'
             } is in your thoughts…`}</p>

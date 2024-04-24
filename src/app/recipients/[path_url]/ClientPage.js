@@ -13,6 +13,7 @@ import FifthSection from './fifthSection/FifthSection'
 import Testimonials from './testimonials/Testimonials'
 import WristHugSection from './wristHugSection/WristHugSection'
 import WhatIsSection from './whatIsSection/WhatIsSection'
+import Footer from './footer/Footer'
 
 const ClientPageRecipient = ({ parameters: { path_url } }) => {
   console.log('recipient rendered')
@@ -94,6 +95,7 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
           firstName,
         }}
       />
+      <Footer />
     </div>
   )
 }

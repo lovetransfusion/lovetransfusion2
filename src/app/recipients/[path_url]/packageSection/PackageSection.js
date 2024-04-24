@@ -22,7 +22,7 @@ const PackageSection = ({
 }) => {
   const capitalizeFirstName = capitalize(firstName)
   return (
-    <div className={'flex py-[50px]'}>
+    <div className={'flex py-[50px] text-xl'}>
       <div
         className={
           'container md:px-6 lg:px-10 xl:px-0 flex flex-col items-center'
@@ -47,13 +47,13 @@ const PackageSection = ({
             >
               Love Transfusion Care Packages
             </p>
-            <p className={'text-xl leading-[22px]'}>
+            <p className={'leading-[22px]'}>
               Filled with fun distractions and tangible reminders of love and
               support, Love Transfusion care packages contain items specifically
               designed to encourage and uplift such as personalized posters,
               books, wristbands, balloons, stuffed animals and toys.
             </p>
-            <p className={'text-xl leading-[22px]'}>
+            <p className={'leading-[22px]'}>
               Between the contents of the package and shipping, costs add up in
               a hurry. Please consider becoming a sponsor through a donation of
               any amount….
@@ -95,7 +95,7 @@ const PackageSection = ({
             <div className={'w-full h-3'}></div>
             <div
               className={
-                'flex ml-[-24px] pt-[21px] md:min-w-[380px] md:min-h-[460px]'
+                'flex ml-[-24px] pt-[21px] xl:min-w-[380px] xl:min-h-[460px]'
               }
             >
               <Image

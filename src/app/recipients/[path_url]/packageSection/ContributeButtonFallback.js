@@ -9,7 +9,7 @@ const ContributeButtonFallback = () => {
       }
     >
       <Image src={logoWhite} alt="logo-white" />
-      <p className={'text-xl font-demiCond text-white'}>
+      <p className={'font-demiCond text-white'}>
         Click Here To Contribute
       </p>
     </div>

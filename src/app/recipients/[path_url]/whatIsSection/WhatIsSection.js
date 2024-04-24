@@ -29,7 +29,7 @@ const WhatIsSection = ({
     : `https://${learn_more_url}`
 
   return (
-    <div className={'flex py-[49px] md:py-[70px] lg:py-[102px]'}>
+    <div className={'flex py-[49px] text-xl md:py-[70px] lg:py-[102px]'}>
       <div className={'container md:px-6 lg:px-10 xl:px-0 flex justify-center'}>
         <div className={'flex max-w-[1000px] flex-col'}>
           <div className={'flex flex-col gap-[26px]'}>
@@ -41,19 +41,17 @@ const WhatIsSection = ({
               {what_is}
             </p>
             <div
-              className={'quill text-xl leading-[22px] pr-0 md:pr-[50px]'}
+              className={'quill  leading-[22px] pr-0 md:pr-[50px]'}
               dangerouslySetInnerHTML={{ __html: according_to_paragraph }}
             ></div>
             <div className={'flex gap-1 md:gap-2 flex-col md:flex-row'}>
-              <p className={'text-xl leading-[22px]'}>Learn more:</p>
+              <p className={' leading-[22px]'}>Learn more:</p>
               <Link
                 target="_blank"
                 href={learnMoreUrl}
                 className="text-primary"
               >
-                <p className={'text-xl leading-[22px] capitalize'}>
-                  {learn_more_text}
-                </p>
+                <p className={'leading-[22px] capitalize'}>{learn_more_text}</p>
               </Link>
             </div>
             {more_ways_to_support && (
@@ -61,7 +59,7 @@ const WhatIsSection = ({
                 <p className={'font-demiCond text-2xl mt-1 leading-[22px]'}>
                   More ways to support {firstName}
                 </p>
-                <div className={'flex flex-col text-xl'}>
+                <div className={'flex flex-col'}>
                   <ul className="leading-[28px]">
                     {more_ways_to_support?.facebookPage && (
                       <li>
@@ -106,9 +104,11 @@ const WhatIsSection = ({
                 Did You Know?
               </p>
               <div
-                className={'max-w-[347px] h-[1px] border-b-[1px] border-[#E0F3FF]'}
+                className={
+                  'max-w-[347px] h-[1px] border-b-[1px] border-[#E0F3FF]'
+                }
               >
-                <p className={'text-xl leading-6 mt-[10px]'}>
+                <p className={' leading-6 mt-[10px]'}>
                   Over 12,000,000 expressions of support and encouragement have
                   been sent through Love Transfusion Inc since 2010. Learn more
                   at{' '}
