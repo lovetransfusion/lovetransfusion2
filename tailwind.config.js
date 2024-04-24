@@ -22,6 +22,7 @@ module.exports = {
         custom3: '2px 2px 2px 0px rgba(47, 142, 221, 0.32)',
         custom4: '1px 1px 5px 0px rgba(40, 140, 204, 0.75)',
         custom5: '0px 0px 20px 5px rgba(47, 142, 221, 0.22)',
+        custom6: '3px 3px 3px 0px rgba(0, 0, 0, 0.22)',
       },
       fontFamily: {
         sans: ['var(--franklinGothicBook)'],

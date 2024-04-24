@@ -25,11 +25,11 @@ body {
     text-wrap: balance;
   }
   .quill p strong {
-    font-family: '__franklinGothicMediumCond_b3a1cd';
+    font-family: '__franklinGothicDemiCond_19cf13';
   }
 
   .quill ul {
-    padding-left: 60px;
+    padding-left: 50px;
     list-style-type: disc;
     line-height: 24px;
   }

@@ -11,6 +11,8 @@ import HugMessageShare from './hugMessageShare/HugMessageShare'
 import PackageSection from './packageSection/PackageSection'
 import FifthSection from './fifthSection/FifthSection'
 import Testimonials from './testimonials/Testimonials'
+import WristHugSection from './wristHugSection/WristHugSection'
+import WhatIsSection from './whatIsSection/WhatIsSection'
 
 const ClientPageRecipient = ({ parameters: { path_url } }) => {
   console.log('recipient rendered')
@@ -81,6 +83,17 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
       />
       <FifthSection condition={condition} />
       <Testimonials />
+      <WristHugSection />
+      <WhatIsSection
+        parameters={{
+          what_is,
+          according_to_paragraph,
+          learn_more_text,
+          learn_more_url,
+          more_ways_to_support,
+          firstName,
+        }}
+      />
     </div>
   )
 }
