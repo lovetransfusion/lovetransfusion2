@@ -10,6 +10,7 @@ import ProfileSection from './profileSection/ProfileSection'
 import HugMessageShare from './hugMessageShare/HugMessageShare'
 import PackageSection from './packageSection/PackageSection'
 import FifthSection from './fifthSection/FifthSection'
+import Testimonials from './testimonials/Testimonials'
 
 const ClientPageRecipient = ({ parameters: { path_url } }) => {
   console.log('recipient rendered')
@@ -79,6 +80,7 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
         }}
       />
       <FifthSection condition={condition} />
+      <Testimonials />
     </div>
   )
 }
