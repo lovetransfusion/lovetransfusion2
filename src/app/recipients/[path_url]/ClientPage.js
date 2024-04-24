@@ -9,6 +9,7 @@ import { notFound } from 'next/navigation'
 import ProfileSection from './profileSection/ProfileSection'
 import HugMessageShare from './hugMessageShare/HugMessageShare'
 import PackageSection from './packageSection/PackageSection'
+import FifthSection from './fifthSection/FifthSection'
 
 const ClientPageRecipient = ({ parameters: { path_url } }) => {
   console.log('recipient rendered')
@@ -77,6 +78,7 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
           opengraph,
         }}
       />
+      <FifthSection condition={condition} />
     </div>
   )
 }
