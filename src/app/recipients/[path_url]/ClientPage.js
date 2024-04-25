@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import LogoSection from './logoSection/LogoSection'
 import { useQuery } from '@tanstack/react-query'
 import singleUseQuery from '@/hooks/useQuery/singleUseQuery'
@@ -15,10 +15,23 @@ import WristHugSection from './wristHugSection/WristHugSection'
 import WhatIsSection from './whatIsSection/WhatIsSection'
 import Footer from './footer/Footer'
 import CommentSection from './commentSection/CommentSection'
+import dynamic from 'next/dynamic'
+import Button from '@/app/components/Button'
+
+const Popup = dynamic(() => import('@/app/components/Popup'))
+const CarePackage = dynamic(() =>
+  import('./popupContents/carePackage/CarePackage')
+)
+const AddCampaign = dynamic(() =>
+  import('./popupContents/addCampaign/AddCampaign')
+)
 
 const ClientPageRecipient = ({ parameters: { path_url } }) => {
   console.log('recipient rendered')
   const supabase = createClient()
+  const commentSectionRef = useRef()
+  const [popup, setpopup] = useState(null)
+
   const { data: recipient } = useQuery(
     singleUseQuery({
       queryKey: [`recipient - ${path_url}`],
@@ -31,6 +44,7 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
   if (recipient?.length === 0) {
     return notFound()
   }
+
   const {
     id,
     first_name: firstName,
@@ -53,9 +67,11 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
     end_of_campaign,
     opengraph,
   } = recipient[0]
-
+  const handleAdCampaignClick = () => {
+    setpopup('adCampaign')
+  }
   return (
-    <div className="min-h-[2500px] bg-white">
+    <div className="relative">
       <LogoSection />
       <TitleSection parameters={{ firstName, category, created_at }} />
       <ProfileSection
@@ -69,7 +85,15 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
         }}
       />
       <HugMessageShare
-        parameters={{ id, path_url, firstName, hugs, package_image, sub_title }}
+        parameters={{
+          commentSectionRef,
+          id,
+          path_url,
+          firstName,
+          hugs,
+          package_image,
+          sub_title,
+        }}
       />
       <PackageSection
         parameters={{
@@ -81,6 +105,7 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
           package_image,
           end_of_campaign,
           opengraph,
+          setpopup,
         }}
       />
       <FifthSection condition={condition} />
@@ -96,16 +121,28 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
           firstName,
         }}
       />
-      <CommentSection
-        parameters={{
-          profile_picture,
-          id,
-          comments,
-          path_url,
-          end_of_campaign,
-        }}
-      />
+      <div ref={commentSectionRef}>
+        <CommentSection
+          parameters={{
+            profile_picture,
+            id,
+            comments,
+            path_url,
+            end_of_campaign,
+          }}
+        />
+      </div>
       <Footer />
+      {popup === 'carePackage' && (
+        <Popup data={{ setpopup }}>
+          <CarePackage />
+        </Popup>
+      )}
+      {popup === 'adCampaign' && (
+        <Popup data={{ setpopup, bgNotClickable: true }}>
+          <AddCampaign />
+        </Popup>
+      )}
     </div>
   )
 }

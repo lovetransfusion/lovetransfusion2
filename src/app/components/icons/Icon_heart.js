@@ -1,4 +1,5 @@
 import React from 'react'
+import { twMerge } from 'tailwind-merge'
 
 const Icon_heart = ({ className }) => {
   return (
@@ -6,7 +7,7 @@ const Icon_heart = ({ className }) => {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 64 64"
       id="love"
-      className={className}
+      className={twMerge('size-5', className)}
     >
       <path
         fill="currentColor"

@@ -1,13 +1,29 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
 import heartMessage from '../images/heart-message.png'
 import HugButtonContainer from './HugButtonContainer'
 import ShareButton from './ShareButton'
 
 const HugMessageShare = ({
-  parameters: { id, path_url, firstName, hugs, package_image, sub_title },
+  parameters: {
+    commentSectionRef,
+    id,
+    path_url,
+    firstName,
+    hugs,
+    package_image,
+    sub_title,
+  },
 }) => {
+  const handleMessageLinkClick = () => {
+    if (commentSectionRef.current) {
+      commentSectionRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest',
+        inline: 'center',
+      })
+    }
+  }
   return (
     <div className="py-[9px] w-full bg-[#E0F3FF]">
       <div
@@ -22,18 +38,17 @@ const HugMessageShare = ({
         >
           {/* ******** HugButtonContainer ******** */}
           <HugButtonContainer parameters={{ id, hugs, path_url }} />
-          <Link href={`#comment-section`}>
-            <div
-              className={
-                'flex rounded-[10px] shadow-custom2 border-2 border-primary pt-2 px-[15px] pb-[6px] justify-center items-center bg-white cursor-pointer w-[176px]'
-              }
-            >
-              <div className={'flex items-center gap-[13px]'}>
-                <p className={'text-[22px] font-mediumCond'}>Message</p>
-                <Image src={heartMessage} alt="care icon" quality={100} />
-              </div>
+          <div
+            onClick={handleMessageLinkClick}
+            className={
+              'flex rounded-[10px] shadow-custom2 border-2 border-primary pt-2 px-[15px] pb-[6px] justify-center items-center bg-white cursor-pointer w-[176px]'
+            }
+          >
+            <div className={'flex items-center gap-[13px]'}>
+              <p className={'text-[22px] font-mediumCond'}>Message</p>
+              <Image src={heartMessage} alt="care icon" quality={100} />
             </div>
-          </Link>
+          </div>
           {/* ******** Share Modal ******** */}
           <ShareButton
             parameters={{

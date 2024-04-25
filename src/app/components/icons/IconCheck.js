@@ -1,4 +1,5 @@
 import React from 'react'
+import { twMerge } from 'tailwind-merge'
 
 const IconCheck = ({ className }) => {
   return (
@@ -6,7 +7,7 @@ const IconCheck = ({ className }) => {
       <svg
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
-        className={className}
+        className={twMerge('size-[39px]', className)}
       >
         <path
           fillRule="evenodd"

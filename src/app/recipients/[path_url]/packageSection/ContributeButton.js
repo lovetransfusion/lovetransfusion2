@@ -6,14 +6,7 @@ import { useStore } from 'zustand'
 import utilityStore from '@/utilities/store/store'
 
 const ContributeButton = ({
-  parameters: {
-    id,
-    capitalizeFirstName: firstName,
-    condition,
-    package_image,
-    opengraph,
-    path_url,
-  },
+  parameters: { setpopup, capitalizeFirstName: firstName, opengraph, path_url },
 }) => {
   const { setPopup } = useStore(utilityStore)
   const searchParams = useSearchParams()
@@ -37,18 +30,7 @@ const ContributeButton = ({
   }, [searchParams])
 
   const handleClick = () => {
-    setPopup({
-      data: {
-        id,
-        firstName,
-        condition,
-        package_image: package_image?.url ? `${package_image?.url}` : null,
-      },
-      noPadding: true,
-      content: 'CarePackage',
-      maxW: '552px',
-      bgNotClickable: true,
-    })
+    setpopup('carePackage')
   }
   return (
     <div
@@ -58,9 +40,7 @@ const ContributeButton = ({
       onClick={handleClick}
     >
       <Image src={logoWhite} alt="logo-white" />
-      <p className={'font-demiCond text-white'}>
-        Click Here To Contribute
-      </p>
+      <p className={'font-demiCond text-white'}>Click Here To Contribute</p>
     </div>
   )
 }

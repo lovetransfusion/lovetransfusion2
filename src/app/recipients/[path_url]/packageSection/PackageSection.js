@@ -10,12 +10,10 @@ import CountdownTimer from './CountdownTimer'
 
 const PackageSection = ({
   parameters: {
-    id,
     path_url,
     firstName,
-    condition,
+    setpopup,
     poster_image,
-    package_image,
     end_of_campaign,
     opengraph,
   },
@@ -66,10 +64,8 @@ const PackageSection = ({
                 <Suspense fallback={<ContributeButtonFallback />}>
                   <ContributeButton
                     parameters={{
-                      id,
+                      setpopup,
                       capitalizeFirstName,
-                      condition,
-                      package_image,
                       opengraph,
                       path_url,
                     }}

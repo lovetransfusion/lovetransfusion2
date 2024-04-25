@@ -28,7 +28,7 @@ const ProfileSection = ({
               'flex items-center gap-[2px] absolute right-[17px] top-[-19px]'
             }
           >
-            <IconCheck className={'fill-primary w-[39px] h-[39px]'} />
+            <IconCheck className={'fill-primary'} />
             <p className={'text-primary mt-[-2px] font-mediumCond'}>VERIFIED</p>
           </div>
         </div>

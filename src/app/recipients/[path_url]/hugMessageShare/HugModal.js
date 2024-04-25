@@ -29,7 +29,7 @@ const HugModal = ({ parameters: { isModalActive } }) => {
             }
           >
             <div className={'flex items-center gap-1'}>
-              <Icon_heart className={'w-5 h-5 text-primary items-center flex'} />
+              <Icon_heart className={'text-primary items-center flex'} />
 
               <p
                 className={
