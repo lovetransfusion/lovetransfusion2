@@ -14,6 +14,7 @@ import Testimonials from './testimonials/Testimonials'
 import WristHugSection from './wristHugSection/WristHugSection'
 import WhatIsSection from './whatIsSection/WhatIsSection'
 import Footer from './footer/Footer'
+import CommentSection from './commentSection/CommentSection'
 
 const ClientPageRecipient = ({ parameters: { path_url } }) => {
   console.log('recipient rendered')
@@ -93,6 +94,15 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
           learn_more_url,
           more_ways_to_support,
           firstName,
+        }}
+      />
+      <CommentSection
+        parameters={{
+          profile_picture,
+          id,
+          comments,
+          path_url,
+          end_of_campaign,
         }}
       />
       <Footer />

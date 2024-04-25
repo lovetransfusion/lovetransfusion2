@@ -21,7 +21,6 @@ const ShareButton = ({
   }
 
   const handleClick = () => {
-    console.log('handleClick')
     setisModalActive(() => !isModalActive)
   }
   const packageImage = package_image?.url

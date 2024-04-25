@@ -1,17 +1,15 @@
-"use server"
+'use server'
 import { createServer } from '@/config/supabase/supabaseServer'
 import { capitalize } from '@/utilities/capitalize'
 import { revalidatePath } from 'next/cache'
 
 export const updateHugs = async ({ id, path_url }) => {
-  console.log({ id, path_url })
   const supabase = createServer()
   const { data: currHugs } = await supabase
     .from('recipients')
     .select('hugs, first_name')
     .eq('id', id)
 
-  console.log('currHugs', currHugs)
   if (currHugs) {
     const { hugs } = currHugs[0]
     const { data, error } = await supabase
@@ -20,8 +18,6 @@ export const updateHugs = async ({ id, path_url }) => {
       .select()
       .eq('id', id)
 
-    console.log('error', error)
-    console.log('data', data)
     if (data) {
       revalidatePath(`/recipients/${path_url}`)
       revalidatePath(`/recipients/${capitalize(path_url)}`)

@@ -29,7 +29,7 @@ const WhatIsSection = ({
     : `https://${learn_more_url}`
 
   return (
-    <div className={'flex py-[49px] text-xl md:py-[70px] lg:py-[102px]'}>
+    <div className={'flex py-[49px] text-xl md:py-[70px] lg:pt-[102px] lg:pb-[62px]'}>
       <div className={'container md:px-6 lg:px-10 xl:px-0 flex justify-center'}>
         <div className={'flex max-w-[1000px] flex-col'}>
           <div className={'flex flex-col gap-[26px]'}>

@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import React from 'react'
 import footerLogo from '../images/footer-logo.png'
+import Button from '@/app/components/Button'
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
