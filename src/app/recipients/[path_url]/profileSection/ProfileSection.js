@@ -1,4 +1,4 @@
-import IconCheck from '@/app/components/icons/IconCheck'
+import IconCheck from '@/app/components/icons/Icon_check'
 import { capitalize } from '@/utilities/capitalize'
 import { franklinGothicBookItalic } from '@/utilities/fonts/fonts'
 import React from 'react'

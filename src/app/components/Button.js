@@ -3,11 +3,11 @@ import { forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
 const variants = {
-  dark: `leading-[22px] h-fit text-sm rounded-[5px] font-semibold text-white px-[17px] py-2 bg-primary hover:bg-primary-600 transition-all duration-300 ${openSans.className}`,
-  light: `leading-[22px] h-fit text-sm rounded-[5px] font-semibold px-[17px] py-2 bg-white hover:bg-neutral-200 text-black transition-all duration-300 ${openSans.className}`,
+  dark: `leading-[22px] flex gap-2 items-center justify-center w-fit h-fit text-sm rounded-[5px] font-semibold text-white px-[17px] py-2 bg-primary hover:bg-primary-600 transition-all duration-300 ${openSans.className}`,
+  light: `leading-[22px] flex gap-2 items-center justify-center h-fit text-sm rounded-[5px] font-semibold px-[17px] py-2 bg-white hover:bg-neutral-200 text-black transition-all duration-300 ${openSans.className}`,
 }
 const sizes = {
-  md: `leading-[22px] h-fit text-xl font-semibold px-5 py-3`,
+  md: `leading-[22px] font-semibold w-[230px] py-3`,
 }
 
 const Button = forwardRef(function Button(

@@ -42,6 +42,7 @@ const Comments = ({ listOfComments }) => {
                   width={45}
                   height={45}
                   alt="commentator-profile-picture"
+                  className="min-w-[45px] min-h-[45px]"
                 />
               </div>
               <div className={'flex flex-col gap-[2px]'}>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { twMerge } from 'tailwind-merge'
 
-const IconCheck = ({ className }) => {
+const Icon_check = ({ className }) => {
   return (
     <>
       <svg
@@ -18,4 +18,4 @@ const IconCheck = ({ className }) => {
   )
 }
 
-export default IconCheck
+export default Icon_check

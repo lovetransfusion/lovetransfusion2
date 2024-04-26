@@ -2,7 +2,7 @@ import React from 'react'
 import { addComment } from './actions'
 import Textarea from '@/app/components/inputsFields/Textrea'
 import { useForm } from 'react-hook-form'
-import Input from '@/app/components/inputsFields/Input'
+import Input from '@/app/components/inputsFields/InputGroup/Input'
 import Button from '@/app/components/Button'
 import { formatDateToUTCString } from '@/utilities/date-and-time/formatDateToUTCString'
 

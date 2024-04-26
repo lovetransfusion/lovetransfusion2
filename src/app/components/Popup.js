@@ -1,21 +1,30 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect } from 'react'
 import Icon_close from './icons/Icon_close'
 
 const Popup = ({ children, ...props }) => {
-  useEffect(() => {
+  const setBodyStyle = () => {
     document.body.style.overflow = 'hidden'
+    document.body.style.marginRight = '15px'
+  }
+  const unsetBodyStyle = () => {
+    document.body.style.overflow = ''
+    document.body.style.marginRight = ''
+  }
+
+  useEffect(() => {
+    setBodyStyle()
   }, [])
 
   const bgClose = (e) => {
     e.stopPropagation()
     if (!props.data?.bgNotClickable) {
-      document.body.style.overflow = ''
+      unsetBodyStyle()
       props.data?.setpopup(false)
     }
   }
   const handleClose = (e) => {
     e.stopPropagation()
-    document.body.style.overflow = ''
+    unsetBodyStyle()
     props.data?.setpopup(false)
   }
   const handleContentClick = (e) => {
@@ -24,17 +33,17 @@ const Popup = ({ children, ...props }) => {
   return (
     <div
       className={
-        'flex fixed py-4 md:py-10 px-2  top-0 w-full h-screen max-h-screen bg-black bg-opacity-25 z-50  overflow-y-scroll'
+        'flex fixed py-4 md:py-10 px-2 top-0 w-full h-screen max-h-screen bg-black bg-opacity-25 z-50 backdrop-blur-sm overflow-y-auto'
       }
       onClick={bgClose}
     >
       <div
         onClick={handleContentClick}
-        className="flex relative min-w-[250px] min-h-20 max-w-[552px] h-fit bg-white mx-auto rounded-md"
+        className="flex my-auto relative min-h-20 w-full max-w-[552px] h-fit bg-white mx-auto rounded-md overflow-hidden shadow-xl"
       >
         <Icon_close
           onClick={handleClose}
-          className={'absolute top-3 right-3 box-content'}
+          className={'absolute z-50 top-3 right-3 box-content'}
         />
         <div className={'flex w-full'}>{children}</div>
       </div>

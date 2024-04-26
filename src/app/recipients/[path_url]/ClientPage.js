@@ -16,7 +16,6 @@ import WhatIsSection from './whatIsSection/WhatIsSection'
 import Footer from './footer/Footer'
 import CommentSection from './commentSection/CommentSection'
 import dynamic from 'next/dynamic'
-import Button from '@/app/components/Button'
 
 const Popup = dynamic(() => import('@/app/components/Popup'))
 const CarePackage = dynamic(() =>
@@ -67,11 +66,20 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
     end_of_campaign,
     opengraph,
   } = recipient[0]
-  const handleAdCampaignClick = () => {
-    setpopup('adCampaign')
-  }
   return (
     <div className="relative">
+      {popup === 'carePackage' && (
+        <Popup data={{ setpopup, bgNotClickable: true }}>
+          <CarePackage
+            parameters={{ id, firstName, condition, package_image }}
+          />
+        </Popup>
+      )}
+      {popup === 'adCampaign' && (
+        <Popup data={{ setpopup, bgNotClickable: true }}>
+          <AddCampaign />
+        </Popup>
+      )}
       <LogoSection />
       <TitleSection parameters={{ firstName, category, created_at }} />
       <ProfileSection
@@ -133,16 +141,6 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
         />
       </div>
       <Footer />
-      {popup === 'carePackage' && (
-        <Popup data={{ setpopup }}>
-          <CarePackage />
-        </Popup>
-      )}
-      {popup === 'adCampaign' && (
-        <Popup data={{ setpopup, bgNotClickable: true }}>
-          <AddCampaign />
-        </Popup>
-      )}
     </div>
   )
 }
