@@ -2,17 +2,11 @@ import Button from '@/app/components/Button'
 import Icon_circle from '@/app/components/icons/Icon_circle'
 import Icon_padlock from '@/app/components/icons/Icon_padlock'
 import Icon_right from '@/app/components/icons/Icon_right'
-import utilityStore from '@/utilities/store/store'
 import React from 'react'
-import { useStore } from 'zustand'
 
-const BottomSection = ({ parameters: { goTo, donee } }) => {
-  const {
-    setDonee,
-    carePackage: { activeStep },
-    setactiveStep,
-  } = useStore(utilityStore)
-
+const BottomSection = ({
+  parameters: { goTo, donee, setDonee, activeStep, setactiveStep },
+}) => {
   const handleButtonClick = () => {
     console.log('Entered Handle button click')
     if (activeStep !== 3 && goTo) {

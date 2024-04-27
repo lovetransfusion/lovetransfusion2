@@ -1,10 +1,7 @@
 import Icon_left from '@/app/components/icons/Icon_left'
-import utilityStore from '@/utilities/store/store'
 import React from 'react'
-import { useStore } from 'zustand'
 
-const TopSection = ({ parameters: { text, number } }) => {
-  const { setactiveStep } = useStore(utilityStore)
+const TopSection = ({ parameters: { setactiveStep, text, number } }) => {
   const goTo = () => {
     setactiveStep(number)
   }

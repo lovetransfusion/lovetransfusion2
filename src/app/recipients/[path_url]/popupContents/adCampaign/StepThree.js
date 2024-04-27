@@ -2,19 +2,19 @@ import React, { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 import utilityStore from '@/utilities/store/store'
 import { useStore } from 'zustand'
-import TopSectionCarePackage from './TopSectionCarePackage'
-import BottomSectionCarePackage from './BottomSectionCarePackage'
-import UserFormCarePackage from './UserFormCarePackage'
+import TopSectionAdCampaign from './TopSectionAdCampaign'
+import BottomSectionAdCampaign from './BottomSectionAdCampaign'
+import UserFormAdCampaign from './UserFormAdCampaign'
 
 const PaymentForm = dynamic(() => import('./PaymentForm'), {
   loading: () => <p></p>,
 })
 
 const StepThree = () => {
-  const { carePackage } = useStore(utilityStore)
+  const { adCampaign } = useStore(utilityStore)
   return (
     <div className="w-full">
-      <TopSectionCarePackage
+      <TopSectionAdCampaign
         parameters={{ text: 'Add Your Information', number: 2 }}
       />
       <div className={'flex flex-col px-4 md:px-8'}>
@@ -25,12 +25,12 @@ const StepThree = () => {
           We’ll never share this information with anyone.
         </p>
 
-        <UserFormCarePackage />
+        <UserFormAdCampaign />
         <Suspense fallback={<h2>Loading Payment...</h2>}>
-          {carePackage.donationAmount && <PaymentForm />}
+          {adCampaign.donationAmount && <PaymentForm />}
         </Suspense>
       </div>
-      <BottomSectionCarePackage parameters={{}} />
+      <BottomSectionAdCampaign parameters={{}} />
     </div>
   )
 }

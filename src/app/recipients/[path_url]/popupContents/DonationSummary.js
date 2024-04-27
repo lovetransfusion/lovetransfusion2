@@ -1,14 +1,8 @@
-import React from 'react'
 import Icon_edit from '@/app/components/icons/Icon_edit'
-import Button from '@/app/components/Button'
-import utilityStore from '@/utilities/store/store'
-import { useStore } from 'zustand'
+import React from 'react'
 
-const DonationSummary = () => {
-  const {
-    carePackage: { donationAmount },
-    setactiveStep,
-  } = useStore(utilityStore)
+const DonationSummary = ({ parameters: { setactiveStep, donationAmount } }) => {
+  console.log('setactiveStep', setactiveStep)
   const handleClick = () => {
     setactiveStep(2)
   }

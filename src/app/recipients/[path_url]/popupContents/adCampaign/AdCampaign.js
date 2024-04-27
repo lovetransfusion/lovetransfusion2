@@ -5,25 +5,21 @@ import StepOne from './StepOne'
 import StepTwo from './StepTwo'
 import StepThree from './StepThree'
 
-const CarePackage = ({
-  parameters: { firstName, package_image },
-}) => {
-  console.log('firstName', firstName)
+const AdCampaign = ({ parameters: { firstName, gender, package_image } }) => {
   const {
-    carePackage: { activeStep },
+    adCampaign: { activeStep },
   } = useStore(utilityStore)
-  console.log('care package')
   return (
     <>
       <div className={'flex h-fit w-full transition-all duration-1000'}>
         {activeStep === 1 && (
-          <StepOne parameters={{ package_image, firstName }} />
+          <StepOne parameters={{ package_image, gender, firstName }} />
         )}
-        {activeStep === 2 && <StepTwo />}
+        {activeStep === 2 && <StepTwo firstName={firstName} />}
         {activeStep === 3 && <StepThree />}
       </div>
     </>
   )
 }
 
-export default CarePackage
+export default AdCampaign

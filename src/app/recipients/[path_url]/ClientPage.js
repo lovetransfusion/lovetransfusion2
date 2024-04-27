@@ -16,13 +16,21 @@ import WhatIsSection from './whatIsSection/WhatIsSection'
 import Footer from './footer/Footer'
 import CommentSection from './commentSection/CommentSection'
 import dynamic from 'next/dynamic'
+import VideoSection from './videoSection/VideoSection'
+import LoadingForm from './popupContents/LoadingForm'
 
 const Popup = dynamic(() => import('@/app/components/Popup'))
-const CarePackage = dynamic(() =>
-  import('./popupContents/carePackage/CarePackage')
+const CarePackage = dynamic(
+  () => import('./popupContents/carePackage/CarePackage'),
+  {
+    loading: () => <LoadingForm />,
+  }
 )
-const AddCampaign = dynamic(() =>
-  import('./popupContents/addCampaign/AddCampaign')
+const AdCampaign = dynamic(
+  () => import('./popupContents/adCampaign/AdCampaign'),
+  {
+    loading: () => <LoadingForm />,
+  }
 )
 
 const ClientPageRecipient = ({ parameters: { path_url } }) => {
@@ -43,6 +51,8 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
   if (recipient?.length === 0) {
     return notFound()
   }
+
+  console.log({ CarePackage, AdCampaign })
 
   const {
     id,
@@ -105,6 +115,7 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
         }}
       />
       <FifthSection condition={condition} />
+      <VideoSection parameters={{ setpopup }} />
       <Testimonials />
       <WristHugSection />
       <WhatIsSection
@@ -131,14 +142,12 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
       <Footer />
       {popup === 'carePackage' && (
         <Popup data={{ setpopup, bgNotClickable: true }}>
-          <CarePackage
-            parameters={{ id, firstName, condition, package_image }}
-          />
+          <CarePackage parameters={{ firstName, package_image }} />
         </Popup>
       )}
       {popup === 'adCampaign' && (
-        <Popup data={{ setpopup, bgNotClickable: true }}>
-          <AddCampaign />
+        <Popup data={{ setpopup, bgNotClickable: false }}>
+          <AdCampaign parameters={{ firstName, gender, package_image }} />
         </Popup>
       )}
     </div>

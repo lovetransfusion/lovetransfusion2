@@ -7,9 +7,9 @@ import utilityStore from '@/utilities/store/store'
 import Icon_padlock from '@/app/components/icons/Icon_padlock'
 import { openSans } from '@/utilities/fonts/fonts'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
-import SummaryCarePackage from './SummaryCarePackage'
+import SummaryAdCampaign from './SummaryAdCampaign'
 
-const CheckoutCarePackage = () => {
+const CheckoutAdCampaign = () => {
   const stripe = useStripe()
   const elements = useElements()
 
@@ -17,7 +17,7 @@ const CheckoutCarePackage = () => {
   const [isLoading, setIsLoading] = useState(false)
 
   const {
-    carePackage: {
+    adCampaign: {
       pIntent,
       donationAmount,
       donorFirstName,
@@ -25,7 +25,7 @@ const CheckoutCarePackage = () => {
       donorEmailAddress,
       donee,
     },
-    setpIntent,
+    setpIntentAC,
   } = useStore(utilityStore)
 
   useEffect(() => {
@@ -74,7 +74,7 @@ const CheckoutCarePackage = () => {
               donorFirstName,
               donorLastName,
               donorEmailAddress,
-              description: `Care Package - $${parseFloat(
+              description: `Ad Campaign - $${parseFloat(
                 donationAmount
               )} donation for ${donee} from ${donorFirstName} ${donorLastName}`,
             },
@@ -87,7 +87,7 @@ const CheckoutCarePackage = () => {
         )
 
         if (response) {
-          setpIntent(response.data)
+          setpIntentAC(response.data)
         }
       } catch (error) {
         console.error('Error during checkout:', error.message)
@@ -133,7 +133,7 @@ const CheckoutCarePackage = () => {
             id="payment-element"
             options={paymentElementOptions}
           />
-          <SummaryCarePackage />
+          <SummaryAdCampaign />
           <button
             disabled={isLoading || !stripe || !elements}
             id="submit"
@@ -155,4 +155,4 @@ const CheckoutCarePackage = () => {
   )
 }
 
-export default CheckoutCarePackage
+export default CheckoutAdCampaign

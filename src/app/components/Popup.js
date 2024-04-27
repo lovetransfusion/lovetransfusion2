@@ -11,6 +11,7 @@ const Popup = ({ children, ...props }) => {
     document.body.style.marginRight = ''
   }
 
+  console.log('children', children)
   useEffect(() => {
     setBodyStyle()
   }, [])

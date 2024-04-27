@@ -78,8 +78,8 @@ const utilityStore = create(
         state.carePackage = updated
       })
     },
-    // ********* Fund Raising *********
-    fundRaising: {
+    // ********* Ad Campaign *********
+    adCampaign: {
       activeStep: 1,
       pIntent: null,
       donationAmount: 25,
@@ -97,24 +97,24 @@ const utilityStore = create(
         { id: 6, price: "Custom Amount", active: false },
       ],
     },
-    setactiveStepFR: (value) => {
+    setactiveStepAC: (value) => {
       set((state) => {
-        state.fundRaising.activeStep = value
+        state.adCampaign.activeStep = value
       })
     },
-    setpIntentFR: (value) => {
+    setpIntentAC: (value) => {
       set((state) => {
-        state.fundRaising.pIntent = value
+        state.adCampaign.pIntent = value
       })
     },
-    setDoneeFR: (name) => {
+    setDoneeAC: (name) => {
       set((state) => {
-        state.fundRaising.donee = name
+        state.adCampaign.donee = name
       })
     },
-    setActivePriceFR: (id) => {
+    setActivePriceAC: (id) => {
       set((state) => {
-        const priceList = get().fundRaising.priceList
+        const priceList = get().adCampaign.priceList
         const updatedList = priceList.map((item) => {
           if (item.id === id) {
             const update = { ...item, active: true }
@@ -124,18 +124,18 @@ const utilityStore = create(
             return update
           }
         })
-        state.fundRaising.priceList = updatedList
+        state.adCampaign.priceList = updatedList
       })
     },
-    setDonationAmountFR: (value) => {
+    setDonationAmountAC: (value) => {
       set((state) => {
-        state.fundRaising.donationAmount = value
+        state.adCampaign.donationAmount = value
       })
     },
-    setFNameLNameEmailFR: (data) => {
+    setFNameLNameEmailAC: (data) => {
       const { firstName, lastName, email } = data
       set((state) => {
-        const current = get().fundRaising
+        const current = get().adCampaign
         const updated = {
           ...current,
           donorFirstName: firstName,
@@ -143,7 +143,7 @@ const utilityStore = create(
           donorEmailAddress: email,
         }
         console.log({ updated })
-        state.fundRaising = updated
+        state.adCampaign = updated
       })
     },
     // ********* Add Recipient *********

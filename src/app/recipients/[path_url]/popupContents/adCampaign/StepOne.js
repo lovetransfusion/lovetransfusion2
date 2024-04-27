@@ -1,9 +1,10 @@
-import Image from 'next/image'
 import React from 'react'
-import imagePlaceholder from '../../images/placeholder-image.png'
-import BottomSectionCarePackage from './BottomSectionCarePackage'
+import BottomSectionAdCampaign from './BottomSectionAdCampaign'
 
-const StepOne = ({ parameters: { package_image, firstName } }) => {
+const StepOne = ({
+  parameters: { package_image, gender: theGender, firstName },
+}) => {
+  const gender = theGender === 'male' ? 'he' : 'she'
   return (
     <div className="w-full pt-[33px]">
       <div className={'px-4 md:px-8'}>
@@ -12,22 +13,18 @@ const StepOne = ({ parameters: { package_image, firstName } }) => {
             'font-demiCond text-[32px] leading-[33px] mb-[17px] text-center text-balance'
           }
         >
-          Care Packages For {firstName}
+          Raising Awareness For {firstName} Campaign Fund
         </p>
         <div className={'w-[90px] h-1 mx-auto mb-8 bg-primary'} />
-        <p className={'leading-7 text-xl mb-10'}>
-          Thank you for helping us send {firstName} care packages filled with
-          fun distractions and tangible reminders of love and support.
+        <p className={'leading-7 text-xl mb-6 text-center'}>
+          {`The more times we can get ${firstName}'s story in front of a caring audience, the more comfort and encouragement ${gender} receives.`}
         </p>
       </div>
-      <Image
-        src={package_image?.url || imagePlaceholder}
-        alt="package image"
-        width={552}
-        height={306}
-        quality={100}
-      />
-      <div className={'grid grid-cols-3 text-center divide-x divide-[#dadada]'}>
+      <div
+        className={
+          'grid grid-cols-3 border-t-[1px] text-center divide-x divide-[#dadada]'
+        }
+      >
         <div className={'text-[#8c8c8c] leading-[22px] py-[10px]'}>
           <p className={'text-[#4c4c4c] text-[18px] font-semibold'}>$0</p>
           <p>raised</p>
@@ -37,12 +34,14 @@ const StepOne = ({ parameters: { package_image, firstName } }) => {
           <p>donations</p>
         </div>
         <div className={'text-[#8c8c8c] leading-[22px] py-[10px]'}>
-          <p className={'text-[#4c4c4c] text-[18px] font-semibold'}>$100</p>
+          <p className={'text-[#4c4c4c] text-[18px] font-semibold'}>$500</p>
           <p>goal</p>
         </div>
       </div>
       <div
-        className={'py-5 px-4 md:px-6 border-t-[1px] border-b-[1px] border-[#dadada]'}
+        className={
+          'py-5 px-4 md:px-6 border-t-[1px] border-b-[1px] border-[#dadada]'
+        }
       >
         <div
           className={
@@ -53,7 +52,7 @@ const StepOne = ({ parameters: { package_image, firstName } }) => {
         </div>
       </div>
 
-      <BottomSectionCarePackage parameters={{ goTo: 2, donee: firstName }} />
+      <BottomSectionAdCampaign parameters={{ goTo: 2, donee: firstName }} />
     </div>
   )
 }
