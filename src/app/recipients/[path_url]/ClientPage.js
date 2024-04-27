@@ -68,18 +68,6 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
   } = recipient[0]
   return (
     <div className="relative">
-      {popup === 'carePackage' && (
-        <Popup data={{ setpopup, bgNotClickable: true }}>
-          <CarePackage
-            parameters={{ id, firstName, condition, package_image }}
-          />
-        </Popup>
-      )}
-      {popup === 'adCampaign' && (
-        <Popup data={{ setpopup, bgNotClickable: true }}>
-          <AddCampaign />
-        </Popup>
-      )}
       <LogoSection />
       <TitleSection parameters={{ firstName, category, created_at }} />
       <ProfileSection
@@ -141,6 +129,18 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
         />
       </div>
       <Footer />
+      {popup === 'carePackage' && (
+        <Popup data={{ setpopup, bgNotClickable: true }}>
+          <CarePackage
+            parameters={{ id, firstName, condition, package_image }}
+          />
+        </Popup>
+      )}
+      {popup === 'adCampaign' && (
+        <Popup data={{ setpopup, bgNotClickable: true }}>
+          <AddCampaign />
+        </Popup>
+      )}
     </div>
   )
 }
