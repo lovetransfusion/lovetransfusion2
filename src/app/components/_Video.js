@@ -8,9 +8,9 @@ import {
   SeekButton,
   Tooltip,
 } from '@vidstack/react'
-import Timeslider from './VideoSlider/TimeSlider'
-import VsTime from './VideoSlider/Time'
-import VsPlayPause from './VideoSlider/VsPlayPause'
+import Timeslider from './_VideoSlider/TimeSlider'
+import VsTime from './_VideoSlider/Time'
+import VsPlayPause from './_VideoSlider/VsPlayPause'
 
 const Video = () => {
   return (

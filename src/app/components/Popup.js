@@ -34,7 +34,7 @@ const Popup = ({ children, ...props }) => {
   return (
     <div
       className={
-        'flex fixed py-4 md:py-10 px-2 top-0 w-full h-screen max-h-screen bg-black bg-opacity-25 z-50 backdrop-blur-sm overflow-y-auto'
+        'flex fixed py-4 md:py-10 px-2 top-0 w-full h-screen max-h-screen bg-neutral-500 bg-opacity-20 z-50 backdrop-blur-sm overflow-y-auto'
       }
       onClick={bgClose}
     >
