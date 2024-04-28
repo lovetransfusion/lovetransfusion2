@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "next build",
+    "build": "next build & npm run start",
     "start": "next start",
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true next build"
@@ -16,6 +16,7 @@
     "@supabase/ssr": "^0.3.0",
     "@tanstack/react-query": "^5.29.2",
     "@tanstack/react-query-devtools": "^5.29.2",
+    "@vidstack/react": "^1.11.19",
     "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
     "cross-env": "^7.0.3",
@@ -25,6 +26,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.3",
+    "react-player": "^2.16.0",
     "react-share": "^5.1.0",
     "stripe": "^15.4.0",
     "tailwind-merge": "^2.3.0",
