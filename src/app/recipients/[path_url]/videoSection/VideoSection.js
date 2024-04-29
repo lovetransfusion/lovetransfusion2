@@ -1,5 +1,7 @@
-import WistiaPlayer from '@/app/components/WistiaPlayer'
-import React from 'react'
+import dynamic from 'next/dynamic'
+const WistiaPlayer = dynamic(() => import('@/app/components/WistiaPlayer'), {
+  ssr: false,
+})
 
 const VideoSection = ({ parameters: { setpopup } }) => {
   const handleClick = () => {
@@ -19,7 +21,11 @@ const VideoSection = ({ parameters: { setpopup } }) => {
         >
           Short Video Explains How We Are Raising Awareness Of Benny’s Story
         </p>
-        <WistiaPlayer videoId="nx9htrqsu9" wrapper="video-1" className={'shadow-custom1 mb-[17px]'} />
+        <WistiaPlayer
+          videoId="nx9htrqsu9"
+          wrapper="video-1"
+          className={'shadow-custom1 mb-[17px] max-w-[960px]'}
+        />
         <div
           onClick={handleClick}
           className={

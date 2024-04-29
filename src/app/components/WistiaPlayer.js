@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
 import { twMerge } from 'tailwind-merge'
-// import videoPlaceholder from '../recipients/[path_url]/images/video-placeholder.jpg'
 
-function WistiaPlayer({ className, videoId, wrapper }) {
+function WistiaPlayer({ videoId, wrapper, className }) {
   useEffect(() => {
     // Wistia embed code
     const script1 = document.createElement('script')
@@ -29,11 +28,7 @@ function WistiaPlayer({ className, videoId, wrapper }) {
     <div
       id={`${wrapper}`}
       className={twMerge('w-full relative', className)}
-    >
-      {/* <Flex position={'absolute'} top={0}>
-        <Image src={videoPlaceholder} alt="video placeholder" />
-      </Flex> */}
-    </div>
+    ></div>
   )
 }
 
