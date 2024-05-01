@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react'
 import LogoSection from './logoSection/LogoSection'
 import { useQuery } from '@tanstack/react-query'
-import singleUseQuery from '@/hooks/useQuery/singleUseQuery'
+import singleUseQuery from '@/queries/useQuery/singleUseQuery'
 import { createClient } from '@/config/supabase/supabaseClient'
 import TitleSection from './titleSection/TitleSection'
 import { notFound } from 'next/navigation'

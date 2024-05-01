@@ -6,7 +6,7 @@ import {
 import React from 'react'
 import ClientPageRecipient from './ClientPage'
 import { createClient } from '@/config/supabase/supabaseClient'
-import singleUseQuery from '@/hooks/useQuery/singleUseQuery'
+import singleUseQuery from '@/queries/useQuery/singleUseQuery'
 
 export const revalidate = 60
 

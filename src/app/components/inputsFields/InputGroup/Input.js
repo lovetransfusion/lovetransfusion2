@@ -16,11 +16,10 @@ const Input = forwardRef(function Input(
     ? variants[variant?.toLowerCase()]
     : variants['default']
   return (
-    <>
+    <div className='w-full relative'>
       <input
         ref={ref}
         type={props?.type || 'text'}
-        placeholder={props?.placeholder || 'Type here'}
         className={twMerge(
           variation,
           'group-has-[svg]/input:pl-10',
@@ -30,11 +29,11 @@ const Input = forwardRef(function Input(
         {...props}
       />
       {props?.error && (
-        <p className="text-red-500 pl-3 my-1 bg-red-100 py-1 w-fit px-4 mb-2 rounded-sm">
+        <p className="absolute top-0 right-1 text-red-500 z-10 pl-3 leading-[22px] my-1 bg-red-100 py-1 w-fit px-4 mb-2 rounded-md">
           {props?.error}
         </p>
       )}
-    </>
+    </div>
   )
 })
 

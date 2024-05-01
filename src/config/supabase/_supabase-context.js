@@ -1,8 +1,7 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import { createClient } from './supabaseClient'
-
-const { createContext, useState, useEffect, useContext } = require('react')
+import { createContext, useState, useEffect, useContext } from 'react'
 
 const Context = createContext(undefined)
 

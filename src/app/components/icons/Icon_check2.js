@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react'
 import { twMerge } from 'tailwind-merge'
 
-const Icon_close = forwardRef(function Icon_close(
+const Icon_check2 = forwardRef(function Icon_check2(
   { className, ...props },
   ref
 ) {
@@ -10,19 +10,19 @@ const Icon_close = forwardRef(function Icon_close(
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
       viewBox="0 0 24 24"
-      strokeWidth={2}
+      strokeWidth={4}
       stroke="currentColor"
-      className={twMerge('size-6', className)}
+      className={twMerge('size-4', className)}
       {...props}
       ref={ref}
     >
       <path
         strokeLinecap="round"
         strokeLinejoin="round"
-        d="M6 18 18 6M6 6l12 12"
+        d="m4.5 12.75 6 6 9-13.5"
       />
     </svg>
   )
 })
 
-export default Icon_close
+export default Icon_check2
