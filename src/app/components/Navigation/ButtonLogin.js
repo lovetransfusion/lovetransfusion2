@@ -25,7 +25,6 @@ const ButtonLogin = () => {
     getUser()
   }, [])
 
-  console.log('user', user)
   return (
     <>
       {/* Skeleton */}

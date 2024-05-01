@@ -12,7 +12,6 @@ const MainNavigation = () => {
     { path: '/contact', name: 'Contact' },
     { path: '/donate', name: 'Donate' },
   ]
-  console.log('nav', nav)
   return (
     <div className={'flex py-[15px] shadow-sm '}>
       <div

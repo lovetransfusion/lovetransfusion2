@@ -2,7 +2,6 @@ import Icon_edit from '@/app/components/icons/Icon_edit'
 import React from 'react'
 
 const DonationSummary = ({ parameters: { setactiveStep, donationAmount } }) => {
-  console.log('setactiveStep', setactiveStep)
   const handleClick = () => {
     setactiveStep(2)
   }

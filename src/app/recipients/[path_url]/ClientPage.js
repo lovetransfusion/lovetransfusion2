@@ -52,7 +52,6 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
     return notFound()
   }
 
-  console.log({ CarePackage, AdCampaign })
 
   const {
     id,

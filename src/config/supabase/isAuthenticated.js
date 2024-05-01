@@ -4,11 +4,9 @@ import { createServer } from './supabaseServer'
 
 export const isAuthenticated = async (path) => {
   // Example path: "/login?next=dashboard/recipients"
-  console.log('path to', path)
   const supabase = createServer()
   const { data, error } = await supabase.auth.getUser()
   if (error || !data?.user) {
-    console.log('path', path)
     redirect(path)
   }
   return data?.user

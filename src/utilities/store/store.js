@@ -74,7 +74,6 @@ const utilityStore = create(
           donorLastName: lastName,
           donorEmailAddress: email,
         }
-        console.log({ updated })
         state.carePackage = updated
       })
     },
@@ -142,7 +141,6 @@ const utilityStore = create(
           donorLastName: lastName,
           donorEmailAddress: email,
         }
-        console.log({ updated })
         state.adCampaign = updated
       })
     },

@@ -4,7 +4,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const LoginSignupContainer = ({ children, parameters }) => {
-  console.log('parameters', parameters)
   return (
     <div
       className={

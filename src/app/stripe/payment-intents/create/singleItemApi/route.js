@@ -7,7 +7,6 @@ export const POST = async (request) => {
   const { donationAmount, description } = data
 
   const empotencyKey = v4()
-  console.log({ empotencyKey })
 
   const paymentIntent = await stripe.paymentIntents.create(
     {
@@ -22,7 +21,6 @@ export const POST = async (request) => {
       idempotencyKey: empotencyKey,
     }
   )
-  console.log('paymentIntent', paymentIntent)
 
   return NextResponse.json({
     clientSecret: paymentIntent.client_secret,

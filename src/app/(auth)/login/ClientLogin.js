@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '@/app/components/inputsFields/InputGroup/Input'
 import Divider from '@/app/components/Divider'
 import Icon_google from '@/app/components/icons/Icon_google'
@@ -14,8 +14,9 @@ import InputPasswordVisibility from '@/app/components/inputsFields/InputGroup/In
 import LoginSignupContainer from '@/app/components/LoginSignupContainer'
 import Link from 'next/link'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
+import { useParams, useSearchParams } from 'next/navigation'
 
-const ClientLogin = ({ searchParams }) => {
+const ClientLogin = () => {
   console.log('client login')
   const { register, handleSubmit, formState } = useForm()
   const [toast, settoast] = useState(null)
@@ -25,10 +26,12 @@ const ClientLogin = ({ searchParams }) => {
 
   const localData = JSON.parse(localStorage.getItem('saved password'))
 
+  const searchParams = useSearchParams().get('next')
+
   const onSubmit = (data) => {
     setloading(true)
     const initiateLogin = async () => {
-      const error = await login({ data, redirectTo: searchParams?.next })
+      const error = await login({ data, redirectTo: searchParams })
       if (error) {
         setloading(false)
         settoast({

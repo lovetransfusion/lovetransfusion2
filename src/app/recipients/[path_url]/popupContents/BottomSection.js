@@ -8,7 +8,6 @@ const BottomSection = ({
   parameters: { goTo, donee, setDonee, activeStep, setactiveStep },
 }) => {
   const handleButtonClick = () => {
-    console.log('Entered Handle button click')
     if (activeStep !== 3 && goTo) {
       if (donee) setDonee(donee)
       setactiveStep(goTo)

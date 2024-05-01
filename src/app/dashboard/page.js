@@ -3,8 +3,7 @@ import ClientDashboard from './ClientDashboard'
 import { isAuthenticated } from '@/config/supabase/isAuthenticated'
 
 const DashboardPage = async () => {
-  const supabase = await isAuthenticated('/login?next=dashboard')
-  console.log('supabase', supabase)
+  const isUser = await isAuthenticated('/login?next=dashboard')
   return <ClientDashboard />
 }
 

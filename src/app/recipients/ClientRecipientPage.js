@@ -25,7 +25,6 @@ const ClientRecipientPage = () => {
     return <h2>No recipient found</h2>
   }
   if (error) console.log({ error })
-  console.log('recipients', recipients)
   const handleAddCommentClick = (link) => {
     router.push(link)
   }

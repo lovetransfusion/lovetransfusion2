@@ -8,11 +8,9 @@ import StepThree from './StepThree'
 const CarePackage = ({
   parameters: { firstName, package_image },
 }) => {
-  console.log('firstName', firstName)
   const {
     carePackage: { activeStep },
   } = useStore(utilityStore)
-  console.log('care package')
   return (
     <>
       <div className={'flex h-fit w-full transition-all duration-1000'}>

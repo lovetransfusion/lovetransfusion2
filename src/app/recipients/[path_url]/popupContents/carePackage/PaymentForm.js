@@ -77,7 +77,6 @@ const PaymentForm = () => {
       },
     },
   }
-  console.log('pIntent', pIntent)
   const options = {
     clientSecret: pIntent?.clientSecret,
     appearance,
