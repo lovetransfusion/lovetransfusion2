@@ -16,6 +16,8 @@ const ButtonLogin = () => {
     } = await supabase.auth.getUser()
     if (theUser) {
       setuser(theUser)
+    } else {
+      return setuser(null)
     }
   }
 
