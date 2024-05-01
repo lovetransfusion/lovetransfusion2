@@ -1,8 +1,8 @@
-"use server"
+'use server'
 
-import { createServer } from "@/config/supabase/supabaseServer"
-import { revalidatePath } from "next/cache"
-import { redirect } from "next/navigation"
+import { createServer } from '@/config/supabase/supabaseServer'
+import { revalidatePath } from 'next/cache'
+import { redirect } from 'next/navigation'
 
 export async function login({ data, redirectTo }) {
   const { email, password } = data
@@ -11,28 +11,6 @@ export async function login({ data, redirectTo }) {
   if (error) {
     return error.message
   }
-  revalidatePath("/", "layout")
-  redirect(redirectTo ? `/${redirectTo}` : "/")
-}
-
-export async function signup(data) {
-  const supabase = createServer()
-  const { email, password } = data
-
-  const { error } = await supabase.auth.signUp({
-    email: email,
-    password: password,
-    options: {
-      emailRedirectTo: `http://localhost:3000/callback`,
-    },
-  })
-
-  if (error) {
-    console.log("error", error)
-    // redirect("/error")
-    return error.message
-  }
-
-  revalidatePath("/", "layout")
-  redirect("/")
+  revalidatePath('/', 'layout')
+  redirect(redirectTo ? `/${redirectTo}` : '/')
 }

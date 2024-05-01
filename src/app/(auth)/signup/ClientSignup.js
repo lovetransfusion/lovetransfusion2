@@ -5,15 +5,14 @@ import LoginSignupContainer from '@/app/components/LoginSignupContainer'
 import Toast from '@/app/components/Toast'
 import Icon_google from '@/app/components/icons/Icon_google'
 import Icon_linkedin from '@/app/components/icons/Icon_linkedin'
-import Checkbox from '@/app/components/inputsFields/Checkbox'
 import Input from '@/app/components/inputsFields/InputGroup/Input'
 import InputGroup from '@/app/components/inputsFields/InputGroup/InputGroup'
 import InputPasswordVisibility from '@/app/components/inputsFields/InputGroup/InputPasswordVisibility'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { signup } from '../login/actions'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
+import { signup } from './actions'
 
 const ClientSignup = () => {
   const { register, handleSubmit, formState } = useForm()
@@ -84,7 +83,7 @@ const ClientSignup = () => {
             </InputGroup>
           </div>
           <div>
-            <label htmlFor="password">Confirm Password:</label>
+            <label htmlFor="confirmPassword">Confirm Password:</label>
             <Input
               error={errors?.confirmPassword?.message}
               type={!showPassword ? 'password' : 'text'}
@@ -98,7 +97,7 @@ const ClientSignup = () => {
           <div>
             <Button type="submit" className="w-full">
               <div className={'relative'}>
-                Sign In{' '}
+                Create Account{' '}
                 {loading && (
                   <Icon_spinner className="animate-spin absolute right-[-35px] top-0 bottom-0 my-auto" />
                 )}

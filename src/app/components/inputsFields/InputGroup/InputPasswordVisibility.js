@@ -1,11 +1,13 @@
 import React from 'react'
 import Button from '../../Button'
 
-// Example: {
+// Example:
+// const [showPassword, setshowPassword] = useState(null)
+// const showHideClicked = () => {}
+
 // <InputPasswordVisibility onClick={showHideClicked}>
 //    {!showPassword ? 'show' : 'hide'}
 // </InputPasswordVisibility>
-// }
 
 const InputPasswordVisibility = ({ children, ...props }) => {
   return (

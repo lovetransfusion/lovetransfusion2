@@ -3,17 +3,22 @@ import { createServer } from '@/config/supabase/supabaseServer'
 import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
-const signup = async (data) => {
-  const { password, email } = data
+export async function signup(data) {
   const supabase = createServer()
-  let { data: user, error } = await supabase.auth.signUp({
-    email,
-    password,
+  const { email, password } = data
+
+  const { error } = await supabase.auth.signUp({
+    email: email,
+    password: password,
+    options: {
+      emailRedirectTo: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/callback`,
+    },
   })
-  console.log('user', user)
+
   if (error) {
     return error
   }
+
   revalidatePath('/', 'layout')
-  redirect('/')
+  redirect(`/signup/signup-confirmation?email=${email}`)
 }

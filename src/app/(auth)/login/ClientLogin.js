@@ -14,7 +14,7 @@ import InputPasswordVisibility from '@/app/components/inputsFields/InputGroup/In
 import LoginSignupContainer from '@/app/components/LoginSignupContainer'
 import Link from 'next/link'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
-import { useParams, useSearchParams } from 'next/navigation'
+import { useSearchParams } from 'next/navigation'
 
 const ClientLogin = () => {
   console.log('client login')
@@ -96,7 +96,9 @@ const ClientLogin = () => {
               <Checkbox id="savePassword" {...register('savePassword')}>
                 Remember me
               </Checkbox>
-              <p className={'text-primary select-none'}>Forgot password?</p>
+              <Link href="/forgot-password">
+                <p className={'text-primary select-none'}>Forgot password?</p>
+              </Link>
             </div>
           </div>
           <div>

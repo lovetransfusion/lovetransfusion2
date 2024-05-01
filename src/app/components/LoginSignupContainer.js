@@ -29,7 +29,7 @@ const LoginSignupContainer = ({ children, parameters }) => {
         </div>
         <div
           className={
-            'flex md:shadow-md md:mt-6 p-6 md:p-10 md:min-w-[480px] rounded-md bg-white text-left'
+            'flex max-w-[480px] md:shadow-md md:mt-6 p-6 md:p-10 md:min-w-[480px] rounded-md bg-white text-left'
           }
         >
           {children}
