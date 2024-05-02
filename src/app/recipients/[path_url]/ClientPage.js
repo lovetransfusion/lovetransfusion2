@@ -18,11 +18,16 @@ import CommentSection from './commentSection/CommentSection'
 import dynamic from 'next/dynamic'
 import VideoSection from './videoSection/VideoSection'
 import LoadingComponent from '../../components/LoadingComponent'
-import PaymentReceipt from './popupContents/PaymentReceipt/PaymentReceipt'
 
 const Popup = dynamic(() => import('@/app/components/Popup'))
 const CarePackage = dynamic(
   () => import('./popupContents/carePackage/CarePackage'),
+  {
+    loading: () => <LoadingComponent className={'min-h-[910px]'} />,
+  }
+)
+const PaymentReceipt = dynamic(
+  () => import('./popupContents/PaymentReceipt/PaymentReceipt'),
   {
     loading: () => <LoadingComponent className={'min-h-[910px]'} />,
   }
@@ -49,16 +54,6 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
       supabase: supabase,
     })
   )
-
-  const payment_intent = useSearchParams().get('payment_intent')
-  const redirect_status = useSearchParams().get('redirect_status')
-
-  useEffect(() => {
-    if (!!payment_intent && redirect_status === 'succeeded') {
-      setpopup('paymentReceipt')
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   if (recipient?.length === 0) {
     return notFound()

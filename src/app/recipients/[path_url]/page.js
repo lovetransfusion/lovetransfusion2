@@ -3,7 +3,6 @@ import {
   QueryClient,
   dehydrate,
 } from '@tanstack/react-query'
-import React, { Suspense } from 'react'
 import ClientPageRecipient from './ClientPage'
 import { createClient } from '@/config/supabase/supabaseClient'
 import singleUseQuery from '@/queries/useQuery/singleUseQuery'
@@ -57,11 +56,9 @@ const RecipientPage = async ({ params: { path_url } }) => {
   return (
     <div>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <Suspense fallback={<p>loading...</p>}>
-          <ClientPageRecipient
-            parameters={{ path_url: path_url.toLowerCase() }}
-          />
-        </Suspense>
+        <ClientPageRecipient
+          parameters={{ path_url: path_url.toLowerCase() }}
+        />
       </HydrationBoundary>
     </div>
   )

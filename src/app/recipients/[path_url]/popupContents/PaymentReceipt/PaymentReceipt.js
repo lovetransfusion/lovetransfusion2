@@ -15,14 +15,10 @@ const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
   const [receiptData, setReceiptData] = useState(null)
   const [isLoading, setisLoading] = useState(true)
 
-  console.log('receiptData', receiptData)
-
   useEffect(() => {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
     const intentId = urlParams.get('payment_intent')
-
-    console.log({ intentId })
 
     const initiateGet = async () => {
       try {
@@ -221,15 +217,7 @@ const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
           </div>
         </div>
       )}
-      {isLoading && (
-        // <div
-        //   className={'flex flex-col items-center justify-center gap-4 py-10'}
-        // >
-        //   <Icon_spinner className="text-primary size-5" />
-        //   <h2 className="text-primary text-2xl">Loading receipt...</h2>
-        // </div>
-        <LoadingComponent className={'min-h-[918px]'} />
-      )}
+      {isLoading && <LoadingComponent className={'min-h-[918px]'} />}
     </div>
   )
 }

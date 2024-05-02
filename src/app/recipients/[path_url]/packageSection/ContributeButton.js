@@ -2,15 +2,21 @@ import Image from 'next/image'
 import { useSearchParams } from 'next/navigation'
 import React, { useEffect } from 'react'
 import logoWhite from '../images/logo-white-svg.svg'
-import { useStore } from 'zustand'
-import utilityStore from '@/utilities/store/store'
 
-const ContributeButton = ({
-  parameters: { setpopup },
-}) => {
+const ContributeButton = ({ parameters: { setpopup } }) => {
   const handleClick = () => {
     setpopup('carePackage')
   }
+  const payment_intent = useSearchParams().get('payment_intent')
+  const redirect_status = useSearchParams().get('redirect_status')
+
+  useEffect(() => {
+    if (!!payment_intent && redirect_status === 'succeeded') {
+      setpopup('paymentReceipt')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <div
       className={
