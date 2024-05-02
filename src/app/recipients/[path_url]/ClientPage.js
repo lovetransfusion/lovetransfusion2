@@ -1,11 +1,11 @@
 'use client'
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import LogoSection from './logoSection/LogoSection'
 import { useQuery } from '@tanstack/react-query'
 import singleUseQuery from '@/queries/useQuery/singleUseQuery'
 import { createClient } from '@/config/supabase/supabaseClient'
 import TitleSection from './titleSection/TitleSection'
-import { notFound } from 'next/navigation'
+import { notFound, useSearchParams } from 'next/navigation'
 import ProfileSection from './profileSection/ProfileSection'
 import HugMessageShare from './hugMessageShare/HugMessageShare'
 import PackageSection from './packageSection/PackageSection'
@@ -18,6 +18,7 @@ import CommentSection from './commentSection/CommentSection'
 import dynamic from 'next/dynamic'
 import VideoSection from './videoSection/VideoSection'
 import LoadingComponent from '../../components/LoadingComponent'
+import PaymentReceipt from './popupContents/PaymentReceipt/PaymentReceipt'
 
 const Popup = dynamic(() => import('@/app/components/Popup'))
 const CarePackage = dynamic(
@@ -48,6 +49,17 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
       supabase: supabase,
     })
   )
+
+  const payment_intent = useSearchParams().get('payment_intent')
+  const redirect_status = useSearchParams().get('redirect_status')
+
+  useEffect(() => {
+    if (!!payment_intent && redirect_status === 'succeeded') {
+      setpopup('paymentReceipt')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   if (recipient?.length === 0) {
     return notFound()
   }
@@ -74,6 +86,7 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
     end_of_campaign,
     opengraph,
   } = recipient[0]
+
   return (
     <div className="relative">
       <LogoSection />
@@ -101,15 +114,10 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
       />
       <PackageSection
         parameters={{
-          id,
-          path_url,
           firstName,
-          condition,
-          poster_image,
-          package_image,
-          end_of_campaign,
-          opengraph,
           setpopup,
+          poster_image,
+          end_of_campaign,
         }}
       />
       <FifthSection condition={condition} />
@@ -144,8 +152,13 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
         </Popup>
       )}
       {popup === 'adCampaign' && (
-        <Popup data={{ setpopup, bgNotClickable: false }}>
+        <Popup data={{ setpopup, bgNotClickable: true }}>
           <AdCampaign parameters={{ firstName, gender, package_image }} />
+        </Popup>
+      )}
+      {popup === 'paymentReceipt' && (
+        <Popup data={{ setpopup }}>
+          <PaymentReceipt parameters={{ firstName, path_url, opengraph }} />
         </Popup>
       )}
     </div>

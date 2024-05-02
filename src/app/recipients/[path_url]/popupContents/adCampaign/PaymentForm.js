@@ -81,6 +81,7 @@ const PaymentForm = () => {
     clientSecret: pIntent?.clientSecret,
     appearance,
   }
+  console.log('pIntent', pIntent)
   return (
     <div className="mb-3 min-h-[355px]">
       {pIntent?.clientSecret && (

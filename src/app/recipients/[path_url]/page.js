@@ -3,7 +3,7 @@ import {
   QueryClient,
   dehydrate,
 } from '@tanstack/react-query'
-import React from 'react'
+import React, { Suspense } from 'react'
 import ClientPageRecipient from './ClientPage'
 import { createClient } from '@/config/supabase/supabaseClient'
 import singleUseQuery from '@/queries/useQuery/singleUseQuery'
@@ -18,8 +18,7 @@ export async function generateMetadata({ params }) {
     .select('profile_picture, opengraph')
     .eq('path_url', path_url)
   const recipient = data[0]
-  const title = recipient?.opengraph
-  
+
   return {
     metadataBase: new URL(process.env.NEXT_PUBLIC_ROOT_DOMAIN),
     title: recipient?.opengraph?.title,
@@ -58,9 +57,11 @@ const RecipientPage = async ({ params: { path_url } }) => {
   return (
     <div>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <ClientPageRecipient
-          parameters={{ path_url: path_url.toLowerCase() }}
-        />
+        <Suspense fallback={<p>loading...</p>}>
+          <ClientPageRecipient
+            parameters={{ path_url: path_url.toLowerCase() }}
+          />
+        </Suspense>
       </HydrationBoundary>
     </div>
   )

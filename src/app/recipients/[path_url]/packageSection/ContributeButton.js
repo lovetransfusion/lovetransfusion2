@@ -6,29 +6,8 @@ import { useStore } from 'zustand'
 import utilityStore from '@/utilities/store/store'
 
 const ContributeButton = ({
-  parameters: { setpopup, capitalizeFirstName: firstName, opengraph, path_url },
+  parameters: { setpopup },
 }) => {
-  const { setPopup } = useStore(utilityStore)
-  const searchParams = useSearchParams()
-  useEffect(() => {
-    const payment_intent = searchParams.get('payment_intent')
-    const redirect_status = searchParams.get('redirect_status')
-    if (!!payment_intent && redirect_status === 'succeeded') {
-      setPopup({
-        data: {
-          payment_intent,
-          opengraph,
-          firstName,
-          path_url,
-        },
-        content: 'PaymentReceipt',
-        maxW: '582px',
-        noPadding: true,
-      })
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams])
-
   const handleClick = () => {
     setpopup('carePackage')
   }

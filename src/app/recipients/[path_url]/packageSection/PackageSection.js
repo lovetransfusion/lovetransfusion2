@@ -10,12 +10,10 @@ import CountdownTimer from './CountdownTimer'
 
 const PackageSection = ({
   parameters: {
-    path_url,
     firstName,
     setpopup,
     poster_image,
     end_of_campaign,
-    opengraph,
   },
 }) => {
   const capitalizeFirstName = capitalize(firstName)
@@ -65,9 +63,6 @@ const PackageSection = ({
                   <ContributeButton
                     parameters={{
                       setpopup,
-                      capitalizeFirstName,
-                      opengraph,
-                      path_url,
                     }}
                   />
                 </Suspense>

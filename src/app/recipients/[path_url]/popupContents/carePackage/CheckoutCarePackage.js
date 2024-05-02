@@ -28,6 +28,15 @@ const CheckoutCarePackage = () => {
     setpIntent,
   } = useStore(utilityStore)
 
+  console.log({
+    pIntent,
+    donationAmount,
+    donorFirstName,
+    donorLastName,
+    donorEmailAddress,
+    donee,
+  })
+
   useEffect(() => {
     if (!stripe && !elements) {
       return

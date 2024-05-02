@@ -3,7 +3,10 @@ import { twMerge } from 'tailwind-merge'
 
 const InputGroup = ({ children, className, ...props }) => {
   return (
-    <div {...props} className={twMerge('group/input flex w-full relative', className)}>
+    <div
+      {...props}
+      className={twMerge('group/input h-fit flex w-full relative', className)}
+    >
       {children}
     </div>
   )
