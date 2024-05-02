@@ -20,5 +20,5 @@ export async function signup(data) {
   }
 
   revalidatePath('/', 'layout')
-  redirect(`/signup/signup-confirmation?email=${email}`)
+  redirect(`/confirm-signup/?email=${email}`)
 }

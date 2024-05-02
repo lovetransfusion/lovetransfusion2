@@ -18,11 +18,7 @@ const ClientResetPassword = () => {
   const [loading, setloading] = useState(null)
 
   const { errors } = formState
-
-  const code = useSearchParams().get('code')
   const onSubmit = async (data) => {
-    console.log('code', code)
-    console.log('data', data)
     const supabase = createClient()
     setloading(true)
     const { password, confirmPassword } = data
@@ -35,16 +31,6 @@ const ClientResetPassword = () => {
       return
     }
 
-    const { error: codeExchangeError } =
-      await supabase.auth.exchangeCodeForSession(code)
-    if (codeExchangeError) {
-      settoast({
-        description: codeExchangeError,
-        status: 'error',
-      })
-      return
-    }
-
     const { data: updatedUser, error } = await supabase.auth.updateUser({
       password: password,
     })
@@ -52,11 +38,12 @@ const ClientResetPassword = () => {
       settoast({
         description: 'Successfully updated your password!',
         status: 'success',
+        redirect: '/dashboard',
       })
     }
     if (error) {
       settoast({
-        description: codeExchangeError,
+        description: error,
         status: 'error',
       })
     }

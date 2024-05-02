@@ -1,6 +1,5 @@
 'use client'
 import MainNavigation from '@/app/components/Navigation/MainNavigation'
-import { useSearchParams } from 'next/navigation'
 import React from 'react'
 
 const VerificationPage = ({ searchParams }) => {

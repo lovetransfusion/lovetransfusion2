@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
 import Icon_close from './icons/Icon_close'
 import { twMerge } from 'tailwind-merge'
+import { useRouter } from 'next/navigation'
 
 // const [toast, settoast] = useState(null)
 
 // settoast({
 //    description: 'Lorem ipsum',
 //    status: 'error',
+//    redirect: '/path'
 // })
 
 // Example: <Toast parameters={{ toast, settoast }} />
@@ -31,13 +33,19 @@ const closeIcon = (status) => {
 }
 
 const Toast = ({ parameters: { toast, settoast } }) => {
+  const router = useRouter()
   const handleCloseClick = () => {
-    settoast(null)
+    if (!toast?.redirect) {
+      settoast(null)
+    }
   }
 
   useEffect(() => {
     const timeout = setTimeout(() => {
       settoast(null)
+      if (toast?.redirect) {
+        router.push(toast?.redirect)
+      }
     }, toast?.duration || 3000)
     return () => clearTimeout(timeout)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -58,16 +66,18 @@ const Toast = ({ parameters: { toast, settoast } }) => {
             <p className="leading-[22px] text-[17px] text-left">
               {toast?.description || 'Description'}
             </p>
-            <div
-              onClick={handleCloseClick}
-              className={
-                'p-[2px] items-center select-none rounded-sm active:bg-white active:bg-opacity-20'
-              }
-            >
-              <Icon_close
-                className={twMerge('min-w-4 text-white', closeIconStyle)}
-              />
-            </div>
+            {!toast?.redirect && (
+              <div
+                onClick={handleCloseClick}
+                className={
+                  'p-[2px] items-center select-none rounded-sm active:bg-white active:bg-opacity-20'
+                }
+              >
+                <Icon_close
+                  className={twMerge('min-w-4 text-white', closeIconStyle)}
+                />
+              </div>
+            )}
           </div>
         </div>
       )}
