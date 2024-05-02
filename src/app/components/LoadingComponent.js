@@ -1,12 +1,14 @@
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
 import React from 'react'
+import { twMerge } from 'tailwind-merge'
 
-const LoadingForm = () => {
+const LoadingComponent = ({ className }) => {
   return (
     <div
-      className={
-        'flex justify-center gap-2 items-center h-full w-full min-h-[620px]'
-      }
+      className={twMerge(
+        'flex justify-center gap-2 items-center h-full w-full',
+        className
+      )}
     >
       <Icon_spinner className="animate-spin size-12 text-primary" />
       <p className="text-3xl font-bold">Loading...</p>
@@ -14,4 +16,4 @@ const LoadingForm = () => {
   )
 }
 
-export default LoadingForm
+export default LoadingComponent

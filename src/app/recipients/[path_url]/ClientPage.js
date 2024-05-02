@@ -17,19 +17,19 @@ import Footer from './footer/Footer'
 import CommentSection from './commentSection/CommentSection'
 import dynamic from 'next/dynamic'
 import VideoSection from './videoSection/VideoSection'
-import LoadingForm from './popupContents/LoadingForm'
+import LoadingComponent from '../../components/LoadingComponent'
 
 const Popup = dynamic(() => import('@/app/components/Popup'))
 const CarePackage = dynamic(
   () => import('./popupContents/carePackage/CarePackage'),
   {
-    loading: () => <LoadingForm />,
+    loading: () => <LoadingComponent className={'min-h-[910px]'} />,
   }
 )
 const AdCampaign = dynamic(
   () => import('./popupContents/adCampaign/AdCampaign'),
   {
-    loading: () => <LoadingForm />,
+    loading: () => <LoadingComponent className={'min-h-[620px]'} />,
   }
 )
 
@@ -51,7 +51,6 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
   if (recipient?.length === 0) {
     return notFound()
   }
-
 
   const {
     id,
