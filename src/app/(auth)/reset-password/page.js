@@ -20,7 +20,6 @@ const ResetPasswordPage = () => {
   const { errors } = formState
 
   const code = useSearchParams().get('code')
-
   const onSubmit = async (data) => {
     console.log('code', code)
     console.log('data', data)
@@ -32,6 +31,7 @@ const ResetPasswordPage = () => {
         description: 'Passwords did not match',
         status: 'error',
       })
+      setloading(false)
       return
     }
 
