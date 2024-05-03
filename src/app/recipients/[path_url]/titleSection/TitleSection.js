@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import bgImageDesktop from '../images/section-1-bg-proper-desktop-backup.webp'
+import bgImageDesktop from '@/app/images/section-1-bg-proper-desktop-backup.webp'
 
 const TitleSection = ({ parameters: { firstName, category, created_at } }) => {
   return (
@@ -23,7 +23,9 @@ const TitleSection = ({ parameters: { firstName, category, created_at } }) => {
           <p className={'text-primary'}>Love Transfusion</p>
         </div>
         <h1
-          className={'font-mediumCond text-[40px] md:text-[54px] text-primary leading-[40px] text-center'}
+          className={
+            'font-mediumCond text-[40px] md:text-[54px] text-primary leading-[40px] text-center'
+          }
         >
           {`Welcome to ${firstName}’s Page!`}
         </h1>

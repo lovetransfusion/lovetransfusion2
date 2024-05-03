@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import logo from '../images/lt-logo-white.png'
+import logo from '@/app/images/lt-logo-white.png'
 import Link from 'next/link'
 
 const LogoSection = () => {
