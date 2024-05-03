@@ -5,7 +5,6 @@ import {
   franklinGothicDemiCond,
   franklinGothicMediumCond,
 } from '@/utilities/fonts/fonts'
-// import { SupabaseProvider } from '@/config/supabase/supabase-context'
 
 export const metadata = {
   title: 'Love Transfusion',
@@ -19,9 +18,7 @@ export default function RootLayout({ children }) {
       className={`${franklinGothicBook.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable}`}
     >
       <body>
-        {/* <SupabaseProvider> */}
         <TanstackProvider>{children}</TanstackProvider>
-        {/* </SupabaseProvider> */}
       </body>
     </html>
   )
