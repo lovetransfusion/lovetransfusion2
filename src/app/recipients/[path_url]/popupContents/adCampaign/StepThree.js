@@ -5,9 +5,10 @@ import { useStore } from 'zustand'
 import TopSectionAdCampaign from './TopSectionAdCampaign'
 import BottomSectionAdCampaign from './BottomSectionAdCampaign'
 import UserFormAdCampaign from './UserFormAdCampaign'
+import LoadingComponent from '@/app/components/LoadingComponent'
 
 const PaymentForm = dynamic(() => import('./PaymentForm'), {
-  loading: () => <p></p>,
+  loading: () => <LoadingComponent />,
 })
 
 const StepThree = () => {

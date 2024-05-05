@@ -5,9 +5,10 @@ import { useStore } from 'zustand'
 import TopSectionCarePackage from './TopSectionCarePackage'
 import BottomSectionCarePackage from './BottomSectionCarePackage'
 import UserFormCarePackage from './UserFormCarePackage'
+import LoadingComponent from '@/app/components/LoadingComponent'
 
 const PaymentForm = dynamic(() => import('./PaymentForm'), {
-  loading: () => <p></p>,
+  loading: () => <LoadingComponent />,
 })
 
 const StepThree = () => {

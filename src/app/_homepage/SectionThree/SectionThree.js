@@ -11,7 +11,7 @@ import KaysKamp from './images/Kays-Kamp.webp'
 
 const SectionThree = () => {
   return (
-    <div className="mx-auto lg:py-[60px]">
+    <div className="mx-auto py-[60px]">
       <div
         className={
           'max-w-[1150px] mx-auto px-3 md:px-6 lg:px-10 xl:px-0 flex flex-col lg:flex-row gap-[45px]'
