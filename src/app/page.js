@@ -1,8 +1,10 @@
 import React from 'react'
 import MainNavigation from './components/Navigation/MainNavigation'
 import { openSans } from '@/utilities/fonts/fonts'
-import TitleSection from './(homepage)/TitleSection/TitleSection'
-import SectionTwo from './(homepage)/SectionTwo/SectionTwo'
+import TitleSection from './_homepage/TitleSection/TitleSection'
+import SectionTwo from './_homepage/SectionTwo/SectionTwo'
+import ClickHereToDonate from './_homepage/ClickHereToDonate/ClickHereToDonate'
+import SectionThree from './_homepage/SectionThree/SectionThree'
 
 const Homepage = () => {
   return (
@@ -10,6 +12,8 @@ const Homepage = () => {
       <MainNavigation />
       <TitleSection />
       <SectionTwo />
+      <ClickHereToDonate />
+      <SectionThree />
     </div>
   )
 }

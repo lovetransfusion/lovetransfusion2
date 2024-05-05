@@ -1,10 +1,12 @@
 import Image from 'next/image'
 import React from 'react'
-import homedemo from './images/homedemo2.png'
+// import homedemo from './images/homedemo2.png'
+import homedemo from './images/homedemo2.webp'
 import Icon_right from '@/app/components/icons/Icon_right'
 import Icon_laptop from '@/app/components/icons/Icon_laptop'
 import Icon_like from '@/app/components/icons/Icon_like'
 import Icon_gift from '@/app/components/icons/Icon_gift'
+import Icon_cog from '@/app/components/icons/Icon_cog'
 
 const SectionTwo = () => {
   return (
@@ -16,12 +18,13 @@ const SectionTwo = () => {
             alt="demonstration"
             width={545}
             height={288}
+            quality={100}
             className="mt-[10px] w-full md:w-[545px] h-auto md:h-[288px]"
           />
         </div>
         <div
           className={
-            'grid grid-cols-2 gap-x-4 md:gap-x-8 gap-y-8 md:gap-y-[46px]'
+            'grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-8 gap-y-12 md:gap-y-[46px] pt-[19px] md:p-0'
           }
         >
           <div className={'flex text-[15px] gap-[7px]'}>
@@ -30,7 +33,7 @@ const SectionTwo = () => {
             </div>
             <div className={''}>
               <p className="font-semibold mt-[1px]">CONNECTIONS</p>
-              <p className="mt-[10px] leading-[25px]">
+              <p className="mt-[10px] leading-[24.5px]">
                 Connecting people who hurt with those who care.
               </p>
               <p
@@ -48,7 +51,7 @@ const SectionTwo = () => {
             </div>
             <div className={''}>
               <p className="font-semibold mt-[1px]">SOCIAL NETWORKS</p>
-              <p className="mt-[10px] leading-[25px]">
+              <p className="mt-[10px] leading-[24.5px]">
                 Providing social support through our community of 100,000+
                 members.
               </p>
@@ -67,7 +70,7 @@ const SectionTwo = () => {
             </div>
             <div className={''}>
               <p className="font-semibold mt-[1px]">CARE PACKAGES</p>
-              <p className="mt-[10px] leading-[25px]">
+              <p className="mt-[10px] leading-[24.5px]">
                 Sending care packages customized for the individual and filled
                 with love.
               </p>
@@ -82,11 +85,11 @@ const SectionTwo = () => {
           </div>
           <div className={'flex text-[15px] gap-[7px]'}>
             <div className={'p-[6px] bg-primary w-fit h-fit'}>
-              <Icon_laptop className="size-[14px] text-white" />
+              <Icon_cog className="size-[14px] text-white" />
             </div>
             <div className={''}>
               <p className="font-semibold mt-[1px]">FOLLOW-UP</p>
-              <p className="mt-[10px] leading-[25px]">
+              <p className="mt-[10px] leading-[24.5px]">
                 Connecting Recipients with local support groups.
               </p>
               <p

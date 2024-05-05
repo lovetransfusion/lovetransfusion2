@@ -5,13 +5,7 @@ import whiteLogo from '@/app/images/lt-logo-white.png'
 import Icon_menu from '../icons/Icon_menu'
 import Icon_close from '../icons/Icon_close'
 import Icon_plus from '../icons/Icon_plus'
-import {
-  AnimatePresence,
-  LazyMotion,
-  easeInOut,
-  easeOut,
-  m,
-} from 'framer-motion'
+import { AnimatePresence, LazyMotion, m } from 'framer-motion'
 const loadFeatures = () =>
   import('@/utilities/framerMotion/features').then((res) => res.default)
 
@@ -73,7 +67,6 @@ const MainNavigation = () => {
     }
     setactiveSubItem(path)
   }
-  console.log({ activeMainIem, activeSubItem })
 
   const handleStatus = () => {
     setmobileIsOpen(() => !mobileIsOpen)

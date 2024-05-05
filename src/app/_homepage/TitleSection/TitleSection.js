@@ -18,7 +18,7 @@ const TitleSection = () => {
         }
       >
         <div className="z-10 text-primary text-center md:text-left max-w-[460px] leading-[25px]">
-          <p className={'text-3xl md:text-[43px] font-light leading-[56px]'}>
+          <p className={'text-3xl md:text-[43px] font-light leading-[56px] mt-[-2px]'}>
             Love Transfusion, Inc.
           </p>
           <p
