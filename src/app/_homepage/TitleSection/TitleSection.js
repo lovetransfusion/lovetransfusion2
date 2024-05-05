@@ -46,7 +46,7 @@ const TitleSection = () => {
             // height={112}
             priority
             quality={100}
-            className="w-[200px] h-[112px] rounded-[4px] shadow-md mr-[-37px] mb-2 z-10"
+            className="max-w-[200px] max-h-[112px] w-auto h-auto rounded-[4px] shadow-md mr-[-37px] mb-2 z-10"
             alt="grandparents holding laptop"
           />
           <Image
@@ -55,7 +55,7 @@ const TitleSection = () => {
             // height={154}
             priority
             quality={100}
-            className="w-[170px] h-[154px] rounded-[4px] shadow-md"
+            className="max-w-[170px] max-h-[154px] w-auto h-auto rounded-[4px] shadow-md"
             alt="boy with cancer holding tablet"
           />
         </div>
