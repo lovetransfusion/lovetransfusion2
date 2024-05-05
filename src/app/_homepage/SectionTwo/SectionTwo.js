@@ -18,6 +18,7 @@ const SectionTwo = () => {
             alt="demonstration"
             width={545}
             height={288}
+            priority
             quality={100}
             className="mt-[10px] w-full md:w-[545px] h-auto md:h-[288px]"
           />
