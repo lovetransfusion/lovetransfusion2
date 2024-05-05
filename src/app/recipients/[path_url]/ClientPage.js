@@ -16,7 +16,7 @@ import WhatIsSection from './whatIsSection/WhatIsSection'
 import Footer from './footer/Footer'
 import CommentSection from './commentSection/CommentSection'
 import dynamic from 'next/dynamic'
-import VideoSection from './videoSection/VideoSection'
+// import VideoSection from './videoSection/VideoSection'
 import LoadingComponent from '../../components/LoadingComponent'
 
 const Popup = dynamic(() => import('@/app/components/Popup'))
@@ -116,7 +116,7 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
         }}
       />
       <FifthSection condition={condition} />
-      <VideoSection parameters={{ setpopup }} />
+      {/* <VideoSection parameters={{ setpopup }} /> */}
       <Testimonials />
       <WristHugSection />
       <WhatIsSection

@@ -42,8 +42,8 @@ const TitleSection = () => {
         >
           <Image
             src={grandParents}
-            width={200}
-            height={112}
+            // width={200}
+            // height={112}
             priority
             quality={100}
             className="w-[200px] h-[112px] rounded-[4px] shadow-md mr-[-37px] mb-2 z-10"
@@ -51,8 +51,8 @@ const TitleSection = () => {
           />
           <Image
             src={cancerBoy}
-            width={170}
-            height={154}
+            // width={170}
+            // height={154}
             priority
             quality={100}
             className="w-[170px] h-[154px] rounded-[4px] shadow-md"
