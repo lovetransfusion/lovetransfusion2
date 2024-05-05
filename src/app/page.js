@@ -5,6 +5,7 @@ import TitleSection from './_homepage/TitleSection/TitleSection'
 import SectionTwo from './_homepage/SectionTwo/SectionTwo'
 import ClickHereToDonate from './_homepage/ClickHereToDonate/ClickHereToDonate'
 import SectionThree from './_homepage/SectionThree/SectionThree'
+import RecentRecipients from './_homepage/recentRecipients/RecentRecipients'
 
 const Homepage = () => {
   return (
@@ -14,6 +15,7 @@ const Homepage = () => {
       <SectionTwo />
       <ClickHereToDonate />
       <SectionThree />
+      <RecentRecipients />
     </div>
   )
 }
