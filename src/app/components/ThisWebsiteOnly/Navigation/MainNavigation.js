@@ -2,10 +2,12 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import whiteLogo from '@/app/images/lt-logo-white.png'
-import Icon_menu from '../icons/Icon_menu'
-import Icon_close from '../icons/Icon_close'
-import Icon_plus from '../icons/Icon_plus'
 import { AnimatePresence, LazyMotion, m } from 'framer-motion'
+import Icon_menu from '../../icons/Icon_menu'
+import Icon_close from '../../icons/Icon_close'
+import Icon_plus from '../../icons/Icon_plus'
+import { openSans } from '@/utilities/fonts/fonts'
+import Link from 'next/link'
 const loadFeatures = () =>
   import('@/utilities/framerMotion/features').then((res) => res.default)
 
@@ -15,7 +17,7 @@ const MainNavigation = () => {
   const [mobileIsOpen, setmobileIsOpen] = useState(false)
 
   const nav = [
-    { path: '/home', name: 'Home' },
+    { path: '/', name: 'Home' },
     {
       path: '/about',
       name: 'About',
@@ -108,7 +110,7 @@ const MainNavigation = () => {
     <>
       <LazyMotion features={loadFeatures}>
         <div
-          className={'flex py-5 shadow-sm bg-primary text-white select-none'}
+          className={`${openSans.className} flex py-5 shadow-sm bg-primary text-white select-none`}
         >
           <div
             className={
@@ -237,23 +239,25 @@ const MainNavigation = () => {
                 )}
               </AnimatePresence>
             </div>
-            <Image
-              src={whiteLogo}
-              width={396}
-              height={60}
-              quality={100}
-              className="max-w-[280px] md:max-w-[unset]"
-              alt="Love Transfusion logo"
-            />
+            <Link href={'/'}>
+              <Image
+                src={whiteLogo}
+                width={396}
+                height={60}
+                quality={100}
+                className="max-w-[280px] md:max-w-[unset]"
+                alt="Love Transfusion logo"
+              />
+            </Link>
             <div
               className={'hidden xl:flex gap-10 flex-wrap gap-y-3 items-center'}
             >
               {nav.map((item, index) => {
                 const { name, path } = item
                 return (
-                  <div key={index} className="font-semibold">
-                    {name}
-                  </div>
+                  <Link key={index} href={path}>
+                    <div className="font-semibold">{name}</div>
+                  </Link>
                 )
               })}
             </div>

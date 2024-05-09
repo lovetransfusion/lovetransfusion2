@@ -19,6 +19,11 @@ export const roboto = Roboto({
   variable: '--roboto',
 })
 
+export const Arial = localFont({
+  src: './Arial.ttf',
+  display: 'swap',
+  variable: '--Arial',
+})
 export const ArialNarrowBold = localFont({
   src: './Arial-Narrow-Bold.ttf',
   display: 'swap',

@@ -6,7 +6,6 @@ const CustomPagination = ({
   className,
   parameters: { array, handlePaginationclick, activeIndex },
 }) => {
-  console.log('array', array)
   return (
     <div
       className={twMerge('flex relative gap-[10px] justify-center', className)}

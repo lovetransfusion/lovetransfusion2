@@ -2,28 +2,20 @@
 import Divider from '@/app/components/Divider'
 import Image from 'next/image'
 import React, { useState } from 'react'
-import test from './images/nicholas-60x60.webp'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css'
 import { listOfTestimonies } from './listOfTestimonies'
 import CustomPagination from '@/app/components/swiperjs/CustomPagination'
-import CustomNavigation from '@/app/components/swiperjs/CustomNavigation'
 
 const Testimonials = () => {
   const [swiper, setswiper] = useState(null)
   const [activeIndex, setactiveIndex] = useState(null)
-  const handlePrev = () => {
-    swiper?.slidePrev()
-  }
-  const handleNext = () => {
-    swiper?.slideNext()
-  }
   const handlePaginationclick = (i) => {
     setactiveIndex(i)
     swiper?.slideToLoop(i)
   }
   return (
-    <div className="py-5">
+    <div className="pb-5">
       <div
         className={'max-w-[1150px] mx-auto px-3 md:px-6 lg:px-10 xl:px-0 flex '}
       >

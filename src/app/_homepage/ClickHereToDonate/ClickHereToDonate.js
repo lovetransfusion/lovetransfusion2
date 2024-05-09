@@ -1,4 +1,5 @@
 import Button from '@/app/components/Button'
+import Link from 'next/link'
 import React from 'react'
 
 const ClickHereToDonate = () => {
@@ -12,9 +13,11 @@ const ClickHereToDonate = () => {
         <p className={'text-[22px] font-semibold leading-[30px]'}>
           Please consider partnering with us through a tax-deductible donation:
         </p>
-        <Button size="md" className="text-[18px] w-fit px-6 md:text-nowrap">
-          CLICK HERE TO DONATE
-        </Button>
+        <Link href={'/donate'}>
+          <Button size="md" className="text-[18px] w-fit px-6 md:text-nowrap">
+            CLICK HERE TO DONATE
+          </Button>
+        </Link>
       </div>
     </div>
   )

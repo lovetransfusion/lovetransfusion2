@@ -24,7 +24,7 @@ const Column1 = () => {
     <div className="text-[15px] lg:w-[560px] lg:min-w-[560px]">
       <div
         className={
-          'grid grid-cols-2 md:grid-cols-5 bg-[#0CA2E0] text-white text-center'
+          'grid grid-cols-2 select-none md:grid-cols-5 bg-[#0CA2E0] text-white text-center'
         }
       >
         <p

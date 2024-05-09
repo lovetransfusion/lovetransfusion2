@@ -19,7 +19,7 @@ const FollowUp = () => {
           If you are a member of a local support group and wish to be added to
           our database, please contact us{' '}
           <Link href={'/contact'}>
-            <span>here</span>
+            <span className="text-primary">here</span>
           </Link>
           .
         </p>

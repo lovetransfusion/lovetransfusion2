@@ -7,6 +7,7 @@ import Icon_laptop from '@/app/components/icons/Icon_laptop'
 import Icon_like from '@/app/components/icons/Icon_like'
 import Icon_gift from '@/app/components/icons/Icon_gift'
 import Icon_cog from '@/app/components/icons/Icon_cog'
+import Link from 'next/link'
 
 const SectionTwo = () => {
   return (
@@ -37,13 +38,15 @@ const SectionTwo = () => {
               <p className="mt-[10px] leading-[24.5px]">
                 Connecting people who hurt with those who care.
               </p>
-              <p
-                className={
-                  'flex items-center gap-1 text-primary cursor-pointer mt-[10px] underline'
-                }
-              >
-                View Details <Icon_right className="size-4 " />
-              </p>
+              <Link href="/connections">
+                <p
+                  className={
+                    'flex items-center gap-1 text-primary cursor-pointer mt-[10px] underline'
+                  }
+                >
+                  View Details <Icon_right className="size-4 " />
+                </p>
+              </Link>
             </div>
           </div>
           <div className={'flex text-[15px] gap-[7px]'}>
@@ -56,13 +59,18 @@ const SectionTwo = () => {
                 Providing social support through our community of 100,000+
                 members.
               </p>
-              <p
-                className={
-                  'flex items-center gap-1 text-primary cursor-pointer mt-[10px] underline'
-                }
+              <Link
+                href={'https://www.facebook.com/LoveTransfusion/'}
+                target="_blank"
               >
-                View Details <Icon_right className="size-4 " />
-              </p>
+                <p
+                  className={
+                    'flex items-center gap-1 text-primary cursor-pointer mt-[10px] underline'
+                  }
+                >
+                  View Details <Icon_right className="size-4 " />
+                </p>
+              </Link>
             </div>
           </div>
           <div className={'flex text-[15px] gap-[7px]'}>
@@ -75,13 +83,15 @@ const SectionTwo = () => {
                 Sending care packages customized for the individual and filled
                 with love.
               </p>
-              <p
-                className={
-                  'flex items-center gap-1 text-primary cursor-pointer mt-[10px] underline'
-                }
-              >
-                View Details <Icon_right className="size-4 " />
-              </p>
+              <Link href={'/care-packages'}>
+                <p
+                  className={
+                    'flex items-center gap-1 text-primary cursor-pointer mt-[10px] underline'
+                  }
+                >
+                  View Details <Icon_right className="size-4 " />
+                </p>
+              </Link>
             </div>
           </div>
           <div className={'flex text-[15px] gap-[7px]'}>
@@ -93,13 +103,15 @@ const SectionTwo = () => {
               <p className="mt-[10px] leading-[24.5px]">
                 Connecting Recipients with local support groups.
               </p>
-              <p
-                className={
-                  'flex items-center gap-1 text-primary cursor-pointer mt-[10px] underline'
-                }
-              >
-                View Details <Icon_right className="size-4 " />
-              </p>
+              <Link href={'/follow-up'}>
+                <p
+                  className={
+                    'flex items-center gap-1 text-primary cursor-pointer mt-[10px] underline'
+                  }
+                >
+                  View Details <Icon_right className="size-4 " />
+                </p>
+              </Link>
             </div>
           </div>
         </div>

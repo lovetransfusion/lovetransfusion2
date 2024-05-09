@@ -8,6 +8,7 @@ import Raceway from './images/Raceway-Ministries.webp'
 import PrayForACure from './images/Pray-for-a-Cure-for-Cancer.webp'
 import Metro from './images/Metro-Payment-Technologies.webp'
 import KaysKamp from './images/Kays-Kamp.webp'
+import Link from 'next/link'
 
 const SectionThree = () => {
   return (
@@ -29,42 +30,55 @@ const SectionThree = () => {
               'mt-[25px] grid grid-cols-2 md:grid-cols-3 lg:gap-y-[45px]'
             }
           >
-            <Image
-              src={Metro}
-              quality={100}
-              className="mx-auto lg:mr-auto lg:ml-[unset] size-[115px]"
-              alt="Metro"
-            />
-            <Image
-              src={PrayForACure}
-              quality={100}
-              className="mx-auto lg:mx-auto size-[115px]"
-              alt="PrayForACure"
-            />
+            <Link href={'https://metropaytech.com/'} target="_blank">
+              <Image
+                src={Metro}
+                quality={100}
+                className="mx-auto lg:mr-auto lg:ml-[unset] size-[115px]"
+                alt="Metro"
+              />
+            </Link>
+            <Link
+              href={'http://prayforacureforcancer.com/site/'}
+              target="_blank"
+            >
+              <Image
+                src={PrayForACure}
+                quality={100}
+                className="mx-auto lg:mx-auto size-[115px]"
+                alt="PrayForACure"
+              />
+            </Link>
             <Image
               src={Boscovs}
               quality={100}
               className="mx-auto lg:ml-auto lg:mr-[unset] size-[115px]"
               alt="Boscovs"
             />
-            <Image
-              src={Uline}
-              quality={100}
-              className="mx-auto lg:mr-auto lg:ml-[unset] size-[115px]"
-              alt="Uline"
-            />
-            <Image
-              src={KaysKamp}
-              quality={100}
-              className="mx-auto lg:mx-auto size-[115px]"
-              alt="KaysKamp"
-            />
-            <Image
-              src={Raceway}
-              quality={100}
-              className="mx-auto lg:ml-auto lg:mr-[unset] size-[115px]"
-              alt="Raceway"
-            />
+            <Link href={'https://www.uline.com/'} target="_blank">
+              <Image
+                src={Uline}
+                quality={100}
+                className="mx-auto lg:mr-auto lg:ml-[unset] size-[115px]"
+                alt="Uline"
+              />
+            </Link>
+            <Link href={'https://www.kaysfdn.org/'} target="_blank">
+              <Image
+                src={KaysKamp}
+                quality={100}
+                className="mx-auto lg:mx-auto size-[115px]"
+                alt="KaysKamp"
+              />
+            </Link>
+            <Link href={'https://racewayministries.org/'} target="_blank">
+              <Image
+                src={Raceway}
+                quality={100}
+                className="mx-auto lg:ml-auto lg:mr-[unset] size-[115px]"
+                alt="Raceway"
+              />
+            </Link>
           </div>
         </div>
       </div>
