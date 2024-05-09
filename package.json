@@ -26,8 +26,6 @@
     "react-dom": "^18",
     "react-hook-form": "^7.51.3",
     "react-share": "^5.1.0",
-    "react-slick": "^0.30.2",
-    "slick-carousel": "^1.8.1",
     "stripe": "^15.4.0",
     "swiper": "^11.1.1",
     "tailwind-merge": "^2.3.0",

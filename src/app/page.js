@@ -6,6 +6,7 @@ import SectionTwo from './_homepage/SectionTwo/SectionTwo'
 import ClickHereToDonate from './_homepage/ClickHereToDonate/ClickHereToDonate'
 import SectionThree from './_homepage/SectionThree/SectionThree'
 import RecentRecipients from './_homepage/recentRecipients/RecentRecipients'
+import Testimonials from './_homepage/testimonials/Testimonials'
 
 const Homepage = () => {
   return (
@@ -15,6 +16,7 @@ const Homepage = () => {
       <SectionTwo />
       <ClickHereToDonate />
       <SectionThree />
+      <Testimonials />
       <RecentRecipients />
     </div>
   )
