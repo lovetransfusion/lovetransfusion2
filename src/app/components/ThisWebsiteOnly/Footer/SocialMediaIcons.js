@@ -16,7 +16,11 @@ const SocialMediaIcons = () => {
           'group p-[6px] bg-[#E1E2E2] hover:bg-primary cursor-pointer w-fit h-fit rounded-full'
         }
       >
-        <Link target="_blank" href="https://www.facebook.com/LoveTransfusion">
+        <Link
+          target="_blank"
+          title="facebook page opens in a new window"
+          href="https://www.facebook.com/LoveTransfusion"
+        >
           <Icon_facebook2 className="text-[#676B6D] group-hover:text-white size-[14px]" />
         </Link>
       </div>
@@ -25,7 +29,11 @@ const SocialMediaIcons = () => {
           'group p-[6px] bg-[#E1E2E2] hover:bg-primary cursor-pointer w-fit h-fit rounded-full'
         }
       >
-        <Link target="_blank" href={'https://twitter.com/LoveTransfusion'}>
+        <Link
+          title="Twitter page opens in a new window"
+          target="_blank"
+          href={'https://twitter.com/LoveTransfusion'}
+        >
           <Icon_twitterX className="text-[#676B6D] group-hover:text-white size-[14px]" />
         </Link>
       </div>
@@ -34,7 +42,11 @@ const SocialMediaIcons = () => {
           'group p-[6px] bg-[#E1E2E2] hover:bg-primary cursor-pointer w-fit h-fit rounded-full'
         }
       >
-        <Link target="_blank" href="https://youtube.com/lovetransfusion">
+        <Link
+          title="Youtube page opens in a new window"
+          target="_blank"
+          href="https://youtube.com/lovetransfusion"
+        >
           <Icon_youtube className="text-[#676B6D] group-hover:text-white size-[14px]" />
         </Link>
       </div>
@@ -44,6 +56,7 @@ const SocialMediaIcons = () => {
         }
       >
         <Link
+          title="RSS Feed page opens in a new window"
           target="_blank"
           href="https://lovetransfusion.com/recipients/feed/"
         >
@@ -55,7 +68,11 @@ const SocialMediaIcons = () => {
           'group p-[6px] bg-[#E1E2E2] hover:bg-primary cursor-pointer w-fit h-fit rounded-full'
         }
       >
-        <Link target="_blank" href="https://vimeo.com/lovetransfusion">
+        <Link
+          title="Vimeo page opens in a new window"
+          target="_blank"
+          href="https://vimeo.com/lovetransfusion"
+        >
           <Icon_vimeo className="text-[#676B6D] group-hover:text-white size-[14px]" />
         </Link>
       </div>
@@ -64,7 +81,11 @@ const SocialMediaIcons = () => {
           'group p-[6px] bg-[#E1E2E2] hover:bg-primary cursor-pointer w-fit h-fit rounded-full'
         }
       >
-        <Link target="_blank" href="https://www.pinterest.com/lovetransfusion/">
+        <Link
+          title="Pinterest page opens in a new window"
+          target="_blank"
+          href="https://www.pinterest.com/lovetransfusion/"
+        >
           <Icon_pinterest className="text-[#676B6D] group-hover:text-white size-[14px]" />
         </Link>
       </div>
@@ -73,7 +94,11 @@ const SocialMediaIcons = () => {
           'group p-[6px] bg-[#E1E2E2] hover:bg-primary cursor-pointer w-fit h-fit rounded-full'
         }
       >
-        <Link target="_blank" href="https://www.instagram.com/lovetransfusion/">
+        <Link
+          title="Instagram page opens in a new window"
+          target="_blank"
+          href="https://www.instagram.com/lovetransfusion/"
+        >
           <Icon_instagram className="text-[#676B6D] group-hover:text-white size-[14px]" />
         </Link>
       </div>

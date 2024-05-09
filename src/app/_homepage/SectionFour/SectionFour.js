@@ -15,7 +15,7 @@ const SectionFour = () => {
         }
       >
         <div className={'px-[25px] pt-[25px] pb-[30px] bg-[#F6F6F6]'}>
-          <Image src={globe} alt="Globe connecting people" />
+          <Image src={globe} alt="Globe connecting people" quality={100} />
           <p
             className={
               'text-[18px] leading-[22px] font-semibold mb-[10px] text-center mt-5'
@@ -30,7 +30,7 @@ const SectionFour = () => {
           <Button className="mx-auto cursor-default">Comming Soon</Button>
         </div>
         <div className={'px-[25px] pt-[25px] pb-[30px] bg-[#F6F6F6]'}>
-          <Image src={grief} alt="Grief" />
+          <Image src={grief} alt="Grief" quality={100} />
           <p
             className={
               'text-[18px] leading-[22px] font-semibold mb-[10px] text-center mt-5'
@@ -47,7 +47,7 @@ const SectionFour = () => {
           </Link>
         </div>
         <div className={'px-[25px] pt-[25px] pb-[30px] bg-[#F6F6F6]'}>
-          <Image src={sad2senior} alt="Sad face of a senior" />
+          <Image src={sad2senior} alt="Sad face of a senior" quality={100} />
           <p
             className={
               'text-[18px] leading-[22px] font-semibold mb-[10px] text-center mt-5'
