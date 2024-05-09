@@ -2,16 +2,21 @@
 import Image from 'next/image'
 import React, { useState } from 'react'
 import { listOfRecipients } from './listOfRecipients'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { Autoplay } from 'swiper/modules'
+// import { Swiper, SwiperSlide } from 'swiper/react'
+// import { Autoplay } from 'swiper/modules'
 import 'swiper/css'
 import Link from 'next/link'
 import CustomNavigation from '@/app/components/swiperjs/CustomNavigation'
 import Divider from '@/app/components/Divider'
 import Button from '@/app/components/Button'
+import dynamic from 'next/dynamic'
+
+const { Swiper, SwiperSlide } = dynamic(() => import('swiper/react'), {
+  ssr: false,
+})
+const { Autoplay } = dynamic(() => import('swiper/modules'), { ssr: false })
 
 const RecentRecipients = () => {
-  console.log('recent recipients')
   const [swiper, setswiper] = useState(null)
 
   const handlePrev = () => {
