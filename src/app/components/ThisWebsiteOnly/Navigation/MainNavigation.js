@@ -12,14 +12,13 @@ const loadFeatures = () =>
   import('@/utilities/framerMotion/features').then((res) => res.default)
 
 const MainNavigation = () => {
-  const [activeMainIem, setactiveMainIem] = useState('')
+  const [activeMainItem, setactiveMainItem] = useState('')
   const [activeSubItem, setactiveSubItem] = useState('')
   const [mobileIsOpen, setmobileIsOpen] = useState(false)
 
   const nav = [
     { path: '/', name: 'Home' },
     {
-      path: '/about',
       name: 'About',
       array: [
         {
@@ -59,11 +58,11 @@ const MainNavigation = () => {
   ]
 
   const handleMainMenu = (path) => {
-    if (path === activeMainIem) {
-      setactiveMainIem('')
+    if (path === activeMainItem) {
+      setactiveMainItem('')
       return
     }
-    setactiveMainIem(path)
+    setactiveMainItem(path)
   }
   const handleSubMenu = (path) => {
     if (path === activeSubItem) {
@@ -109,7 +108,7 @@ const MainNavigation = () => {
       },
     },
   }
-  console.log({ activeMainIem })
+  console.log({ activeMainItem })
   return (
     <>
       <LazyMotion features={loadFeatures}>
@@ -161,7 +160,7 @@ const MainNavigation = () => {
                               className="flex-col font-semibold py-[13px]"
                             >
                               <div
-                                onClick={() => handleMainMenu(item.path)}
+                                onClick={() => handleMainMenu(path || name)}
                                 className={
                                   'flex w-full items-center justify-between'
                                 }
@@ -172,67 +171,71 @@ const MainNavigation = () => {
                                 )}
                               </div>
                               <AnimatePresence>
-                                {item?.array && activeMainIem === item.path && (
-                                  <m.div
-                                    variants={animateDropdown}
-                                    initial="inactive"
-                                    animate="active"
-                                    exit={'inactive'}
-                                    className={'overflow-y-hidden text-[13px] '}
-                                  >
-                                    {item?.array?.map((subItem, index) => {
-                                      return (
-                                        <div key={index}>
-                                          <div
-                                            onClick={() =>
-                                              handleSubMenu(subItem.path)
-                                            }
-                                            className={
-                                              'flex justify-between items-center'
-                                            }
-                                          >
-                                            <p className={'py-1 pl-5'}>
-                                              {subItem.name}
-                                            </p>
-                                            {subItem?.array && (
-                                              <Icon_plus className="text-[#dfdfdf]" />
-                                            )}
-                                          </div>
-                                          <AnimatePresence>
-                                            {subItem?.array &&
-                                              activeSubItem ===
-                                                subItem.path && (
-                                                <m.div
-                                                  variants={animateDropdown}
-                                                  initial="inactive"
-                                                  animate="active"
-                                                  exit={'inactive'}
-                                                  className={
-                                                    'text-[13px] overflow-y-hidden'
-                                                  }
-                                                >
-                                                  {subItem?.array?.map(
-                                                    (subItem3, index) => {
-                                                      return (
-                                                        <p
-                                                          key={index}
-                                                          className={
-                                                            'py-1 pl-10'
-                                                          }
-                                                        >
-                                                          {subItem3?.name}
-                                                        </p>
-                                                      )
-                                                    }
-                                                  )}
-                                                </m.div>
+                                {(activeMainItem === path ||
+                                  activeMainItem === name) &&
+                                  item?.array && (
+                                    <m.div
+                                      variants={animateDropdown}
+                                      initial="inactive"
+                                      animate="active"
+                                      exit={'inactive'}
+                                      className={
+                                        'overflow-y-hidden text-[13px] '
+                                      }
+                                    >
+                                      {item?.array?.map((subItem, index) => {
+                                        return (
+                                          <div key={index}>
+                                            <div
+                                              onClick={() =>
+                                                handleSubMenu(subItem.path)
+                                              }
+                                              className={
+                                                'flex justify-between items-center'
+                                              }
+                                            >
+                                              <p className={'py-1 pl-5'}>
+                                                {subItem.name}
+                                              </p>
+                                              {subItem?.array && (
+                                                <Icon_plus className="text-[#dfdfdf]" />
                                               )}
-                                          </AnimatePresence>
-                                        </div>
-                                      )
-                                    })}
-                                  </m.div>
-                                )}
+                                            </div>
+                                            <AnimatePresence>
+                                              {subItem?.array &&
+                                                activeSubItem ===
+                                                  subItem.path && (
+                                                  <m.div
+                                                    variants={animateDropdown}
+                                                    initial="inactive"
+                                                    animate="active"
+                                                    exit={'inactive'}
+                                                    className={
+                                                      'text-[13px] overflow-y-hidden'
+                                                    }
+                                                  >
+                                                    {subItem?.array?.map(
+                                                      (subItem3, index) => {
+                                                        return (
+                                                          <p
+                                                            key={index}
+                                                            className={
+                                                              'py-1 pl-10'
+                                                            }
+                                                          >
+                                                            {subItem3?.name}
+                                                          </p>
+                                                        )
+                                                      }
+                                                    )}
+                                                  </m.div>
+                                                )}
+                                            </AnimatePresence>
+                                          </div>
+                                        )
+                                      })}
+                                    </m.div>
+                                  )}
                               </AnimatePresence>
                             </div>
                           )
@@ -261,7 +264,7 @@ const MainNavigation = () => {
                 return (
                   <div key={index} className={'group/main relative'}>
                     <div className="font-semibold">
-                      <Link href={path}>{name}</Link>
+                      {path ? <Link href={path}>{name}</Link> : name}
                     </div>
                     <div
                       className={
