@@ -46,7 +46,10 @@ const MainNavigation = () => {
       ],
     },
     { path: '/testimonials', name: 'Testimonials' },
-    { path: '/visit', name: 'Visit' },
+    {
+      path: '/visit',
+      name: 'Visit',
+    },
     {
       path: '/contact',
       name: 'Contact',
@@ -106,6 +109,7 @@ const MainNavigation = () => {
       },
     },
   }
+  console.log({ activeMainIem })
   return (
     <>
       <LazyMotion features={loadFeatures}>
@@ -255,9 +259,60 @@ const MainNavigation = () => {
               {nav.map((item, index) => {
                 const { name, path } = item
                 return (
-                  <Link key={index} href={path}>
-                    <div className="font-semibold">{name}</div>
-                  </Link>
+                  <div key={index} className={'group/main relative'}>
+                    <div className="font-semibold">
+                      <Link href={path}>{name}</Link>
+                    </div>
+                    <div
+                      className={
+                        'hidden group-hover/main:block absolute pt-[38px] left-0 w-fit z-20 text-[#262b2e] leading-[22px] text-[13px] font-semibold'
+                      }
+                    >
+                      <div className={'bg-white shadow-md py-[13px]'}>
+                        {item?.array?.map((sub, i) => {
+                          return (
+                            <div key={i} className={'group/sub relative'}>
+                              <Link
+                                href={sub?.path}
+                                className="hover:text-primary"
+                              >
+                                <p
+                                  className={
+                                    'px-5 py-[5px] w-[210px] 2xl:w-[260px]'
+                                  }
+                                >
+                                  {sub.name}
+                                </p>
+                              </Link>
+                              <div
+                                className={
+                                  'hidden group-hover/sub:block absolute top-0 right-[-210px] 2xl:right-[-260px] w-fit z-20 text-[#262b2e] leading-[22px] text-[13px] font-semibold '
+                                }
+                              >
+                                <div className={'bg-white shadow-md py-[13px]'}>
+                                  {sub?.array?.map((sub2, i) => {
+                                    console.log('sub2', sub2)
+                                    return (
+                                      <div key={i} className={'relative'}>
+                                        <Link
+                                          href={sub2?.path}
+                                          className="hover:text-primary"
+                                        >
+                                          <p className="px-5 py-[5px] w-[210px] 2xl:w-[260px]">
+                                            {sub2.name}
+                                          </p>
+                                        </Link>
+                                      </div>
+                                    )
+                                  })}
+                                </div>
+                              </div>
+                            </div>
+                          )
+                        })}
+                      </div>
+                    </div>
+                  </div>
                 )
               })}
             </div>
