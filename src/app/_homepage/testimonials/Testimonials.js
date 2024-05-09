@@ -7,6 +7,10 @@ import 'swiper/css'
 import { listOfTestimonies } from './listOfTestimonies'
 import CustomPagination from '@/app/components/swiperjs/CustomPagination'
 
+// const { Swiper, SwiperSlide } = dynamic(() => import('swiper/react'), {
+//   ssr: false,
+// })
+
 const Testimonials = () => {
   const [swiper, setswiper] = useState(null)
   const [activeIndex, setactiveIndex] = useState(null)
