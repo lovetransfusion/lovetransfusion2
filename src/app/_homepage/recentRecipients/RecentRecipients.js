@@ -11,7 +11,6 @@ import Divider from '@/app/components/Divider'
 import Button from '@/app/components/Button'
 
 const RecentRecipients = () => {
-  console.log('home page')
   const [swiper, setswiper] = useState(null)
 
   const handlePrev = () => {

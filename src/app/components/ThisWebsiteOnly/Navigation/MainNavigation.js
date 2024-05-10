@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import whiteLogo from '@/app/images/lt-logo-white.png'
 import { AnimatePresence, LazyMotion, m } from 'framer-motion'
 import Icon_menu from '../../icons/Icon_menu'
@@ -15,6 +15,7 @@ const loadFeatures = () =>
 
 const MainNavigation = () => {
   const pathName = usePathname()
+
   const restricted = restrictedPathsNavigationMenu.some((restrictedPath) =>
     pathName.includes(restrictedPath)
   )
@@ -22,6 +23,13 @@ const MainNavigation = () => {
   const [activeMainItem, setactiveMainItem] = useState('')
   const [activeSubItem, setactiveSubItem] = useState('')
   const [mobileIsOpen, setmobileIsOpen] = useState(false)
+
+  useEffect(() => {
+    if (!restricted) {
+      setmobileIsOpen(false)
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pathName])
 
   if (restricted) return
 
@@ -37,12 +45,11 @@ const MainNavigation = () => {
         },
         {
           main: 'main',
-          path: '/message-from-the-founder',
+          path: '/how-love-transfusion-was-created',
           name: 'Message from the Founder',
         },
         {
           main: 'main',
-          path: '/what-is-love-transfusion',
           name: 'What is Love Transfusion?',
           array: [
             { main: 'main', path: '/connections', name: 'Connections' },
@@ -55,11 +62,10 @@ const MainNavigation = () => {
     },
     { path: '/testimonials', name: 'Testimonials' },
     {
-      path: '/visit',
+      path: 'https://www.facebook.com/pg/LoveTransfusion/photos/?tab=album&album_id=222177344466773',
       name: 'Visit',
     },
     {
-      path: '/contact',
       name: 'Contact',
       array: [{ main: 'main', path: '/submit-story', name: 'Submit Story' }],
     },
@@ -163,22 +169,39 @@ const MainNavigation = () => {
                       >
                         {nav.map((item, index) => {
                           const { name, path } = item
+                          console.log('path', path)
                           return (
                             <div
                               key={index}
                               className="flex-col font-semibold py-[13px]"
                             >
-                              <div
-                                onClick={() => handleMainMenu(path || name)}
-                                className={
-                                  'flex w-full items-center justify-between'
-                                }
-                              >
-                                {name}
-                                {item?.array && (
-                                  <Icon_plus className="text-[#dfdfdf]" />
-                                )}
-                              </div>
+                              {path ? (
+                                <Link href={path}>
+                                  <div
+                                    onClick={() => handleMainMenu(path || name)}
+                                    className={
+                                      'active:text-primary flex w-full items-center justify-between'
+                                    }
+                                  >
+                                    {name}
+                                    {item?.array && (
+                                      <Icon_plus className="text-[#dfdfdf]" />
+                                    )}
+                                  </div>
+                                </Link>
+                              ) : (
+                                <div
+                                  onClick={() => handleMainMenu(path || name)}
+                                  className={
+                                    'flex w-full items-center justify-between'
+                                  }
+                                >
+                                  {name}
+                                  {item?.array && (
+                                    <Icon_plus className="text-[#dfdfdf]" />
+                                  )}
+                                </div>
+                              )}
                               <AnimatePresence>
                                 {(activeMainItem === path ||
                                   activeMainItem === name) &&
@@ -197,15 +220,30 @@ const MainNavigation = () => {
                                           <div key={index}>
                                             <div
                                               onClick={() =>
-                                                handleSubMenu(subItem.path)
+                                                handleSubMenu(subItem?.path)
                                               }
                                               className={
                                                 'flex justify-between items-center'
                                               }
                                             >
-                                              <p className={'py-1 pl-5'}>
-                                                {subItem.name}
-                                              </p>
+                                              {subItem?.path ? (
+                                                <Link
+                                                  href={subItem?.path}
+                                                  className="w-full"
+                                                >
+                                                  <p
+                                                    className={
+                                                      'active:text-primary py-1 pl-5'
+                                                    }
+                                                  >
+                                                    {subItem.name}
+                                                  </p>
+                                                </Link>
+                                              ) : (
+                                                <p className={'py-1 pl-5'}>
+                                                  {subItem.name}
+                                                </p>
+                                              )}
                                               {subItem?.array && (
                                                 <Icon_plus className="text-[#dfdfdf]" />
                                               )}
@@ -226,14 +264,34 @@ const MainNavigation = () => {
                                                     {subItem?.array?.map(
                                                       (subItem3, index) => {
                                                         return (
-                                                          <p
-                                                            key={index}
-                                                            className={
-                                                              'py-1 pl-10'
-                                                            }
-                                                          >
-                                                            {subItem3?.name}
-                                                          </p>
+                                                          <>
+                                                            {subItem3?.path ? (
+                                                              <Link
+                                                                key={index}
+                                                                href={
+                                                                  subItem3?.path
+                                                                }
+                                                              >
+                                                                <p
+                                                                  className={
+                                                                    'active:text-primary py-1 pl-10'
+                                                                  }
+                                                                >
+                                                                  {
+                                                                    subItem3?.name
+                                                                  }
+                                                                </p>
+                                                              </Link>
+                                                            ) : (
+                                                              <p
+                                                                className={
+                                                                  'py-1 pl-10'
+                                                                }
+                                                              >
+                                                                {subItem3?.name}
+                                                              </p>
+                                                            )}
+                                                          </>
                                                         )
                                                       }
                                                     )}
@@ -284,10 +342,20 @@ const MainNavigation = () => {
                         {item?.array?.map((sub, i) => {
                           return (
                             <div key={i} className={'group/sub relative'}>
-                              <Link
-                                href={sub?.path}
-                                className="hover:text-primary"
-                              >
+                              {sub?.path ? (
+                                <Link
+                                  href={sub?.path || ''}
+                                  className="hover:text-primary"
+                                >
+                                  <p
+                                    className={
+                                      'px-5 py-[5px] w-[210px] 2xl:w-[260px]'
+                                    }
+                                  >
+                                    {sub.name}
+                                  </p>
+                                </Link>
+                              ) : (
                                 <p
                                   className={
                                     'px-5 py-[5px] w-[210px] 2xl:w-[260px]'
@@ -295,7 +363,7 @@ const MainNavigation = () => {
                                 >
                                   {sub.name}
                                 </p>
-                              </Link>
+                              )}
                               <div
                                 className={
                                   'hidden group-hover/sub:block absolute top-0 right-[-210px] 2xl:right-[-260px] w-fit z-20 text-[#262b2e] leading-[22px] text-[13px] font-semibold '
@@ -306,7 +374,7 @@ const MainNavigation = () => {
                                     return (
                                       <div key={i} className={'relative'}>
                                         <Link
-                                          href={sub2?.path}
+                                          href={sub2?.path || ''}
                                           className="hover:text-primary"
                                         >
                                           <p className="px-5 py-[5px] w-[210px] 2xl:w-[260px]">

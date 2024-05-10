@@ -1,20 +1,18 @@
-import React from 'react'
-import TitleSectionComponent from '../../components/ThisWebsiteOnly/TitleSectionComponent'
-import { openSans } from '@/utilities/fonts/fonts'
-import Image from 'next/image'
-import girl from './images/5b-300x169.webp'
 import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/ContentContainerWithSidebar/ContentContainerWithSidebar'
-import braiden from './images/Braiden-60x60.webp'
-import dace from './images/Dace-60x60.webp'
-import alex from '@/app/components/ThisWebsiteOnly/Footer/images/Alex-60x60.webp'
-import miette from '@/app/recipients/[path_url]/testimonials/images/Miette.jpg'
-import chris from './images/Chris-60x60.webp'
-import kosher from './images/Kosher-60x60.webp'
-import IconList1 from './IconList1'
-import IconList2 from './IconList2'
+import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSectionComponent'
+import { openSans } from '@/utilities/fonts/fonts'
+import React from 'react'
+import happyRecipient from './images/girl640x360.webp'
+import Image from 'next/image'
 import Link from 'next/link'
+import miette from '@/app/recipients/[path_url]/testimonials/images/Miette.jpg'
+import dace from '@/app/(about)/mission/images/Dace-60x60.webp'
+import braiden from '@/app/(about)/mission/images/Braiden-60x60.webp'
+import chris from '@/app/(about)/mission/images/Chris-60x60.webp'
+import kosher from '@/app/(about)/mission/images/Kosher-60x60.webp'
+import ethan from '@/app/components/ThisWebsiteOnly/Sidebar/images/Ethan-60x60.webp'
 
-const AboutPage = () => {
+const Connections = () => {
   return (
     <div className={`${openSans.className}`}>
       <TitleSectionComponent>
@@ -24,66 +22,52 @@ const AboutPage = () => {
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
-            Our Mission
+            Connections
           </p>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>Home</p>
             <p className={'text-[13px] leading-[20px]'}>/</p>
-            <p className={'text-[13px] leading-[20px]'}>Mission</p>
+            <p className={'text-[13px] leading-[20px]'}>Connections</p>
           </div>
         </div>
       </TitleSectionComponent>
       <ContentContainerWithSidebar className={'text-[15px]'}>
-        <div className={'flex flex-col lg:flex-row gap-[30px]'}>
+        <div className={'border-b-[1px] border-[#0CA2E0] pb-9'}>
           <Image
-            src={girl}
+            src={happyRecipient}
+            alt="A girl smiling"
             quality={100}
-            alt="girl laying in bed while typing"
-            className="w-full md:w-[235px] h-auto"
+            className="float-left lg:mr-[30px] lg:mb-[10px] w-[357px] h-auto"
           />
           <p className={''}>
-            Our mission is based on one simple fact:{' '}
-            <span className="font-bold">Love works</span>. People who hurt find
-            great solace when they know that family, friends and even complete
-            strangers care for them. Love Transfusion serves as a conduit and
-            facilitates expressions of love and support through the services we
-            offer.
+            At Love Transfusion, Inc. we believe in the power of human
+            relationships.
           </p>
-        </div>
-        <p className={'mt-5'}>Examples of Recipients include:</p>
-        <div className={'grid grid-cols-2 gap-[100px] mt-[11px] '}>
-          <IconList1 />
-          <IconList2 />
+          <p className={'mt-[10px]'}>
+            Our goal is to serve as a conduit and facilitating expressions of
+            love and support. Something as simple as a smile, a kind word or a
+            caring gesture can make even a seemingly hopeless situation seem
+            more bearable. Many people want to show they care but don’t know how
+            and as a result do nothing.
+          </p>
+          <p className={'mt-[10px]'}>
+            Love Transfusion provides simple, safe and effective ways for people
+            to communicate support and encouragement to those who are hurting –
+            whether they be family, friend or even a complete stranger.
+          </p>
+          <p className={'mt-[10px]'}>
+            For the first time in history, because of the Internet and mobile
+            devices, we now have the ability to instantaneously connect those
+            who hurt with those who care. Clinical studies have shown that
+            individuals who know they are being thought of and prayed for – heal
+            faster, better and stronger. When actual visits in person are not
+            logistically possible for whatever reason, just the knowledge of a
+            connection with someone, regardless of distance… provides a
+            tremendous source of comfort.
+          </p>
         </div>
         <div className={'mt-14 lg:columns-2 lg:gap-10'}>
           <div className={'bg-[#F6F6F6] p-[25px] lg:break-inside-avoid'}>
-            <p className={''}>
-              “I’d just like to say a very, very big thank you to you for doing
-              a post about my nephew. My sister and myself have sat down and
-              read each and every one of the messages of hope that have been
-              posted and we have both been in tears at the amount of love and
-              good wishes coming his way because of this post. I am very proud
-              to be part of the Love Transfusion community and thank you so, so
-              much from the bottom of my heart.”
-            </p>
-            <div className={'flex items-center gap-4 mt-5'}>
-              <Image
-                src={braiden}
-                quality={100}
-                className="rounded-full size-[60px]"
-                alt="receipient's profile picture"
-              />
-              <div className={''}>
-                <p className={'text-sm font-semibold'}>
-                  Braiden – Neuroblastoma
-                </p>
-                <p className={'text-[13px] font-semibold'}>
-                  Sharon W.- Manchester, UK
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className={'bg-[#F6F6F6] p-[25px] lg:break-inside-avoid mt-10'}>
             <p className={''}>
               “Thank you all so very very much for the sweet comments and
               prayers. I love the love that you all have for my sweet son!”
@@ -104,10 +88,18 @@ const AboutPage = () => {
             </div>
           </div>
           <div className={'bg-[#F6F6F6] p-[25px] lg:break-inside-avoid mt-10'}>
-            <p className={''}>“Thank you for the awesome support!”</p>
+            <p className={''}>
+              “I’d just like to say a very, very big thank you to you for doing
+              a post about my nephew. My sister and myself have sat down and
+              read each and every one of the messages of hope that have been
+              posted and we have both been in tears at the amount of love and
+              good wishes coming his way because of this post. I am very proud
+              to be part of the Love Transfusion community and thank you so, so
+              much from the bottom of my heart.”
+            </p>
             <div className={'flex items-center gap-4 mt-5'}>
               <Image
-                src={alex}
+                src={braiden}
                 quality={100}
                 className="rounded-full size-[60px]"
                 alt="receipient's profile picture"
@@ -192,6 +184,27 @@ const AboutPage = () => {
               </div>
             </div>
           </div>
+          <div className={'bg-[#F6F6F6] p-[25px] lg:break-inside-avoid mt-10'}>
+            <p className={''}>
+              “Thank you to all of you who pray for my grandson and his family.
+              thank you for the tremendous support you extended, we will be
+              forever grateful to all of you.”
+            </p>
+            <div className={'flex items-center gap-4 mt-5'}>
+              <Image
+                src={ethan}
+                quality={100}
+                className="rounded-full size-[60px]"
+                alt="receipient's profile picture"
+              />
+              <div className={''}>
+                <p className={'text-sm font-semibold'}>Ethan – Brain Cancer</p>
+                <p className={'text-[13px] font-semibold'}>
+                  Marie N. - Philippines
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         <p
           className={
@@ -205,4 +218,4 @@ const AboutPage = () => {
   )
 }
 
-export default AboutPage
+export default Connections

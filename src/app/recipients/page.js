@@ -6,7 +6,6 @@ import {
 import { createClient } from '@/config/supabase/supabaseClient'
 import multipleUseQuery from '@/queries/useQuery/multipleUseQuery'
 import ClientRecipientPage from './ClientRecipientPage'
-import MainNavigation from '../components/ThisWebsiteOnly/Navigation/MainNavigation'
 
 export const revalidate = 30
 

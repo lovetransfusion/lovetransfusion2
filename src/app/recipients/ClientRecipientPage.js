@@ -1,9 +1,6 @@
 'use client'
 import Image from 'next/image'
 import React from 'react'
-import placeholder from './[path_url]/images/profile-pic-placeholder2.png'
-import benny from './[path_url]/images/benny-profile-pic.jpg'
-import adley from './[path_url]/images/adley-profile-pic.jpg'
 import { createClient } from '@/config/supabase/supabaseClient'
 import { useQuery } from '@tanstack/react-query'
 import multipleUseQuery from '@/queries/useQuery/multipleUseQuery'
@@ -48,7 +45,7 @@ const ClientRecipientPage = () => {
                   first_name,
                   category,
                   path_url,
-                  opengraph: { description },
+                  opengraph,
                   profile_picture: { url },
                 } = item
                 return (
@@ -96,7 +93,9 @@ const ClientRecipientPage = () => {
                             Leave a comment
                           </span>
                         </div>
-                        <p className={'line-clamp-4'}>{description}</p>
+                        <p className={'line-clamp-4'}>
+                          {opengraph?.description}
+                        </p>
                       </div>
                     </div>
                   </Link>

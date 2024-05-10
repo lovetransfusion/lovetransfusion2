@@ -39,7 +39,7 @@ const Testimonials = () => {
           <div className="group/swiper mt-[30px] relative">
             <Swiper
               loop={true}
-              //   spaceBetween={20}
+              spaceBetween={20}
               autoHeight={true}
               slidesPerView={1}
               onSwiper={(swiper) => setswiper(swiper)}
