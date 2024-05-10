@@ -5,6 +5,8 @@ import {
   franklinGothicDemiCond,
   franklinGothicMediumCond,
 } from '@/utilities/fonts/fonts'
+import MainNavigation from './components/ThisWebsiteOnly/Navigation/MainNavigation'
+import Footer from './components/ThisWebsiteOnly/Footer/Footer'
 
 export const metadata = {
   title: 'Social Support - Love Transfusion',
@@ -18,7 +20,11 @@ export default function RootLayout({ children }) {
       className={`${franklinGothicBook.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable}`}
     >
       <body>
-        <TanstackProvider>{children}</TanstackProvider>
+        <TanstackProvider>
+          <MainNavigation />
+          {children}
+          <Footer />
+        </TanstackProvider>
       </body>
     </html>
   )

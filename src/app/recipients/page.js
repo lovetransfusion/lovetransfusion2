@@ -25,7 +25,6 @@ const RecipientsPage = async () => {
   return (
     <>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <MainNavigation />
         <ClientRecipientPage />
       </HydrationBoundary>
     </>

@@ -8,13 +8,22 @@ import Icon_close from '../../icons/Icon_close'
 import Icon_plus from '../../icons/Icon_plus'
 import { openSans } from '@/utilities/fonts/fonts'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { restrictedPathsNavigationMenu } from '@/utilities/restrictedPaths'
 const loadFeatures = () =>
   import('@/utilities/framerMotion/features').then((res) => res.default)
 
 const MainNavigation = () => {
+  const pathName = usePathname()
+  const restricted = restrictedPathsNavigationMenu.some((restrictedPath) =>
+    pathName.includes(restrictedPath)
+  )
+
   const [activeMainItem, setactiveMainItem] = useState('')
   const [activeSubItem, setactiveSubItem] = useState('')
   const [mobileIsOpen, setmobileIsOpen] = useState(false)
+
+  if (restricted) return
 
   const nav = [
     { path: '/', name: 'Home' },
@@ -108,7 +117,7 @@ const MainNavigation = () => {
       },
     },
   }
-  console.log({ activeMainItem })
+
   return (
     <>
       <LazyMotion features={loadFeatures}>
@@ -294,7 +303,6 @@ const MainNavigation = () => {
                               >
                                 <div className={'bg-white shadow-md py-[13px]'}>
                                   {sub?.array?.map((sub2, i) => {
-                                    console.log('sub2', sub2)
                                     return (
                                       <div key={i} className={'relative'}>
                                         <Link

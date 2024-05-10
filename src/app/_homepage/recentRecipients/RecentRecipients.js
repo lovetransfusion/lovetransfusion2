@@ -10,12 +10,8 @@ import CustomNavigation from '@/app/components/swiperjs/CustomNavigation'
 import Divider from '@/app/components/Divider'
 import Button from '@/app/components/Button'
 
-// const { Swiper, SwiperSlide } = dynamic(() => import('swiper/react'), {
-//   ssr: false,
-// })
-// const { Autoplay } = dynamic(() => import('swiper/modules'), { ssr: false })
-
 const RecentRecipients = () => {
+  console.log('home page')
   const [swiper, setswiper] = useState(null)
 
   const handlePrev = () => {
@@ -27,7 +23,7 @@ const RecentRecipients = () => {
   return (
     <div
       className={
-        'max-w-[1150px] mx-auto mt-9 relative px-3 md:px-6 lg:px-10 xl:px-0'
+        'max-w-[1150px] mx-auto mt-9 pb-[60px] relative px-3 md:px-6 lg:px-10 xl:px-0'
       }
     >
       <Divider className="border-b-[1px] border-[#E5E5E5]">

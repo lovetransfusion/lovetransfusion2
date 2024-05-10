@@ -1,3 +1,4 @@
+'use client'
 import Image from 'next/image'
 import React from 'react'
 import Alex from './images/Alex-60x60.webp'
@@ -5,16 +6,21 @@ import icon44 from './images/icon44.webp'
 import { Arial } from '@/utilities/fonts/fonts'
 import Link from 'next/link'
 import SocialMediaIcons from './SocialMediaIcons'
+import { restrictedPathsFooter } from '@/utilities/restrictedPaths'
+import { usePathname } from 'next/navigation'
 
 const Footer = () => {
-  console.log('footer')
+  const pathName = usePathname()
+  const restricted = restrictedPathsFooter.some((restrictedPath) =>
+    pathName.includes(restrictedPath)
+  )
+  if (restricted) return
+
   const date = new Date()
   const year = date.getFullYear()
   return (
     <>
-      <div
-        className={`${Arial.className} mt-[60px] pt-12 pb-[42px] bg-[#F7F7F7]`}
-      >
+      <div className={`${Arial.className} pt-12 pb-[42px] bg-[#F7F7F7]`}>
         <div
           className={
             'max-w-[1200px] mx-auto px-3 md:px-6 lg:px-10 xl:px-0 grid grid-cols-1 lg:grid-cols-3 gap-y-6 text-sm text-[#676B6D] leading-[25px]'
