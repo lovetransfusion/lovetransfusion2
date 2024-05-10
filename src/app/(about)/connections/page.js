@@ -37,7 +37,7 @@ const Connections = () => {
             src={happyRecipient}
             alt="A girl smiling"
             quality={100}
-            className="float-left lg:mr-[30px] lg:mb-[10px] w-[357px] h-auto"
+            className="md:float-left md:mr-[30px] md:mb-[10px] w-full max-sm:mb-6 md:w-[357px] h-auto"
           />
           <p className={''}>
             At Love Transfusion, Inc. we believe in the power of human

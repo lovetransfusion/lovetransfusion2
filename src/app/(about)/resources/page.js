@@ -29,7 +29,7 @@ const Resources = () => {
           src={dreamstime}
           alt="A boy holding tablet with a girl watching near him"
           quality={100}
-          className="float-left lg:mr-[30px] lg:mb-[10px]"
+          className="md:float-left md:mr-[30px] md:mb-[10px] w-full max-sm:mb-6 md:w-[357px] h-auto"
         />
         <p className={''}>
           In this day and age, the first stop for answers when faced with an
