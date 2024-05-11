@@ -4,7 +4,7 @@ import bgImageDesktop from '@/app/images/section-1-bg-proper-desktop-backup.webp
 
 const TitleSectionComponent = ({ children }) => {
   return (
-    <div className={'relative py-6 md:py-[50px] border-t-2 border-[#AFDFFF]'}>
+    <div className={'relative py-3 md:py-[50px] border-t-2 border-[#AFDFFF]'}>
       <div
         className={
           'max-w-[1150px] mx-auto px-3 md:px-6 lg:px-10 xl:px-0 flex flex-col lg:flex-row gap-4 xl:gap-[unset] justify-between md:items-center z-50'

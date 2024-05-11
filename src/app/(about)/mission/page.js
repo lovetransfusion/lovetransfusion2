@@ -14,20 +14,22 @@ import IconList1 from './IconList1'
 import IconList2 from './IconList2'
 import Link from 'next/link'
 
-const AboutPage = () => {
+const MissionPage = () => {
   return (
     <div className={`${openSans.className}`}>
       <TitleSectionComponent>
         <div className={'flex text-primary items-center justify-between'}>
-          <p
+          <h1
             className={
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
             Our Mission
-          </p>
+          </h1>
           <div className={'hidden gap-2 md:flex'}>
-            <p className={'text-[13px] leading-[20px]'}>Home</p>
+            <p className={'text-[13px] leading-[20px]'}>
+              <Link href={'/'} className='hover:underline'>Home</Link>
+            </p>
             <p className={'text-[13px] leading-[20px]'}>/</p>
             <p className={'text-[13px] leading-[20px]'}>Mission</p>
           </div>
@@ -205,4 +207,4 @@ const AboutPage = () => {
   )
 }
 
-export default AboutPage
+export default MissionPage

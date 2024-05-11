@@ -8,13 +8,13 @@ const MessageFromTheFounder = () => {
     <div className={`${openSans.className}`}>
       <TitleSectionComponent>
         <div className={'flex text-primary items-center justify-between'}>
-          <p
+          <h1
             className={
-              'text-[30px] mx-auto md:text-[40px] font-semibold leading-[50px]'
+              'max-sm:leading-[38px] max-sm:text-center text-[30px] mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
             Why Love Transfusion Was Created
-          </p>
+          </h1>
         </div>
       </TitleSectionComponent>
       <ContentContainerWithSidebar

@@ -37,25 +37,23 @@ const MainNavigation = () => {
     { path: '/', name: 'Home' },
     {
       name: 'About',
+      path: '/about',
       array: [
         {
-          main: 'about',
           path: '/mission',
           name: 'Mission',
         },
         {
-          main: 'main',
           path: '/how-love-transfusion-was-created',
           name: 'Message from the Founder',
         },
         {
-          main: 'main',
           name: 'What is Love Transfusion?',
           array: [
-            { main: 'main', path: '/connections', name: 'Connections' },
-            { main: 'main', path: '/resources', name: 'Resources' },
-            { main: 'main', path: '/care-ackages', name: 'Care Packages' },
-            { main: 'main', path: '/follow-up', name: 'Follow Up' },
+            { path: '/connections', name: 'Connections' },
+            { path: '/resources', name: 'Resources' },
+            { path: '/care-packages', name: 'Care Packages' },
+            { path: '/follow-up', name: 'Follow Up' },
           ],
         },
       ],
@@ -67,7 +65,8 @@ const MainNavigation = () => {
     },
     {
       name: 'Contact',
-      array: [{ main: 'main', path: '/submit-story', name: 'Submit Story' }],
+      path: '/contact',
+      array: [{ path: '/submit-story', name: 'Submit Story' }],
     },
     { path: '/donate', name: 'Donate' },
   ]

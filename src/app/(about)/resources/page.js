@@ -4,21 +4,24 @@ import { openSans } from '@/utilities/fonts/fonts'
 import React from 'react'
 import dreamstime from './images/dreamstime_s_9267497-300x200.webp'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Resources = () => {
   return (
     <div className={`${openSans.className}`}>
       <TitleSectionComponent>
         <div className={'flex text-primary items-center justify-between'}>
-          <p
+          <h1
             className={
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
             Resources
-          </p>
+          </h1>
           <div className={'hidden gap-2 md:flex'}>
-            <p className={'text-[13px] leading-[20px]'}>Home</p>
+            <p className={'text-[13px] leading-[20px]'}>
+              <Link href={'/'} className='hover:underline'>Home</Link>
+            </p>
             <p className={'text-[13px] leading-[20px]'}>/</p>
             <p className={'text-[13px] leading-[20px]'}>Resources</p>
           </div>
