@@ -26,7 +26,9 @@ const Connections = () => {
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
-              <Link href={'/'} className='hover:underline'>Home</Link>
+              <Link href={'/'} className="hover:underline">
+                Home
+              </Link>
             </p>
             <p className={'text-[13px] leading-[20px]'}>/</p>
             <p className={'text-[13px] leading-[20px]'}>Connections</p>
@@ -35,12 +37,20 @@ const Connections = () => {
       </TitleSectionComponent>
       <ContentContainerWithSidebar className={'text-[15px]'}>
         <div className={'border-b-[1px] border-[#0CA2E0] pb-9'}>
-          <Image
-            src={happyRecipient}
-            alt="A girl smiling"
-            quality={100}
-            className="md:float-left md:mr-[30px] md:mb-[10px] w-full max-sm:mb-6 md:w-[357px] h-auto"
-          />
+          <div
+            className={
+              'bg-primary-100 w-fit md:float-left md:mr-[30px] md:mb-[10px] max-sm:mb-6 h-auto'
+            }
+          >
+            <Image
+              src={happyRecipient}
+              placeholder="blur"
+              alt="A girl smiling"
+              quality={100}
+              priority
+              className="md:w-[357px] h-auto"
+            />
+          </div>
           <p className={''}>
             At Love Transfusion, Inc. we believe in the power of human
             relationships.

@@ -26,7 +26,9 @@ const AboutPage = () => {
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
-              <Link href={'/'} className='hover:underline'>Home</Link>
+              <Link href={'/'} className="hover:underline">
+                Home
+              </Link>
             </p>
             <p className={'text-[13px] leading-[20px]'}>/</p>
             <p className={'text-[13px] leading-[20px]'}>About</p>
@@ -38,8 +40,10 @@ const AboutPage = () => {
           <Image
             src={sick}
             alt="Sick"
+            placeholder="blur"
             quality={100}
-            className="md:float-left md:mr-[30px] md:mb-[10px] w-full max-sm:mb-6 md:w-[150px] h-auto"
+            priority
+            className="md:float-left md:mr-[30px] md:mb-[10px] max-sm:mb-6 md:w-[150px] h-auto"
           />
           <p className={''}>
             Love Transfusion is a messaging and resource service designed to

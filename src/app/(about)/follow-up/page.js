@@ -30,7 +30,9 @@ const FolloUp = () => {
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
-              <Link href={'/'} className='hover:underline'>Home</Link>
+              <Link href={'/'} className="hover:underline">
+                Home
+              </Link>
             </p>
             <p className={'text-[13px] leading-[20px]'}>/</p>
             <p className={'text-[13px] leading-[20px]'}>Follow Up</p>
@@ -41,9 +43,11 @@ const FolloUp = () => {
         <div className={'flex flex-col lg:flex-row gap-[30px]'}>
           <Image
             src={loversBonding}
+            placeholder="blur"
             quality={100}
+            priority
             alt="girl laying in bed while typing"
-            className="w-full md:w-[341px] h-auto"
+            className="md:min-w-[341px] h-auto"
           />
           <div className={''}>
             <p className={''}>

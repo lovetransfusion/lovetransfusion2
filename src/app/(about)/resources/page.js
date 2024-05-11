@@ -20,7 +20,9 @@ const Resources = () => {
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
-              <Link href={'/'} className='hover:underline'>Home</Link>
+              <Link href={'/'} className="hover:underline">
+                Home
+              </Link>
             </p>
             <p className={'text-[13px] leading-[20px]'}>/</p>
             <p className={'text-[13px] leading-[20px]'}>Resources</p>
@@ -28,12 +30,16 @@ const Resources = () => {
         </div>
       </TitleSectionComponent>
       <ContentContainerWithSidebar className={'text-[15px]'}>
-        <Image
-          src={dreamstime}
-          alt="A boy holding tablet with a girl watching near him"
-          quality={100}
-          className="md:float-left md:mr-[30px] md:mb-[10px] w-full max-sm:mb-6 md:w-[357px] h-auto"
-        />
+        <div className={'md:float-left bg-primary-100 md:mr-[30px] w-fit md:mb-[10px]'}>
+          <Image
+            src={dreamstime}
+            placeholder="blur"
+            alt="A boy holding tablet with a girl watching near him"
+            quality={100}
+            priority
+            className="max-sm:mb-6 md:w-[278px] h-auto"
+          />
+        </div>
         <p className={''}>
           In this day and age, the first stop for answers when faced with an
           unfamiliar situation is typically the Internet. Although a tremendous

@@ -39,9 +39,11 @@ const MissionPage = () => {
         <div className={'flex flex-col lg:flex-row gap-[30px]'}>
           <Image
             src={girl}
+            placeholder="blur"
             quality={100}
+            priority
             alt="girl laying in bed while typing"
-            className="w-full md:w-[235px] h-auto"
+            className="w-full md:min-w-[235px] h-auto"
           />
           <p className={''}>
             Our mission is based on one simple fact:{' '}

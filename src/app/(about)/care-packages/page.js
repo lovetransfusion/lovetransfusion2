@@ -23,7 +23,9 @@ const CarePackages = () => {
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
-              <Link href={'/'} className='hover:underline'>Home</Link>
+              <Link href={'/'} className="hover:underline">
+                Home
+              </Link>
             </p>
             <p className={'text-[13px] leading-[20px]'}>/</p>
             <p className={'text-[13px] leading-[20px]'}>Care Packages</p>
@@ -32,12 +34,20 @@ const CarePackages = () => {
       </TitleSectionComponent>
       <ContentContainerWithSidebar className={'text-[15px]'}>
         <div className={'pb-9'}>
-          <Image
-            src={carepackage}
-            alt="Care package"
-            quality={100}
-            className="md:float-left md:mr-[30px] md:mb-[35px] w-full max-sm:mb-6 md:w-[292px] h-auto"
-          />
+          <div
+            className={
+              'bg-primary-100 md:float-left w-fit md:mr-[30px] md:mb-[35px] max-sm:mb-6 '
+            }
+          >
+            <Image
+              src={carepackage}
+              alt="Care package"
+              placeholder="blur"
+              quality={100}
+              priority
+              className="md:w-[292px] h-auto"
+            />
+          </div>
           <p className={''}>
             Each user is contacted by the site administrators and given an
             opportunity to receive a customized care package containing toys,

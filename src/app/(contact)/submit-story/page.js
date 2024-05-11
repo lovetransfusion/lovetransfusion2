@@ -41,12 +41,15 @@ const SubmitStory = () => {
               <iframe
                 width="100%"
                 height="100%"
-                className="absolute top-0 left-0"
+                className="absolute top-0 left-0 z-10"
                 src="https://www.youtube.com/embed/tpbnp7ph3u4"
                 title="YouTube video player"
                 frameBorder="0"
                 allowFullScreen
               ></iframe>
+              <div
+                className={'bg-black absolute top-0 left-0 w-full h-full'}
+              ></div>
             </div>
             <div className={'flex items-center gap-1 justify-center mt-[14px]'}>
               <Icon_heart

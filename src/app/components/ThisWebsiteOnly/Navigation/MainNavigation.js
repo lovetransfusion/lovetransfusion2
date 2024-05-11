@@ -318,6 +318,7 @@ const MainNavigation = () => {
                 width={396}
                 height={60}
                 quality={100}
+                priority
                 className="max-w-[280px] md:max-w-[unset]"
                 alt="Love Transfusion logo"
               />
