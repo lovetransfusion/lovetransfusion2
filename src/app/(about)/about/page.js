@@ -5,12 +5,6 @@ import React from 'react'
 import sick from './images/sick.webp'
 import Image from 'next/image'
 import Link from 'next/link'
-import miette from '@/app/recipients/[path_url]/testimonials/images/Miette.jpg'
-import dace from '@/app/(about)/mission/images/Dace-60x60.webp'
-import braiden from '@/app/(about)/mission/images/Braiden-60x60.webp'
-import chris from '@/app/(about)/mission/images/Chris-60x60.webp'
-import kosher from '@/app/(about)/mission/images/Kosher-60x60.webp'
-import ethan from '@/app/components/ThisWebsiteOnly/Sidebar/images/Ethan-60x60.webp'
 
 const AboutPage = () => {
   return (

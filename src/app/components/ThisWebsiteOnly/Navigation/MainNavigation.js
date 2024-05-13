@@ -86,7 +86,8 @@ const MainNavigation = () => {
     setactiveSubItem(path)
   }
 
-  const handleStatus = () => {
+  const handleStatus = (e) => {
+    e.preventDefault()
     setmobileIsOpen(() => !mobileIsOpen)
   }
 
@@ -174,33 +175,21 @@ const MainNavigation = () => {
                               key={index}
                               className="flex-col font-semibold py-[13px]"
                             >
-                              {path ? (
-                                <Link href={path}>
-                                  <div
-                                    onClick={() => handleMainMenu(path || name)}
-                                    className={
-                                      'active:text-primary flex w-full items-center justify-between'
-                                    }
-                                  >
-                                    {name}
-                                    {item?.array && (
-                                      <Icon_plus className="text-[#dfdfdf]" />
-                                    )}
-                                  </div>
-                                </Link>
-                              ) : (
-                                <div
-                                  onClick={() => handleMainMenu(path || name)}
-                                  className={
-                                    'flex w-full items-center justify-between'
-                                  }
-                                >
-                                  {name}
-                                  {item?.array && (
-                                    <Icon_plus className="text-[#dfdfdf]" />
-                                  )}
-                                </div>
-                              )}
+                              <div
+                                onClick={() => handleMainMenu(path || name)}
+                                className={
+                                  'active:text-primary flex w-full items-center justify-between'
+                                }
+                              >
+                                {path ? (
+                                  <Link href={path}>{name}</Link>
+                                ) : (
+                                  { name }
+                                )}
+                                {item?.array && (
+                                  <Icon_plus className="text-[#dfdfdf]" />
+                                )}
+                              </div>
                               <AnimatePresence>
                                 {(activeMainItem === path ||
                                   activeMainItem === name) &&
@@ -225,24 +214,22 @@ const MainNavigation = () => {
                                                 'flex justify-between items-center'
                                               }
                                             >
-                                              {subItem?.path ? (
-                                                <Link
-                                                  href={subItem?.path}
-                                                  className="w-full"
-                                                >
-                                                  <p
-                                                    className={
-                                                      'active:text-primary py-1 pl-5'
-                                                    }
+                                              <p
+                                                className={
+                                                  'active:text-primary py-1 pl-5'
+                                                }
+                                              >
+                                                {subItem?.path ? (
+                                                  <Link
+                                                    href={subItem?.path}
+                                                    className="w-full"
                                                   >
-                                                    {subItem.name}
-                                                  </p>
-                                                </Link>
-                                              ) : (
-                                                <p className={'py-1 pl-5'}>
-                                                  {subItem.name}
-                                                </p>
-                                              )}
+                                                    {subItem?.name}
+                                                  </Link>
+                                                ) : (
+                                                  subItem?.name
+                                                )}
+                                              </p>
                                               {subItem?.array && (
                                                 <Icon_plus className="text-[#dfdfdf]" />
                                               )}

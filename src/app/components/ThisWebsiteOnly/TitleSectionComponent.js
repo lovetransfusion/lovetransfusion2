@@ -1,5 +1,5 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
 import bgImageDesktop from '@/app/images/section-1-bg-proper-desktop-backup.webp'
 
 const TitleSectionComponent = ({ children }) => {

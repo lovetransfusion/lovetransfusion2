@@ -9,7 +9,7 @@ import { Arial } from '@/utilities/fonts/fonts'
 import RecentRecipients from './RecentRecipients'
 import Link from 'next/link'
 
-const Sidebar = async () => {
+const Sidebar = () => {
   return (
     <div
       className={`${Arial.className} lg:min-w-[262px] lg:max-w-[262px] lg:pl-[50px]`}
