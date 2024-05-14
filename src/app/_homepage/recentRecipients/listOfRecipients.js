@@ -20,24 +20,104 @@ import marik from './images/Marik-225x225.webp'
 import mickey from './images/mickey-270x225.webp'
 
 export const listOfRecipients = [
-  { desc: 'Adley is Battling Leukemia', imgUrl: adley },
-  { desc: 'Benny is Battling Cancer', imgUrl: benny },
-  { desc: 'Brenna is Battling DIPG (Brain Cancer)', imgUrl: brenna },
-  { desc: 'Sydney is Battling Brain Cancer', imgUrl: sydney },
-  { desc: 'Miguel is Battling a Brain Tumor & Seizures', imgUrl: miguel },
-  { desc: 'Mickey is Battling Sanfilippo Syndrome', imgUrl: mickey },
-  { desc: 'Sammy is Battling Neuroblastoma', imgUrl: sammy },
-  { desc: 'Brody is 5 Years Cancer Free!', imgUrl: brody },
-  { desc: 'Ryan is Battling Pancreatic Disease', imgUrl: ryan },
-  { desc: 'Ayden is Battling Neuroblastoma Again', imgUrl: ayden },
-  { desc: 'Amy is Battling Serious Health Issues', imgUrl: amy },
-  { desc: 'Tink is Celebrating Her 6th Birthday!', imgUrl: tink },
-  { desc: 'Alyssa is Battling Neuroblastoma', imgUrl: alyssa },
-  { desc: 'Emma is Battling Leukemia Again', imgUrl: emma },
-  { desc: 'Justin is Battling Cancer Again', imgUrl: justin },
-  { desc: 'David Got A Kidney Transplant', imgUrl: david },
-  { desc: 'Damian is Battling Retinoblastoma Again', imgUrl: Damian },
-  { desc: 'Amanda is Battling Breast Cancer', imgUrl: amanda },
-  { desc: 'Braiden is Battling Neuroblastoma Again', imgUrl: braiden },
-  { desc: 'Marik is Battling Osteosarcoma Again', imgUrl: marik },
+  {
+    path: '/adley-is-battling-leukemia',
+    desc: 'Adley is Battling Leukemia',
+    imgUrl: adley,
+  },
+  {
+    path: '/benny-is-battling-cancer',
+    desc: 'Benny is Battling Cancer',
+    imgUrl: benny,
+  },
+  {
+    path: '/brenna-is-battling-brain-cancer',
+    desc: 'Brenna is Battling DIPG (Brain Cancer)',
+    imgUrl: brenna,
+  },
+  {
+    path: '/sydney-is-battling-brain-cancer',
+    desc: 'Sydney is Battling Brain Cancer',
+    imgUrl: sydney,
+  },
+  {
+    path: 'miguel-is-battling-a-brain-tumor-and-seizures',
+    desc: 'Miguel is Battling a Brain Tumor & Seizures',
+    imgUrl: miguel,
+  },
+  {
+    path: '/mickey',
+    desc: 'Mickey is Battling Sanfilippo Syndrome',
+    imgUrl: mickey,
+  },
+  {
+    path: '/sammy-is-battling-neuroblastoma',
+    desc: 'Sammy is Battling Neuroblastoma',
+    imgUrl: sammy,
+  },
+  {
+    path: '/brody-is-5-years-cancer-free',
+    desc: 'Brody is 5 Years Cancer Free!',
+    imgUrl: brody,
+  },
+  {
+    path: '/ryan-is-battling-pancreatic-disease',
+    desc: 'Ryan is Battling Pancreatic Disease',
+    imgUrl: ryan,
+  },
+  {
+    path: '/ayden-is-battling-neuroblastoma-again',
+    desc: 'Ayden is Battling Neuroblastoma Again',
+    imgUrl: ayden,
+  },
+  {
+    path: '/amy-is-battling-serious-health-issues',
+    desc: 'Amy is Battling Serious Health Issues',
+    imgUrl: amy,
+  },
+  {
+    path: '/tink-is-celebrating-her-6th-birthday',
+    desc: 'Tink is Celebrating Her 6th Birthday!',
+    imgUrl: tink,
+  },
+  {
+    path: '/alyssa-is-battling-neuroblastoma',
+    desc: 'Alyssa is Battling Neuroblastoma',
+    imgUrl: alyssa,
+  },
+  {
+    path: '/emma-is-battling-leukemia-again',
+    desc: 'Emma is Battling Leukemia Again',
+    imgUrl: emma,
+  },
+  {
+    path: '/justin-is-battling-cancer-again',
+    desc: 'Justin is Battling Cancer Again',
+    imgUrl: justin,
+  },
+  {
+    path: '/david-got-a-kidney-transplant',
+    desc: 'David Got A Kidney Transplant',
+    imgUrl: david,
+  },
+  {
+    path: '/damian-is-battling-retinoblastoma-again',
+    desc: 'Damian is Battling Retinoblastoma Again',
+    imgUrl: Damian,
+  },
+  {
+    path: '/amanda-is-battling-breast-cancer',
+    desc: 'Amanda is Battling Breast Cancer',
+    imgUrl: amanda,
+  },
+  {
+    path: '/braiden-is-battling-neuroblastoma-again',
+    desc: 'Braiden is Battling Neuroblastoma Again',
+    imgUrl: braiden,
+  },
+  {
+    path: '/marik-is-battling-osteosarcoma-again',
+    desc: 'Marik is Battling Osteosarcoma Again',
+    imgUrl: marik,
+  },
 ]

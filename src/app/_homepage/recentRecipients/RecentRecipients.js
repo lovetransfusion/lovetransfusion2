@@ -9,9 +9,11 @@ import Link from 'next/link'
 import CustomNavigation from '@/app/components/swiperjs/CustomNavigation'
 import Divider from '@/app/components/Divider'
 import Button from '@/app/components/Button'
+import { useRouter } from 'next/navigation'
 
 const RecentRecipients = () => {
   const [swiper, setswiper] = useState(null)
+  const router = useRouter()
 
   const handlePrev = () => {
     swiper?.slidePrev()
@@ -22,7 +24,7 @@ const RecentRecipients = () => {
   return (
     <div
       className={
-        'max-w-[1150px] mx-auto mt-9 pb-[60px] relative px-3 md:px-6 lg:px-10 xl:px-0'
+        'max-w-[1150px] mx-auto mt-9 pb-[60px] px-3 md:px-6 lg:px-10 xl:px-0'
       }
     >
       <Divider className="border-b-[1px] border-[#E5E5E5]">
@@ -58,52 +60,54 @@ const RecentRecipients = () => {
               slidesPerView: 3.97,
             },
           }}
+          className="relative"
           // onSlideChange={(swiper) => {
           //   setactiveIndex(swiper?.realIndex)
           // }}
         >
           {listOfRecipients.map((item, i) => {
-            const { desc, imgUrl } = item
+            const { desc, imgUrl, path } = item
             return (
               <SwiperSlide
                 key={i}
-                className="cursor-grab flex flex-col items-center bg-[#F6F6F6] pt-[25px] pb-5 px-[25px]"
+                // onClick={() => handleSwiperClick(path)}
+                // className="cursor-pointer flex flex-col items-center bg-[#F6F6F6] pt-[25px] pb-5 px-[25px]"
               >
-                <div className={''}>
-                  <div
-                    className={
-                      'relative min-w-full min-h-[225px] lg:min-h-[225px] lg:w-[225px]'
-                    }
-                  >
-                    <Image
-                      src={imgUrl}
-                      alt="recipient image"
-                      fill
-                      sizes="max-width (767px) 100vw, 100vw"
-                      className="object-cover select-none"
-                    />
-                  </div>
-                  <Link href="/">
+                <Link href={path}>
+                  <div className="group cursor-pointer flex flex-col items-center bg-[#F6F6F6] pt-[25px] pb-5 px-[25px]">
+                    <div
+                      className={
+                        'relative min-w-full min-h-[225px] lg:min-h-[225px] lg:w-[225px]'
+                      }
+                    >
+                      <Image
+                        src={imgUrl}
+                        alt="recipient image"
+                        fill
+                        sizes="max-width (767px) 100vw, 100vw"
+                        className="object-cover select-none"
+                      />
+                    </div>
                     <p
                       className={
-                        'mt-[10px] text-[18px] text-center leading-[22px] select-none font-semibold'
+                        'mt-[10px] text-[18px] text-center leading-[22px] select-none font-semibold group-hover:text-primary'
                       }
                     >
                       {desc}
                     </p>
-                  </Link>
-                </div>
+                  </div>
+                </Link>
               </SwiperSlide>
             )
           })}
+          <CustomNavigation
+            className={'hidden md:block'}
+            parameters={{
+              handlePrev,
+              handleNext,
+            }}
+          />
         </Swiper>
-        <CustomNavigation
-          className={'hidden md:block'}
-          parameters={{
-            handlePrev,
-            handleNext,
-          }}
-        />
       </div>
       <div className={'w-fit mx-auto'}>
         <Link href={'/recipients'}>

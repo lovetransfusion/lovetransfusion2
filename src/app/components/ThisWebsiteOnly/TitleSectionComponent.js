@@ -1,10 +1,16 @@
 'use client'
 import Image from 'next/image'
 import bgImageDesktop from '@/app/images/section-1-bg-proper-desktop-backup.webp'
+import { twMerge } from 'tailwind-merge'
 
-const TitleSectionComponent = ({ children }) => {
+const TitleSectionComponent = ({ children, className }) => {
   return (
-    <div className={'relative py-3 md:py-[50px] border-t-2 border-[#AFDFFF]'}>
+    <div
+      className={twMerge(
+        'relative py-3 md:py-[50px] border-t-2 border-[#AFDFFF]',
+        className
+      )}
+    >
       <div
         className={
           'max-w-[1150px] mx-auto px-3 md:px-6 lg:px-10 xl:px-0 flex flex-col lg:flex-row gap-4 xl:gap-[unset] justify-between md:items-center z-50'

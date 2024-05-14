@@ -7,7 +7,6 @@ import { addComment } from './actions'
 import Checkbox from '../components/inputsFields/Checkbox'
 import { createClient } from '@/config/supabase/supabaseClient'
 import { useEffect, useState } from 'react'
-import { openSans } from '@/utilities/fonts/fonts'
 import Comments from './Comments'
 
 const CommentSection = ({ id }) => {
