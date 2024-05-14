@@ -29,7 +29,7 @@ const Input = forwardRef(function Input(
         {...props}
       />
       {props?.error && (
-        <p className="absolute top-0 right-1 text-red-500 z-10 pl-3 leading-[22px] my-1 bg-red-100 py-1 w-fit px-4 mb-2 rounded-md">
+        <p className="absolute top-0 bottom-0 my-1 right-1 text-red-500 z-10 pl-3 leading-[22px] bg-red-100 py-[2px] w-fit px-4 rounded-md">
           {props?.error}
         </p>
       )}

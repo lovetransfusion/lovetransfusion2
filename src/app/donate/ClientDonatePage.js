@@ -68,6 +68,7 @@ const ClientDonatePage = () => {
             placeholder="blur"
             quality={100}
             priority
+            className="w-[360px] h-auto"
           />
           <div className={'flex flex-col gap-[10px]'}>
             <p className={''}>

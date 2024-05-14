@@ -2,7 +2,7 @@ import { convertToZeroFirst } from '@/utilities/date-and-time/convertToZero'
 import { getAmPm } from '@/utilities/date-and-time/getAmPm'
 import Image from 'next/image'
 import React from 'react'
-import commentatorImage from '../images/avatar.svg'
+import commentatorImage from '@/app/recipients/[path_url]/images/avatar.svg'
 
 const convertDate = (date) => {
   const initialDay = date.getDate()
@@ -52,16 +52,12 @@ const Comments = ({ listOfComments }) => {
                     'flex items-start md:items-center gap-0 md:gap-[6px] flex-col md:flex-row'
                   }
                 >
-                  <p
-                    className={
-                      'font-mediumCond text-primary text-xl leading-[22px]'
-                    }
-                  >
+                  <p className={'leading-[22px]'}>
                     {comment.name}
                   </p>
-                  <p className={'text-primary'}>{dateTime}</p>
+                  <p className={''}>{dateTime}</p>
                 </div>
-                <p className={'text-[18px] leading-5'}>{comment.comment}</p>
+                <p className={'leading-5'}>{comment.comment}</p>
               </div>
             </div>
           )

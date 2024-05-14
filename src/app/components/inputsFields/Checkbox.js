@@ -1,12 +1,16 @@
 import React, { forwardRef } from 'react'
 import Icon_check2 from '../icons/Icon_check2'
+import { twMerge } from 'tailwind-merge'
 
 // Example:
 // <Checkbox id="savePassword" {...register('savePassword')}>
 // Remember me
 // </Checkbox>
 
-const Checkbox = forwardRef(function Checkbox({ children, ...props }, ref) {
+const Checkbox = forwardRef(function Checkbox(
+  { children, className, ...props },
+  ref
+) {
   return (
     <div className={'flex items-center justify-start'}>
       <input
@@ -31,7 +35,7 @@ const Checkbox = forwardRef(function Checkbox({ children, ...props }, ref) {
           }
         />
       </div>
-      <label htmlFor={props.id} className=" z-10 select-none pl-6 ml-[-16px]">
+      <label htmlFor={props.id} className={twMerge("z-10 select-none pl-6 ml-[-16px]", className)}>
         {children}
       </label>
     </div>
