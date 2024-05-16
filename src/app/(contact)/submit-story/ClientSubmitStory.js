@@ -122,8 +122,9 @@ const ClientSubmitStory = () => {
             parent or guardian.
           </p>
         </div>
+        {/*************** Form ***************/}
         <div
-          className={'px-4 md:px-[60px] py-9 bg-[#D7ECF9] mt-10 rounded-[10px]'}
+          className={'px-4 md:px-[60px] py-9 bg-[#d8eaf9] mt-10 rounded-[10px]'}
         >
           <h3 className="text-[26px] text-primary font-bold">Share a Story</h3>
           <p className={'mb-10 mt-[10px]'}>
