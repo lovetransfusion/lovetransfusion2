@@ -9,7 +9,7 @@ const TitleSection = () => {
   return (
     <div
       className={
-        'relative py-6 md:pt-[54px] md:pb-10 border-t-2 border-b-2 border-[#AFDFFF]'
+        'relative py-6 md:pt-[54px] md:pb-10 border-t-2 border-[#AFDFFF]'
       }
     >
       <div

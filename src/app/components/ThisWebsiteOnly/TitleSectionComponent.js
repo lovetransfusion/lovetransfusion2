@@ -7,7 +7,7 @@ const TitleSectionComponent = ({ children, className }) => {
   return (
     <div
       className={twMerge(
-        'relative py-3 md:py-[50px] border-t-2 border-b-2 border-[#AFDFFF]',
+        'relative py-3 md:py-[50px] border-t-2 border-[#AFDFFF]',
         className
       )}
     >
