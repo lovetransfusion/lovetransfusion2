@@ -4,10 +4,7 @@ import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSection
 import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/ContentContainerWithSidebar/ContentContainerWithSidebar'
 import Image from 'next/image'
 import Alyssa from './images/Alyssa.webp'
-import dynamic from 'next/dynamic'
-const CommentSection = dynamic(() => import('../CommentSection'), {
-  ssr: false,
-})
+import CommentAndHeartContainer from '../CommentAndHeartContainer'
 
 export const metadata = {
   title: 'Alyssa is Battling Neuroblastoma',
@@ -43,7 +40,7 @@ const AlyssaRecipient = () => {
         </div>
       </TitleSectionComponent>
       <ContentContainerWithSidebar className={'text-[15px]'}>
-        <div className={'pb-[50px]'}>
+        <div className={'pb-[43px]'}>
           <div
             className={
               'group relative w-fit p-[6px] mt-[-6px] ml-[-6px]  shadow-sm md:float-left md:mr-6 mb-6'
@@ -54,7 +51,7 @@ const AlyssaRecipient = () => {
                 src={Alyssa}
                 placeholder="blur"
                 alt="profile picture of Alyssa"
-                className="min-w-full lg:w-[410px] h-auto"
+                className="min-w-full md:w-[310px] lg:w-[410px] h-auto"
               />
             </Link>
             <div
@@ -100,9 +97,7 @@ const AlyssaRecipient = () => {
             by clicking the heart below (equals a hug), Comment or Share.
           </p>
         </div>
-        <div className={'pt-12'}>
-          <CommentSection id={id} />
-        </div>
+        <CommentAndHeartContainer id={id} />
       </ContentContainerWithSidebar>
     </div>
   )

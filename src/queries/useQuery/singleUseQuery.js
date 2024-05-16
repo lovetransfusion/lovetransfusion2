@@ -2,12 +2,14 @@ const singleUseQuery = ({ supabase, queryKey, table, column, columnValue }) => {
   return {
     queryKey: queryKey,
     queryFn: async () => {
-      const { data } = await supabase
+      const { data, error } = await supabase
         .from(table)
         .select()
-        .ilike(column, columnValue)
+        .eq(column, columnValue)
       if (data) {
         return data
+      } else {
+        console.log('error', error)
       }
     },
     refetchInterval: 30 * 1000,

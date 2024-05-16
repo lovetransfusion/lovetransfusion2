@@ -22,46 +22,45 @@ const convertDate = (date) => {
   return dateTime
 }
 
-const Comments = ({ listOfComments }) => {
-  console.log('listOfComments', listOfComments)
+const Comments = ({ parameters: { comments } }) => {
   return (
     <>
-      <div className={'flex flex-col gap-3 md:gap-5 xl:pb-[65px]'}>
-        {listOfComments?.map((comment, index) => {
-          const date = new Date(comment.date)
-          const dateTime = convertDate(date)
-          return (
-            <div
-              key={index}
-              className={
-                'flex bg-white rounded-md pt-[22px] pb-5 pr-[13px] pl-[15px] gap-3 md:gap-5 shadow-sm items-start'
-              }
-            >
-              <div className={'flex size-[45px] mt-1'}>
-                <Image
-                  src={commentatorImage}
-                  width={45}
-                  height={45}
-                  alt="commentator-profile-picture"
-                  className="min-w-[45px] min-h-[45px]"
-                />
-              </div>
-              <div className={'flex flex-col gap-[2px]'}>
-                <div
-                  className={
-                    'flex items-start md:items-center gap-0 md:gap-[6px] flex-col md:flex-row'
-                  }
-                >
-                  <p className={'leading-[22px]'}>
-                    {comment.name}
-                  </p>
-                  <p className={''}>{dateTime}</p>
+      <div className={'mt-6'}>
+        <div className={'flex flex-col gap-3 md:gap-5 xl:pb-[65px]'}>
+          {comments?.map((comment, index) => {
+            const date = new Date(comment.date)
+            const dateTime = convertDate(date)
+            return (
+              <div
+                key={index}
+                className={
+                  'flex bg-white rounded-md pt-[22px] pb-5 pr-[13px] pl-[15px] gap-3 md:gap-5 shadow-sm items-start'
+                }
+              >
+                <div className={'flex size-[45px] mt-1'}>
+                  <Image
+                    src={commentatorImage}
+                    width={45}
+                    height={45}
+                    alt="commentator-profile-picture"
+                    className="min-w-[45px] min-h-[45px]"
+                  />
                 </div>
-                <p className={'leading-5'}>{comment.comment}</p>
+                <div className={'flex flex-col gap-[2px]'}>
+                  <div
+                    className={
+                      'flex items-start md:items-center gap-0 md:gap-[6px] flex-col md:flex-row'
+                    }
+                  >
+                    <p className={'leading-[22px]'}>{comment.name}</p>
+                    <p className={''}>{dateTime}</p>
+                  </div>
+                  <p className={'leading-5'}>{comment.comment}</p>
+                </div>
               </div>
-            </div>
-          )
-        })}
+            )
+          })}
+        </div>
       </div>
     </>
   )

@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { openSans } from '@/utilities/fonts/fonts'
 import Link from 'next/link'
 import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSectionComponent'
@@ -9,7 +9,7 @@ import Input from '@/app/components/inputsFields/InputGroup/Input'
 import Textarea from '@/app/components/inputsFields/Textrea'
 import Button from '@/app/components/Button'
 import { useForm } from 'react-hook-form'
-import { retrieveLists, submitStory } from './actions'
+import { submitStory } from './actions'
 import Toast from '@/app/components/Toast'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
 
@@ -19,10 +19,6 @@ const ClientSubmitStory = () => {
   const [toast, settoast] = useState(null)
   const [sending, setsending] = useState(false)
   const [messageSent, setmessageSent] = useState(false)
-
-//   useEffect(() => {
-//     retrieveLists()
-//   }, [])
 
   const onSubmit = async (formData) => {
     setsending(true)

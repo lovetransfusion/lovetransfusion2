@@ -5,10 +5,7 @@ import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/Conten
 import Image from 'next/image'
 import benny from './images/benny-sq.webp'
 import Button from '@/app/components/Button'
-import dynamic from 'next/dynamic'
-const CommentSection = dynamic(() => import('../CommentSection'), {
-  ssr: false,
-})
+import CommentAndHeartContainer from '../CommentAndHeartContainer'
 
 export const metadata = {
   title: 'Benny is Battling Cancer',
@@ -16,7 +13,6 @@ export const metadata = {
 }
 
 const BennyRecipient = () => {
-  console.log('Benny rendered')
   const id = '7532116d-3d20-4021-951b-7baf9e936019'
   return (
     <div className={`${openSans.className}`}>
@@ -49,7 +45,7 @@ const BennyRecipient = () => {
         </div>
       </TitleSectionComponent>
       <ContentContainerWithSidebar className={'text-[15px]'}>
-        <div className={'flex flex-col md:flex-row gap-[31px] pb-[50px]'}>
+        <div className={'flex flex-col md:flex-row gap-[31px] pb-[43px]'}>
           <div className={'group relative w-fit p-[6px] shadow-sm'}>
             <Link href={'/recipients/benny'} className="relative">
               <Image
@@ -81,7 +77,7 @@ const BennyRecipient = () => {
             </Link>
           </div>
         </div>
-        <CommentSection id={id} />
+        <CommentAndHeartContainer id={id} />
       </ContentContainerWithSidebar>
     </div>
   )

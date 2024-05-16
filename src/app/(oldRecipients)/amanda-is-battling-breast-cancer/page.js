@@ -4,10 +4,7 @@ import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSection
 import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/ContentContainerWithSidebar/ContentContainerWithSidebar'
 import Image from 'next/image'
 import Amanda from './images/Amanda-300x300.webp'
-import dynamic from 'next/dynamic'
-const CommentSection = dynamic(() => import('../CommentSection'), {
-  ssr: false,
-})
+import CommentAndHeartContainer from '../CommentAndHeartContainer'
 
 export const metadata = {
   title: 'Amanda is Battling Breast Cancer',
@@ -107,9 +104,7 @@ const AmandaRecipient = () => {
             clicking the heart below (equals a hug), Comment or Share.
           </p>
         </div>
-        <div className={'pt-12'}>
-          <CommentSection id={id} />
-        </div>
+        <CommentAndHeartContainer id={id} />
       </ContentContainerWithSidebar>
     </div>
   )

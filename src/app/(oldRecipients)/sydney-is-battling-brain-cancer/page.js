@@ -4,10 +4,7 @@ import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSection
 import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/ContentContainerWithSidebar/ContentContainerWithSidebar'
 import Image from 'next/image'
 import Sydney from './images/Sydney-300x300.webp'
-import dynamic from 'next/dynamic'
-const CommentSection = dynamic(() => import('../CommentSection'), {
-  ssr: false,
-})
+import CommentAndHeartContainer from '../CommentAndHeartContainer'
 
 export const metadata = {
   title: 'Sydney is Battling Brain Cancer',
@@ -41,7 +38,7 @@ const SydneyRecipient = () => {
         </div>
       </TitleSectionComponent>
       <ContentContainerWithSidebar className={'text-[15px]'}>
-        <div className={'pb-[50px]'}>
+        <div className={'pb-[43px]'}>
           <div
             className={
               'group relative w-fit p-[6px] mt-[-6px] ml-[-6px]  shadow-sm md:float-left md:mr-6 mb-6'
@@ -119,7 +116,7 @@ const SydneyRecipient = () => {
             Share.
           </p>
         </div>
-        <CommentSection id={id} />
+        <CommentAndHeartContainer id={id} />
       </ContentContainerWithSidebar>
     </div>
   )

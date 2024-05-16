@@ -1,7 +1,5 @@
 'use server'
-
-// import axios from 'axios'
-
+// ************ ADD TO SPECIFIC LIST ************
 const addToList = (contactId) => {
   const options = {
     method: 'POST',
@@ -21,6 +19,7 @@ const addToList = (contactId) => {
     .catch((err) => console.error(err))
 }
 
+// ************ CREATE CONTACT ************
 export const submitStory = async (data) => {
   const firstName = data?.fullName.split(' ')[0]
   const lastName = data?.fullName.split(' ')[1]
@@ -96,6 +95,7 @@ export const submitStory = async (data) => {
     return { data: null, error: 'Email address already exist' }
   }
 }
+
 // ************ RETRIEVE ALL FIELDS ************
 export const retrieveFields = () => {
   const options = {

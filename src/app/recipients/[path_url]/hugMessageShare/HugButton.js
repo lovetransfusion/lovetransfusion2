@@ -38,7 +38,10 @@ const Hugbutton = ({
   }
 
   const handleClick = async () => {
-    const doesExist = checkIfHasHuggedBefore(path_url)
+    const doesExist = checkIfHasHuggedBefore({
+      itemName: path_url,
+      localKey: 'hugs-list',
+    })
     if (!doesExist) {
       setbuttonClick(true)
       mutate()

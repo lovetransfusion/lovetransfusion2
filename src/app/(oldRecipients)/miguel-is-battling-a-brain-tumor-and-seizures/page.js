@@ -4,10 +4,8 @@ import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSection
 import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/ContentContainerWithSidebar/ContentContainerWithSidebar'
 import Image from 'next/image'
 import miguel from './images/Mighty-Miguel.webp'
-import dynamic from 'next/dynamic'
-const CommentSection = dynamic(() => import('../CommentSection'), {
-  ssr: false,
-})
+import CommentAndHeartContainer from '../CommentAndHeartContainer'
+
 
 export const metadata = {
   title: 'Miguel is Battling a Brain Tumor and Seizures',
@@ -43,7 +41,7 @@ const MiguelRecipient = () => {
         </div>
       </TitleSectionComponent>
       <ContentContainerWithSidebar className={'text-[15px]'}>
-        <div className={'flex flex-col md:flex-row gap-[24px] pb-[50px]'}>
+        <div className={'flex flex-col md:flex-row gap-[24px] pb-[43px]'}>
           <div
             className={
               'group relative w-fit p-[6px] md:ml-[-6px] md:mt-[-6px] shadow-sm'
@@ -96,7 +94,7 @@ const MiguelRecipient = () => {
             </p>
           </div>
         </div>
-        <CommentSection id={id} />
+        <CommentAndHeartContainer id={id} />
       </ContentContainerWithSidebar>
     </div>
   )

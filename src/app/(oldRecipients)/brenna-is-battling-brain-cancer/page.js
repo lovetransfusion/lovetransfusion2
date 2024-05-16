@@ -4,10 +4,7 @@ import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSection
 import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/ContentContainerWithSidebar/ContentContainerWithSidebar'
 import Image from 'next/image'
 import brenna from './images/Brenna2.webp'
-import dynamic from 'next/dynamic'
-const CommentSection = dynamic(() => import('../CommentSection'), {
-  ssr: false,
-})
+import CommentAndHeartContainer from '../CommentAndHeartContainer'
 
 export const metadata = {
   title: 'Brenna is Battling Brain Cancer',
@@ -19,7 +16,11 @@ const BrennaRecipient = () => {
   return (
     <div className={`${openSans.className}`}>
       <TitleSectionComponent className="md:py-[42px]">
-        <div className={'flex text-primary items-center justify-between'}>
+        <div
+          className={
+            'flex flex-col lg:flex-row text-primary items-center justify-between'
+          }
+        >
           <h1
             className={
               'py-2 max-sm:text-center text-[30px] max-sm:mx-auto font-semibold leading-[40px] md:leading-[50px]'
@@ -41,14 +42,18 @@ const BrennaRecipient = () => {
         </div>
       </TitleSectionComponent>
       <ContentContainerWithSidebar className={'text-[15px]'}>
-        <div className={'flex flex-col md:flex-row gap-[24px] pb-[50px]'}>
-          <div className={'group relative w-fit p-[6px] mt-[-6px] ml-[-6px] shadow-sm'}>
+        <div className={'flex flex-col md:flex-row gap-[24px] pb-[43px]'}>
+          <div
+            className={
+              'group relative w-fit p-[6px] mt-[-6px] ml-[-6px] shadow-sm'
+            }
+          >
             <Link href={'/recipients/brenna'} className="relative">
               <Image
                 src={brenna}
                 placeholder="blur"
                 alt="profile picture of brenna"
-                className="min-w-full lg:min-w-[300px] h-auto"
+                className="min-w-full md:min-w-[250px] lg:min-w-[300px] h-auto"
               />
             </Link>
             <div
@@ -91,7 +96,7 @@ const BrennaRecipient = () => {
             </p>
           </div>
         </div>
-        <CommentSection id={id} />
+        <CommentAndHeartContainer id={id} />
       </ContentContainerWithSidebar>
     </div>
   )

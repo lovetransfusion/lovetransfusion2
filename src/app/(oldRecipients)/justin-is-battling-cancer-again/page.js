@@ -4,10 +4,7 @@ import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSection
 import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/ContentContainerWithSidebar/ContentContainerWithSidebar'
 import Image from 'next/image'
 import Justin from './images/justin.webp'
-import dynamic from 'next/dynamic'
-const CommentSection = dynamic(() => import('../CommentSection'), {
-  ssr: false,
-})
+import CommentAndHeartContainer from '../CommentAndHeartContainer'
 
 export const metadata = {
   title: 'Justin is Battling Cancer Again',
@@ -43,7 +40,7 @@ const JustinRecipient = () => {
         </div>
       </TitleSectionComponent>
       <ContentContainerWithSidebar className={'text-[15px]'}>
-        <div className={'pb-[50px] flex flex-col md:flex-row gap-6'}>
+        <div className={'pb-[43px] flex flex-col md:flex-row gap-6'}>
           <div
             className={
               'group relative w-fit p-[6px] shadow-sm md:mt-[-6px] md:ml-[-6px]'
@@ -65,11 +62,15 @@ const JustinRecipient = () => {
           </div>
           <div className={''}>
             <p className={'mb-[11px]'}>
-            Many of you may remember our friend Justin who battled and overcame leukemia a few years back. Unfortunately cancer has returned. It is a very rare form of bladder cancer. Justin had surgery yesterday to remove part of his bladder, and is in a great deal of pain.
+              Many of you may remember our friend Justin who battled and
+              overcame leukemia a few years back. Unfortunately cancer has
+              returned. It is a very rare form of bladder cancer. Justin had
+              surgery yesterday to remove part of his bladder, and is in a great
+              deal of pain.
             </p>
 
             <p className={'mb-[11px]'}>
-            Justin’s Facebook page: {''}
+              Justin’s Facebook page: {''}
               <Link
                 href="https://www.facebook.com/Prayers-for-Justin-228001227239480/"
                 target="_blank"
@@ -79,11 +80,13 @@ const JustinRecipient = () => {
               </Link>
             </p>
             <p className={'mb-[11px]'}>
-            Please let Justin and his family know he is in your thoughts and prayers by clicking the heart below (equals a hug), Comment or Share.
+              Please let Justin and his family know he is in your thoughts and
+              prayers by clicking the heart below (equals a hug), Comment or
+              Share.
             </p>
           </div>
         </div>
-        <CommentSection id={id} />
+        <CommentAndHeartContainer id={id} />
       </ContentContainerWithSidebar>
     </div>
   )

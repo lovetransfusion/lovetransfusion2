@@ -5,13 +5,8 @@ import { useForm } from 'react-hook-form'
 import Button from '../components/Button'
 import { addComment } from './actions'
 import Checkbox from '../components/inputsFields/Checkbox'
-import { createClient } from '@/config/supabase/supabaseClient'
-import { useEffect, useState } from 'react'
-import Comments from './Comments'
 
-const CommentSection = ({ id }) => {
-  const [comments, setcomments] = useState(null)
-  console.log('comments', comments)
+const CommentForm = ({ parameters: { comments, setcomments, id } }) => {
   const { register, handleSubmit, formState } = useForm({
     defaultValues: async () => {
       const localData = JSON.parse(localStorage.getItem('oldRecipientComment'))
@@ -23,23 +18,6 @@ const CommentSection = ({ id }) => {
     },
   })
   const { errors } = formState
-  const supabase = createClient()
-
-  const fetchComments = async () => {
-    const { data: currComments, error: readError } = await supabase
-      .from('oldRecipients')
-      .select('comment, created_at')
-      .eq('id', id)
-    if (currComments) {
-      const theComments = currComments[0]
-      setcomments(theComments?.comment)
-    }
-  }
-
-  useEffect(() => {
-    fetchComments()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
 
   const onSubmit = (data) => {
     const updatedComment = { ...data, date: new Date() }
@@ -51,7 +29,6 @@ const CommentSection = ({ id }) => {
         JSON.stringify({ myLocalData })
       )
     } else {
-      console.log('removing local data')
       localStorage.removeItem('oldRecipientComment')
     }
     const { saveMyData, ...newComment } = data
@@ -122,27 +99,8 @@ const CommentSection = ({ id }) => {
           <Button type="submit">Post comment</Button>
         </div>
       </form>
-      <div className={'mt-6'}>
-        {comments ? (
-          <Comments listOfComments={comments} />
-        ) : (
-          <div
-            className={
-              'flex animate-pulse shadow-sm rounded-md bg-gray-50 px-[15px] py-5'
-            }
-          >
-            <div className={'flex gap-5'}>
-              <div className={'bg-gray-300 size-[45px] rounded-full '}></div>
-              <div className={'flex flex-col gap-2 justify-center'}>
-                <div className={'w-[280px] h-2 bg-gray-300'}></div>
-                <div className={'w-[200px] h-2 bg-gray-300'}></div>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
     </div>
   )
 }
 
-export default CommentSection
+export default CommentForm
