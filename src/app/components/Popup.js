@@ -7,46 +7,50 @@ import { twMerge } from 'tailwind-merge'
 // const [setpopup, setsetpopup] = useState(null) ---> Must be present in the parent component
 
 // Then import it like:
-// data={{ setpopup, bgNotClickable:true }}
+// <Popup data={{ setpopup, bgNotClickable:true }}></Popup>
 
-// STYLING
-// mainContainer        Example: mainContainer={{ text-primary }}
-// modalContainer       Example: modalContainer={{ text-primary }}
-// contentContainer     Example: contentContainer={{ text-primary }}
+// STYLING For mainContainer
+// Example: data={{ mainContainer: 'backdrop-blur-sm' }}
+// STYLING For modalContainer
+// Example: data={{ modalContainer: 'max-w-[652px]' }}
+// STYLING For contentContainer
+// Example: data={{ contentContainer: 'text-primary' }}
 
 const Popup = ({ children, ...props }) => {
   const setBodyStyle = () => {
     document.body.style.overflow = 'hidden'
     document.body.style.marginRight = '15px'
   }
-  const unsetBodyStyle = () => {
+  const unmountFunction = () => {
     document.body.style.overflow = ''
     document.body.style.marginRight = ''
   }
 
   useEffect(() => {
     setBodyStyle()
+    return unmountFunction // Cleanup function to run before unmount
   }, [])
 
   const bgClose = (e) => {
     e.stopPropagation()
     if (!props.data?.bgNotClickable) {
-      unsetBodyStyle()
+      // unsetBodyStyle()
       props.data?.setpopup(false)
     }
   }
   const handleClose = (e) => {
     e.stopPropagation()
-    unsetBodyStyle()
+    // unsetBodyStyle()
     props.data?.setpopup(false)
   }
   const handleContentClick = (e) => {
     e.stopPropagation()
   }
+
   return (
     <div
       className={twMerge(
-        'flex fixed py-4 md:py-10 px-2 top-0 w-full h-screen max-h-screen bg-neutral-500 bg-opacity-25 backdrop-blur-sm overflow-y-auto z-50',
+        'flex fixed left-0 py-4 md:py-10 px-2 top-0 w-full h-screen max-h-screen bg-neutral-500 bg-opacity-25 backdrop-blur-sm overflow-y-auto z-50',
         props?.data?.mainContainer
       )}
       onClick={bgClose}
@@ -60,7 +64,10 @@ const Popup = ({ children, ...props }) => {
       >
         <Icon_close
           onClick={handleClose}
-          className={'absolute z-50 top-3 right-3 box-content'}
+          className={twMerge(
+            'absolute z-50 top-3 right-3 box-content',
+            props?.data?.icon
+          )}
         />
         <div className={twMerge('flex w-full', props?.data?.contentContainer)}>
           {children}

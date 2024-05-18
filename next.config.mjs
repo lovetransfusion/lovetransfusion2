@@ -8,6 +8,10 @@ const nextConfig = {
         hostname: 'res.cloudinary.com',
       },
       {
+        protocol: 'http',
+        hostname: 'img.bbystatic.com',
+      },
+      {
         protocol: 'https',
         hostname: 'youtube.com',
       },

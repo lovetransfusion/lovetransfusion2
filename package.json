@@ -10,6 +10,8 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
+    "@algolia/autocomplete-js": "^1.17.1",
+    "@algolia/autocomplete-theme-classic": "^1.17.1",
     "@next/bundle-analyzer": "^14.2.2",
     "@stripe/react-stripe-js": "^2.7.0",
     "@stripe/stripe-js": "^3.3.0",
