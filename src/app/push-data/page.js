@@ -5,7 +5,7 @@ import { pushData } from '@/config/algolia/pushData'
 import AlgoliaComponents from './AlgoliaComponents'
 
 const page = () => {
-  const handlePushData = () => {
+  const handlePushData = async () => {
     pushData()
   }
   return (
