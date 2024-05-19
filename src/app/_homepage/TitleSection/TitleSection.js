@@ -26,7 +26,7 @@ const TitleSection = () => {
             Love Transfusion, Inc.
           </p>
           <p
-            className={`${roboto.className} relative text-lg max-md:text-balance md:text-xl md:ml-[10px] mt-[2px] md:before:content-['"'] md:before:absolute md:before:left-[-7px]`}
+            className={`relative text-lg max-md:text-balance md:text-xl md:ml-[10px] mt-[2px] md:before:content-['"'] md:before:absolute md:before:left-[-7px]`}
           >
             <span className="md:hidden">{`"`}</span>
             {

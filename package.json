@@ -10,8 +10,6 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
-    "@algolia/autocomplete-js": "^1.17.1",
-    "@algolia/autocomplete-theme-classic": "^1.17.1",
     "@next/bundle-analyzer": "^14.2.2",
     "@stripe/react-stripe-js": "^2.7.0",
     "@stripe/stripe-js": "^3.3.0",
@@ -21,10 +19,13 @@
     "algoliasearch": "^4.23.3",
     "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
+    "cloudinary": "^2.2.0",
     "cross-env": "^7.0.3",
+    "crypto": "^1.0.1",
     "framer-motion": "^11.1.7",
     "immer": "^10.0.4",
     "next": "14.2.2",
+    "next-cloudinary": "^6.5.2",
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.51.3",

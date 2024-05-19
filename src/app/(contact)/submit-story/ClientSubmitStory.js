@@ -12,6 +12,7 @@ import { useForm } from 'react-hook-form'
 import { submitStory } from './actions'
 import Toast from '@/app/components/Toast'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
+import { handleDeleteImage } from '@/app/components/cloudinary/actions'
 
 const ClientSubmitStory = () => {
   const { register, handleSubmit, formState, reset } = useForm()
@@ -40,8 +41,19 @@ const ClientSubmitStory = () => {
       setsending(false)
     }
   }
+
+  const handleDelete = async () => {
+    const publicId = [
+      'Testt/decknkfbf7ugb0whr90x',
+      'Testt/lkmmvxnmetqfclyl41qf',
+      'Testt/x7b4xkmmx4vmdc49vuqm',
+    ]
+    const response = await handleDeleteImage(publicId)
+    console.log('response', response)
+  }
   return (
     <div className={`${openSans.className}`}>
+      <Button onClick={handleDelete}>Testing Delete</Button>
       <Toast parameters={{ toast, settoast }} />
       <TitleSectionComponent>
         <div className={'flex text-primary items-center justify-between'}>
