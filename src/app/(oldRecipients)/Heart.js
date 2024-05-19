@@ -1,12 +1,12 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import Icon_heart from '../components/icons/Icon_heart'
+import { LazyMotion, m } from 'framer-motion'
+import { updateOldRecipientHugs } from './actions'
+import Icon_heart from '@/app/components/icons/Icon_heart'
 import {
   checkIfHasHuggedBefore,
   checkLocalWithoutUpdating,
 } from '../recipients/[path_url]/hugMessageShare/checkIfHasHuggedBefore'
-import { LazyMotion, m } from 'framer-motion'
-import { updateOldRecipientHugs } from './actions'
 const loadFeatures = () =>
   import('@/utilities/framerMotion/features').then((res) => res.default)
 

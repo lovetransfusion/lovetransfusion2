@@ -1,9 +1,10 @@
-import { InstantSearch } from 'react-instantsearch'
-import SearchResults from './SearchResults'
+import { Configure, Index, InstantSearch } from 'react-instantsearch'
+// import SearchResults from './_SearchResults'
 import { searchClient } from '@/config/algolia/searchClient'
 import CustomSearchBox from './CustomSearchBox'
 import { openSans } from '@/utilities/fonts/fonts'
-import CustomInfiniteHits from './CustomInfiniteHits'
+import CustomRecipientsInfiniteHits from './Hits/CustomRecipientsInfiniteHits'
+import CustomPagesInfiniteHits from './Hits/CustomPagesInfiniteHits'
 
 const SearchBoxPopup = ({ setpopup }) => {
   const handleKeyPress = (e) => {
@@ -13,38 +14,32 @@ const SearchBoxPopup = ({ setpopup }) => {
     }
   }
   return (
-    <div className={`${openSans.className} text-[15px] w-full flex-col pb-4`}>
+    <div className={`${openSans.className} text-[15px] w-full`}>
       <InstantSearch
         searchClient={searchClient}
         setUiState
         indexName="prod_recipients"
       >
         <CustomSearchBox
-          // placeholder="Type to start searching."
+          placeholder="Type to start searching"
           autoFocus={false}
           onKeyDown={handleKeyPress}
+          setpopup={setpopup}
         />
         <div
           className={
-            'overflow-y-auto max-h-[80vh] py-4 border-t-[1px] border-[#F1F5F9]'
+            'border-t-[1px] border-[#F1F5F9] px-5 overflow-y-auto max-h-[60vh]'
           }
         >
-          {/* <InfiniteHits
-            showPrevious={false}
-            hitComponent={SearchResults}
-            translations={{
-              showMoreButtonText: (
-                <div className="flex items-center gap-1 text-sm">
-                  Show more <Icon_down className="size-4" />
-                </div>
-              ),
-            }}
-            className="w-full"
-            classNames={{
-              loadMore: 'mx-auto flex justify-center items-center mt-4',
-            }}
-          /> */}
-          <CustomInfiniteHits hitComponent={SearchResults} />
+          <Index indexName="prod_recipients">
+            <Configure hitsPerPage={4} />
+            <CustomRecipientsInfiniteHits />
+          </Index>
+
+          <Index indexName="prod_pages">
+            <Configure hitsPerPage={4} />
+            <CustomPagesInfiniteHits />
+          </Index>
         </div>
       </InstantSearch>
     </div>

@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react'
 import { useSearchBox } from 'react-instantsearch'
 import Icon_search from '../../icons/Icon_search'
 
-function CustomSearchBox({ ...props }) {
+function CustomSearchBox({ setpopup, ...props }) {
   const { query, refine } = useSearchBox(props)
   const [inputValue, setInputValue] = useState(query)
   const inputRef = useRef(null)
@@ -11,6 +11,14 @@ function CustomSearchBox({ ...props }) {
     setInputValue(newQuery)
 
     refine(newQuery)
+  }
+
+  console.log('props', props)
+
+  const handleEscClick = (e) => {
+    e.preventDefault()
+    setQuery('')
+    setpopup(null)
   }
 
   return (
@@ -27,16 +35,6 @@ function CustomSearchBox({ ...props }) {
 
           if (inputRef.current) {
             inputRef.current.blur()
-          }
-        }}
-        onReset={(event) => {
-          event.preventDefault()
-          event.stopPropagation()
-
-          setQuery('')
-
-          if (inputRef.current) {
-            inputRef.current.focus()
           }
         }}
       >
@@ -57,13 +55,12 @@ function CustomSearchBox({ ...props }) {
           className="w-full pt-[10px] pb-[6px] focus-visible:outline-none"
           autoFocus
         />
-        {/* <button type="submit">Submit</button> */}
         <p
+          onClick={handleEscClick}
           className={`cursor-pointer py-[2px] w-fit h-fit leading-5  font-semibold px-1 border-[1px] border-[#EAEAEB] rounded-md`}
         >
           ESC
         </p>
-        {/* <span hidden={!isSearchStalled}>Searching…</span> */}
       </form>
     </div>
   )

@@ -1,10 +1,10 @@
 'use client'
-import Textarea from '../components/inputsFields/Textrea'
-import Input from '../components/inputsFields/InputGroup/Input'
 import { useForm } from 'react-hook-form'
-import Button from '../components/Button'
 import { addComment } from './actions'
-import Checkbox from '../components/inputsFields/Checkbox'
+import Button from '@/app/components/Button'
+import Checkbox from '@/app/components/inputsFields/Checkbox'
+import Input from '@/app/components/inputsFields/InputGroup/Input'
+import Textarea from '@/app/components/inputsFields/Textrea'
 
 const CommentForm = ({ parameters: { comments, setcomments, id } }) => {
   const { register, handleSubmit, formState } = useForm({

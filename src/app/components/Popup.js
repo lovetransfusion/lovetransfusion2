@@ -34,13 +34,11 @@ const Popup = ({ children, ...props }) => {
   const bgClose = (e) => {
     e.stopPropagation()
     if (!props.data?.bgNotClickable) {
-      // unsetBodyStyle()
       props.data?.setpopup(false)
     }
   }
   const handleClose = (e) => {
     e.stopPropagation()
-    // unsetBodyStyle()
     props.data?.setpopup(false)
   }
   const handleContentClick = (e) => {
@@ -58,7 +56,7 @@ const Popup = ({ children, ...props }) => {
       <div
         onClick={handleContentClick}
         className={twMerge(
-          'flex my-auto relative min-h-20 w-full max-w-[552px] h-fit bg-white mx-auto rounded-md overflow-hidden shadow-xl',
+          'flex my-auto relative min-h-10 w-full max-w-[552px] h-fit bg-white mx-auto rounded-md overflow-hidden shadow-xl',
           props?.data?.modalContainer
         )}
       >
