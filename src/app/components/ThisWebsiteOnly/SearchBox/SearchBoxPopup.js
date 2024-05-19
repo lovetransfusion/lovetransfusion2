@@ -1,5 +1,4 @@
 import { Configure, Index, InstantSearch } from 'react-instantsearch'
-// import SearchResults from './_SearchResults'
 import { searchClient } from '@/config/algolia/searchClient'
 import CustomSearchBox from './CustomSearchBox'
 import { openSans } from '@/utilities/fonts/fonts'
