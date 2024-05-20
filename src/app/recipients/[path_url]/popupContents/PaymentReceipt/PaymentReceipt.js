@@ -33,9 +33,7 @@ const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
             },
           }
         )
-        console.log('response', response)
         if (response) {
-          console.log({ response })
           setReceiptData(response.data.paymentIntent)
           if (response.data.paymentIntent.status === 'succeeded')
             setisLoading(false)
@@ -64,10 +62,12 @@ const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
             <p
               className={'font-mediumCond text-[28px]'}
             >{`Thank you ${receiptData?.metadata?.owner_firstName}!`}</p>
-            <p
-              className={'mb-10 text-[#858585 leading-[22px]'}
-            >{`Your contribution will go towards costs associated with sending
-            ${firstName} care packages.`}</p>
+            <p className={'mb-10 text-[#858585 leading-[22px]'}>
+              {receiptData.description.includes('Care Package')
+                ? `Your contribution will go towards costs associated with sending
+            ${firstName} care packages.`
+                : `Your contribution will help us raise awareness of ${firstName}'s story.`}
+            </p>
           </div>
           <div
             className={

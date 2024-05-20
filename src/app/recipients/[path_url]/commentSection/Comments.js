@@ -23,7 +23,6 @@ const convertDate = (date) => {
 }
 
 const Comments = ({ listOfComments }) => {
-  console.log('listOfComments', listOfComments)
   return (
     <>
       <div className={'flex flex-col gap-3 md:gap-5 xl:pb-[65px]'}>
