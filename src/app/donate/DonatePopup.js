@@ -2,7 +2,7 @@ import React, { Suspense, useState } from 'react'
 import Icon_padlock from '../components/icons/Icon_padlock'
 import UserForm from './form/UserForm'
 import SelectAmount from './selectAmount/SelectAmount'
-import PaymentForm from './PaymentForm'
+import Payment from './Payment'
 
 const DonatePopup = () => {
   const [donationAmount, setdonationAmount] = useState(null)
@@ -76,7 +76,15 @@ const DonatePopup = () => {
           <p className={'mb-6'}>This is a secure SSL encrypted payment.</p>
           <Suspense fallback={<h2>Loading Payment...</h2>}>
             {donationAmount && (
-              <PaymentForm
+              // <PaymentForm
+              //   parameters={{
+              //     donationAmount,
+              //     firstName,
+              //     lastName,
+              //     email,
+              //   }}
+              // />
+              <Payment
                 parameters={{
                   donationAmount,
                   firstName,

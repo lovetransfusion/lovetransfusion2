@@ -7,7 +7,7 @@ import BottomSectionCarePackage from './BottomSectionCarePackage'
 import UserFormCarePackage from './UserFormCarePackage'
 import LoadingComponent from '@/app/components/LoadingComponent'
 
-const PaymentForm = dynamic(() => import('./PaymentForm'), {
+const Payment = dynamic(() => import('./Payment'), {
   loading: () => <LoadingComponent />,
 })
 
@@ -28,7 +28,7 @@ const StepThree = () => {
 
         <UserFormCarePackage />
         <Suspense fallback={<h2>Loading Payment...</h2>}>
-          {carePackage.donationAmount && <PaymentForm />}
+          {carePackage.donationAmount && <Payment />}
         </Suspense>
       </div>
       <BottomSectionCarePackage parameters={{}} />

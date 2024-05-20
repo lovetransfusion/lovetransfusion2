@@ -4,7 +4,13 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 
 export const POST = async (request) => {
   const { data } = await request.json()
-  const { donationAmount, description } = data
+  const {
+    donationAmount,
+    donorFirstName,
+    donorLastName,
+    donorEmailAddress,
+    description,
+  } = data
 
   const empotencyKey = v4()
 
@@ -12,10 +18,13 @@ export const POST = async (request) => {
     {
       amount: donationAmount * 100,
       currency: 'usd',
-      automatic_payment_methods: {
-        enabled: true,
-      },
       description,
+      receipt_email: donorEmailAddress,
+      metadata: {
+        owner_firstName: donorFirstName,
+        owner_lastName: donorLastName,
+        owner_email: donorEmailAddress,
+      },
     },
     {
       idempotencyKey: empotencyKey,

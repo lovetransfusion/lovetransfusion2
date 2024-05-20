@@ -7,8 +7,8 @@ import BottomSectionAdCampaign from './BottomSectionAdCampaign'
 import UserFormAdCampaign from './UserFormAdCampaign'
 import LoadingComponent from '@/app/components/LoadingComponent'
 
-const PaymentForm = dynamic(() => import('./PaymentForm'), {
-  loading: () => <LoadingComponent />,
+const Payment = dynamic(() => import('./Payment'), {
+  loading: () => <LoadingComponent className='min-h-[307px]' />
 })
 
 const StepThree = () => {
@@ -28,7 +28,7 @@ const StepThree = () => {
 
         <UserFormAdCampaign />
         <Suspense fallback={<h2>Loading Payment...</h2>}>
-          {adCampaign.donationAmount && <PaymentForm />}
+          {adCampaign.donationAmount && <Payment />}
         </Suspense>
       </div>
       <BottomSectionAdCampaign parameters={{}} />

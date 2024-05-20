@@ -11,7 +11,6 @@ import Link from 'next/link'
 import SearchBox from '../SearchBox/SearchBox'
 
 const Sidebar = () => {
-  console.log('Hello')
   return (
     <div
       className={`${Arial.className} lg:min-w-[262px] lg:max-w-[262px] lg:pl-[50px]`}

@@ -14,10 +14,8 @@ const UserForm = ({ parameters: { setFNameLNameEmail, store } }) => {
   const email = watch('email')
 
   useEffect(() => {
-    if (firstName && lastName && email) {
       setFNameLNameEmail({ firstName, lastName, email })
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [firstName, lastName, email])
   return (
     <div className="flex flex-col gap-4">

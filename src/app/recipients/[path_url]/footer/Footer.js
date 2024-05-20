@@ -1,11 +1,18 @@
 import Image from 'next/image'
 import React from 'react'
 import footerLogo from '../images/footer-logo.png'
+import utilityStore2 from '@/utilities/store/utilityStore'
+import { useStore } from 'zustand'
+import dynamic from 'next/dynamic'
+
+const Toast = dynamic(() => import('@/app/components/Toast'), { ssr: false })
 
 const Footer = () => {
+  const { toast, settoast } = useStore(utilityStore2)
   const currentYear = new Date().getFullYear()
   return (
     <div className={'flex flex-col'}>
+      {toast && <Toast parameters={{ toast, settoast }} />}
       <div
         className={
           'flex bg-[#288ccc] justify-center px-3 md:px-6 lg:px-8 pt-[30px] pb-12'
