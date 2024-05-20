@@ -54,7 +54,7 @@ const ClientSubmitStory = () => {
   }
   return (
     <div className={`${openSans.className}`}>
-      <Button onClick={handleDelete}>Testing Delete</Button>
+      {/* <Button onClick={handleDelete}>Testing Delete</Button> */}
       <Toast parameters={{ toast, settoast }} />
       <TitleSectionComponent>
         <div className={'flex text-primary items-center justify-between'}>
