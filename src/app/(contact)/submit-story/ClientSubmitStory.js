@@ -51,7 +51,6 @@ const ClientSubmitStory = () => {
 
     // const folderName = 'product'
     // await handleDeleteFolder(folderName)
-    // s
   }
   return (
     <div className={`${openSans.className}`}>

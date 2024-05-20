@@ -8,7 +8,7 @@ import UserFormCarePackage from './UserFormCarePackage'
 import LoadingComponent from '@/app/components/LoadingComponent'
 
 const Payment = dynamic(() => import('./Payment'), {
-  loading: () => <LoadingComponent />,
+  loading: () => <LoadingComponent className='min-h-[307px]' />,
 })
 
 const StepThree = () => {

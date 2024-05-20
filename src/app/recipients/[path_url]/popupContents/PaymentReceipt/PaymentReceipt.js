@@ -63,10 +63,10 @@ const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
               className={'font-mediumCond text-[28px]'}
             >{`Thank you ${receiptData?.metadata?.owner_firstName}!`}</p>
             <p className={'mb-10 text-[#858585 leading-[22px]'}>
-              {receiptData.description.includes('Care Package')
+              {!receiptData.description.includes('Care Package')
                 ? `Your contribution will go towards costs associated with sending
             ${firstName} care packages.`
-                : `Your contribution will help us raise awareness of ${firstName}'s story.`}
+                : `Your contribution will be used to provide even more comfort and encouragement for ${firstName}.`}
             </p>
           </div>
           <div

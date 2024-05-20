@@ -25,6 +25,9 @@ export const POST = async (request) => {
         owner_lastName: donorLastName,
         owner_email: donorEmailAddress,
       },
+      // payment_method_options: {
+      //   card,
+      // },
     },
     {
       idempotencyKey: empotencyKey,
