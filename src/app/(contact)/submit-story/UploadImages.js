@@ -1,5 +1,6 @@
 'use client'
-import CltUploadWidget from '@/app/components/cloudinary/CltUploadWidget'
+// import CltUploadWidget from '@/app/components/_cloudinary/CltUploadWidget'
+import CltDropzone from '@/app/components/_dropzone/Dropzone'
 import React, { useState } from 'react'
 
 const UploadImages = () => {
@@ -7,7 +8,8 @@ const UploadImages = () => {
   console.log('uploadedFiles', uploadedFiles)
   return (
     <div>
-      <CltUploadWidget
+      <CltDropzone />
+      {/* <CltUploadWidget
         parameters={{
           ButtonText: 'Upload Recipient Images',
           folder: `Testt`,
@@ -15,7 +17,7 @@ const UploadImages = () => {
           uploadedFiles,
           setuploadedFiles,
         }}
-      />
+      /> */}
     </div>
   )
 }

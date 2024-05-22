@@ -15,7 +15,8 @@ import Icon_spinner from '@/app/components/icons/Icon_spinner'
 import {
   handleDeleteFolder,
   handleDeleteImage,
-} from '@/app/components/cloudinary/actions'
+} from '@/app/components/_cloudinary/actions'
+import UploadImages from './UploadImages'
 
 const ClientSubmitStory = () => {
   const { register, handleSubmit, formState, reset } = useForm()
@@ -245,7 +246,8 @@ const ClientSubmitStory = () => {
                   <label htmlFor="recipientPicture" className="font-semibold">
                     Picture of the Recipient:
                   </label>
-                  <Input
+                  <UploadImages />
+                  {/* <Input
                     id="recipientPicture"
                     name="recipientPicture"
                     placeholder="Click to upload files, or drag & drop files here."
@@ -254,7 +256,7 @@ const ClientSubmitStory = () => {
                       required: 'Required',
                     })}
                     error={errors?.recipientPicture?.message}
-                  />
+                  /> */}
                 </div>
                 <div className={'w-full flex flex-col gap-[9px]'}>
                   <label htmlFor="email" className="font-semibold">
