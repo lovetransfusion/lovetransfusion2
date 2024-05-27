@@ -1,9 +1,5 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
-import heart from '../images/heart-proper.png'
-import { SegoePrint } from '@/utilities/fonts/fonts'
-import TestimonyImage from './TestimonyImage'
 
 const WhatIsSectionSplitB = ({
   parameters: {

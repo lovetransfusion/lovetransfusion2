@@ -75,7 +75,6 @@ const ClientSplitB = ({ parameters: { path_url } }) => {
     condition,
     profile_picture,
     package_image,
-    poster_image,
     more_ways_to_support,
     comments,
     end_of_campaign,
