@@ -6,6 +6,7 @@ import {
 import ClientPageRecipient from './ClientPage'
 import { createClient } from '@/config/supabase/supabaseClient'
 import singleUseQuery from '@/queries/useQuery/singleUseQuery'
+import ClientSplitB from './ClientSplitB'
 
 export const revalidate = 60
 
@@ -40,9 +41,10 @@ export async function generateStaticParams() {
   return recipients || []
 }
 
-const RecipientPage = async ({ params: { path_url } }) => {
+const RecipientPage = async ({ params: { path_url, split_test } }) => {
   const supabase = createClient()
   const queryClient = new QueryClient()
+  console.log('split_test', split_test)
 
   await queryClient.prefetchQuery(
     singleUseQuery({
@@ -56,9 +58,14 @@ const RecipientPage = async ({ params: { path_url } }) => {
   return (
     <div>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <ClientPageRecipient
-          parameters={{ path_url: path_url.toLowerCase() }}
-        />
+        {split_test === 'original' && (
+          <ClientPageRecipient
+            parameters={{ path_url: path_url.toLowerCase() }}
+          />
+        )}
+        {split_test === 'splitB' && (
+          <ClientSplitB parameters={{ path_url: path_url.toLowerCase() }} />
+        )}
       </HydrationBoundary>
     </div>
   )

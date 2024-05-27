@@ -17,7 +17,7 @@ import Footer from './footer/Footer'
 import CommentSection from './commentSection/CommentSection'
 import dynamic from 'next/dynamic'
 import VideoSection from './videoSection/VideoSection'
-import LoadingComponent from '../../components/LoadingComponent'
+import LoadingComponent from '../../../components/LoadingComponent'
 
 const Popup = dynamic(() => import('@/app/components/Popup'))
 const CarePackage = dynamic(
@@ -39,7 +39,7 @@ const AdCampaign = dynamic(
   }
 )
 
-const ClientPageRecipient = ({ parameters: { path_url } }) => {
+const ClientSplitB = ({ parameters: { path_url } }) => {
   console.log('recipient rendered')
   const supabase = createClient()
   const commentSectionRef = useRef()
@@ -85,6 +85,7 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
   return (
     <div className="relative">
       <LogoSection />
+      <p className={'text-3xl text-center'}>Split Test B</p>
       <TitleSection parameters={{ firstName, category, created_at }} />
       <ProfileSection
         parameters={{
@@ -160,4 +161,4 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
   )
 }
 
-export default ClientPageRecipient
+export default ClientSplitB

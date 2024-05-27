@@ -6,7 +6,7 @@ import Icon_heart from '@/app/components/icons/Icon_heart'
 import {
   checkIfHasHuggedBefore,
   checkLocalWithoutUpdating,
-} from '../recipients/[path_url]/hugMessageShare/checkIfHasHuggedBefore'
+} from '../recipients/[path_url]/[split_test]/hugMessageShare/checkIfHasHuggedBefore'
 const loadFeatures = () =>
   import('@/utilities/framerMotion/features').then((res) => res.default)
 

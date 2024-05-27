@@ -7,7 +7,7 @@ import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/Conten
 import braiden from './images/Braiden-60x60.webp'
 import dace from './images/Dace-60x60.webp'
 import alex from '@/app/components/ThisWebsiteOnly/Footer/images/Alex-60x60.webp'
-import miette from '@/app/recipients/[path_url]/testimonials/images/Miette.jpg'
+import miette from '@/app/recipients/[path_url]/[split_test]/testimonials/images/Miette.jpg'
 import chris from './images/Chris-60x60.webp'
 import kosher from './images/Kosher-60x60.webp'
 import IconList1 from './IconList1'
