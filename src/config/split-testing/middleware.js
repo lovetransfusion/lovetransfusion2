@@ -1,12 +1,12 @@
 import { NextResponse } from 'next/server'
 import { getBucket } from '@/app/lib/ab-test'
-import { RECIPIENT_BUCKETS, TESTING_BUCKETS } from '@/app/lib/buckets'
+import { RECIPIENT_BUCKETS, TESTINGSSSS_BUCKETS } from '@/app/lib/buckets'
 const ROUTES = {
   // Example
   '/this_will_be_the_pathname': {
     page: '/this_will_be_the_pathname',
     cookie: 'bucket-pathname',
-    buckets: TESTING_BUCKETS,
+    buckets: TESTINGSSSS_BUCKETS,
   },
 }
 

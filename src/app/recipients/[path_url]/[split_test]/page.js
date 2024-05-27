@@ -3,7 +3,7 @@ import {
   QueryClient,
   dehydrate,
 } from '@tanstack/react-query'
-import ClientPageRecipient from './ClientPage'
+import ClientPageRecipient from './ClientOriginal'
 import { createClient } from '@/config/supabase/supabaseClient'
 import singleUseQuery from '@/queries/useQuery/singleUseQuery'
 import ClientSplitB from './ClientSplitB'

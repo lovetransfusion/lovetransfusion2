@@ -39,7 +39,7 @@ const AdCampaign = dynamic(
   }
 )
 
-const ClientPageRecipient = ({ parameters: { path_url } }) => {
+const ClientPageOriginal = ({ parameters: { path_url } }) => {
   console.log('recipient rendered')
   const supabase = createClient()
   const commentSectionRef = useRef()
@@ -160,4 +160,4 @@ const ClientPageRecipient = ({ parameters: { path_url } }) => {
   )
 }
 
-export default ClientPageRecipient
+export default ClientPageOriginal
