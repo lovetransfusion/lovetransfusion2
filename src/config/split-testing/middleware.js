@@ -31,8 +31,6 @@ export const executeSplitTesting = (req) => {
   let bucket = req.cookies.get(route.cookie)
   let hasBucket = !!bucket
 
-  console.log('bucket', bucket)
-
   // Set a cookie if no activebucket or cookie invalid
   if (!bucket || !route.buckets.includes(bucket?.value)) {
     bucket = getBucket(route.buckets)
@@ -44,13 +42,11 @@ export const executeSplitTesting = (req) => {
     const res = NextResponse.rewrite(url, {
       headers: { 'Set-Cookie': `${route.cookie}=${bucket}; path=/;` },
     })
-    console.log('res', res)
     return res
   }
   const url = req.nextUrl.clone()
   url.pathname = `${route.page}/${bucket?.value}`
   //Rewrite the response to Next
   const res = NextResponse.rewrite(url)
-  console.log('res', res)
   return res
 }

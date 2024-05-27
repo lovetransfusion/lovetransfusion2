@@ -4,20 +4,20 @@ import LogoSection from './logoSection/LogoSection'
 import { useQuery } from '@tanstack/react-query'
 import singleUseQuery from '@/queries/useQuery/singleUseQuery'
 import { createClient } from '@/config/supabase/supabaseClient'
-import TitleSection from './titleSection/TitleSection'
 import { notFound } from 'next/navigation'
 import ProfileSection from './profileSection/ProfileSection'
 import HugMessageShare from './hugMessageShare/HugMessageShare'
-import PackageSection from './packageSection/PackageSection'
-import FifthSection from './fifthSection/FifthSection'
-import Testimonials from './testimonials/Testimonials'
 import WristHugSection from './wristHugSection/WristHugSection'
-import WhatIsSection from './whatIsSection/WhatIsSection'
-import Footer from './footer/Footer'
 import CommentSection from './commentSection/CommentSection'
 import dynamic from 'next/dynamic'
 import VideoSection from './videoSection/VideoSection'
 import LoadingComponent from '../../../components/LoadingComponent'
+import TitleSectionSplitB from './titleSection/TitleSectionSplitB'
+import WhatIsSectionSplitB from './whatIsSection/WhatIsSectionSplitB'
+import FifthSectionSplitB from './fifthSection/FifthSectionSplitB'
+import TestimonialsSplitB from './testimonials/TestimonialsSplitB'
+import DidYouKnowSplitB from './whatIsSection/DidYouKnowSplitB'
+import FooterSplitB from './footer/FooterSplitB'
 
 const Popup = dynamic(() => import('@/app/components/Popup'))
 const CarePackage = dynamic(
@@ -85,8 +85,7 @@ const ClientSplitB = ({ parameters: { path_url } }) => {
   return (
     <div className="relative">
       <LogoSection />
-      <p className={'text-3xl text-center'}>Split Test B</p>
-      <TitleSection parameters={{ firstName, category, created_at }} />
+      <TitleSectionSplitB parameters={{ firstName, category, created_at }} />
       <ProfileSection
         parameters={{
           profile_picture,
@@ -108,19 +107,7 @@ const ClientSplitB = ({ parameters: { path_url } }) => {
           sub_title,
         }}
       />
-      <PackageSection
-        parameters={{
-          firstName,
-          setpopup,
-          poster_image,
-          end_of_campaign,
-        }}
-      />
-      <FifthSection condition={condition} />
-      <VideoSection parameters={{ setpopup }} />
-      <Testimonials />
-      <WristHugSection />
-      <WhatIsSection
+      <WhatIsSectionSplitB
         parameters={{
           what_is,
           according_to_paragraph,
@@ -130,6 +117,11 @@ const ClientSplitB = ({ parameters: { path_url } }) => {
           firstName,
         }}
       />
+      <FifthSectionSplitB condition={condition} />
+      <VideoSection parameters={{ setpopup }} />
+      <TestimonialsSplitB />
+      <WristHugSection />
+      <DidYouKnowSplitB />
       <div ref={commentSectionRef}>
         <CommentSection
           parameters={{
@@ -141,7 +133,7 @@ const ClientSplitB = ({ parameters: { path_url } }) => {
           }}
         />
       </div>
-      <Footer />
+      <FooterSplitB />
       {popup === 'carePackage' && (
         <Popup data={{ setpopup, bgNotClickable: true }}>
           <CarePackage parameters={{ firstName, package_image }} />
