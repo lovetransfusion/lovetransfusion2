@@ -1,9 +1,10 @@
+'use client'
 import SplitTest1 from './SplitTest1'
 import SplitTest2 from './SplitTest2'
 
-const TestingVariant = () => {
+export default function Testing() {
   return (
-    <div className={'container md:px-6 lg:px-10 xl:px-0 flex flex-col'}>
+    <div>
       {/* <UploadTest /> */}
       {/* <AuthTest /> */}
       <SplitTest1 />
@@ -11,5 +12,3 @@ const TestingVariant = () => {
     </div>
   )
 }
-
-export default TestingVariant

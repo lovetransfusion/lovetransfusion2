@@ -3,7 +3,7 @@
 import Image from 'next/image'
 import CltDropzone from '../components/dropzone/Dropzone'
 
-const ClientTestingPage = () => {
+const UploadTest = () => {
 //   const [blurData, setblurData] = useState(null)
 //   const myFunction = async () => {
 //     const res = await generateBlurDataURL(
@@ -36,4 +36,4 @@ const ClientTestingPage = () => {
   )
 }
 
-export default ClientTestingPage
+export default UploadTest
