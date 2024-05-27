@@ -2,7 +2,7 @@
 import Image from 'next/image'
 import { useCallback, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
-import { startUploadingImages } from './actions'
+import axios from 'axios'
 
 const CltDropzone = () => {
   const [selectedImages, setSelectedImages] = useState([])
@@ -25,17 +25,25 @@ const CltDropzone = () => {
     onDrop,
   })
 
-  const onUpload = () => {
-    console.log('uploaded images', selectedImages)
-    const formData = new FormData()
-    selectedImages.forEach((image) => {
-      formData.append('file', image)
-    })
-    console.log('formData', formData)
-    // startUploadingImages(formData)
+  const onUpload = async () => {
+    for (const image of selectedImages) {
+      let formData = new FormData()
+      formData.append(image.name, image)
+      // getFile(formData)
+
+      // const config = {
+      //   method: 'POST',
+      //   url: process.env.NEXT_PUBLIC_ROOT_DOMAIN + '/components/dropzone/api',
+      //   data: formData,
+      // }
+      const response = await axios.post(
+        process.env.NEXT_PUBLIC_ROOT_DOMAIN + '/components/dropzone/api',
+        { data: { formData } }
+      )
+    }
+    // console.log('selectedImages[0]', selectedImages[0].name)
   }
 
-  console.log({ isDragActive, isDragAccept, isDragReject })
   return (
     <div>
       <div {...getRootProps()}>
