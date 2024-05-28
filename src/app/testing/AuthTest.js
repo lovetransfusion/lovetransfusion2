@@ -21,7 +21,6 @@ const AuthTest = () => {
   useEffect(() => {
     getUser()
   }, [])
-  console.log({ user })
   return <div></div>
 }
 

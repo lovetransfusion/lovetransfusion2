@@ -2,7 +2,7 @@
 
 import axios from 'axios'
 
-export const submitStory = async (data) => {
+export const submitStory = async ({ formData: data, images }) => {
   const firstName = data?.fullName.split(' ')[0]
   const lastName = data?.fullName.split(' ')[1]
   const lastName2 = data?.fullName.split(' ')[2]
@@ -21,7 +21,7 @@ export const submitStory = async (data) => {
         { field: '2', value: data?.otherPages },
         { field: '3', value: data?.recipientInterests },
         { field: '4', value: data?.recipientName },
-        { field: '5', value: data?.recipientPicture },
+        { field: '5', value: images },
         { field: '6', value: data?.recipientSituation },
         { field: '7', value: data?.relationship },
       ],
@@ -49,9 +49,9 @@ export const submitStory = async (data) => {
       return { data: null, error: 'Email address already exist' }
     }
   } catch (error) {
-    console.log('Error submitting story:', error.response)
+    console.log('Error submitting story:', error)
     const theError =
-      error.response.status === 422
+      error?.response?.status === 422
         ? 'Email address already exist'
         : 'An error occured'
     return { data: null, error: theError }
@@ -91,21 +91,21 @@ export const retrieveLists = () => {
 }
 
 // ************ ADD TO SPECIFIC LIST ************
-// const addToList = (contactId) => {
-//   const options = {
-//     method: 'POST',
-//     headers: {
-//       accept: 'application/json',
-//       'content-type': 'application/json',
-//       'Api-Token': `${process.env.ACTIVE_CAMPAIGN_API_KEY}`,
-//     },
-//     body: JSON.stringify({
-//       contactList: { list: '2', contact: contactId, status: '1' },
-//     }),
-//   }
+const addToList = (contactId) => {
+  const options = {
+    method: 'POST',
+    headers: {
+      accept: 'application/json',
+      'content-type': 'application/json',
+      'Api-Token': `${process.env.ACTIVE_CAMPAIGN_API_KEY}`,
+    },
+    body: JSON.stringify({
+      contactList: { list: '2', contact: contactId, status: '1' },
+    }),
+  }
 
-//   fetch('https://lovetransfusion.api-us1.com/api/3/contactLists', options)
-//     .then((response) => response.json())
-//     .then((response) => console.log(response))
-//     .catch((err) => console.error(err))
-// }
+  fetch('https://lovetransfusion.api-us1.com/api/3/contactLists', options)
+    .then((response) => response.json())
+    .then((response) => console.log(response))
+    .catch((err) => console.error(err))
+}

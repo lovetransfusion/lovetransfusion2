@@ -12,11 +12,8 @@ import { useForm } from 'react-hook-form'
 import { submitStory } from './actions'
 import Toast from '@/app/components/Toast'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
-import {
-  handleDeleteFolder,
-  handleDeleteImage,
-} from '@/app/components/_cloudinary/actions'
 import UploadImages from './UploadImages'
+import { createClient } from '@/config/supabase/supabaseClient'
 
 const ClientSubmitStory = () => {
   const { register, handleSubmit, formState, reset } = useForm()
@@ -24,10 +21,36 @@ const ClientSubmitStory = () => {
   const [toast, settoast] = useState(null)
   const [sending, setsending] = useState(false)
   const [messageSent, setmessageSent] = useState(false)
+  const [uploadedImages, setuploadedImages] = useState(null)
+
+  const uploadTheFiles = async (form) => {
+    let imageUrls = []
+    const uploadFile = async (file) => {
+      const imageName = file?.path.replace(' ', '_').toLowerCase()
+      const folrder = form?.recipientName.replace(' ', '_').toLowerCase()
+      const supabase = createClient()
+      const { data, error } = await supabase.storage
+        .from('recipient_images')
+        .upload(`${folrder}/${imageName}`, file, {
+          cacheControl: '3600',
+          upsert: false,
+        })
+      const imgUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${data?.fullPath}`
+      imageUrls.push(imgUrl)
+    }
+
+    for (const imgObj of uploadedImages) {
+      await uploadFile(imgObj.file)
+    }
+    const joinedImages = imageUrls.join(', ')
+    return joinedImages
+  }
 
   const onSubmit = async (formData) => {
     setsending(true)
-    const { data, error } = await submitStory(formData)
+    if (uploadedImages?.length <= 0) return
+    const images = await uploadTheFiles(formData)
+    const { data, error } = await submitStory({ formData, images })
     if (data) {
       settoast({
         description: 'We received your details.',
@@ -46,16 +69,8 @@ const ClientSubmitStory = () => {
     }
   }
 
-  const handleDelete = async () => {
-    const publicId = ['icrtiqddfoyybuxj6wlp', 'hts1c52vrvvdk8gkmfib']
-    await handleDeleteImage(publicId)
-
-    // const folderName = 'product'
-    // await handleDeleteFolder(folderName)
-  }
   return (
     <div className={`${openSans.className}`}>
-      {/* <Button onClick={handleDelete}>Testing Delete</Button> */}
       <Toast parameters={{ toast, settoast }} />
       <TitleSectionComponent>
         <div className={'flex text-primary items-center justify-between'}>
@@ -246,17 +261,7 @@ const ClientSubmitStory = () => {
                   <label htmlFor="recipientPicture" className="font-semibold">
                     Picture of the Recipient:
                   </label>
-                  <UploadImages />
-                  {/* <Input
-                    id="recipientPicture"
-                    name="recipientPicture"
-                    placeholder="Click to upload files, or drag & drop files here."
-                    className="rounded-none border-[1px] border-primary placeholder:text-[#C4C6C9] placeholder:text-sm placeholder:focus:text-[#F1F1F2] py-3"
-                    {...register('recipientPicture', {
-                      required: 'Required',
-                    })}
-                    error={errors?.recipientPicture?.message}
-                  /> */}
+                  <UploadImages setuploadedImages={setuploadedImages} />
                 </div>
                 <div className={'w-full flex flex-col gap-[9px]'}>
                   <label htmlFor="email" className="font-semibold">
@@ -308,7 +313,7 @@ const ClientSubmitStory = () => {
                     className="relative text-base font-semibold"
                     type="submit"
                   >
-                    SUBMIT STORY{' '}
+                    {sending ? 'SUBMITTING' : 'SUBMIT STORY'}{' '}
                     {sending && (
                       <Icon_spinner className="animate-spin absolute right-7" />
                     )}

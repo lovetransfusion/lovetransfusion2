@@ -1,19 +1,51 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 import Image from 'next/image'
-import { useCallback, useState } from 'react'
+import { useCallback, useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
-import axios from 'axios'
+import { generateBlurDataURL } from './actions'
 
-const CltDropzone = () => {
-  const [selectedImages, setSelectedImages] = useState([])
+// guide:
+// Add these
+// const [selectedImages, setSelectedImages] = useState([])
+// const [imagesWithBlurDataUrl, setImagesWithBlurDataUrl] = useState(null)
 
-  console.log('selectedImages', selectedImages)
+{
+  /* <CltDropzone
+        parameters={{
+          selectedImages,
+          setSelectedImages,
+          setImagesWithBlurDataUrl,
+        }}
+      /> */
+}
 
+const CltDropzone = ({
+  parameters: { selectedImages, setSelectedImages, setImagesWithBlurDataUrl },
+}) => {
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     acceptedFiles.forEach((file) => {
       setSelectedImages((prevState) => [...prevState, file])
     })
   }, [])
+  const onUpload = async () => {
+    let formData = new FormData()
+    for (const image of selectedImages) {
+      formData.append(image.name, image)
+    }
+    const blurDataImages = await generateBlurDataURL(formData)
+    const newSelectedImages = selectedImages?.map((image) => {
+      const data = blurDataImages.find((item) => item.key === image.path)
+      const newFile = { file: image, blurDataURL: data.blurDataURL }
+      return newFile
+    })
+    setImagesWithBlurDataUrl(newSelectedImages)
+  }
+  useEffect(() => {
+    selectedImages?.map((image) => {})
+    if (selectedImages?.length <= 0) return
+    onUpload()
+  }, [selectedImages])
 
   const {
     getRootProps,
@@ -24,25 +56,6 @@ const CltDropzone = () => {
   } = useDropzone({
     onDrop,
   })
-
-  const onUpload = async () => {
-    for (const image of selectedImages) {
-      let formData = new FormData()
-      formData.append(image.name, image)
-      // getFile(formData)
-
-      // const config = {
-      //   method: 'POST',
-      //   url: process.env.NEXT_PUBLIC_ROOT_DOMAIN + '/components/dropzone/api',
-      //   data: formData,
-      // }
-      const response = await axios.post(
-        process.env.NEXT_PUBLIC_ROOT_DOMAIN + '/components/dropzone/api',
-        { data: { formData } }
-      )
-    }
-    // console.log('selectedImages[0]', selectedImages[0].name)
-  }
 
   return (
     <div>
@@ -74,11 +87,6 @@ const CltDropzone = () => {
               className="my-auto"
             />
           ))}
-        </div>
-      )}
-      {selectedImages.length > 0 && (
-        <div className={''}>
-          <button onClick={onUpload}>Upload to Cloudinary</button>
         </div>
       )}
     </div>
