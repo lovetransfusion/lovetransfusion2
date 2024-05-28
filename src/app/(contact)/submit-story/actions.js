@@ -43,7 +43,7 @@ export const submitStory = async ({ formData: data, images }) => {
 
     if (response.data?.contact) {
       const contactId = response.data?.contact?.id
-      addToList(contactId)
+      await addToList(contactId)
       return { data: response.data?.contact, error: null }
     } else if (response.data?.errors) {
       return { data: null, error: 'Email address already exist' }
@@ -91,7 +91,7 @@ export const retrieveLists = () => {
 }
 
 // ************ ADD TO SPECIFIC LIST ************
-const addToList = (contactId) => {
+const addToList = async (contactId) => {
   const options = {
     method: 'POST',
     headers: {

@@ -68,7 +68,6 @@ const ClientSubmitStory = () => {
       setsending(false)
     }
   }
-
   return (
     <div className={`${openSans.className}`}>
       <Toast parameters={{ toast, settoast }} />
