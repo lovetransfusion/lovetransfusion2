@@ -6,11 +6,11 @@ import { openSans } from '@/utilities/fonts/fonts'
 import { useStore } from 'zustand'
 import utilityStore2 from '@/utilities/store/utilityStore'
 import utilityStore from '@/utilities/store/store'
-import SummaryAdCampaign from './SummaryAdCampaign'
 import Icon_padlock from '@/app/components/icons/Icon_padlock'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
+import SummaryCarePackage from './SummaryCarePackage'
 
-export default function CheckoutForm() {
+export default function CheckoutForm({ variation }) {
   const stripe = useStripe()
   const elements = useElements()
 
@@ -19,7 +19,7 @@ export default function CheckoutForm() {
   const { settoast } = useStore(utilityStore2)
 
   const {
-    adCampaign: {
+    carePackage: {
       donationAmount,
       donorFirstName,
       donorLastName,
@@ -69,7 +69,7 @@ export default function CheckoutForm() {
           donorFirstName,
           donorLastName,
           donorEmailAddress,
-          description: `Ad Campaign - $${parseFloat(
+          description: `Care Package - $${parseFloat(
             donationAmount
           )} donation for ${donee} from ${donorFirstName} ${donorLastName}`,
         },
@@ -79,12 +79,13 @@ export default function CheckoutForm() {
     const { clientSecret } = await response.data
 
     const targetPathURL = window.location.pathname
+    const optionalParams = `?variation=${variation}`
 
     const { error } = await stripe.confirmPayment({
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}${targetPathURL}`,
+        return_url: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}${targetPathURL}${optionalParams}`,
       },
     })
 
@@ -104,7 +105,7 @@ export default function CheckoutForm() {
         </div>
         <div className={'flex flex-col gap-4'}>
           <PaymentElement id="payment-element" />
-          <SummaryAdCampaign />
+          <SummaryCarePackage />
           <button
             disabled={isLoading || !stripe || !elements}
             id="submit"

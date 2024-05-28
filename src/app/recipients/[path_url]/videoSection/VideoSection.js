@@ -1,4 +1,7 @@
+'use client'
 import dynamic from 'next/dynamic'
+import { useSearchParams } from 'next/navigation'
+import { useEffect } from 'react'
 const WistiaPlayer = dynamic(() => import('@/app/components/WistiaPlayer'), {
   ssr: false,
 })
@@ -7,6 +10,15 @@ const VideoSection = ({ parameters: { setpopup } }) => {
   const handleClick = () => {
     setpopup('adCampaign')
   }
+  const payment_intent = useSearchParams().get('payment_intent')
+  const redirect_status = useSearchParams().get('redirect_status')
+
+  useEffect(() => {
+    if (!!payment_intent && redirect_status === 'succeeded') {
+      setpopup('paymentReceipt')
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
   return (
     <div className={'flex pt-20 pb-[37px]'}>
       <div

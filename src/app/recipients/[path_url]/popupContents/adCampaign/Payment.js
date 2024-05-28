@@ -5,7 +5,7 @@ import CheckoutForm from './CheckoutForm'
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
-const Payment = () => {
+const Payment = ({ variation }) => {
   const appearance = {
     theme: 'stripe',
     variables: {
@@ -47,7 +47,7 @@ const Payment = () => {
   return (
     <div className="mb-3 min-h-[355px]">
       <Elements stripe={stripePromise} options={options} className="w-full">
-        <CheckoutForm />
+        <CheckoutForm variation={variation} />
       </Elements>
     </div>
   )

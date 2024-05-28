@@ -1,25 +1,28 @@
 import { NextResponse } from 'next/server'
 import { getBucket } from '@/app/lib/ab-test'
-import { RECIPIENT_BUCKETS, TESTINGSSSS_BUCKETS } from '@/app/lib/buckets'
+import {
+  RECIPIENT_VARIATION,
+  TESTINGSSSS_VARIATION,
+} from '@/app/lib/variations'
 const ROUTES = {
   // Example
   '/this_will_be_the_pathname': {
     page: '/this_will_be_the_pathname',
-    cookie: 'bucket-pathname',
-    buckets: TESTINGSSSS_BUCKETS,
+    cookie: 'variation-pathname',
+    variation: TESTINGSSSS_VARIATION,
   },
 }
 
 export const executeSplitTesting = (req) => {
-  const { pathname } = req.nextUrl
+  const { pathname, href } = req.nextUrl
 
   let route
 
-  if (pathname.includes('/recipients/')) {
+  if (pathname.includes('/recipients/') && !href.includes('?variation')) {
     route = {
       page: pathname,
-      cookie: 'bucket-recipient',
-      buckets: RECIPIENT_BUCKETS,
+      cookie: 'variation-recipient',
+      variation: RECIPIENT_VARIATION,
     }
   } else {
     route = ROUTES[pathname]
@@ -27,26 +30,28 @@ export const executeSplitTesting = (req) => {
 
   if (!route) return
 
-  // Get the bucket from the cookie
-  let bucket = req.cookies.get(route.cookie)
-  let hasBucket = !!bucket
+  // Get the variation from the cookie
+  let variation = req.cookies.get(route.cookie)
+  let hasBucket = !!variation
 
   // Set a cookie if no activebucket or cookie invalid
-  if (!bucket || !route.buckets.includes(bucket?.value)) {
-    bucket = getBucket(route.buckets)
+  if (!variation || !route.variation.includes(variation?.value)) {
+    variation = getBucket(route.variation)
     hasBucket = false
-
     const url = req.nextUrl.clone()
-    url.pathname = `${route.page}/${bucket}`
+    url.search = new URLSearchParams({ variation })
     //Rewrite the response to Next
-    const res = NextResponse.rewrite(url, {
-      headers: { 'Set-Cookie': `${route.cookie}=${bucket}; path=/;` },
+    const res = NextResponse.redirect(url)
+    res.cookies.set({
+      name: route.cookie,
+      value: variation,
+      path: '/',
     })
     return res
   }
   const url = req.nextUrl.clone()
-  url.pathname = `${route.page}/${bucket?.value}`
-  //Rewrite the response to Next
-  const res = NextResponse.rewrite(url)
+  url.search = new URLSearchParams({ variation: variation?.value })
+  // //Rewrite the response to Next
+  const res = NextResponse.redirect(url)
   return res
 }

@@ -3,10 +3,11 @@ import {
   QueryClient,
   dehydrate,
 } from '@tanstack/react-query'
-import ClientPageRecipient from './ClientOriginal'
 import { createClient } from '@/config/supabase/supabaseClient'
 import singleUseQuery from '@/queries/useQuery/singleUseQuery'
-import ClientSplitB from './ClientSplitB'
+import dynamic from 'next/dynamic'
+const ClientPageRecipient = dynamic(() => import('./ClientOriginal'))
+const ClientSplitB = dynamic(() => import('./ClientSplitB'))
 
 export const revalidate = 60
 
@@ -41,10 +42,13 @@ export async function generateStaticParams() {
   return recipients || []
 }
 
-const RecipientPage = async ({ params: { path_url, split_test } }) => {
+const RecipientPage = async ({
+  params: { path_url },
+  searchParams: { variation },
+}) => {
   const supabase = createClient()
   const queryClient = new QueryClient()
-  console.log('split_test', split_test)
+  console.log('variation', variation)
 
   await queryClient.prefetchQuery(
     singleUseQuery({
@@ -58,13 +62,15 @@ const RecipientPage = async ({ params: { path_url, split_test } }) => {
   return (
     <div>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        {split_test === 'original' && (
+        {variation === 'original' && (
           <ClientPageRecipient
-            parameters={{ path_url: path_url.toLowerCase() }}
+            parameters={{ path_url: path_url.toLowerCase(), variation }}
           />
         )}
-        {split_test === 'splitB' && (
-          <ClientSplitB parameters={{ path_url: path_url.toLowerCase() }} />
+        {variation === 'splitB' && (
+          <ClientSplitB
+            parameters={{ path_url: path_url.toLowerCase(), variation }}
+          />
         )}
       </HydrationBoundary>
     </div>
