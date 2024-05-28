@@ -75,7 +75,7 @@ export const retrieveFields = () => {
 }
 
 // ************ RETRIEVE ALL LISTS ************
-export const retrieveLists = () => {
+export const retrieveLists = async () => {
   const options = {
     method: 'GET',
     headers: {
@@ -84,7 +84,7 @@ export const retrieveLists = () => {
     },
   }
 
-  fetch('https://lovetransfusion.api-us1.com/api/3/lists', options)
+  await fetch('https://lovetransfusion.api-us1.com/api/3/lists', options)
     .then((response) => response.json())
     .then((response) => console.log(response))
     .catch((err) => console.error(err))
@@ -104,7 +104,7 @@ const addToList = async (contactId) => {
     }),
   }
 
-  fetch('https://lovetransfusion.api-us1.com/api/3/contactLists', options)
+  await fetch('https://lovetransfusion.api-us1.com/api/3/contactLists', options)
     .then((response) => response.json())
     .then((response) => console.log(response))
     .catch((err) => console.error(err))
