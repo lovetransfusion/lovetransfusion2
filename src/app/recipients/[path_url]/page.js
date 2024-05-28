@@ -36,11 +36,11 @@ export async function generateMetadata({ params }) {
   }
 }
 
-export async function generateStaticParams() {
-  const supabase = createClient()
-  const { data: recipients } = supabase.from('recipients').select('path_url')
-  return recipients || []
-}
+// export async function generateStaticParams() {
+//   const supabase = createClient()
+//   const { data: recipients } = supabase.from('recipients').select('path_url')
+//   return recipients || []
+// }
 
 const RecipientPage = async ({
   params: { path_url },
