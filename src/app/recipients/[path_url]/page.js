@@ -62,7 +62,7 @@ const RecipientPage = async ({
   return (
     <div>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        {variation === 'original' && (
+        {/* {variation === 'original' && (
           <ClientPageRecipient
             parameters={{ path_url: path_url.toLowerCase(), variation }}
           />
@@ -71,7 +71,10 @@ const RecipientPage = async ({
           <ClientSplitB
             parameters={{ path_url: path_url.toLowerCase(), variation }}
           />
-        )}
+        )} */}
+        <ClientSplitB
+          parameters={{ path_url: path_url.toLowerCase(), variation }}
+        />
       </HydrationBoundary>
     </div>
   )

@@ -87,7 +87,8 @@ export default function CheckoutForm({ variation }) {
       elements,
       clientSecret,
       confirmParams: {
-        return_url: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}${targetPathURL}${optionalParams}`,
+        return_url: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}${targetPathURL}`,
+        // return_url: `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}${targetPathURL}${optionalParams}`,
       },
     })
 

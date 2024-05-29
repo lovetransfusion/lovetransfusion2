@@ -17,8 +17,10 @@ export const executeSplitTesting = (req) => {
   const { pathname, href } = req.nextUrl
 
   let route
-
-  if (pathname.includes('/recipients/') && !href.includes('?variation')) {
+  // BEFORE ENABLING THIS, MUST ENABLE
+  // OPTIONAL PARAMETERS IN CHECKOUT FORMS
+  // OF AD CAMPAIGN AND CARE PACKAGE
+  if (pathname.includes('/recipientssss/') && !href.includes('?variation')) {
     route = {
       page: pathname,
       cookie: 'variation-recipient',

@@ -45,7 +45,7 @@ const ClientSubmitStory = () => {
     if (imageUrls?.length > 0) {
       const joinedImages =
         imageUrls?.length > 0
-          ? imageUrls?.map((item) => item).join(', ')
+          ? imageUrls?.map((item) => item)?.join(', ')
           : imageUrls
       console.log({ uploadedImages, joinedImages, imageUrls })
       return joinedImages
