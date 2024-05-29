@@ -19,11 +19,11 @@ const StepOne = ({
       x: '-100%',
     },
     animate: {
-      x: `-${barWidth}%`,
+      x: barWidth < -100 ? '0%' : `-${barWidth}%`,
       transition: {
         duration: 0.5,
-        ease: "backInOut",
-      }
+        ease: barWidth < -100 ? 'easeOut' : 'backInOut',
+      },
     },
   }
   return (
