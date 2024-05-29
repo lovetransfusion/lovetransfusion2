@@ -18,7 +18,7 @@ const StepOne = ({ parameters: { package_image, firstName, donations } }) => {
       x: '-100%',
     },
     animate: {
-      x: barWidth < -100 ? '0%' : `${barWidth}%`,
+      x: barWidth < -100 ? '0%' : `-${barWidth}%`,
       transition: {
         duration: 0.5,
         ease: barWidth < -100 ? 'easeOut' : 'backInOut',
