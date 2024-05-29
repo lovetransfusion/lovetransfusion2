@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import React from 'react'
-import Alex from './images/Alex-60x60.webp'
+import miette from '@/app/recipients/[path_url]/testimonials/images/Miette.jpg'
 import icon44 from './images/icon44.webp'
 import { Arial } from '@/utilities/fonts/fonts'
 import Link from 'next/link'
@@ -42,16 +42,20 @@ const Footer = () => {
           </div>
           <div className={'lg:px-3 xl:px-[25px]'}>
             <p className={'text-base text-[#262b2e] mb-[13px]'}>TESTIMONIALS</p>
-            <p>“Thank you for the awesome support!”</p>
+            <p>
+              “Oh wow, you guys have made our night, week, month… my daughter is
+              so excited. She is absolutely over the moon! Thank you for your
+              love and prayers and well wishes. Thank you so very much Love
+              Transfusion.”
+            </p>
             <div className={'flex items-center gap-4 mt-6'}>
               <Image
-                src={Alex}
+                src={miette}
                 alt="testimony picture"
-                className="rounded-full"
+                className="rounded-full size-[60px]"
               />
               <div className={'text-[#262b2e]'}>
-                <p className={''}>Alex – Bone Cancer</p>
-                <p className={''}>Alex R. - Orlando, Florida</p>
+                <p className={''}>Natalie S. - Australia</p>
               </div>
             </div>
           </div>

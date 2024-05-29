@@ -43,7 +43,9 @@ const ClientSubmitStory = () => {
       await uploadFile(imgObj.file)
     }
     const joinedImages =
-      imageUrls?.length > 0 ? imageUrls?.join(', ') : imageUrls
+      imageUrls?.length > 0
+        ? imageUrls?.map((item) => item).join(', ')
+        : imageUrls
     return joinedImages
   }
 
