@@ -1,9 +1,9 @@
 import { NextResponse } from 'next/server'
-import { getBucket } from '@/app/lib/ab-test'
 import {
   RECIPIENT_VARIATION,
   TESTINGSSSS_VARIATION,
 } from '@/app/lib/variations'
+import { getVariant } from '@/app/lib/getVariant'
 const ROUTES = {
   // Example
   '/this_will_be_the_pathname': {
@@ -36,7 +36,7 @@ export const executeSplitTesting = (req) => {
 
   // Set a cookie if no activebucket or cookie invalid
   if (!variation || !route.variation.includes(variation?.value)) {
-    variation = getBucket(route.variation)
+    variation = getVariant(route.variation)
     hasBucket = false
     const url = req.nextUrl.clone()
     url.search = new URLSearchParams({ variation })
