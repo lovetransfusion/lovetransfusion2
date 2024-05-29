@@ -42,11 +42,14 @@ const ClientSubmitStory = () => {
     for (const imgObj of uploadedImages) {
       await uploadFile(imgObj.file)
     }
-    const joinedImages =
-      imageUrls?.length > 0
-        ? imageUrls?.map((item) => item).join(', ')
-        : imageUrls
-    return joinedImages
+    if (imageUrls?.length > 0) {
+      const joinedImages =
+        imageUrls?.length > 0
+          ? imageUrls?.map((item) => item).join(', ')
+          : imageUrls
+      console.log({ uploadedImages, joinedImages, imageUrls })
+      return joinedImages
+    }
   }
 
   const onSubmit = async (formData) => {
