@@ -6,7 +6,6 @@ import React, { useEffect, useState } from 'react'
 const UploadImages = ({ setuploadedImages }) => {
   const [selectedImages, setSelectedImages] = useState([])
   const [imagesWithBlurDataUrl, setImagesWithBlurDataUrl] = useState(null)
-  console.log('imagesWithBlurDataUrl', imagesWithBlurDataUrl)
 
   useEffect(() => {
     setuploadedImages(imagesWithBlurDataUrl)

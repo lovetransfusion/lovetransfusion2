@@ -42,7 +42,6 @@ const CltDropzone = ({
     setImagesWithBlurDataUrl(newSelectedImages)
   }
   useEffect(() => {
-    selectedImages?.map((image) => {})
     if (selectedImages?.length <= 0) return
     onUpload()
   }, [selectedImages])
@@ -76,7 +75,7 @@ const CltDropzone = ({
 
       {selectedImages.length > 0 && (
         <div className={'grid grid-cols-2 md:grid-cols-4 gap-2 mt-2'}>
-          {selectedImages.map((image, index) => (
+          {selectedImages?.map((image, index) => (
             <Image
               src={`${URL.createObjectURL(image)}`}
               width={300}
