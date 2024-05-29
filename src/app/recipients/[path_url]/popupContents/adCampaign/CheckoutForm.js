@@ -65,6 +65,7 @@ export default function CheckoutForm({ variation }) {
       `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/payment-intents/create`,
       {
         data: {
+          donee,
           donationAmount,
           donorFirstName,
           donorLastName,
@@ -72,6 +73,7 @@ export default function CheckoutForm({ variation }) {
           description: `Ad Campaign - $${parseFloat(
             donationAmount
           )} donation for ${donee} from ${donorFirstName} ${donorLastName}`,
+          source: 'Ad Campaign'
         },
       }
     )

@@ -28,7 +28,9 @@ const StepThree = ({ parameters: { variation } }) => {
 
         <UserFormAdCampaign />
         <Suspense fallback={<h2>Loading Payment...</h2>}>
-          {adCampaign.donationAmount && <Payment variation={variation} />}
+          {adCampaign.donationAmount && (
+            <Payment variation={variation} />
+          )}
         </Suspense>
       </div>
       <BottomSectionAdCampaign parameters={{}} />

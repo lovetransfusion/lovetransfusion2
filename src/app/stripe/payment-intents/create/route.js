@@ -10,6 +10,8 @@ export const POST = async (request) => {
     donorLastName,
     donorEmailAddress,
     description,
+    donee,
+    source,
   } = data
 
   const empotencyKey = v4()
@@ -24,10 +26,9 @@ export const POST = async (request) => {
         owner_firstName: donorFirstName,
         owner_lastName: donorLastName,
         owner_email: donorEmailAddress,
+        recipient: donee || 'general',
+        source: source,
       },
-      // payment_method_options: {
-      //   card,
-      // },
     },
     {
       idempotencyKey: empotencyKey,
