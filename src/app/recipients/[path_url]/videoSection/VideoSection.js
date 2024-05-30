@@ -6,7 +6,7 @@ const WistiaPlayer = dynamic(() => import('@/app/components/WistiaPlayer'), {
   ssr: false,
 })
 
-const VideoSection = ({ parameters: { setpopup } }) => {
+const VideoSection = ({ parameters: { setpopup, firstName } }) => {
   const handleClick = () => {
     setpopup('adCampaign')
   }
@@ -31,7 +31,8 @@ const VideoSection = ({ parameters: { setpopup } }) => {
             'text-[28px] font-demiCond text-primary leading-[33px] mb-5'
           }
         >
-          Short Video Explains How We Are Raising Awareness Of Benny’s Story
+          Short Video Explains How We Are Raising Awareness Of {firstName}’s
+          Story
         </p>
         <WistiaPlayer
           videoId="nx9htrqsu9"

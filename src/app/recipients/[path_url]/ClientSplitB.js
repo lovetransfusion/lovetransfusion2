@@ -112,7 +112,7 @@ const ClientSplitB = ({ parameters: { path_url, variation } }) => {
       />
       <FifthSectionSplitB condition={condition} />
       <Suspense fallback={<></>}>
-        <VideoSection parameters={{ setpopup }} />
+        <VideoSection parameters={{ setpopup, firstName }} />
       </Suspense>
       <TestimonialsSplitB />
       <WristHugSection />

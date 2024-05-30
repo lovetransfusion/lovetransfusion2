@@ -1,11 +1,9 @@
 'use client'
-import MainNavigation from '@/app/components/ThisWebsiteOnly/Navigation/MainNavigation'
 import React from 'react'
 
 const VerificationPage = ({ searchParams }) => {
   return (
     <>
-      <MainNavigation />
       <div className={'py-10'}>
         <div
           className={

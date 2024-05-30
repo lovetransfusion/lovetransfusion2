@@ -28,7 +28,7 @@ const WhatIsSectionSplitB = ({
   return (
     <div
       className={
-        'flex py-[49px] text-xl md:pt-[54px] md:pb-[53px]'
+        'flex py-[49px] text-xl md:pt-[64px] md:pb-[63px]'
       }
     >
       <div className={'container md:px-6 lg:px-10 xl:px-0 flex justify-center'}>
@@ -62,10 +62,10 @@ const WhatIsSectionSplitB = ({
             {more_ways_to_support && (
               <div className={'flex text-primary flex-col gap-[10px]'}>
                 <p className={'font-demiCond text-2xl mt-1 leading-[22px]'}>
-                  More ways to support {firstName}
+                  More ways to support {firstName}:
                 </p>
                 <div className={'flex flex-col'}>
-                  <ul className="leading-[28px]">
+                  <ul className="leading-[28px] list-disc list-inside">
                     {more_ways_to_support?.facebookPage && (
                       <li>
                         <Link

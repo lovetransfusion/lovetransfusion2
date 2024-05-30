@@ -64,7 +64,7 @@ const PaymentReceipt = () => {
             >{`Thank you ${receiptData?.metadata?.owner_firstName}!`}</p>
             <p
               className={'mb-10 text-[#858585 leading-[22px] text-balance'}
-            >{`Thank you for supporting Love Transfusion and the services we offer.`}</p>
+            >{`Your tax-deductible donation will be used to support Love Transfusion and the services we offer.`}</p>
           </div>
           <div
             className={
