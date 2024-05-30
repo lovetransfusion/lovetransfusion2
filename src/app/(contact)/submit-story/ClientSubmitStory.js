@@ -31,16 +31,11 @@ const ClientSubmitStory = () => {
   const [sending, setsending] = useState(false)
   const [messageSent, setmessageSent] = useState(false)
   const [uploadedImages, setuploadedImages] = useState(null)
-  console.log('uploadedImages', uploadedImages)
 
   const uploadTheFiles = async (form) => {
-    console.log('reached uploadTheFiles')
     const uploadFile = uploadedImages?.map(async (imgObj) => {
-      console.log('reached uploadFile')
       const imageName = imgObj?.file?.path.replace(' ', '_').toLowerCase()
-      console.log('reached imageName')
       const folder = form?.recipientName.replace(' ', '_').toLowerCase()
-      console.log('folder', folder)
       const supabase = createClient()
       const dateString = generateDateString()
       const { data, error } = await supabase.storage
@@ -49,31 +44,18 @@ const ClientSubmitStory = () => {
           cacheControl: '3600',
           upsert: false,
         })
-      console.log('reached data error', data, error)
       const imgUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${data?.fullPath}`
-      console.log('imgUrl', imgUrl)
       return imgUrl
     })
 
     const imageUrls = await Promise.all(uploadFile)
-    console.log('imageUrls', imageUrls)
-
-    return imageUrls
+    const joinedUrls = imageUrls?.join(', ')
+    return joinedUrls
   }
 
   const onSubmit = async (formData) => {
     setsending(true)
-    if (!uploadedImages) {
-      settoast({
-        description: 'We received your details.',
-        status: 'error',
-      })
-      return
-    }
     const images = await uploadTheFiles(formData)
-    // if (!uploadURLs) return
-    // console.log('reached !upload')
-    // const images = uploadURLs?.join(', ')
     const { data, error } = await submitStory({ formData, images })
     if (data) {
       settoast({
@@ -102,7 +84,7 @@ const ClientSubmitStory = () => {
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
-            Share Your Story6
+            Share Your Story
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
@@ -331,7 +313,7 @@ const ClientSubmitStory = () => {
               >
                 {!messageSent && (
                   <Button
-                    disabled={sending || !uploadedImages && true}
+                    disabled={sending || (!uploadedImages && true)}
                     size="md"
                     className="relative text-base font-semibold"
                     type="submit"
