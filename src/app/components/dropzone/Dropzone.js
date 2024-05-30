@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useCallback, useEffect } from 'react'
 import { useDropzone } from 'react-dropzone'
 import { generateBlurDataURL } from './actions'
+import Icon_spinner from '../icons/Icon_spinner'
 
 // guide:
 // Add these
@@ -15,13 +16,19 @@ import { generateBlurDataURL } from './actions'
         parameters={{
           selectedImages,
           setSelectedImages,
+          imagesWithBlurDataUrl,
           setImagesWithBlurDataUrl,
         }}
       /> */
 }
 
 const CltDropzone = ({
-  parameters: { selectedImages, setSelectedImages, setImagesWithBlurDataUrl },
+  parameters: {
+    selectedImages,
+    setSelectedImages,
+    imagesWithBlurDataUrl,
+    setImagesWithBlurDataUrl,
+  },
 }) => {
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     acceptedFiles.forEach((file) => {
@@ -75,17 +82,24 @@ const CltDropzone = ({
 
       {selectedImages.length > 0 && (
         <div className={'grid grid-cols-2 md:grid-cols-4 gap-2 mt-2'}>
-          {selectedImages?.map((image, index) => (
-            <Image
-              src={`${URL.createObjectURL(image)}`}
-              width={300}
-              height={300}
-              quality={100}
-              key={index}
-              alt="uploaded image"
-              className="my-auto"
-            />
-          ))}
+          {selectedImages?.map((image, index) => {
+            return (
+              <div key={index} className="relative">
+                <Image
+                  src={`${URL.createObjectURL(image)}`}
+                  width={300}
+                  height={300}
+                  quality={100}
+                  key={index}
+                  alt="uploaded image"
+                  className="my-auto"
+                />
+                {!imagesWithBlurDataUrl && (
+                  <Icon_spinner className="absolute animate-spin top-0 bottom-0 right-0 left-0 mx-auto my-auto size-10 text-white" />
+                )}
+              </div>
+            )
+          })}
         </div>
       )}
     </div>

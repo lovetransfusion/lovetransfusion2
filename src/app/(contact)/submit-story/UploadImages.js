@@ -17,6 +17,7 @@ const UploadImages = ({ setuploadedImages }) => {
       parameters={{
         selectedImages,
         setSelectedImages,
+        imagesWithBlurDataUrl,
         setImagesWithBlurDataUrl,
       }}
     />

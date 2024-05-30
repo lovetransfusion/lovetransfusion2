@@ -63,7 +63,13 @@ const ClientSubmitStory = () => {
 
   const onSubmit = async (formData) => {
     setsending(true)
-    if (uploadedImages?.length <= 0) return
+    if (!uploadedImages) {
+      settoast({
+        description: 'We received your details.',
+        status: 'error',
+      })
+      return
+    }
     const images = await uploadTheFiles(formData)
     // if (!uploadURLs) return
     // console.log('reached !upload')
@@ -96,7 +102,7 @@ const ClientSubmitStory = () => {
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
-            Share Your Story5
+            Share Your Story6
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
@@ -325,7 +331,7 @@ const ClientSubmitStory = () => {
               >
                 {!messageSent && (
                   <Button
-                    disabled={sending && true}
+                    disabled={sending || !uploadedImages && true}
                     size="md"
                     className="relative text-base font-semibold"
                     type="submit"
