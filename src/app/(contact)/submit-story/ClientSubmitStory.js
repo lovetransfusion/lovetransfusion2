@@ -33,6 +33,8 @@ const ClientSubmitStory = () => {
   const [uploadedImages, setuploadedImages] = useState(null)
 
   const uploadTheFiles = async (form) => {
+    console.log('reached uploadTheFiles')
+    console.log('uploadedImages', uploadedImages)
     const uploadFile = uploadedImages?.map(async (imgObj) => {
       console.log('reached uploadFile')
       const imageName = imgObj?.file?.path.replace(' ', '_').toLowerCase()
@@ -55,6 +57,7 @@ const ClientSubmitStory = () => {
 
     const imageUrls = await Promise.all(uploadFile)
     console.log('imageUrls', imageUrls)
+
     return imageUrls
   }
 
@@ -93,7 +96,7 @@ const ClientSubmitStory = () => {
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
-            Share Your Story3
+            Share Your Story4
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
