@@ -33,6 +33,7 @@ const ClientSubmitStory = () => {
   const [uploadedImages, setuploadedImages] = useState(null)
 
   const uploadTheFiles = async (form) => {
+    console.log('reached uploadedImages')
     const uploadFile = uploadedImages?.map(async (imgObj) => {
       const imageName = imgObj?.file?.path.replace(' ', '_').toLowerCase()
       const folrder = form?.recipientName.replace(' ', '_').toLowerCase()
@@ -45,6 +46,7 @@ const ClientSubmitStory = () => {
           upsert: false,
         })
       const imgUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${data?.fullPath}`
+      console.log('imgUrl', imgUrl)
       return imgUrl
     })
 
@@ -57,6 +59,7 @@ const ClientSubmitStory = () => {
     if (uploadedImages?.length <= 0) return
     const uploadURLs = await uploadTheFiles(formData)
     if (!uploadURLs) return
+    console.log('reached !upload')
     const images = uploadURLs?.join(', ')
     const { data, error } = await submitStory({ formData, images })
     if (data) {
@@ -86,7 +89,7 @@ const ClientSubmitStory = () => {
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
-            Share Your Story
+            Share Your Story1
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
