@@ -14,8 +14,6 @@ import Toast from '@/app/components/Toast'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
 import UploadImages from './UploadImages'
 import { createClient } from '@/config/supabase/supabaseClient'
-import { v4 } from 'uuid'
-import { resolve } from 'styled-jsx/css'
 
 const generateDateString = () => {
   const date = new Date()
@@ -51,15 +49,14 @@ const ClientSubmitStory = () => {
     })
 
     const imageUrls = await Promise.all(uploadFile)
-
-    // const joinedImages = imageUrls?.length > 0 && imageUrls?.join(', ')
     return imageUrls
   }
 
   const onSubmit = async (formData) => {
     setsending(true)
     // if (uploadedImages?.length <= 0) return
-    const images = await uploadTheFiles(formData)
+    const uploads = await uploadTheFiles(formData)
+    const images = uploads?.join(', ')
     console.log('images', images)
     const { data, error } = await submitStory({ formData, images })
     if (data) {
@@ -89,7 +86,7 @@ const ClientSubmitStory = () => {
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
-            Share Your Story 1.01
+            Share Your Story
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
