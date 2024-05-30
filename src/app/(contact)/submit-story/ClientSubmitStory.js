@@ -14,6 +14,17 @@ import Toast from '@/app/components/Toast'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
 import UploadImages from './UploadImages'
 import { createClient } from '@/config/supabase/supabaseClient'
+import { v4 } from 'uuid'
+import { resolve } from 'styled-jsx/css'
+
+const generateDateString = () => {
+  const date = new Date()
+  const day = date.getDay()
+  const month = date.getMonth() + 1
+  const year = date.getFullYear()
+  const milliSeconds = date.getMilliseconds()
+  return `${day}${month}${year}${milliSeconds}`
+}
 
 const ClientSubmitStory = () => {
   const { register, handleSubmit, formState, reset } = useForm()
@@ -24,32 +35,26 @@ const ClientSubmitStory = () => {
   const [uploadedImages, setuploadedImages] = useState(null)
 
   const uploadTheFiles = async (form) => {
-    let imageUrls = []
-    const uploadFile = async (file) => {
-      const imageName = file?.path.replace(' ', '_').toLowerCase()
+    
+    const uploadFile = uploadedImages?.map(async (imgObj) => {
+      const imageName = imgObj?.file?.path.replace(' ', '_').toLowerCase()
       const folrder = form?.recipientName.replace(' ', '_').toLowerCase()
       const supabase = createClient()
+      const dateString = generateDateString()
       const { data, error } = await supabase.storage
         .from('recipient_images')
-        .upload(`${folrder}/${imageName}`, file, {
+        .upload(`${folrder}${dateString}/${imageName}`, imgObj?.file, {
           cacheControl: '3600',
           upsert: false,
         })
       const imgUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${data?.fullPath}`
-      imageUrls.push(imgUrl)
-    }
+      return imgUrl
+    })
 
-    for (const imgObj of uploadedImages) {
-      await uploadFile(imgObj.file)
-    }
-    if (imageUrls?.length > 0) {
-      const joinedImages =
-        imageUrls?.length > 0
-          ? imageUrls?.map((item) => item)?.join(', ')
-          : imageUrls
-      console.log({ uploadedImages, joinedImages, imageUrls })
-      return joinedImages
-    }
+    const imageUrls = await Promise.all(uploadFile)
+
+    const joinedImages = imageUrls?.length > 0 && imageUrls?.join(', ')
+    return joinedImages
   }
 
   const onSubmit = async (formData) => {
