@@ -9,8 +9,9 @@ const UploadImages = ({ setuploadedImages }) => {
 
   useEffect(() => {
     setuploadedImages(imagesWithBlurDataUrl)
+    console.log('imagesWithBlurDataUrl', imagesWithBlurDataUrl)
   }, [imagesWithBlurDataUrl])
-  
+
   return (
     <CltDropzone
       parameters={{

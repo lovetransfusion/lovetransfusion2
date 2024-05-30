@@ -31,10 +31,10 @@ const ClientSubmitStory = () => {
   const [sending, setsending] = useState(false)
   const [messageSent, setmessageSent] = useState(false)
   const [uploadedImages, setuploadedImages] = useState(null)
+  console.log('uploadedImages', uploadedImages)
 
   const uploadTheFiles = async (form) => {
     console.log('reached uploadTheFiles')
-    console.log('uploadedImages', uploadedImages)
     const uploadFile = uploadedImages?.map(async (imgObj) => {
       console.log('reached uploadFile')
       const imageName = imgObj?.file?.path.replace(' ', '_').toLowerCase()
@@ -96,7 +96,7 @@ const ClientSubmitStory = () => {
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
-            Share Your Story4
+            Share Your Story5
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
