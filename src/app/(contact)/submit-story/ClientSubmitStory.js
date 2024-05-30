@@ -35,7 +35,7 @@ const ClientSubmitStory = () => {
   const [uploadedImages, setuploadedImages] = useState(null)
 
   const uploadTheFiles = async (form) => {
-    
+
     const uploadFile = uploadedImages?.map(async (imgObj) => {
       const imageName = imgObj?.file?.path.replace(' ', '_').toLowerCase()
       const folrder = form?.recipientName.replace(' ', '_').toLowerCase()
@@ -59,8 +59,8 @@ const ClientSubmitStory = () => {
 
   const onSubmit = async (formData) => {
     setsending(true)
-    if (uploadedImages?.length <= 0) return
-    const images = await uploadTheFiles(formData)
+    // if (uploadedImages?.length <= 0) return
+    // const images = await uploadTheFiles(formData)
     const { data, error } = await submitStory({ formData, images })
     if (data) {
       settoast({
@@ -89,7 +89,7 @@ const ClientSubmitStory = () => {
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
-            Share Your Story
+            Share Your Story 1.0
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
