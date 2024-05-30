@@ -61,6 +61,7 @@ const ClientSubmitStory = () => {
     setsending(true)
     // if (uploadedImages?.length <= 0) return
     // const images = await uploadTheFiles(formData)
+    const images = 'test'
     const { data, error } = await submitStory({ formData, images })
     if (data) {
       settoast({
@@ -89,7 +90,7 @@ const ClientSubmitStory = () => {
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
-            Share Your Story 1.0
+            Share Your Story 1.01
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
