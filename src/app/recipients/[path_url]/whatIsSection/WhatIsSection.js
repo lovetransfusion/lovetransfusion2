@@ -74,7 +74,7 @@ const WhatIsSection = ({
                         <Link
                           target="_blank"
                           href={goFundMeUrl}
-                        >{`${firstName}’s goFundMe`}</Link>
+                        >{`${firstName}’s GoFundMe`}</Link>
                       </li>
                     )}
                     {more_ways_to_support?.caringBridge && (

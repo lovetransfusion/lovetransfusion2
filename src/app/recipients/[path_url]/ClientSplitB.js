@@ -6,7 +6,6 @@ import singleUseQuery from '@/queries/useQuery/singleUseQuery'
 import { createClient } from '@/config/supabase/supabaseClient'
 import { notFound } from 'next/navigation'
 import ProfileSection from './profileSection/ProfileSection'
-import HugMessageShare from './hugMessageShare/HugMessageShare'
 import WristHugSection from './wristHugSection/WristHugSection'
 import CommentSection from './commentSection/CommentSection'
 import dynamic from 'next/dynamic'
@@ -18,6 +17,7 @@ import FifthSectionSplitB from './fifthSection/FifthSectionSplitB'
 import TestimonialsSplitB from './testimonials/TestimonialsSplitB'
 import DidYouKnowSplitB from './whatIsSection/DidYouKnowSplitB'
 import FooterSplitB from './footer/FooterSplitB'
+import HugMessageShareSplitB from './hugMessageShare/HugMessageShareSplitB'
 
 const Popup = dynamic(() => import('@/app/components/Popup'))
 const PaymentReceipt = dynamic(
@@ -89,7 +89,7 @@ const ClientSplitB = ({ parameters: { path_url, variation } }) => {
           gender,
         }}
       />
-      <HugMessageShare
+      <HugMessageShareSplitB
         parameters={{
           commentSectionRef,
           id,

@@ -3,6 +3,7 @@ import { getAmPm } from '@/utilities/date-and-time/getAmPm'
 import Image from 'next/image'
 import React from 'react'
 import commentatorImage from '../images/avatar.svg'
+import { get24HourFormat } from '@/utilities/date-and-time/get24HourFormat'
 
 const convertDate = (date) => {
   const initialDay = date.getDate()
@@ -13,10 +14,12 @@ const convertDate = (date) => {
   const myDate = `${year}-${month}-${day}`
 
   const initialHour = date.getHours()
-  const hour = convertToZeroFirst(initialHour)
+  const formattedHour = get24HourFormat(initialHour)
+  const hour = convertToZeroFirst(formattedHour)
   const initialMinutes = date.getMinutes()
   const minutes = convertToZeroFirst(initialMinutes)
   const pmOrAm = getAmPm(initialHour)
+  console.log('formattedHour', formattedHour)
   const time = `${hour}:${minutes} ${pmOrAm}`
   const dateTime = `${myDate} at ${time}`
   return dateTime

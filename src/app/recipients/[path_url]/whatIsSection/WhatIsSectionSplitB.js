@@ -1,3 +1,4 @@
+import Icon_ribbon from '@/app/components/icons/Icon_ribbon'
 import Link from 'next/link'
 import React from 'react'
 
@@ -27,19 +28,23 @@ const WhatIsSectionSplitB = ({
   return (
     <div
       className={
-        'flex py-[49px] text-xl md:py-[70px] lg:pt-[102px] lg:pb-[62px]'
+        'flex py-[49px] text-xl md:pt-[54px] md:pb-[53px]'
       }
     >
       <div className={'container md:px-6 lg:px-10 xl:px-0 flex justify-center'}>
         <div className={'flex max-w-[1000px] flex-col'}>
           <div className={'flex flex-col gap-[26px]'}>
-            <p
-              className={
-                'font-demiCond text-[30px] leading-[33px] text-primary pb-1'
-              }
-            >
-              {what_is}
-            </p>
+            <div className={'flex items-center pb-1 gap-2'}>
+              {/* <Image src={ribbon} alt="ribbon" quality={100} className='w-fit max-h-7 text-primary' /> */}
+              <Icon_ribbon className="text-primary size-7" />
+              <p
+                className={
+                  'font-demiCond text-[30px] leading-[33px] text-primary'
+                }
+              >
+                {what_is}
+              </p>
+            </div>
             <div
               className={'quill  leading-[22px] pr-0 md:pr-[50px]'}
               dangerouslySetInnerHTML={{ __html: according_to_paragraph }}
@@ -74,7 +79,7 @@ const WhatIsSectionSplitB = ({
                         <Link
                           target="_blank"
                           href={goFundMeUrl}
-                        >{`${firstName}’s goFundMe`}</Link>
+                        >{`${firstName}’s GoFundMe`}</Link>
                       </li>
                     )}
                     {more_ways_to_support?.caringBridge && (

@@ -7,10 +7,10 @@ import { convertToZeroFirst } from '@/utilities/date-and-time/convertToZero'
 const TitleSectionSplitB = ({
   parameters: { firstName, category, created_at },
 }) => {
-  const date = new Date(created_at)
-  const month = convertFullMonthString(date.getMonth())
-  const thisDate = convertToZeroFirst(date.getDate())
-  const fullYear = date.getFullYear()
+  // const date = new Date(created_at)
+  // const month = convertFullMonthString(date.getMonth())
+  // const thisDate = convertToZeroFirst(date.getDate())
+  // const fullYear = date.getFullYear()
   return (
     <div
       className={
@@ -29,7 +29,7 @@ const TitleSectionSplitB = ({
             {category}
           </p>
           <p className={'text-primary'}>
-            Love Transfusion - {`${month} ${thisDate}, ${fullYear}`}
+            Love Transfusion
           </p>
         </div>
         <h1

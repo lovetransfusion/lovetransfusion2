@@ -14,6 +14,7 @@ import { FacebookShareButton, TwitterShareButton } from 'react-share'
 const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
   const [receiptData, setReceiptData] = useState(null)
   const [isLoading, setisLoading] = useState(true)
+  console.log('receiptData', receiptData)
 
   useEffect(() => {
     const queryString = window.location.search
@@ -63,7 +64,7 @@ const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
               className={'font-mediumCond text-[28px]'}
             >{`Thank you ${receiptData?.metadata?.owner_firstName}!`}</p>
             <p className={'mb-10 text-[#858585 leading-[22px]'}>
-              {!receiptData.description.includes('Care Package')
+              {receiptData.description.includes('Care Package')
                 ? `Your contribution will go towards costs associated with sending
             ${firstName} care packages.`
                 : `Your contribution will be used to provide even more comfort and encouragement for ${firstName}.`}
