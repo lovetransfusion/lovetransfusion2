@@ -33,24 +33,28 @@ const ClientSubmitStory = () => {
   const [uploadedImages, setuploadedImages] = useState(null)
 
   const uploadTheFiles = async (form) => {
-    console.log('reached uploadedImages')
     const uploadFile = uploadedImages?.map(async (imgObj) => {
+      console.log('reached uploadFile')
       const imageName = imgObj?.file?.path.replace(' ', '_').toLowerCase()
-      const folrder = form?.recipientName.replace(' ', '_').toLowerCase()
+      console.log('reached imageName')
+      const folder = form?.recipientName.replace(' ', '_').toLowerCase()
+      console.log('folder', folder)
       const supabase = createClient()
       const dateString = generateDateString()
       const { data, error } = await supabase.storage
         .from('recipient_images')
-        .upload(`${folrder}${dateString}/${imageName}`, imgObj?.file, {
+        .upload(`${folder}${dateString}/${imageName}`, imgObj?.file, {
           cacheControl: '3600',
           upsert: false,
         })
+      console.log('reached data error', data, error)
       const imgUrl = `${process.env.NEXT_PUBLIC_SUPABASE_URL}/storage/v1/object/public/${data?.fullPath}`
       console.log('imgUrl', imgUrl)
       return imgUrl
     })
 
     const imageUrls = await Promise.all(uploadFile)
+    console.log('imageUrls', imageUrls)
     return imageUrls
   }
 
@@ -89,7 +93,7 @@ const ClientSubmitStory = () => {
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
-            Share Your Story1
+            Share Your Story2
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
