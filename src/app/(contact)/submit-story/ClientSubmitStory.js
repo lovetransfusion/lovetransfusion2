@@ -35,7 +35,6 @@ const ClientSubmitStory = () => {
   const [uploadedImages, setuploadedImages] = useState(null)
 
   const uploadTheFiles = async (form) => {
-
     const uploadFile = uploadedImages?.map(async (imgObj) => {
       const imageName = imgObj?.file?.path.replace(' ', '_').toLowerCase()
       const folrder = form?.recipientName.replace(' ', '_').toLowerCase()
@@ -53,15 +52,15 @@ const ClientSubmitStory = () => {
 
     const imageUrls = await Promise.all(uploadFile)
 
-    const joinedImages = imageUrls?.length > 0 && imageUrls?.join(', ')
-    return joinedImages
+    // const joinedImages = imageUrls?.length > 0 && imageUrls?.join(', ')
+    return imageUrls
   }
 
   const onSubmit = async (formData) => {
     setsending(true)
     // if (uploadedImages?.length <= 0) return
-    // const images = await uploadTheFiles(formData)
-    const images = 'test'
+    const images = await uploadTheFiles(formData)
+    console.log('images', images)
     const { data, error } = await submitStory({ formData, images })
     if (data) {
       settoast({
