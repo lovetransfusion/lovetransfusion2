@@ -61,10 +61,10 @@ const ClientSubmitStory = () => {
   const onSubmit = async (formData) => {
     setsending(true)
     if (uploadedImages?.length <= 0) return
-    const uploadURLs = await uploadTheFiles(formData)
-    if (!uploadURLs) return
-    console.log('reached !upload')
-    const images = uploadURLs?.join(', ')
+    const images = await uploadTheFiles(formData)
+    // if (!uploadURLs) return
+    // console.log('reached !upload')
+    // const images = uploadURLs?.join(', ')
     const { data, error } = await submitStory({ formData, images })
     if (data) {
       settoast({
@@ -93,7 +93,7 @@ const ClientSubmitStory = () => {
               'text-[30px] max-sm:mx-auto md:text-[40px] font-semibold leading-[50px]'
             }
           >
-            Share Your Story2
+            Share Your Story3
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
