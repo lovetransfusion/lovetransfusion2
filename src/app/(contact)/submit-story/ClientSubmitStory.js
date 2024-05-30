@@ -54,10 +54,10 @@ const ClientSubmitStory = () => {
 
   const onSubmit = async (formData) => {
     setsending(true)
-    // if (uploadedImages?.length <= 0) return
-    const uploads = await uploadTheFiles(formData)
-    const images = uploads?.join(', ')
-    console.log('images', images)
+    if (uploadedImages?.length <= 0) return
+    const uploadURLs = await uploadTheFiles(formData)
+    if (!uploadURLs) return
+    const images = uploadURLs?.join(', ')
     const { data, error } = await submitStory({ formData, images })
     if (data) {
       settoast({
