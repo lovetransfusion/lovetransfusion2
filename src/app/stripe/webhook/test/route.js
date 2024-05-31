@@ -4,7 +4,7 @@ import { buffer } from 'node:stream/consumers'
 import { createServer } from '@/config/supabase/supabaseServer'
 import { formatDateToUTCString } from '@/utilities/date-and-time/formatDateToUTCString'
 
-const endpointSecret = process.env.WHSEC_KEY
+const endpointSecret = process.env.STRIPE_WEBHOOK_WHSEC_KEY_TEST
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST)
 
 export const POST = async (req) => {
