@@ -136,7 +136,7 @@ const ClientLogin = () => {
           <div className={'flex gap-4 select-none'}>
             <div
               className={
-                'flex rounded-md w-full justify-center shadow-sm border-[1px] py-[10px] px-3 border-[#D1D5DB] gap-2'
+                'flex cursor-pointer rounded-md w-full justify-center shadow-sm border-[1px] py-[10px] px-3 border-[#D1D5DB] gap-2'
               }
               onClick={() => handleLoginWithOAuth('google')}
             >
@@ -145,9 +145,9 @@ const ClientLogin = () => {
             </div>
             <div
               className={
-                'flex rounded-md w-full justify-center shadow-sm border-[1px] py-[10px] px-3 border-[#D1D5DB] gap-2'
+                'flex cursor-pointer rounded-md w-full justify-center shadow-sm border-[1px] py-[10px] px-3 border-[#D1D5DB] gap-2'
               }
-              onClick={() => handleLoginWithOAuth('linkedin')}
+              onClick={() => handleLoginWithOAuth('linkedin_oidc')}
             >
               <Icon_linkedin className="size-6" />
               LinkedIn
