@@ -61,7 +61,7 @@ const ClientLogin = () => {
     await supabase.auth.signInWithOAuth({
       provider,
       options: {
-        redirectTo: location.origin + '/confirm-signup/api',
+        redirectTo: location.origin + '/confirm-signup/callback',
       },
     })
   }
