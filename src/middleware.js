@@ -23,10 +23,8 @@ export async function middleware(req) {
   const doesInclude = restrictedPages.some((item) => path.includes(item))
 
   if (doesInclude) {
-    console.log('****** running middleware auth ******')
     return await updateSession(req)
   } else {
-    console.log('****** running middleware split ******')
     return executeSplitTesting(req)
   }
 }

@@ -1,14 +1,11 @@
 import { getCurrentUser } from '@/config/supabase/getCurrentUser'
-import AuthTest from './AuthTest'
 
-const TestingVariant = async () => {
-  const user = await getCurrentUser('/login?next=testing')
+export default async function TestingVariant() {
+  const user = await getCurrentUser()
   console.log('user', user)
   return (
     <div className={'container md:px-6 lg:px-10 xl:px-0 flex flex-col'}>
-      {/* <AuthTest /> */}
+      <p className={''}>Your Role is {user?.role}</p>
     </div>
   )
 }
-
-export default TestingVariant

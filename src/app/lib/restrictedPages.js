@@ -1,1 +1,1 @@
-export const restrictedPages = ['/donate', '/recipients/']
+export const restrictedPages = ['/login', '/signup', '/dashboard', '/testing']

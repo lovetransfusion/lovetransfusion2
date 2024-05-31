@@ -64,13 +64,19 @@ export async function updateSession(request) {
   const url = new URL(request.url)
 
   if (user) {
-    if (url.pathname === '/login') {
+    if (url.pathname === '/login' || url.pathname === '/signup') {
       return NextResponse.redirect(new URL('/', request.url))
+    } else {
+      return NextResponse.next()
     }
+  } else if (
+    (!user && url.pathname === '/login') ||
+    (!user && url.pathname === '/signup')
+  ) {
+    // Do Nothing
   } else {
-    console.log('url.pathname returnrrrr', url.pathname)
     return NextResponse.redirect(
-      new URL(`/login?next=${url.pathname}`, request.url)
+      new URL(`/login?next=${url.pathname.slice(1)}`, request.url)
     )
   }
 
