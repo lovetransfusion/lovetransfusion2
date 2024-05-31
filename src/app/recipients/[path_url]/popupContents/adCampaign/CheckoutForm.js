@@ -62,7 +62,7 @@ export default function CheckoutForm({ variation }) {
     }
 
     const response = await axios.post(
-      `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/payment-intents/create`,
+      `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/payment-intents/create-test`,
       {
         data: {
           donee,

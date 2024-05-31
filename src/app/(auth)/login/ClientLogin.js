@@ -16,6 +16,7 @@ import Link from 'next/link'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
 import { useSearchParams } from 'next/navigation'
 import { createClient } from '@/config/supabase/supabaseClient'
+import Icon_facebook from '@/app/components/icons/Icon_facebook'
 
 const ClientLogin = () => {
   console.log('client login')
@@ -143,15 +144,15 @@ const ClientLogin = () => {
               <Icon_google className="size-6" />
               Google
             </div>
-            <div
+            {/* <div
               className={
                 'flex cursor-pointer rounded-md w-full justify-center shadow-sm border-[1px] py-[10px] px-3 border-[#D1D5DB] gap-2'
               }
-              onClick={() => handleLoginWithOAuth('linkedin_oidc')}
+              onClick={() => handleLoginWithOAuth('facebook')}
             >
-              <Icon_linkedin className="size-6" />
-              LinkedIn
-            </div>
+              <Icon_facebook className="size-6 text-[#1977F3]" />
+              Facebook
+            </div> */}
           </div>
         </div>
       </form>

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY_TEST)
 
 export const POST = async (request) => {
   const { data } = await request.json()

@@ -1,11 +1,11 @@
-"use client"
-import { Elements } from "@stripe/react-stripe-js"
-import { loadStripe } from "@stripe/stripe-js"
-import axios from "axios"
-import React, { useEffect, useState } from "react"
-import { useStore } from "zustand"
-import utilityStorePersist from "@/utilities/store/storePersist"
-import CheckoutForm from "./CheckoutForm"
+'use client'
+import { Elements } from '@stripe/react-stripe-js'
+import { loadStripe } from '@stripe/stripe-js'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { useStore } from 'zustand'
+import utilityStorePersist from '@/utilities/store/storePersist'
+import CheckoutForm from './CheckoutForm'
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 const CheckoutPage = () => {
@@ -17,13 +17,13 @@ const CheckoutPage = () => {
       const createIntent = async () => {
         try {
           const response = await axios.post(
-            `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/payment-intents/create/api`,
+            `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/payment-intents/create-test`,
             {
               data: selectedProducts,
             },
             {
               headers: {
-                "Content-Type": "application/json",
+                'Content-Type': 'application/json',
               },
             }
           )
@@ -33,7 +33,7 @@ const CheckoutPage = () => {
             setclientSecret(response.data)
           }
         } catch (error) {
-          console.error("Error during checkout:", error)
+          console.error('Error during checkout:', error)
         }
       }
       createIntent()
@@ -42,7 +42,7 @@ const CheckoutPage = () => {
   }, [selectedProducts])
 
   const appearance = {
-    theme: "stripe",
+    theme: 'stripe',
   }
   const options = {
     clientSecret,

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { v4 } from 'uuid'
-const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY_LIVE)
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY_TEST)
 
 export const POST = async (request) => {
   const { data } = await request.json()

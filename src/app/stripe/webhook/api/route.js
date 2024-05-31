@@ -5,7 +5,7 @@ import { createServer } from '@/config/supabase/supabaseServer'
 import { formatDateToUTCString } from '@/utilities/date-and-time/formatDateToUTCString'
 
 const endpointSecret = process.env.WHSEC_KEY
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY_TEST)
 
 export const POST = async (req) => {
   const rawBody = await buffer(req.body)

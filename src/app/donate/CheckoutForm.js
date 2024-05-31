@@ -62,7 +62,7 @@ export default function CheckoutForm({
           description: `$${parseFloat(
             donationAmount
           )} Donation from ${firstName} ${lastName}`,
-          source: 'Donation Page'
+          source: 'Donation Page',
         },
       }
     )
