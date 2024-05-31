@@ -7,7 +7,7 @@ export const isAuthenticated = async (path) => {
   const supabase = createServer()
   const { data, error } = await supabase.auth.getUser()
   if (error || !data?.user) {
-    redirect(path)
+    redirect(path || '/')
   }
   return data?.user
 }

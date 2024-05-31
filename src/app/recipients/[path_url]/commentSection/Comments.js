@@ -19,7 +19,6 @@ const convertDate = (date) => {
   const initialMinutes = date.getMinutes()
   const minutes = convertToZeroFirst(initialMinutes)
   const pmOrAm = getAmPm(initialHour)
-  console.log('formattedHour', formattedHour)
   const time = `${hour}:${minutes} ${pmOrAm}`
   const dateTime = `${myDate} at ${time}`
   return dateTime

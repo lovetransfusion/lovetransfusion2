@@ -1,3 +1,4 @@
+import { restrictedPages } from './app/lib/restrictedPages'
 import { executeSplitTesting } from './config/split-testing/middleware'
 import { updateSession } from './config/supabase/middleware'
 
@@ -15,8 +16,19 @@ export const config = {
 }
 
 export async function middleware(req) {
-  // update user's auth session
-  await updateSession(req)
+  const url = new URL(req.url)
 
-  return executeSplitTesting(req)
+  const path = url.pathname
+
+  const doesInclude = restrictedPages.some((item) => path.includes(item))
+
+  if (doesInclude) {
+    console.log('****** running middleware auth ******')
+    return await updateSession(req)
+  } else {
+    console.log('****** running middleware split ******')
+    return executeSplitTesting(req)
+  }
+  // await updateSession(req)
+  // return executeSplitTesting(req)
 }

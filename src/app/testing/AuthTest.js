@@ -1,27 +1,26 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
-import { createClient } from '@/config/supabase/supabaseClient'
+import { getCurrentUser } from '@/config/supabase/getCurrentUser'
 import React, { useEffect, useState } from 'react'
 
 const AuthTest = () => {
   const [user, setuser] = useState(undefined)
 
-  const getUser = async () => {
-    const supabase = createClient()
-    const {
-      data: { user: theUser },
-      error,
-    } = await supabase.auth.getUser()
-    if (theUser) {
-      setuser(theUser)
-    } else {
-      return setuser(null)
-    }
+  const getRole = async () => {
+    const currentUser = await getCurrentUser()
+    console.log('currentUser', currentUser?.role)
   }
 
   useEffect(() => {
-    getUser()
+    getRole()
   }, [])
-  return <div></div>
+
+  console.log('user', user)
+  return (
+    <div>
+      <p className={''}>This is for admin only</p>
+    </div>
+  )
 }
 
 export default AuthTest
