@@ -29,6 +29,4 @@ export async function middleware(req) {
     console.log('****** running middleware split ******')
     return executeSplitTesting(req)
   }
-  // await updateSession(req)
-  // return executeSplitTesting(req)
 }
