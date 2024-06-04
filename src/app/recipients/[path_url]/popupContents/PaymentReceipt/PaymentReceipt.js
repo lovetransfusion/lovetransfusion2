@@ -3,9 +3,7 @@ import Icon_check3 from '@/app/components/icons/Icon_check3'
 import Icon_email from '@/app/components/icons/Icon_email'
 import Icon_facebook from '@/app/components/icons/Icon_facebook'
 import Icon_padlock from '@/app/components/icons/Icon_padlock'
-import Icon_spinner from '@/app/components/icons/Icon_spinner'
 import Icon_twitter from '@/app/components/icons/Icon_twitter'
-// import Icon_twitter from '@/app/components/icons/Icon_twitter'
 import Icon_user from '@/app/components/icons/Icon_user'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
@@ -24,7 +22,7 @@ const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
     const initiateGet = async () => {
       try {
         const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/checkout/checkout-custom-flow/api`,
+          `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/checkout/checkout-custom-flow/api/test`,
           {
             intentId,
           },

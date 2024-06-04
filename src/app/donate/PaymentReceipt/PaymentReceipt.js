@@ -21,7 +21,7 @@ const PaymentReceipt = () => {
     const initiateGet = async () => {
       try {
         const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/checkout/checkout-custom-flow/api`,
+          `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/checkout/checkout-custom-flow/api/live`,
           {
             intentId,
           },
