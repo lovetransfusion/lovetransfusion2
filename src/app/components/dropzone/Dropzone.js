@@ -94,9 +94,10 @@ const CltDropzone = ({
                   alt="uploaded image"
                   className="my-auto"
                 />
-                {!imagesWithBlurDataUrl && (
-                  <Icon_spinner className="absolute animate-spin top-0 bottom-0 right-0 left-0 mx-auto my-auto size-10 text-white" />
-                )}
+                {!imagesWithBlurDataUrl &&
+                  selectedImages?.length !== imagesWithBlurDataUrl?.length && (
+                    <Icon_spinner className="absolute animate-spin top-0 bottom-0 right-0 left-0 mx-auto my-auto size-10 text-white" />
+                  )}
               </div>
             )
           })}
