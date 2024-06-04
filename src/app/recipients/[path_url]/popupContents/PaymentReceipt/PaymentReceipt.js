@@ -12,7 +12,6 @@ import { FacebookShareButton, TwitterShareButton } from 'react-share'
 const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
   const [receiptData, setReceiptData] = useState(null)
   const [isLoading, setisLoading] = useState(true)
-  console.log('receiptData', receiptData)
 
   useEffect(() => {
     const queryString = window.location.search

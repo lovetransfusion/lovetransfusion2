@@ -1,9 +1,8 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '@/app/components/inputsFields/InputGroup/Input'
 import Divider from '@/app/components/Divider'
 import Icon_google from '@/app/components/icons/Icon_google'
-import Icon_linkedin from '@/app/components/icons/Icon_linkedin'
 import Button from '@/app/components/Button'
 import Checkbox from '@/app/components/inputsFields/Checkbox'
 import { useForm } from 'react-hook-form'
@@ -16,7 +15,8 @@ import Link from 'next/link'
 import Icon_spinner from '@/app/components/icons/Icon_spinner'
 import { useSearchParams } from 'next/navigation'
 import { createClient } from '@/config/supabase/supabaseClient'
-import Icon_facebook from '@/app/components/icons/Icon_facebook'
+// import Icon_linkedin from '@/app/components/icons/Icon_linkedin'
+// import Icon_facebook from '@/app/components/icons/Icon_facebook'
 
 const ClientLogin = () => {
   console.log('client login')
@@ -24,9 +24,12 @@ const ClientLogin = () => {
   const [toast, settoast] = useState(null)
   const [loading, setloading] = useState(false)
   const [showPassword, setshowPassword] = useState(false)
+  const [localData, setlocalData] = useState(null)
   const { errors } = formState
 
-  const localData = JSON.parse(localStorage.getItem('saved password'))
+  useEffect(() => {
+    setlocalData(JSON.parse(localStorage.getItem('saved password')))
+  }, [])
 
   const searchParams = useSearchParams().get('next')
 

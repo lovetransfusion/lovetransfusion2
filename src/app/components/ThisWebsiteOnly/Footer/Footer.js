@@ -6,8 +6,8 @@ import icon44 from './images/icon44.webp'
 import { Arial } from '@/utilities/fonts/fonts'
 import Link from 'next/link'
 import SocialMediaIcons from './SocialMediaIcons'
-import { restrictedPathsFooter } from '@/utilities/restrictedPaths'
 import { usePathname } from 'next/navigation'
+import { restrictedPathsFooter } from '@/app/lib/restrictFooterNavigation'
 
 const Footer = () => {
   const pathName = usePathname()

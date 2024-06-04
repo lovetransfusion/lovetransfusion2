@@ -1,11 +1,10 @@
-import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
-const ClientLogin = dynamic(() => import('./ClientLogin'), { ssr: false })
+import ClientLogin from './ClientLogin'
 
 const LoginPage = () => {
   return (
     <>
-      <Suspense fallback={<p>Loading...</p>} >
+      <Suspense fallback={<p>Loading...</p>}>
         <ClientLogin />
       </Suspense>
     </>

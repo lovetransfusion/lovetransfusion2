@@ -9,7 +9,7 @@ import Icon_plus from '../../icons/Icon_plus'
 import { openSans } from '@/utilities/fonts/fonts'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { restrictedPathsNavigationMenu } from '@/utilities/restrictedPaths'
+import { restrictedPathsNavigationMenu } from '@/app/lib/restrictFooterNavigation'
 const loadFeatures = () =>
   import('@/utilities/framerMotion/features').then((res) => res.default)
 

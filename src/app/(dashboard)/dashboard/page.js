@@ -1,5 +1,5 @@
 import React from 'react'
-import ClientDashboard from './ClientDashboard'
+import ClientDashboard from '../ClientDashboard'
 
 const DashboardPage = async () => {
   return <ClientDashboard />
