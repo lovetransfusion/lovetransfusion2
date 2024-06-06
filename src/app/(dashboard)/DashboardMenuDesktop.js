@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import logo from '@/app/images/lt-logo-white.png'
 import Link from 'next/link'
-import { dashboardMenu } from './dashboardMenu'
+import { dashboardMenuList } from './dashboardMenuList'
 
 const DashboardMenuDesktop = () => {
   return (
@@ -18,7 +18,7 @@ const DashboardMenuDesktop = () => {
         />
       </div>
       <div className={'flex flex-col divide-y divide-primary-400'}>
-        {dashboardMenu.map((menu, index) => {
+        {dashboardMenuList.map((menu, index) => {
           const { name, link, Icon } = menu
           return (
             <Link href={link} key={index}>

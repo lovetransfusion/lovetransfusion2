@@ -5,7 +5,7 @@ import { useStore } from 'zustand'
 import utilityStore from '@/utilities/store/utilityStore'
 import Icon_close from '../components/icons/Icon_close'
 import Link from 'next/link'
-import { dashboardMenu } from './dashboardMenu'
+import { dashboardMenuList } from './dashboardMenuList'
 
 const DashboardMenuMobile = () => {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useStore(utilityStore)
@@ -34,7 +34,7 @@ const DashboardMenuMobile = () => {
           />
         </div>
         <div className={'flex flex-col divide-y divide-primary-400'}>
-          {dashboardMenu.map((menu, index) => {
+          {dashboardMenuList.map((menu, index) => {
             const { name, link, Icon } = menu
             return (
               <Link href={link} key={index}>
