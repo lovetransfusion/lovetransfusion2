@@ -1,5 +1,5 @@
 'use client'
-/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react-hooks/exhaustive-deps*/
 import { createClient } from '@/config/supabase/supabaseClient'
 import utilityStore from '@/utilities/store/utilityStore'
 import { useEffect, useState } from 'react'
