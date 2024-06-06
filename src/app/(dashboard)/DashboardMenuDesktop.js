@@ -1,10 +1,7 @@
 import Image from 'next/image'
 import logo from '@/app/images/lt-logo-white.png'
-import Icon_dashboard from '../components/icons/Icon_dashboard'
-import Icon_card from '../components/icons/Icon_card'
-import Icon_user from '../components/icons/Icon_user'
-import { dashboardMenu } from './dashboardMenu'
 import Link from 'next/link'
+import { dashboardMenu } from './dashboardMenu'
 
 const DashboardMenuDesktop = () => {
   return (
