@@ -10,7 +10,7 @@ const ClickHereToDonate = () => {
           'max-w-[1150px] mx-auto bg-[#F6F6F6] px-6 md:px-6 lg:px-10 xl:px-[25px] py-5 flex flex-col md:flex-row gap-[30px] items-start md:items-center justify-between border-l-[5px] border-[#0CA2E0] mt-9 box-border'
         }
       >
-        <p className={'text-[22px] font-semibold leading-[30px]'}>
+        <p className={'text-xl font-semibold leading-[30px]'}>
           Please consider partnering with us through a tax-deductible donation:
         </p>
         <Link href={'/donate'}>

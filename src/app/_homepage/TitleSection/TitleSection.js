@@ -20,7 +20,7 @@ const TitleSection = () => {
         <div className="z-10 text-primary text-center md:text-left max-w-[460px] leading-[25px]">
           <p
             className={
-              'text-3xl md:text-[43px] font-light leading-[56px] mt-[-2px]'
+              'text-3xl md:text-4xl leading-[56px] mt-[-2px]'
             }
           >
             Love Transfusion, Inc.
@@ -48,14 +48,21 @@ const TitleSection = () => {
             src={grandParents}
             priority
             quality={100}
-            className="max-w-[200px] w-auto max-h-[112px] h-auto rounded-[4px] shadow-md mr-[-37px] mb-2 z-10"
+            className="w-[200px] md:w-[300px] lg:w-[200px] rounded-[4px] shadow-md mr-[-37px] mb-2 z-10"
             alt="grandparents holding laptop"
           />
+          {/* <Image
+            src={grandParents}
+            priority
+            quality={100}
+            className="max-w-[200px] w-auto max-h-[112px] h-auto rounded-[4px] shadow-md mr-[-37px] mb-2 z-10"
+            alt="grandparents holding laptop"
+          /> */}
           <Image
             src={cancerBoy}
             priority
             quality={100}
-            className="max-w-[170px] w-auto max-h-[154px] h-auto rounded-[4px] shadow-md"
+            className="w-[170px] md:w-[270px] lg:w-[170px] rounded-[4px] shadow-md"
             alt="boy with cancer holding tablet"
           />
         </div>

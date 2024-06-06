@@ -11,7 +11,7 @@ import Link from 'next/link'
 
 const SectionTwo = () => {
   return (
-    <div className={'pt-[65px] pb-10'}>
+    <div className={'pt-[45px] pb-10'}>
       <div className="max-w-[1149px] mx-auto px-3 md:px-6 lg:px-10 xl:px-0 grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
         <div className="flex md:mx-auto lg:mx-[unset]">
           <Image
