@@ -1,2 +1,2 @@
-export const restrictedPathsNavigationMenu = ['/recipients/', '/dashboard']
-export const restrictedPathsFooter = ['/recipients/', '/dashboard']
+export const restrictedPathsNavigationMenu = ['/recipients/', '/dashboard', '/payments', '/account']
+export const restrictedPathsFooter = ['/recipients/', '/dashboard', '/payments', '/account']

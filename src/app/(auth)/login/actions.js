@@ -12,5 +12,5 @@ export async function login({ data, redirectTo }) {
     return error.message
   }
   revalidatePath('/', 'layout')
-  redirect(redirectTo ? `/${redirectTo}` : '/')
+  redirect(redirectTo ? `/${redirectTo}` : '/dashboard')
 }
