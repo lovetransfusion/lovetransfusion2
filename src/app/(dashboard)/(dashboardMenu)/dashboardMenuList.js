@@ -1,6 +1,6 @@
-import Icon_card from '../components/icons/Icon_card'
-import Icon_dashboard from '../components/icons/Icon_dashboard'
-import Icon_user from '../components/icons/Icon_user'
+import Icon_card from '../../components/icons/Icon_card'
+import Icon_dashboard from '../../components/icons/Icon_dashboard'
+import Icon_user from '../../components/icons/Icon_user'
 
 export const dashboardMenuList = [
   {

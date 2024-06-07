@@ -3,7 +3,7 @@ import Image from 'next/image'
 import logo from '@/app/images/lt-logo-white.png'
 import { useStore } from 'zustand'
 import utilityStore from '@/utilities/store/utilityStore'
-import Icon_close from '../components/icons/Icon_close'
+import Icon_close from '../../components/icons/Icon_close'
 import Link from 'next/link'
 import { dashboardMenuList } from './dashboardMenuList'
 
@@ -37,7 +37,7 @@ const DashboardMenuMobile = () => {
           {dashboardMenuList.map((menu, index) => {
             const { name, link, Icon } = menu
             return (
-              <Link href={link} key={index}>
+              <Link href={link} key={index} prefetch>
                 <div className={'flex items-center gap-4 py-4'}>
                   <Icon className={'text-white size-7'} />
                   <p className={''}>{name}</p>

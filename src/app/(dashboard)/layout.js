@@ -1,11 +1,7 @@
-import { getCurrentUser } from '@/config/supabase/getCurrentUser'
-import DashboardHeader from './DashboardHeader'
-import DashboardMenuDesktop from './DashboardMenuDesktop'
-import DashboardMenuMobile from './DashboardMenuMobile'
+import DashboardHeader from './(dashboardHeader)/DashboardHeader'
+import DashboardMenuDesktop from './(dashboardMenu)/DashboardMenuDesktop'
+import DashboardMenuMobile from './(dashboardMenu)/DashboardMenuMobile'
 import { openSans } from '@/utilities/fonts/fonts'
-import { cookies, headers } from 'next/headers'
-import { createServer } from '@/config/supabase/supabaseServer'
-import { setuser } from './actions'
 
 export const metadata = {
   title: {
@@ -16,9 +12,7 @@ export const metadata = {
 }
 
 export default async function DashboardLayout({ children }) {
-  const userCookie = cookies().get('current-user')?.value
-  const currentUser = userCookie ? JSON.parse(userCookie) : await setuser()
-  console.log('currentUser', currentUser)
+
   return (
     <div className={`block md:flex h-screen ${openSans.className}`}>
       <div className={'hidden lg:block'}>
@@ -28,7 +22,7 @@ export default async function DashboardLayout({ children }) {
         <DashboardMenuMobile />
       </div>
       <div className={'flex flex-col w-full lg:gap-5 lg:bg-[#F7F7F7]'}>
-        <DashboardHeader currentUser={currentUser} />
+        <DashboardHeader />
         <div
           className={
             'lg:px-5 max-h-screen border-t-[1px] border-[#F7F7F7] lg:border-t-none overflow-y-auto box-border'

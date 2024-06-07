@@ -1,8 +1,7 @@
 'use client'
 import React from 'react'
 
-const ClientDashboard = ({ middlewareData }) => {
-  console.log('middlewareData', middlewareData)
+const ClientDashboard = () => {
   return (
     <div className={'w-full'}>
       <h2 className={'text-xl font-semibold text-primary'}>Dashboard</h2>

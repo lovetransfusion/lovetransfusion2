@@ -17,7 +17,6 @@ export const logout = async () => {
     }
   }
 
-
   revalidatePath('/', 'layout')
   redirect('/login')
 }

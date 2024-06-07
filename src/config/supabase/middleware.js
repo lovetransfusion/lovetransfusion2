@@ -66,17 +66,6 @@ export async function updateSession(request) {
   if (user) {
     if (url.pathname === '/login' || url.pathname === '/signup') {
       return NextResponse.redirect(new URL('/', request.url))
-    } else {
-      console.log('entered else')
-      const response = NextResponse.next()
-      response.cookies.set({
-        name: 'current-user',
-        value: JSON.stringify(user),
-        httpOnly: true,
-        path: '/',
-      })
-      
-      return response
     }
   } else if (
     (!user && url.pathname === '/login') ||
@@ -88,6 +77,5 @@ export async function updateSession(request) {
       new URL(`/login?next=${url.pathname.slice(1)}`, request.url)
     )
   }
-
   return response
 }

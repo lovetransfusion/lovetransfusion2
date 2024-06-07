@@ -21,7 +21,7 @@ const DashboardMenuDesktop = () => {
         {dashboardMenuList.map((menu, index) => {
           const { name, link, Icon } = menu
           return (
-            <Link href={link} key={index}>
+            <Link href={link} key={index} prefetch>
               <div className={'flex items-center gap-4 py-4'}>
                 <Icon className={'text-white size-7'} />
                 <p className={''}>{name}</p>

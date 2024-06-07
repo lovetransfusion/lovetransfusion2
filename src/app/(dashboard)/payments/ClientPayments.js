@@ -1,13 +1,10 @@
 'use client'
 /* eslint-disable react-hooks/exhaustive-deps*/
 import { createClient } from '@/config/supabase/supabaseClient'
-import utilityStore from '@/utilities/store/utilityStore'
 import { useEffect, useState } from 'react'
-import { useStore } from 'zustand'
 
-const ClientPayments = () => {
+const ClientPayments = ({ currentUser: user }) => {
   const [payments, setpayments] = useState(null)
-  const { user } = useStore(utilityStore)
 
   const supabase = createClient()
 

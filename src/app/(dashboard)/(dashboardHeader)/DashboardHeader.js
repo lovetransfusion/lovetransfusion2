@@ -1,36 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-'use client'
 import Image from 'next/image'
-import React, { useEffect } from 'react'
-import { logout } from '../(auth)/signOut/actions'
-import Icon_menu from '../components/icons/Icon_menu'
-import { useStore } from 'zustand'
-import utilityStore from '@/utilities/store/utilityStore'
+import { cookies } from 'next/headers'
+import HeaderMenuIcon from './HeaderMenuIcon'
+import LogoutButton from './LogoutButton'
 
-const DashboardHeader = ({ currentUser }) => {
+const DashboardHeader = () => {
+  const userCookie = cookies().get('current-user')?.value
+  const currentUser = userCookie && JSON.parse(userCookie)
+
   const display_name = currentUser?.user_metadata?.full_name
   const avatar = currentUser?.user_metadata?.avatar_url
-
-  const { user, setUser, isMobileMenuOpen, setIsMobileMenuOpen } =
-    useStore(utilityStore)
-
-  useEffect(() => {
-    console.log('currentUser', currentUser)
-    if (currentUser) {
-      console.log('setting user')
-      setUser(currentUser)
-    }
-  }, [currentUser])
-
-  console.log('user', user)
-
-  const handleMenuClick = () => {
-    setIsMobileMenuOpen()
-  }
-
-  const handleLogout = async () => {
-    await logout()
-  }
 
   return (
     <div
@@ -39,12 +18,7 @@ const DashboardHeader = ({ currentUser }) => {
       }
     >
       <div className={'px-5 py-2 flex items-center'}>
-        {!isMobileMenuOpen && (
-          <Icon_menu
-            className="size-8 select-none lg:hidden"
-            onClick={handleMenuClick}
-          />
-        )}
+        <HeaderMenuIcon />
         <div className={'flex gap-2 items-center w-fit relative group ml-auto'}>
           <p className={''}>{display_name}</p>
           <Image
@@ -61,12 +35,7 @@ const DashboardHeader = ({ currentUser }) => {
             }
           >
             <div className={'bg-white border-[1px] border-[#ccc]'}>
-              <p
-                className={'py-3 px-5 cursor-pointer text-[#000]'}
-                onClick={handleLogout}
-              >
-                Logout
-              </p>
+              <LogoutButton />
             </div>
           </div>
         </div>
