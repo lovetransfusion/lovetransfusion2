@@ -1,20 +1,35 @@
-import { cookies } from 'next/headers'
-import { createServer } from '@/config/supabase/supabaseServer'
+'use client'
+/* eslint-disable react-hooks/exhaustive-deps*/
+import { createClient } from '@/config/supabase/supabaseClient'
+import { useEffect, useState } from 'react'
 
-const PaymentsPage = async () => {
-  const userCookie = cookies().get('current-user')?.value
-  const currentUser = userCookie && JSON.parse(userCookie)
+const ClientPayments = ({ currentUser: user }) => {
+  const [payments, setpayments] = useState(null)
 
-  const supabase = createServer()
-  const { data: payments } = await supabase
-    .from('donations')
-    .select('*')
-    .eq('donor_email', currentUser?.email)
+  const supabase = createClient()
+
+  const getUser = async () => {
+    const { data: payments } = await supabase
+      .from('donations')
+      .select('*')
+      .eq('donor_email', user?.email)
+    if (payments) {
+      setpayments(payments)
+    }
+  }
+
+  useEffect(() => {
+    if (user) {
+      getUser()
+    }
+  }, [user])
+
+  console.log({ payments })
   return (
-    <>
-      <div className={'w-full'}>
-        <h2 className={'text-xl font-semibold text-primary'}>Payments</h2>
-        <div className={'overflow-x-scroll md:overflow-auto'}>
+    <div className={'w-full'}>
+      <h2 className={'text-xl font-semibold text-primary'}>Payments</h2>
+      <div className={'overflow-x-scroll md:overflow-auto'}>
+        {payments && (
           <table className="table-auto w-full my-6">
             <thead>
               <tr className="text-left bg-primary-300 rounded-full border-b-2 border-primary-400 text-white">
@@ -48,10 +63,19 @@ const PaymentsPage = async () => {
               })}
             </tbody>
           </table>
-        </div>
+        )}
+        {!payments && (
+          <div className="my-6">
+            <div className={'w-full h-12 bg-gray-200 animate-pulse'}></div>
+            <div className={'w-full h-12'}></div>
+            <div className={'w-full h-12 bg-gray-200 animate-pulse'}></div>
+            <div className={'w-full h-12'}></div>
+            <div className={'w-full h-12 bg-gray-200 animate-pulse'}></div>
+          </div>
+        )}
       </div>
-    </>
+    </div>
   )
 }
 
-export default PaymentsPage
+export default ClientPayments

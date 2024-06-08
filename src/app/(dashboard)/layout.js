@@ -3,6 +3,8 @@ import DashboardMenuDesktop from './(dashboardMenu)/DashboardMenuDesktop'
 import DashboardMenuMobile from './(dashboardMenu)/DashboardMenuMobile'
 import { openSans } from '@/utilities/fonts/fonts'
 
+export const revalidate = 30
+
 export const metadata = {
   title: {
     default: `Dashboard`,
@@ -12,7 +14,6 @@ export const metadata = {
 }
 
 export default async function DashboardLayout({ children }) {
-
   return (
     <div className={`block md:flex h-screen ${openSans.className}`}>
       <div className={'hidden lg:block'}>

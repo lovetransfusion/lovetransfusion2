@@ -7,6 +7,7 @@ import {
 } from '@/utilities/fonts/fonts'
 import MainNavigation from './components/ThisWebsiteOnly/Navigation/MainNavigation'
 import Footer from './components/ThisWebsiteOnly/Footer/Footer'
+import { GoogleTagManager } from '@next/third-parties/google'
 
 export const metadata = {
   title: 'Love Transfusion',
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${franklinGothicBook.variable} ${franklinGothicDemiCond.variable} ${franklinGothicMediumCond.variable}`}
     >
+      <GoogleTagManager gtmId="GTM-TW4HH9J8" />
       <body>
         <TanstackProvider>
           <MainNavigation />
