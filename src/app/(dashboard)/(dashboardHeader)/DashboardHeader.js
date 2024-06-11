@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { cookies } from 'next/headers'
 import HeaderMenuIcon from './HeaderMenuIcon'
 import LogoutButton from './LogoutButton'
+import blankProfile from './images/blank-profile.png'
 import { capitalizeAllFirstLetter } from '@/utilities/capitalizeAllFirstLetter'
 
 const DashboardHeader = () => {
@@ -23,7 +24,7 @@ const DashboardHeader = () => {
         <div className={'flex gap-2 items-center w-fit relative group ml-auto'}>
           <p className={''}>{capitalizeAllFirstLetter(display_name)}</p>
           <Image
-            src={avatar}
+            src={avatar || blankProfile}
             width={50}
             height={50}
             quality={100}

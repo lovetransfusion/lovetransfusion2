@@ -3,10 +3,10 @@
 import axios from 'axios'
 
 export const submitStory = async ({ formData: data, images }) => {
-  const firstName = data?.fullName.split(' ')[0]
-  const lastName = data?.fullName.split(' ')[1]
-  const lastName2 = data?.fullName.split(' ')[2]
-  const lastName3 = data?.fullName.split(' ')[3]
+  const firstName = data?.fullName?.split(' ')[0]
+  const lastName = data?.fullName?.split(' ')[1]
+  const lastName2 = data?.fullName?.split(' ')[2]
+  const lastName3 = data?.fullName?.split(' ')[3]
   const combinedLastName = `${lastName || ''} ${lastName2 || ''} ${
     lastName3 || ''
   }`
