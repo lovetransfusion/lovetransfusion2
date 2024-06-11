@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { cookies } from 'next/headers'
 import HeaderMenuIcon from './HeaderMenuIcon'
 import LogoutButton from './LogoutButton'
+import { capitalizeAllFirstLetter } from '@/utilities/capitalizeAllFirstLetter'
 
 const DashboardHeader = () => {
   const userCookie = cookies().get('current-user')?.value
@@ -20,7 +21,7 @@ const DashboardHeader = () => {
       <div className={'px-5 py-2 flex items-center'}>
         <HeaderMenuIcon />
         <div className={'flex gap-2 items-center w-fit relative group ml-auto'}>
-          <p className={''}>{display_name}</p>
+          <p className={''}>{capitalizeAllFirstLetter(display_name)}</p>
           <Image
             src={avatar}
             width={50}
