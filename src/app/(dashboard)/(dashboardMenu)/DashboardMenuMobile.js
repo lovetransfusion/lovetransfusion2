@@ -13,6 +13,9 @@ const DashboardMenuMobile = () => {
   const handleCLose = () => {
     setIsMobileMenuOpen()
   }
+  const handleMenuClick = () => {
+    setIsMobileMenuOpen(false)
+  }
   return (
     <>
       <div
@@ -37,7 +40,7 @@ const DashboardMenuMobile = () => {
           {dashboardMenuList.map((menu, index) => {
             const { name, link, Icon } = menu
             return (
-              <Link href={link} key={index} prefetch>
+              <Link href={link} key={index} prefetch onClick={handleMenuClick}>
                 <div className={'flex items-center gap-4 py-4'}>
                   <Icon className={'text-white size-7'} />
                   <p className={''}>{name}</p>

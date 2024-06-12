@@ -1,17 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import Image from 'next/image'
-import { cookies } from 'next/headers'
 import HeaderMenuIcon from './HeaderMenuIcon'
 import LogoutButton from './LogoutButton'
 import blankProfile from './images/blank-profile.png'
 import { capitalizeAllFirstLetter } from '@/utilities/capitalizeAllFirstLetter'
+import { getCurrentUser } from '@/config/supabase/getCurrentUser'
 
-const DashboardHeader = () => {
-  const userCookie = cookies().get('current-user')?.value
-  const currentUser = userCookie && JSON.parse(userCookie)
+const DashboardHeader = async () => {
+  const currentUser = await getCurrentUser()
 
-  const display_name = currentUser?.user_metadata?.full_name
-  const avatar = currentUser?.user_metadata?.avatar_url
+  const display_name = currentUser?.display_name
+  const avatar = currentUser?.avatar
 
   return (
     <div

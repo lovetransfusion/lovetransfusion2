@@ -1,9 +1,8 @@
-import { cookies } from 'next/headers'
 import { createServer } from '@/config/supabase/supabaseServer'
+import { getCurrentUser } from '@/config/supabase/getCurrentUser'
 
 const PaymentsPage = async () => {
-  const userCookie = cookies().get('current-user')?.value
-  const currentUser = userCookie && JSON.parse(userCookie)
+  const currentUser = await getCurrentUser()
 
   const supabase = createServer()
   const { data: payments } = await supabase
@@ -50,7 +49,9 @@ const PaymentsPage = async () => {
               </tbody>
             </table>
           ) : (
-            <div className={'rounded-lg p-10 border-[1px] border-neutral-200 my-5'}>
+            <div
+              className={'rounded-lg p-10 border-[1px] border-neutral-200 my-5'}
+            >
               <h2 className={'text-center text-neutral-300'}>
                 No Payment Found
               </h2>
