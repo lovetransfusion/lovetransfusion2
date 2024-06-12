@@ -20,6 +20,7 @@ export const updateHugs = async ({ id, path_url }) => {
 
     if (data) {
       revalidatePath(`/recipients/${path_url}`)
+      revalidatePath(`/list-of-recipients`)
       revalidatePath(`/recipients/${capitalize(path_url)}`)
       return data
     }

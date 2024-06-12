@@ -1,3 +1,4 @@
+import Icon_health from '@/app/components/icons/Icon_health'
 import Icon_card from '../../components/icons/Icon_card'
 import Icon_dashboard from '../../components/icons/Icon_dashboard'
 import Icon_user from '../../components/icons/Icon_user'
@@ -17,5 +18,10 @@ export const dashboardMenuList = [
     name: 'Account',
     link: '/account',
     Icon: Icon_user,
+  },
+  {
+    name: 'Recipients',
+    link: '/list-of-recipients',
+    Icon: Icon_health,
   },
 ]

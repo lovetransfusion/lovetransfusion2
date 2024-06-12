@@ -11,6 +11,7 @@ const loadFeatures = () =>
   import('@/utilities/framerMotion/features').then((res) => res.default)
 
 const Heart = ({ parameters: { recipient, id } }) => {
+  console.log('recipient, id', recipient, id)
   const localKey = 'old-hug-list'
   const [itemExist, setitemExist] = useState(
     checkLocalWithoutUpdating({ localKey, id })

@@ -3,7 +3,6 @@ import React from 'react'
 
 const AccountPage = async () => {
   const currentUser = await getCurrentUser()
-  console.log('currentUser', currentUser)
   return (
     <div className={'w-full'}>
       <h2 className={'text-xl font-semibold text-primary'}>My Account</h2>

@@ -5,4 +5,5 @@ export const restrictedPages = [
   '/testing',
   '/payments',
   '/account',
+  '/list-of-recipients',
 ]
