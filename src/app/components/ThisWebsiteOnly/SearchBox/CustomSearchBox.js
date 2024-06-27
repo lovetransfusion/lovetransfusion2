@@ -13,8 +13,6 @@ function CustomSearchBox({ setpopup, ...props }) {
     refine(newQuery)
   }
 
-  console.log('props', props)
-
   const handleEscClick = (e) => {
     e.preventDefault()
     setQuery('')

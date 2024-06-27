@@ -1,5 +1,4 @@
 'use server'
-import { capitalize } from '@/utilities/capitalize'
 import { createServer } from '@/config/supabase/supabaseServer'
 
 export const addComment = async ({ comment, id }) => {

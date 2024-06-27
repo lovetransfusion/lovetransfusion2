@@ -31,9 +31,7 @@ const PaymentReceipt = () => {
             },
           }
         )
-        console.log('response', response)
         if (response) {
-          console.log({ response })
           setReceiptData(response.data.paymentIntent)
           if (response.data.paymentIntent.status === 'succeeded')
             setisLoading(false)

@@ -1,10 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Icon_close from './icons/Icon_close'
 import { twMerge } from 'tailwind-merge'
 
 //IMPORTANT
-// const [setpopup, setsetpopup] = useState(null) ---> Must be present in the parent component
+// const [popup, setpopup] = useState(null) ---> Must be present in the parent component
 
 // Then import it like:
 // <Popup data={{ setpopup, bgNotClickable:true }}></Popup>
@@ -17,9 +18,12 @@ import { twMerge } from 'tailwind-merge'
 // Example: data={{ contentContainer: 'text-primary' }}
 
 const Popup = ({ children, ...props }) => {
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768)
   const setBodyStyle = () => {
     document.body.style.overflow = 'hidden'
-    document.body.style.marginRight = '15px'
+    if (isDesktop) {
+      document.body.style.marginRight = '15px'
+    }
   }
   const unmountFunction = () => {
     document.body.style.overflow = ''
@@ -28,6 +32,9 @@ const Popup = ({ children, ...props }) => {
 
   useEffect(() => {
     setBodyStyle()
+    window.addEventListener('resize', () =>
+      setIsDesktop(window.innerWidth >= 768)
+    )
     return unmountFunction // Cleanup function to run before unmount
   }, [])
 

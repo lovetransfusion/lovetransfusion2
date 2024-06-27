@@ -8,7 +8,6 @@ import Icon_right from '../../../icons/Icon_right'
 function CustomPagesInfiniteHits(props) {
   const { hits, sendEvent, showPrevious, showMore, isFirstPage, isLastPage } =
     useInfiniteHits(props)
-  console.log({ isLastPage, hits })
   return (
     <div>
       {hits?.length > 0 && (

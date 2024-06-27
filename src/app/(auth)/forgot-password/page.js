@@ -16,7 +16,6 @@ const ForgotPasswordPage = () => {
   const [toast, settoast] = useState(null)
 
   const onSubmit = async (data) => {
-    console.log('data', data)
     setloading(true)
     const error = await resetPasswordForEmail(data)
     if (!error) {

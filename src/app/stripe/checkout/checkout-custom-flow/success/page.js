@@ -11,7 +11,6 @@ const SuccessPageOfCustomFlow = () => {
     const queryString = window.location.search
     const urlParams = new URLSearchParams(queryString)
     const intentId = urlParams.get('payment_intent')
-    console.log({ queryString, urlParams, intentId })
 
     const initiateGet = async () => {
       try {
@@ -28,7 +27,6 @@ const SuccessPageOfCustomFlow = () => {
         )
 
         if (response) {
-          console.log({ response })
           setStatus(response.data.status)
           setCustomerEmail(response.data.customer_email)
         }

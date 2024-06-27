@@ -43,7 +43,6 @@ const Payment = ({ variation }) => {
     appearance,
   }
 
-  console.log({ stripePromise })
   return (
     <div className="mb-3 min-h-[355px]">
       <Elements stripe={stripePromise} options={options} className="w-full">

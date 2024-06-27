@@ -10,10 +10,7 @@ export default function CheckoutForm() {
   const [message, setMessage] = useState(null)
   const [isLoading, setIsLoading] = useState(false)
 
-  console.log({ isLoading, stripe, elements })
-
   useEffect(() => {
-    console.log({ message })
   }, [message])
 
   useEffect(() => {
@@ -28,7 +25,6 @@ export default function CheckoutForm() {
     if (!clientSecret) {
       return
     }
-    console.log({ clientSecret })
 
     stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
       switch (paymentIntent.status) {
@@ -49,7 +45,6 @@ export default function CheckoutForm() {
   }, [stripe])
 
   const handleSubmit = async (e) => {
-    console.log('handleSubmit triggered')
     e.preventDefault()
 
     if (!stripe || !elements) {

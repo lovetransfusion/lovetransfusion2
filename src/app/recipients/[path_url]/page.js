@@ -48,7 +48,6 @@ const RecipientPage = async ({
 }) => {
   const supabase = createClient()
   const queryClient = new QueryClient()
-  console.log('variation', variation)
 
   await queryClient.prefetchQuery(
     singleUseQuery({

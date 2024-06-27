@@ -29,7 +29,6 @@ const CheckoutPage = () => {
           )
 
           if (response) {
-            console.log({ response })
             setclientSecret(response.data)
           }
         } catch (error) {

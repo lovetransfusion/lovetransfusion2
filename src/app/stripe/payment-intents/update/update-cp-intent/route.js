@@ -12,10 +12,6 @@ export const POST = async (request) => {
     description,
   } = data
 
-  console.log({ data })
-
-  console.log('pIntentId', pIntentId)
-
   const paymentIntent = await stripe.paymentIntents.update(pIntentId, {
     amount: donationAmount * 100,
     currency: 'usd',

@@ -8,14 +8,12 @@ import Button from '@/app/components/Button'
 
 const ListOfRecipientsPage = async () => {
   const user = await getCurrentUser()
-  console.log('user', user)
   const supabase = createServer()
   const { data: recipients, error } = await supabase
     .from('recipients')
     .select(
       'id, hugs, first_name, condition, profile_picture, path_url, created_at'
     )
-  console.log('recipients', recipients)
   return (
     <div className={'w-full'}>
       <div className={'flex justify-between min-h-9'}>

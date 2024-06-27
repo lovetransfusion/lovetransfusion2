@@ -41,7 +41,6 @@ const utilityStorePersist = create(
     },
     incrementQuantity: (value) => {
       set((state) => {
-        console.log("incrementQuantity started")
         const currentProducts = get().selectedProducts
         const unselectedProducts = currentProducts?.filter(
           (product) => product.id !== value
@@ -59,7 +58,6 @@ const utilityStorePersist = create(
     },
     decrementQuantity: (value) => {
       set((state) => {
-        console.log("decrementQuantity started")
         const currentProducts = get().selectedProducts
         const unselectedProducts = currentProducts?.filter(
           (product) => product.id !== value
@@ -81,7 +79,6 @@ const utilityStorePersist = create(
     },
     addProduct: (value) =>
       set((state) => {
-        console.log("addProduct started")
         const currentProducts = get().selectedProducts
         const filteredProducts = currentProducts?.filter(
           (product) => product.id === value.id
@@ -93,7 +90,6 @@ const utilityStorePersist = create(
       }),
     removeProduct: (value) => {
       set((state) => {
-        console.log("removeProduct started")
         const currentProducts = get().selectedProducts
         const filteredProducts = currentProducts?.filter(
           (product) => product.id !== value

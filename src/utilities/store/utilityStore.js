@@ -19,8 +19,6 @@ const utilityStore = create(
     isMobileMenuOpen: false,
     setIsMobileMenuOpen: () => {
       set((state) => {
-        // console.log('state', state)
-        // console.log('state.isMobileMenuOpen', state.isMobileMenuOpen)
         state.isMobileMenuOpen = !state.isMobileMenuOpen
       })
     },

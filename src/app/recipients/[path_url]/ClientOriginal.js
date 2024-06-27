@@ -40,7 +40,6 @@ const AdCampaign = dynamic(
 )
 
 const ClientPageOriginal = ({ parameters: { path_url, variation } }) => {
-  console.log('recipient rendered')
   const supabase = createClient()
   const commentSectionRef = useRef()
   const [popup, setpopup] = useState(null)

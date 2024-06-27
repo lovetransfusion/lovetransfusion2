@@ -12,7 +12,6 @@ const DonatePopup = () => {
     lastName: null,
     email: null,
   })
-  console.log({ donationAmount, userData })
   const { firstName, lastName, email } = userData
   return (
     <>

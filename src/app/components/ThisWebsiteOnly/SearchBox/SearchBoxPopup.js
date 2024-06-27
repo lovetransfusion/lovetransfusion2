@@ -8,7 +8,6 @@ import CustomPagesInfiniteHits from './Hits/CustomPagesInfiniteHits'
 const SearchBoxPopup = ({ setpopup }) => {
   const handleKeyPress = (e) => {
     if (e.code === 'Escape') {
-      console.log('scaped')
       setpopup(null)
     }
   }

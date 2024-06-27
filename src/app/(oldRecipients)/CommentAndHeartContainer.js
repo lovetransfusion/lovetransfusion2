@@ -19,7 +19,6 @@ const CommentAndHeartContainer = ({ id }) => {
       .select()
       .eq('id', id)
     if (recipient) {
-      console.log('recipient', recipient)
       setrecipient(recipient[0])
     } else if (readError) {
       console.log('readError', readError)

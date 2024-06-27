@@ -7,7 +7,7 @@ const getExistingData = ({ fullDate, localKey }) => {
 function setMessageSeen({ fullDate, itemName, localKey }) {
   const existing = getExistingData({ fullDate, localKey })
   const name = `${fullDate}-${itemName}`
-  console.log('name', name)
+
   if (existing) {
     const itemExist = existing?.some((item) => item === name)
     if (!itemExist) {
@@ -50,7 +50,6 @@ export const checkLocalWithoutUpdating = ({ localKey, id }) => {
   const year = date.getFullYear()
   const fullDate = `${day}${month}${year}`
   const key = `${localKey}-${fullDate}`
-  console.log('key', key)
   const localItems = JSON.parse(localStorage.getItem(key))
   const doesExist =
     localItems?.some((item) => item === `${fullDate}-${id}`) || false

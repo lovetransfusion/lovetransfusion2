@@ -70,7 +70,7 @@ export const retrieveFields = () => {
 
   fetch('https://lovetransfusion.api-us1.com/api/3/fields?limit=100', options)
     .then((response) => response.json())
-    .then((response) => console.log(response))
+    .then((response) => console.log(''))
     .catch((err) => console.error(err))
 }
 

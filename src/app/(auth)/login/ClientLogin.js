@@ -19,7 +19,6 @@ import { createClient } from '@/config/supabase/supabaseClient'
 // import Icon_facebook from '@/app/components/icons/Icon_facebook'
 
 const ClientLogin = () => {
-  console.log('client login')
   const { register, handleSubmit, formState } = useForm()
   const [toast, settoast] = useState(null)
   const [loading, setloading] = useState(false)
