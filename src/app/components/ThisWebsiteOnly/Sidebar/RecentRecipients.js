@@ -25,7 +25,7 @@ const RecentRecipients = () => {
       {recipients?.map((recipient, i) => {
         const { first_name, path_url, category, profile_picture } = recipient
         return (
-          <Link href={`/recipients/${path_url}`} key={i} className="group">
+          <Link href={`/${path_url}`} key={i} className="group">
             <div className={'flex items-center lg:items-start gap-[15px]'}>
               <Image
                 src={profile_picture?.url}

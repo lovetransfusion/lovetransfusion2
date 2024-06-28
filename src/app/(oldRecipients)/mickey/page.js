@@ -46,14 +46,12 @@ const MickeyRecipient = () => {
               'group relative w-fit p-[6px] mt-[-6px] ml-[-6px]  shadow-sm md:float-left md:mr-6 mb-6'
             }
           >
-            <Link href={'/recipients/Mickey'} className="relative">
-              <Image
-                src={Mickey}
-                placeholder="blur"
-                alt="profile picture of Mickey"
-                className="min-w-full lg:min-w-[294px] h-auto"
-              />
-            </Link>
+            <Image
+              src={Mickey}
+              placeholder="blur"
+              alt="profile picture of Mickey"
+              className="min-w-full lg:min-w-[294px] h-auto"
+            />
             <div
               className={
                 'opacity-0 group-hover:opacity-15 absolute top-0 left-0 w-full h-full bg-primary group-hover:transition-all group-hover:duration-500'

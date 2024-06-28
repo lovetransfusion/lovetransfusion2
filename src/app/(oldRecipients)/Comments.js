@@ -2,7 +2,7 @@ import { convertToZeroFirst } from '@/utilities/date-and-time/convertToZero'
 import { getAmPm } from '@/utilities/date-and-time/getAmPm'
 import Image from 'next/image'
 import React from 'react'
-import commentatorImage from '@/app/recipients/[path_url]/images/avatar.svg'
+import commentatorImage from '@/app/(recipients)/[path_url]/images/avatar.svg'
 
 const convertDate = (date) => {
   const initialDay = date.getDate()

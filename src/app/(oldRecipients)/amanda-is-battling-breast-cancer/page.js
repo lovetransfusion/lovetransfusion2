@@ -46,14 +46,12 @@ const AmandaRecipient = () => {
               'group relative w-fit p-[6px] mt-[-6px] ml-[-6px]  shadow-sm md:float-left md:mr-6 mb-6'
             }
           >
-            <Link href={'/recipients/Amanda'} className="relative">
-              <Image
-                src={Amanda}
-                placeholder="blur"
-                alt="profile picture of Amanda"
-                className="min-w-full lg:w-[300px] h-auto"
-              />
-            </Link>
+            <Image
+              src={Amanda}
+              placeholder="blur"
+              alt="profile picture of Amanda"
+              className="min-w-full lg:w-[300px] h-auto"
+            />
             <div
               className={
                 'opacity-0 group-hover:opacity-15 absolute top-0 left-0 w-full h-full bg-primary group-hover:transition-all group-hover:duration-500'

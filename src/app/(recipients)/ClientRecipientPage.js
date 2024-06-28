@@ -85,7 +85,7 @@ const ClientRecipientPage = () => {
                           <span
                             onClick={() =>
                               handleAddCommentClick(
-                                `/recipients/${path_url}#comment-section`
+                                `/${path_url}#comment-section`
                               )
                             }
                             className="hover:underline"

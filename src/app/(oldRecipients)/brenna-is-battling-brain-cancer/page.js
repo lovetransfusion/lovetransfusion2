@@ -48,14 +48,12 @@ const BrennaRecipient = () => {
               'group relative w-fit p-[6px] mt-[-6px] ml-[-6px] shadow-sm'
             }
           >
-            <Link href={'/recipients/brenna'} className="relative">
-              <Image
-                src={brenna}
-                placeholder="blur"
-                alt="profile picture of brenna"
-                className="min-w-full md:min-w-[250px] lg:min-w-[300px] h-auto"
-              />
-            </Link>
+            <Image
+              src={brenna}
+              placeholder="blur"
+              alt="profile picture of brenna"
+              className="min-w-full md:min-w-[250px] lg:min-w-[300px] h-auto"
+            />
             <div
               className={
                 'opacity-0 group-hover:opacity-15 absolute top-0 left-0 w-full h-full bg-primary group-hover:transition-all group-hover:duration-500'

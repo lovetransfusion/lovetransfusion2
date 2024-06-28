@@ -47,14 +47,12 @@ const BennyRecipient = () => {
       <ContentContainerWithSidebar className={'text-[15px]'}>
         <div className={'flex flex-col md:flex-row gap-[31px] pb-[43px]'}>
           <div className={'group relative w-fit p-[6px] shadow-sm'}>
-            <Link href={'/recipients/benny'} className="relative">
               <Image
                 src={benny}
                 placeholder="blur"
                 alt="profile picture of benny"
                 className=" min-w-full md:min-w-[300px] lg:min-w-[391px] h-auto"
               />
-            </Link>
             <div
               className={
                 'opacity-0 group-hover:opacity-15 absolute top-0 left-0 w-full h-full bg-primary group-hover:transition-all group-hover:duration-500'
@@ -70,7 +68,7 @@ const BennyRecipient = () => {
               admissions, and both chemotherapy and radiation therapy. He’s
               faced each challenge bravely, like a real trooper.
             </p>
-            <Link href={'/recipients/benny'}>
+            <Link href={'/benny'}>
               <Button className="mx-auto text-balance">
                 Click here to go to Benny’s Love Transfusion page
               </Button>

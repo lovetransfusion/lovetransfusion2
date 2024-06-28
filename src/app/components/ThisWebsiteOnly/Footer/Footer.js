@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import React from 'react'
-import miette from '@/app/recipients/[path_url]/testimonials/images/Miette.jpg'
+import miette from '@/app/(recipients)/[path_url]/testimonials/images/Miette.jpg'
 import icon44 from './images/icon44.webp'
 import { Arial } from '@/utilities/fonts/fonts'
 import Link from 'next/link'

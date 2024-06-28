@@ -35,7 +35,7 @@ const ShareModal = ({
           {/* ************** FacebookShareButton ************** */}
           <FacebookShareButton
             hashtag={`#help${firstName}`}
-            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${path_url}`}
+            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/${path_url}`}
           >
             <div className="cursor-pointer shadow-custom3 rounded-[9px]">
               <Image
@@ -49,7 +49,7 @@ const ShareModal = ({
           {/* ************** TwitterShareButton ************** */}
           <TwitterShareButton
             title={sub_title}
-            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${path_url}`}
+            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/${path_url}`}
           >
             <div className="cursor-pointer shadow-custom3 rounded-[9px]">
               <Image
@@ -63,7 +63,7 @@ const ShareModal = ({
           {/* ************** PinterestShareButton ************** */}
           <PinterestShareButton
             media={packageImage}
-            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${path_url}`}
+            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/${path_url}`}
           >
             <div className="cursor-pointer shadow-custom3 rounded-[9px]">
               <Image
@@ -77,7 +77,7 @@ const ShareModal = ({
           {/* ************** LinkedinShareButton ************** */}
           <LinkedinShareButton
             hashtag={`#help${firstName}`}
-            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${path_url}`}
+            url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/${path_url}`}
           >
             <div className="cursor-pointer shadow-custom3 rounded-[9px]">
               <Image
