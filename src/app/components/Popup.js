@@ -10,8 +10,6 @@ import { twMerge } from 'tailwind-merge'
 // Then import it like:
 // <Popup data={{ setpopup, bgNotClickable:true }}></Popup>
 
-// STYLING For mainContainer
-// Example: data={{ mainContainer: 'backdrop-blur-sm' }}
 // STYLING For modalContainer
 // Example: data={{ modalContainer: 'max-w-[652px]' }}
 // STYLING For contentContainer
@@ -56,7 +54,7 @@ const Popup = ({ children, ...props }) => {
     <div
       className={twMerge(
         'flex fixed left-0 py-4 md:py-10 px-2 top-0 w-full h-screen max-h-screen bg-neutral-500 bg-opacity-25 backdrop-blur-sm overflow-y-auto z-50',
-        props?.data?.mainContainer
+        props?.className
       )}
       onClick={bgClose}
     >

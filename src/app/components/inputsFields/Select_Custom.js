@@ -71,11 +71,11 @@ export default function Select_Custom({
     setShowModal(!showModal)
   }
   return (
-    <div className={'relative'}>
+    <div className={'relative w-full'}>
       <div
         className={twMerge(
           `py-[6px] px-4 select-none border-[#c7e9ff] border-[1px] rounded-md relative ${
-            !selectedItem && 'text-primary'
+            selectedItem?.length === 0 && 'text-primary'
           }`,
           className
         )}
