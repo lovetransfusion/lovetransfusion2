@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import returnIcon from '../images/return-icon.svg'
 import dynamic from 'next/dynamic'
 
-const ShareModal = dynamic(() => import("./ShareModal"), { ssr: false })
+const ShareModal = dynamic(() => import('./ShareModal'), { ssr: false })
 
 const ShareButtonSplitB = ({
   parameters: { path_url, firstName, package_image, sub_title },

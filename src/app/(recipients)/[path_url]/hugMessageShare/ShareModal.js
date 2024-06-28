@@ -12,10 +12,7 @@ import {
 } from 'react-share'
 
 const ShareModal = ({
-  parameters: packageImage,
-  path_url,
-  firstName,
-  sub_title,
+  parameters: { packageImage, path_url, firstName, sub_title },
 }) => {
   return (
     <div

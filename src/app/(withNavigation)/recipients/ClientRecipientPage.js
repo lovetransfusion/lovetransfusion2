@@ -51,7 +51,7 @@ const ClientRecipientPage = () => {
                 return (
                   <Link
                     key={index}
-                    href={`recipients/${path_url}`}
+                    href={`${path_url}`}
                     prefetch={false}
                   >
                     <div
