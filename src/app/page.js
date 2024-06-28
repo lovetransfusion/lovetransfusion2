@@ -6,6 +6,8 @@ import ClickHereToDonate from './_homepage/ClickHereToDonate/ClickHereToDonate'
 import SectionThree from './_homepage/SectionThree/SectionThree'
 import SectionFour from './_homepage/SectionFour/SectionFour'
 import dynamic from 'next/dynamic'
+import MainNavigation from './components/ThisWebsiteOnly/Navigation/MainNavigation'
+import Footer from './components/ThisWebsiteOnly/Footer/Footer'
 
 const RecentRecipients = dynamic(() =>
   import('./_homepage/recentRecipients/RecentRecipients')
@@ -21,15 +23,19 @@ export const metadata = {
 
 const Homepage = () => {
   return (
-    <div className={`${openSans.className}`}>
-      <TitleSection />
-      <SectionTwo />
-      <ClickHereToDonate />
-      <SectionThree />
-      <Testimonials />
-      <SectionFour />
-      <RecentRecipients />
-    </div>
+    <>
+      <MainNavigation />
+      <div className={`${openSans.className}`}>
+        <TitleSection />
+        <SectionTwo />
+        <ClickHereToDonate />
+        <SectionThree />
+        <Testimonials />
+        <SectionFour />
+        <RecentRecipients />
+      </div>
+      <Footer />
+    </>
   )
 }
 

@@ -17,7 +17,7 @@ import Footer from './footer/Footer'
 import CommentSection from './commentSection/CommentSection'
 import dynamic from 'next/dynamic'
 import VideoSection from './videoSection/VideoSection'
-import LoadingComponent from '../../components/LoadingComponent'
+import LoadingComponent from '@/app/components/LoadingComponent'
 
 const Popup = dynamic(() => import('@/app/components/Popup'))
 const CarePackage = dynamic(

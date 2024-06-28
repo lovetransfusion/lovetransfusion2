@@ -3,7 +3,7 @@ import Image from 'next/image'
 import logo from '@/app/images/lt-logo-white.png'
 import { useStore } from 'zustand'
 import utilityStore from '@/utilities/store/utilityStore'
-import Icon_close from '../../components/icons/Icon_close'
+import Icon_close from '@/app/components/icons/Icon_close'
 import Link from 'next/link'
 import { dashboardMenuList } from './dashboardMenuList'
 

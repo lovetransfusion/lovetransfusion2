@@ -1,8 +1,8 @@
 import React from 'react'
 import { openSans } from '@/utilities/fonts/fonts'
 import Link from 'next/link'
-import TitleSectionComponent from '../components/ThisWebsiteOnly/TitleSectionComponent'
-import ContentContainerWithSidebar from '../components/ThisWebsiteOnly/ContentContainerWithSidebar/ContentContainerWithSidebar'
+import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSectionComponent'
+import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/ContentContainerWithSidebar/ContentContainerWithSidebar'
 
 const TestimonialsPage = () => {
   return (

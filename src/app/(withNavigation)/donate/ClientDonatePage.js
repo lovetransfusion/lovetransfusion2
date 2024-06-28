@@ -2,27 +2,27 @@
 import React, { Suspense, useState } from 'react'
 import { openSans } from '@/utilities/fonts/fonts'
 import Link from 'next/link'
-import TitleSectionComponent from '../components/ThisWebsiteOnly/TitleSectionComponent'
-import ContentContainerWithSidebar from '../components/ThisWebsiteOnly/ContentContainerWithSidebar/ContentContainerWithSidebar'
+import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSectionComponent'
+import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/ContentContainerWithSidebar/ContentContainerWithSidebar'
 import Image from 'next/image'
-import holdingHands from './images/holding-hands.webp'
+import holdingHand from './images/holding-hands.webp'
 import paypalButton from './images/paypal1.webp'
 import ccButton from './images/cc_button-117x72.webp'
+import jacob from './images/Jacob-60x60.webp'
 import miette from '@/app/(recipients)/[path_url]/testimonials/images/Miette.jpg'
-import kosher from '@/app/(about)/mission/images/Kosher-60x60.webp'
-import dace from '@/app/(about)/mission/images/Dace-60x60.webp'
-import braiden from '@/app/(about)/mission/images/Braiden-60x60.webp'
-import chris from '@/app/(about)/mission/images/Chris-60x60.webp'
+import kosher from '@/app/(withNavigation)/(about)/mission/images/Kosher-60x60.webp'
+import dace from '@/app/(withNavigation)/(about)/mission/images/Dace-60x60.webp'
+import braiden from '@/app/(withNavigation)/(about)/mission/images/Braiden-60x60.webp'
+import chris from '@/app/(withNavigation)/(about)/mission/images/Chris-60x60.webp'
 import ethan from '@/app/components/ThisWebsiteOnly/Sidebar/images/Ethan-60x60.webp'
 import lauren from '@/app/components/ThisWebsiteOnly/Sidebar/images/Lauren-60x60.webp'
 import alex from '@/app/components/ThisWebsiteOnly/Footer/images/Alex-60x60.webp'
 import elizabeth from '@/app/(recipients)/[path_url]/testimonials/images/Elizabeth.png'
-import jacob from './images/Jacob-60x60.webp'
-import Divider from '../components/Divider'
-import Popup from '../components/Popup'
+import Divider from '@/app/components/Divider'
+import Popup from '@/app/components/Popup'
 import dynamic from 'next/dynamic'
-import LoadingComponent from '../components/LoadingComponent'
-import Toast from '../components/Toast'
+import LoadingComponent from '@/app/components/LoadingComponent'
+import Toast from '@/app/components/Toast'
 import { useStore } from 'zustand'
 import utilityStore from '@/utilities/store/utilityStore'
 import TriggerPaymentReceipt from './TriggerPaymentReceipt'
@@ -63,7 +63,7 @@ const ClientDonatePage = () => {
       <ContentContainerWithSidebar className={'text-[15px]'}>
         <div className={'flex flex-col md:flex-row gap-[30px]'}>
           <Image
-            src={holdingHands}
+            src={holdingHand}
             alt="holding hands"
             placeholder="blur"
             quality={100}

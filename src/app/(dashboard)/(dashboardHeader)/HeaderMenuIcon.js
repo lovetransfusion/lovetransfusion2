@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import Icon_menu from '../../components/icons/Icon_menu'
+import Icon_menu from '@/app/components/icons/Icon_menu'
 import { useStore } from 'zustand'
 import utilityStore from '@/utilities/store/utilityStore'
 

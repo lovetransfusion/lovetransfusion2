@@ -1,12 +1,12 @@
 import { openSans } from '@/utilities/fonts/fonts'
 import Image from 'next/image'
 import React from 'react'
-import Button from '../components/Button'
+import Button from '@/app/components/Button'
 import benny from '@/app/_homepage/recentRecipients/images/benny-sq-225x225.webp'
 import adley from '@/app/(oldRecipients)/adley-is-battling-leukemia/images/adley-sq.webp'
 import emma from '@/app/_homepage/recentRecipients/images/Emma-225x225.webp'
-import Icon_facebook2 from '../components/icons/Icon_facebook2'
-import Icon_instagram from '../components/icons/Icon_instagram'
+import Icon_facebook2 from '@/app/components/icons/Icon_facebook2'
+import Icon_instagram from '@/app/components/icons/Icon_instagram'
 import whiteLogo from './images/Logo-white.png'
 
 const LoveTransfusionPage = () => {

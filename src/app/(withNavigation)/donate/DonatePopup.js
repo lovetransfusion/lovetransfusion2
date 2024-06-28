@@ -1,5 +1,5 @@
 import React, { Suspense, useState } from 'react'
-import Icon_padlock from '../components/icons/Icon_padlock'
+import Icon_padlock from '@/app/components/icons/Icon_padlock'
 import UserForm from './form/UserForm'
 import SelectAmount from './selectAmount/SelectAmount'
 import Payment from './Payment'

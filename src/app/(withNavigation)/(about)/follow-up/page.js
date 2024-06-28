@@ -1,5 +1,5 @@
 import React from 'react'
-import TitleSectionComponent from '../../components/ThisWebsiteOnly/TitleSectionComponent'
+import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSectionComponent'
 import { openSans } from '@/utilities/fonts/fonts'
 import Image from 'next/image'
 import loversBonding from './images/what-to-say3.webp'
