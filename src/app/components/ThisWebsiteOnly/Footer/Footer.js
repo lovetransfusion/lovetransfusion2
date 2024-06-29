@@ -66,7 +66,7 @@ const Footer = () => {
               #27-2829895
             </p>
             <p className={'text-[#262b2e] mt-[10px] mb-[5px]'}>Address:</p>
-            <p>1201 N Orange St, Suite 799 | Wilmington, DE 19801</p>
+            <p>1201 N Orange St, Suite 799 | Wilmington, DE 198011</p>
             <p className={'text-[#262b2e] mt-[15px] mb-[5px]'}>Phone Number:</p>
             <p>302.838.4232</p>
             <SocialMediaIcons />
