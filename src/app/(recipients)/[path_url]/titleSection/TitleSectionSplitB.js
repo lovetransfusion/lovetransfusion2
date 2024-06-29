@@ -14,7 +14,7 @@ const TitleSectionSplitB = ({
   return (
     <div
       className={
-        'flex pt-10 pb-[33px] md:pt-[78px] md:pb-[92px] w-full relative'
+        'flex pt-10 pb-[33px] md:pt-[75px] md:pb-[92px] w-full relative border-t-[3px] border-[#AFDFFF]'
       }
     >
       <div
@@ -50,7 +50,7 @@ const TitleSectionSplitB = ({
         quality={100}
         sizes="(min-width: 767px) 100vw, 100vw"
         loading="eager"
-        className="object-cover"
+        className="object-cover object-bottom"
       />
     </div>
   )
