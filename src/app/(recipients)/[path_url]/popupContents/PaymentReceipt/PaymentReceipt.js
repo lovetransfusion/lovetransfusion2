@@ -79,7 +79,7 @@ const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
             <div className={'flex flex-col md:flex-row gap-3 md:gap-6'}>
               <FacebookShareButton
                 hashtag={`#help${firstName}`}
-                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${path_url}`}
+                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/${path_url}`}
               >
                 <div
                   className={
@@ -94,7 +94,7 @@ const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
               </FacebookShareButton>
               <TwitterShareButton
                 title={opengraph?.description}
-                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/recipients/${path_url}`}
+                url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/${path_url}`}
               >
                 <div
                   className={

@@ -1,5 +1,5 @@
 import React from 'react'
-import TitleSectionComponent from '../../components/ThisWebsiteOnly/TitleSectionComponent'
+import TitleSectionComponent from '@/app/components/ThisWebsiteOnly/TitleSectionComponent'
 import { openSans } from '@/utilities/fonts/fonts'
 import Image from 'next/image'
 import girl from './images/5b-300x169.webp'
@@ -7,7 +7,7 @@ import ContentContainerWithSidebar from '@/app/components/ThisWebsiteOnly/Conten
 import braiden from './images/Braiden-60x60.webp'
 import dace from './images/Dace-60x60.webp'
 import alex from '@/app/components/ThisWebsiteOnly/Footer/images/Alex-60x60.webp'
-import miette from '@/app/recipients/[path_url]/testimonials/images/Miette.jpg'
+import miette from '@/app/(recipients)/[path_url]/testimonials/images/Miette.jpg'
 import chris from './images/Chris-60x60.webp'
 import kosher from './images/Kosher-60x60.webp'
 import IconList1 from './IconList1'
@@ -28,7 +28,9 @@ const MissionPage = () => {
           </h1>
           <div className={'hidden gap-2 md:flex'}>
             <p className={'text-[13px] leading-[20px]'}>
-              <Link href={'/'} className='hover:underline'>Home</Link>
+              <Link href={'/'} className="hover:underline">
+                Home
+              </Link>
             </p>
             <p className={'text-[13px] leading-[20px]'}>/</p>
             <p className={'text-[13px] leading-[20px]'}>Mission</p>

@@ -6,8 +6,8 @@ import ladaryl from './images/ladaryl-60x60.webp'
 import maxim from './images/maxim-60x60.webp'
 import nicholas from './images/nicholas-60x60.webp'
 import tl from './images/tl-60x60.webp'
-import melissa from '@/app/recipients/[path_url]/testimonials/images/Melissa-D-Dace.webp'
-import trisha from '@/app/recipients/[path_url]/testimonials/images/Trisha-K-Preston.webp'
+import melissa from '@/app/(recipients)/[path_url]/testimonials/images/Melissa-D-Dace.webp'
+import trisha from '@/app/(recipients)/[path_url]/testimonials/images/Trisha-K-Preston.webp'
 
 export const listOfTestimonies = [
   {

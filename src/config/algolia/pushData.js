@@ -22,7 +22,7 @@ export const pushSupabaseData = async () => {
       .select('*')
 
     const updatedRecipients = recipients?.map((item) => {
-      const newPath = `recipients/${item?.path_url}`
+      const newPath = `${item?.path_url}`
       return { ...item, path_url: newPath, objectID: item?.path_url }
     })
 

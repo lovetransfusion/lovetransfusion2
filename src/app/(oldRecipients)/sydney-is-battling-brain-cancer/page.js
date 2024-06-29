@@ -44,14 +44,12 @@ const SydneyRecipient = () => {
               'group relative w-fit p-[6px] mt-[-6px] ml-[-6px]  shadow-sm md:float-left md:mr-6 mb-6'
             }
           >
-            <Link href={'/recipients/Sydney'} className="relative">
-              <Image
-                src={Sydney}
-                placeholder="blur"
-                alt="profile picture of Sydney"
-                className="min-w-full lg:min-w-[294px] h-auto"
-              />
-            </Link>
+            <Image
+              src={Sydney}
+              placeholder="blur"
+              alt="profile picture of Sydney"
+              className="min-w-full lg:min-w-[294px] h-auto"
+            />
             <div
               className={
                 'opacity-0 group-hover:opacity-15 absolute top-0 left-0 w-full h-full bg-primary group-hover:transition-all group-hover:duration-500'

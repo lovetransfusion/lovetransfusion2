@@ -5,8 +5,6 @@ import {
   franklinGothicDemiCond,
   franklinGothicMediumCond,
 } from '@/utilities/fonts/fonts'
-import MainNavigation from './components/ThisWebsiteOnly/Navigation/MainNavigation'
-import Footer from './components/ThisWebsiteOnly/Footer/Footer'
 import { GoogleTagManager } from '@next/third-parties/google'
 
 export const metadata = {
@@ -26,11 +24,7 @@ export default function RootLayout({ children }) {
     >
       <GoogleTagManager gtmId="GTM-TW4HH9J8" />
       <body>
-        <TanstackProvider>
-          <MainNavigation />
-          {children}
-          <Footer />
-        </TanstackProvider>
+        <TanstackProvider>{children}</TanstackProvider>
       </body>
     </html>
   )

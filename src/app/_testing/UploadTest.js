@@ -1,6 +1,6 @@
 'use client'
 
-import CltDropzone from '../components/dropzone/Dropzone'
+import CltDropzone from '@/app/components/dropzone/Dropzone'
 import { useState } from 'react'
 
 const UploadTest = () => {

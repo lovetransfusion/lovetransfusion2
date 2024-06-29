@@ -1,31 +1,25 @@
 'use client'
-import React, { useRef, useState } from 'react'
+import React, { Suspense, useRef, useState } from 'react'
 import LogoSection from './logoSection/LogoSection'
 import { useQuery } from '@tanstack/react-query'
 import singleUseQuery from '@/queries/useQuery/singleUseQuery'
 import { createClient } from '@/config/supabase/supabaseClient'
-import TitleSection from './titleSection/TitleSection'
 import { notFound } from 'next/navigation'
 import ProfileSection from './profileSection/ProfileSection'
-import HugMessageShare from './hugMessageShare/HugMessageShare'
-import PackageSection from './packageSection/PackageSection'
-import FifthSection from './fifthSection/FifthSection'
-import Testimonials from './testimonials/Testimonials'
 import WristHugSection from './wristHugSection/WristHugSection'
-import WhatIsSection from './whatIsSection/WhatIsSection'
-import Footer from './footer/Footer'
 import CommentSection from './commentSection/CommentSection'
 import dynamic from 'next/dynamic'
 import VideoSection from './videoSection/VideoSection'
-import LoadingComponent from '../../components/LoadingComponent'
+import LoadingComponent from '@/app/components/LoadingComponent'
+import TitleSectionSplitB from './titleSection/TitleSectionSplitB'
+import WhatIsSectionSplitB from './whatIsSection/WhatIsSectionSplitB'
+import FifthSectionSplitB from './fifthSection/FifthSectionSplitB'
+import TestimonialsSplitB from './testimonials/TestimonialsSplitB'
+import DidYouKnowSplitB from './whatIsSection/DidYouKnowSplitB'
+import FooterSplitB from './footer/FooterSplitB'
+import HugMessageShareSplitB from './hugMessageShare/HugMessageShareSplitB'
 
 const Popup = dynamic(() => import('@/app/components/Popup'))
-const CarePackage = dynamic(
-  () => import('./popupContents/carePackage/CarePackage'),
-  {
-    loading: () => <LoadingComponent className={'min-h-[910px]'} />,
-  }
-)
 const PaymentReceipt = dynamic(
   () => import('./popupContents/PaymentReceipt/PaymentReceipt'),
   {
@@ -39,7 +33,7 @@ const AdCampaign = dynamic(
   }
 )
 
-const ClientPageOriginal = ({ parameters: { path_url, variation } }) => {
+const ClientSplitB = ({ parameters: { path_url, variation } }) => {
   const supabase = createClient()
   const commentSectionRef = useRef()
   const [popup, setpopup] = useState(null)
@@ -74,7 +68,6 @@ const ClientPageOriginal = ({ parameters: { path_url, variation } }) => {
     condition,
     profile_picture,
     package_image,
-    poster_image,
     more_ways_to_support,
     comments,
     end_of_campaign,
@@ -84,7 +77,7 @@ const ClientPageOriginal = ({ parameters: { path_url, variation } }) => {
   return (
     <div className="relative">
       <LogoSection />
-      <TitleSection parameters={{ firstName, category, created_at }} />
+      <TitleSectionSplitB parameters={{ firstName, category, created_at }} />
       <ProfileSection
         parameters={{
           profile_picture,
@@ -95,7 +88,7 @@ const ClientPageOriginal = ({ parameters: { path_url, variation } }) => {
           gender,
         }}
       />
-      <HugMessageShare
+      <HugMessageShareSplitB
         parameters={{
           commentSectionRef,
           id,
@@ -106,19 +99,7 @@ const ClientPageOriginal = ({ parameters: { path_url, variation } }) => {
           sub_title,
         }}
       />
-      <PackageSection
-        parameters={{
-          firstName,
-          setpopup,
-          poster_image,
-          end_of_campaign,
-        }}
-      />
-      <FifthSection condition={condition} />
-      <VideoSection parameters={{ setpopup }} />
-      <Testimonials />
-      <WristHugSection />
-      <WhatIsSection
+      <WhatIsSectionSplitB
         parameters={{
           what_is,
           according_to_paragraph,
@@ -128,6 +109,13 @@ const ClientPageOriginal = ({ parameters: { path_url, variation } }) => {
           firstName,
         }}
       />
+      <FifthSectionSplitB condition={condition} />
+      <Suspense fallback={<></>}>
+        <VideoSection parameters={{ setpopup, firstName }} />
+      </Suspense>
+      <TestimonialsSplitB />
+      <WristHugSection />
+      <DidYouKnowSplitB />
       <div ref={commentSectionRef}>
         <CommentSection
           parameters={{
@@ -139,12 +127,8 @@ const ClientPageOriginal = ({ parameters: { path_url, variation } }) => {
           }}
         />
       </div>
-      <Footer />
-      {popup === 'carePackage' && (
-        <Popup data={{ setpopup, bgNotClickable: true }}>
-          <CarePackage parameters={{ firstName, package_image, variation }} />
-        </Popup>
-      )}
+      <FooterSplitB />
+
       {popup === 'adCampaign' && (
         <Popup data={{ setpopup, bgNotClickable: true }}>
           <AdCampaign
@@ -161,4 +145,4 @@ const ClientPageOriginal = ({ parameters: { path_url, variation } }) => {
   )
 }
 
-export default ClientPageOriginal
+export default ClientSplitB

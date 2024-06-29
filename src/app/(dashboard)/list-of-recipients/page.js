@@ -59,7 +59,7 @@ const ListOfRecipientsPage = async () => {
                 return (
                   <tr key={index} className="even:bg-primary-50">
                     <td className="w-[190px]">
-                      <Link href={`/recipients/${path_url}`}>
+                      <Link href={`/${path_url}`}>
                         <Image
                           width={150}
                           height={150}
@@ -71,7 +71,7 @@ const ListOfRecipientsPage = async () => {
                       </Link>
                     </td>
                     <td className={'px-3 py-3'}>
-                      <Link href={`/recipients/${path_url}`}>{first_name}</Link>
+                      <Link href={`/${path_url}`}>{first_name}</Link>
                     </td>
                     <td className={'px-3 py-3'}>
                       <Hugs parameters={{ hugs, id, path_url }} />

@@ -46,14 +46,12 @@ const TinkRecipient = () => {
               'group relative w-fit p-[6px] shadow-sm md:mt-[-6px] md:ml-[-6px]'
             }
           >
-            <Link href={'/recipients/Tink'} className="relative">
               <Image
                 src={Tink}
                 placeholder="blur"
                 alt="profile picture of Tink"
                 className="min-w-full md:min-w-[250px] lg:min-w-[392px] h-auto"
               />
-            </Link>
             <div
               className={
                 'opacity-0 group-hover:opacity-15 absolute top-0 left-0 w-full h-full bg-primary group-hover:transition-all group-hover:duration-500'

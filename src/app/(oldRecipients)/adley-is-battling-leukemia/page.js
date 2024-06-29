@@ -47,14 +47,12 @@ const AddleyIsBattlingLeukemia = () => {
       <ContentContainerWithSidebar className={'text-[15px]'}>
         <div className={'flex flex-col md:flex-row gap-[31px] pb-[43px]'}>
           <div className={'group relative w-fit p-[6px] shadow-sm'}>
-            <Link href={'/recipients/adley'} className="relative">
               <Image
                 src={adley}
                 placeholder="blur"
                 alt="profile picture of adley"
                 className=" min-w-full md:min-w-[300px] lg:min-w-[391px] h-auto"
               />
-            </Link>
             <div
               className={
                 'opacity-0 group-hover:opacity-15 absolute top-0 left-0 w-full h-full bg-primary group-hover:transition-all group-hover:duration-500'
@@ -71,7 +69,7 @@ const AddleyIsBattlingLeukemia = () => {
               strength have been nothing short of remarkable. Her final
               chemotherapy treatment will be next month!
             </p>
-            <Link href={'/recipients/adley'}>
+            <Link href={'/adley'}>
               <Button className="mx-auto text-balance">
                 Click here to go to Adley’s Love Transfusion page
               </Button>

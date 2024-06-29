@@ -22,8 +22,8 @@ export const addComment = async ({ data, id, path_url }) => {
       .select()
       .eq('id', id)
     if (newComments) {
-      revalidatePath(`/recipients/${path_url}`)
-      revalidatePath(`/recipients/${capitalize(path_url)}`)
+      revalidatePath(`/${path_url}`)
+      revalidatePath(`/${capitalize(path_url)}`)
       return newComments
     }
   }

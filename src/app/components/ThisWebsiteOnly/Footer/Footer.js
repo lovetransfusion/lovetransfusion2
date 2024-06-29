@@ -1,7 +1,7 @@
 'use client'
 import Image from 'next/image'
 import React from 'react'
-import miette from '@/app/recipients/[path_url]/testimonials/images/Miette.jpg'
+import miette from '@/app/(recipients)/[path_url]/testimonials/images/Miette.jpg'
 import icon44 from './images/icon44.webp'
 import { Arial } from '@/utilities/fonts/fonts'
 import Link from 'next/link'
@@ -66,7 +66,7 @@ const Footer = () => {
               #27-2829895
             </p>
             <p className={'text-[#262b2e] mt-[10px] mb-[5px]'}>Address:</p>
-            <p>1201 N Orange St, Suite 799 | Wilmington, DE 198011</p>
+            <p>1201 N Orange St, Suite 799 | Wilmington, DE 19801</p>
             <p className={'text-[#262b2e] mt-[15px] mb-[5px]'}>Phone Number:</p>
             <p>302.838.4232</p>
             <SocialMediaIcons />

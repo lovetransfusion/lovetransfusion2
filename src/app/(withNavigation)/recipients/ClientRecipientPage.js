@@ -51,7 +51,7 @@ const ClientRecipientPage = () => {
                 return (
                   <Link
                     key={index}
-                    href={`recipients/${path_url}`}
+                    href={`${path_url}`}
                     prefetch={false}
                   >
                     <div
@@ -85,7 +85,7 @@ const ClientRecipientPage = () => {
                           <span
                             onClick={() =>
                               handleAddCommentClick(
-                                `/recipients/${path_url}#comment-section`
+                                `/${path_url}#comment-section`
                               )
                             }
                             className="hover:underline"

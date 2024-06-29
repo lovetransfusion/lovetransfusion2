@@ -1,9 +1,9 @@
 'use client'
 import React, { useState } from 'react'
-import Input from '../components/inputsFields/InputGroup/Input'
+import Input from '@/app/components/inputsFields/InputGroup/Input'
 import { useForm } from 'react-hook-form'
-import Button from '../components/Button'
-import Select_Custom from '../components/inputsFields/Select_Custom'
+import Button from '@/app/components/Button'
+import Select_Custom from '@/app/components/inputsFields/Select_Custom'
 import AccordingToparagraph from './quill_inputs/AccordingToParagraph'
 
 const ClientAddNewRecipient = () => {

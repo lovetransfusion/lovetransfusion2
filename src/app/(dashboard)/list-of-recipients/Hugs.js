@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 'use client'
 import Icon_like from '@/app/components/icons/Icon_like'
-import { updateHugs } from '@/app/recipients/[path_url]/hugMessageShare/actions'
+import { updateHugs } from '@/app/(recipients)/[path_url]/hugMessageShare/actions'
 import {
   checkIfHasHuggedBefore,
   checkLocalWithoutUpdating,
-} from '@/app/recipients/[path_url]/hugMessageShare/checkIfHasHuggedBefore'
+} from '@/app/(recipients)/[path_url]/hugMessageShare/checkIfHasHuggedBefore'
 import React, { useEffect, useState } from 'react'
 
 const Hugs = ({ parameters: { hugs: currHugs, path_url, id } }) => {
