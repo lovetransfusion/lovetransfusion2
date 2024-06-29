@@ -1,6 +1,6 @@
 'use server'
 import { createServer } from '@/config/supabase/supabaseServer'
-import { capitalize } from '@/utilities/capitalize'
+// import { capitalize } from '@/utilities/capitalize'
 import { revalidatePath } from 'next/cache'
 
 export const updateHugs = async ({ id, path_url }) => {
@@ -19,9 +19,7 @@ export const updateHugs = async ({ id, path_url }) => {
       .eq('id', id)
 
     if (data) {
-      revalidatePath(`/${path_url}`)
-      revalidatePath(`/list-of-recipients`)
-      revalidatePath(`/${capitalize(path_url)}`)
+      revalidatePath('/', 'layout')
       return data
     }
   }
