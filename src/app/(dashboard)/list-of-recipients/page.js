@@ -4,7 +4,8 @@ import Link from 'next/link'
 import React from 'react'
 import Hugs from './Hugs'
 import { getCurrentUser } from '@/config/supabase/getCurrentUser'
-import Button from '@/app/components/Button'
+import AddNewButton from './add-recipient/AddNewButton'
+import Icon_newtab from '@/app/components/icons/Icon_newtab'
 
 const ListOfRecipientsPage = async () => {
   const user = await getCurrentUser()
@@ -19,9 +20,7 @@ const ListOfRecipientsPage = async () => {
       <div className={'flex justify-between min-h-9'}>
         <h2 className={'text-xl font-semibold text-primary'}>Recipients</h2>
         {(user?.role === 'superadmin' || user?.role === 'admin') && (
-          <Link href={'/add-new-recipient'}>
-            <Button>Add New</Button>
-          </Link>
+          <AddNewButton />
         )}
       </div>
 
@@ -71,7 +70,16 @@ const ListOfRecipientsPage = async () => {
                       </Link>
                     </td>
                     <td className={'px-3 py-3'}>
-                      <Link href={`/${path_url}`}>{first_name}</Link>
+                      <div className={'w-fit'}>
+                        <Link href={`/${path_url}`}>
+                          <div
+                            className={'group flex items-center gap-2 w-fit'}
+                          >
+                            {first_name}
+                            <Icon_newtab className="group-hover:text-primary size-4" />
+                          </div>
+                        </Link>
+                      </div>
                     </td>
                     <td className={'px-3 py-3'}>
                       <Hugs parameters={{ hugs, id, path_url }} />

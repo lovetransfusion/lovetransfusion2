@@ -3,9 +3,11 @@ import { twMerge } from 'tailwind-merge'
 
 const variants = {
   default:
-    'py-[6px] px-3 max-h-[38px] w-full text-[16px] text-[#222] rounded-[5px] border-[1px] border-[#c7e9ff] placeholder:text-primary focus-visible:outline-none',
+    'py-[6px] px-3 max-h-[38px] w-full text-[16px] text-neutral-900 rounded-[5px] border-[1px] border-[#c7e9ff] placeholder:text-primary focus-visible:outline-none',
+  input2:
+    'py-[6px] px-3 max-h-[38px] w-full text-[16px] text-neutral-900 rounded-[5px] border-[1px] border-neutral-300 placeholder:text-neutral-400 focus-visible:outline-none',
   basic:
-    'py-[6px] px-3 max-h-[38px] w-full text-[16px] text-[#222] rounded-[5px] border-[1px] border-[#c7e9ff] placeholder:text-primary focus-visible:outline-none border-[#8C8C8C] ring-1 ring-white py-[23px] rounded-md focus-visible:ring-primary focus-visible:border-primary placeholder:text-[#7D8B9F]',
+    'py-[6px] px-3 max-h-[38px] w-full text-[16px] text-neutral-900 rounded-[5px] border-[1px] border-[#c7e9ff] placeholder:text-primary focus-visible:outline-none border-[#8C8C8C] ring-1 ring-white py-[23px] rounded-md focus-visible:ring-primary focus-visible:border-primary placeholder:text-[#7D8B9F]',
 }
 
 const Input = forwardRef(function Input(
@@ -16,7 +18,7 @@ const Input = forwardRef(function Input(
     ? variants[variant?.toLowerCase()]
     : variants['default']
   return (
-    <div className='w-full relative'>
+    <div className="w-full relative">
       <input
         ref={ref}
         type={props?.type || 'text'}

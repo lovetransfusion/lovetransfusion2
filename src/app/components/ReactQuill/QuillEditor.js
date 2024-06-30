@@ -2,6 +2,7 @@
 import 'react-quill/dist/quill.snow.css'
 import './QuillStyle.css'
 import dynamic from 'next/dynamic'
+import { twMerge } from 'tailwind-merge'
 
 const modules = {
   toolbar: [
@@ -39,20 +40,23 @@ const modules = {
 // ]
 const ReactQuill = dynamic(() => import('react-quill'), { ssr: false })
 
-function QuillEditor({ setValue, defaultValue }) {
+function QuillEditor({ className, setValue, defaultValue, placeholder }) {
   const handleChange = (content, delta, source, editor) => {
     // const data = { content, delta, source, editor }  // Available Data
     setValue(content)
   }
 
   return (
-    <div className={'flex w-full mb-[70px] h-[300px] relative'}>
+    <div
+      className={twMerge('flex w-full mb-[43px] h-[300px] relative', className)}
+    >
       <ReactQuill
         style={{ height: '100%', width: '100%' }}
         theme="snow"
         modules={modules}
         defaultValue={defaultValue}
         onChange={handleChange}
+        placeholder={placeholder}
       />
     </div>
   )

@@ -8,9 +8,9 @@ import { twMerge } from 'tailwind-merge'
 // const [selectedItem, setselectedItem] = useState([])
 
 // const items = [
-//   { name: 'Dog', value: 'Dog' },
-//   { name: 'Carabao', value: 'Carabao' },
-//   { name: 'Goat', value: 'Goat' },
+//   { name: 'Dog', value: 'dog' },
+//   { name: 'Carabao', value: 'carabao' },
+//   { name: 'Goat', value: 'goat' },
 // ]
 
 // <Select_Custom
@@ -24,11 +24,21 @@ import { twMerge } from 'tailwind-merge'
 //     placeholder,               // optional
 //     containerWidth: 260,       // optional
 //     menuStyle: 'w-[260px]',    // optional
+//     placeholderStyle: '',      // optional
+//     singleSelectedStyle: '',   // optional
+//     multiSelectStyle: '',      // optional
+//     menuSpaceFromElement: 10,  // optional
 //   }}
 // />
 
+const variants = {
+  default: 'border-[#c7e9ff]',
+  select2: 'border-neutral-200',
+}
+
 export default function Select_Custom({
   className,
+  variant,
   parameters: {
     options,
     selectedItem,
@@ -39,6 +49,10 @@ export default function Select_Custom({
     menuStyle,
     multiSelect,
     optionsStyle,
+    placeholderStyle,
+    singleSelectedStyle,
+    multiSelectStyle,
+    menuSpaceFromElement,
   },
   ...props
 }) {
@@ -70,13 +84,17 @@ export default function Select_Custom({
   const toggleModal = () => {
     setShowModal(!showModal)
   }
+
+  const variation = variant
+    ? variants[variant?.toLowerCase()]
+    : variants['default']
+
   return (
     <div className={'relative w-full'}>
       <div
         className={twMerge(
-          `py-[6px] px-4 select-none border-[#c7e9ff] border-[1px] rounded-md relative ${
-            selectedItem?.length === 0 && 'text-primary'
-          }`,
+          variation,
+          'py-[6px] px-4 select-none border-[1px] border-neutral-300 relative rounded-md',
           className
         )}
         {...props}
@@ -84,9 +102,19 @@ export default function Select_Custom({
         ref={buttonRef}
         onClick={toggleModal}
       >
-        {!multiSelect && (
-          <p className={''} onClick={toggleModal}>
-            {selectedItem[0]?.name || placeholder || '-- Select --'}{' '}
+        {/* Placeholder */}
+        {!multiSelect && selectedItem?.length === 0 && (
+          <p
+            className={twMerge('text-primary', placeholderStyle)}
+            onClick={toggleModal}
+          >
+            {placeholder || '-- Select --'}
+          </p>
+        )}
+        {/* When single item selected */}
+        {!multiSelect && selectedItem?.length === 1 && (
+          <p className={twMerge('', singleSelectedStyle)} onClick={toggleModal}>
+            {selectedItem[0]?.name}
           </p>
         )}
         {multiSelect && (
@@ -97,14 +125,20 @@ export default function Select_Custom({
                   <p
                     key={index}
                     onClick={() => removeItem(item)}
-                    className={'py-1 px-3 bg-primary-100 rounded-full'}
+                    className={twMerge(
+                      'py-1 px-3 bg-primary-100 rounded-full',
+                      multiSelectStyle
+                    )}
                   >
                     {item?.name}
                   </p>
                 )
               })
             ) : (
-              <p className={''} onClick={toggleModal}>
+              <p
+                className={twMerge('text-primary', placeholderStyle)}
+                onClick={toggleModal}
+              >
                 {placeholder || '-- Select --'}
               </p>
             )}
@@ -119,8 +153,9 @@ export default function Select_Custom({
           referenceElement={buttonRef}
           containerHeight={containerHeight}
           containerWidth={containerWidth}
+          spaceFromElement={menuSpaceFromElement}
           className={twMerge(
-            'justify-start divide-y-[1px] divide-neutral-300',
+            'justify-start divide-y-[1px] divide-neutral-300 z-50',
             menuStyle
           )}
         >
@@ -132,8 +167,8 @@ export default function Select_Custom({
                 className={twMerge(
                   `p-3 ${
                     selectedItem?.some((sItem) => sItem?.value === item.value)
-                      ? 'bg-primary-100'
-                      : 'hover:bg-primary-50'
+                      ? 'bg-neutral-100'
+                      : 'hover:bg-neutral-50'
                   }`,
                   optionsStyle
                 )}

@@ -35,14 +35,12 @@ const Hugs = ({ parameters: { hugs: currHugs, path_url, id } }) => {
     checkLocalData()
   }, [])
   return (
-    <div
-      className={`flex items-center gap-3 select-none ${
-        !doesExist && 'cursor-pointer'
-      }`}
-      onClick={handleClick}
-    >
+    <div className={`flex items-center gap-3 select-none w-fit ${!doesExist && 'cursor-pointer'}`} onClick={handleClick}>
       <Icon_like
-        className={`size-6 ${doesExist ? 'text-primary' : 'text-neutral-300'}`}
+        
+        className={`size-6 ${
+          doesExist ? 'text-primary' : 'text-neutral-300'
+        }`}
       />
       <p className={''}>{hugs}</p>
     </div>

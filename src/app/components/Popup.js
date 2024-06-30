@@ -19,7 +19,7 @@ const Popup = ({ children, ...props }) => {
   const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768)
   const setBodyStyle = () => {
     document.body.style.overflow = 'hidden'
-    if (isDesktop) {
+    if (isDesktop && !props?.data?.noScrollbar) {
       document.body.style.marginRight = '15px'
     }
   }
