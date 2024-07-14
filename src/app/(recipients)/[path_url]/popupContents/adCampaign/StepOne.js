@@ -12,17 +12,17 @@ const StepOne = ({
   const totalAmount = donations?.reduce((acc, item) => {
     return item?.amount + acc
   }, 0)
-
   const barWidth = 100 - (totalAmount / goal) * 100
+  console.log({ totalAmount, goal, barWidth })
   const transformBar = {
     initial: {
       x: '-100%',
     },
     animate: {
-      x: barWidth < -100 ? '0%' : `-${barWidth}%`,
+      x: barWidth < 0 ? '0%' : `-${barWidth}%`,
       transition: {
         duration: 0.5,
-        ease: barWidth < -100 ? 'easeOut' : 'backInOut',
+        ease: 'easeOut',
       },
     },
   }

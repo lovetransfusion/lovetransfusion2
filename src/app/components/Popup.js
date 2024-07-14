@@ -8,7 +8,7 @@ import { twMerge } from 'tailwind-merge'
 // const [popup, setpopup] = useState(null) ---> Must be present in the parent component
 
 // Then import it like:
-// <Popup data={{ setpopup, bgNotClickable:true }}></Popup>
+// {popup && <Popup data={{ setpopup, bgNotClickable:true }}></Popup>}
 
 // STYLING For modalContainer
 // Example: data={{ modalContainer: 'max-w-[652px]' }}
