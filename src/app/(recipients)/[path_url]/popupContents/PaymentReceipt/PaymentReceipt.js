@@ -21,7 +21,7 @@ const PaymentReceipt = ({ parameters: { firstName, path_url, opengraph } }) => {
     const initiateGet = async () => {
       try {
         const response = await axios.post(
-          `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/checkout/checkout-custom-flow/api/test`,
+          `${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/stripe/checkout/checkout-custom-flow/api/live`,
           {
             intentId,
           },
