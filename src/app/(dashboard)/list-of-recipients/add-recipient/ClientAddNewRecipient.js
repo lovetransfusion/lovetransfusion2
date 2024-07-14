@@ -29,6 +29,7 @@ const ClientAddNewRecipient = ({ parameters: { setpopup } }) => {
       ...unMergedData,
       gender: selectedItem[0]?.value,
       accordingTo,
+      sectOneParagrpah,
     }
     console.log('data', data)
   }
