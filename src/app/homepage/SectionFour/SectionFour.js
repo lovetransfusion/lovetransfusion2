@@ -27,7 +27,7 @@ const SectionFour = () => {
             Our flagship services are web applications which quickly & easily
             allow people to connect.
           </p>
-          <Button className="mx-auto cursor-default">Comming Soon</Button>
+          <Button className="mx-auto cursor-default">Coming Soon</Button>
         </div>
         <div className={'px-[25px] pt-[25px] pb-[30px] bg-[#F6F6F6]'}>
           <Image src={grief} alt="Grief" quality={100} />
