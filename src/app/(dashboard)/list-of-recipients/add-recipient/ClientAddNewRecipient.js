@@ -30,6 +30,7 @@ const ClientAddNewRecipient = ({ parameters: { setpopup } }) => {
       gender: selectedItem[0]?.value,
       accordingTo,
       sectOneParagrpah,
+      waysToSupport,
     }
     console.log('data', data)
   }
@@ -119,6 +120,8 @@ const ClientAddNewRecipient = ({ parameters: { setpopup } }) => {
             />
             <Input
               variant="input2"
+              type="url"
+              defaultValue="https://"
               id="learn_more_url"
               placeholder="Learn more <URL>"
               {...register('learn_more_url', {

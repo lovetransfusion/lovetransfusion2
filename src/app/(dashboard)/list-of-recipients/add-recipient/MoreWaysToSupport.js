@@ -71,16 +71,21 @@ const MoreWaysToSupport = ({
           } gap-2 py-2`}
         >
           {waysToSupport?.map((item, index) => {
-            const { name, value } = item
+            const { name, value, url } = item
             return (
-              <Input
-                id={value}
-                key={index}
-                placeholder={`${name} URL`}
-                variant="input2"
-                onChange={(e) => handleChange({ value, e })}
-                className="transition-all duration-700"
-              />
+              <div className={'flex flex-col gap-1'} key={index}>
+                <label htmlFor={value}>{name}</label>
+                <Input
+                  id={value}
+                  value={url || 'https://'}
+                  type="url"
+                  defaultValue="https://"
+                  placeholder={`${name} URL`}
+                  variant="input2"
+                  onChange={(e) => handleChange({ value, e })}
+                  className="transition-all duration-700"
+                />
+              </div>
             )
           })}
         </div>
