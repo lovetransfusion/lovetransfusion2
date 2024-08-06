@@ -15,7 +15,7 @@ const DashboardHeader = async () => {
   return (
     <div
       className={
-        'w-full bg-primary text-white lg:text-[unset] lg:bg-white shadow-sm fixed top-0 left-0 md:static'
+        'w-full bg-primary z-[900] text-white lg:text-[unset] lg:bg-white shadow-sm fixed top-0 left-0 md:static'
       }
     >
       <div className={'px-5 py-2 flex items-center'}>

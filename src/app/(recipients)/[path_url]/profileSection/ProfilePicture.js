@@ -27,7 +27,9 @@ const ProfilePicture = ({
         >
           <Image
             src={
-              profile_picture?.url ? `${profile_picture?.url}` : profilePicLocal
+              profile_picture?.fullPath
+                ? `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/${profile_picture?.fullPath}`
+                : profilePicLocal
             }
             quality={100}
             fill

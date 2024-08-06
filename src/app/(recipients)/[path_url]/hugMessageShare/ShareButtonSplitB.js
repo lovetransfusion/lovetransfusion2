@@ -23,9 +23,7 @@ const ShareButtonSplitB = ({
   const handleClick = () => {
     setisModalActive(() => !isModalActive)
   }
-  const packageImage = package_image?.url
-    ? `${package_image?.url}`
-    : packageImageTemplate
+  const packageImage = package_image?.url && `${package_image?.url}`
   return (
     <div
       className={

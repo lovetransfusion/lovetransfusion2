@@ -6,6 +6,10 @@ import Hugs from './Hugs'
 import { getCurrentUser } from '@/config/supabase/getCurrentUser'
 import AddNewButton from './add-recipient/AddNewButton'
 import Icon_newtab from '@/app/components/icons/Icon_newtab'
+import Button from '@/app/components/Button'
+import SetImages from './change-image/SetImages'
+import profilePlaceholder from '@/app/images/profile_picture_placeholder.jpg'
+import Icon_pencil from '@/app/components/icons/Icon_pencil'
 
 const ListOfRecipientsPage = async () => {
   const user = await getCurrentUser()
@@ -15,12 +19,28 @@ const ListOfRecipientsPage = async () => {
     .select(
       'id, hugs, first_name, condition, profile_picture, path_url, created_at'
     )
+
+  const getImages = async () => {
+    const { data: images, error: errorImage } = await supabase
+      .from('admin_gallery')
+      .select()
+    if (images) {
+      return images
+    } else {
+      return errorImage
+    }
+  }
+  let gallery
+  if (user?.role === 'super_admin' || user?.role === 'admin') {
+    gallery = await getImages()
+  }
+
   return (
     <div className={'w-full'}>
       <div className={'flex justify-between min-h-9'}>
         <h2 className={'text-xl font-semibold text-primary'}>Recipients</h2>
-        {(user?.role === 'superadmin' || user?.role === 'admin') && (
-          <AddNewButton />
+        {(user?.role === 'super_admin' || user?.role === 'admin') && (
+          <AddNewButton user={user} />
         )}
       </div>
 
@@ -33,8 +53,11 @@ const ListOfRecipientsPage = async () => {
               <th className="px-3 py-3">Number of hugs</th>
               <th className="px-3 py-3">Date Added</th>
               <th className="px-3 py-3">Condition</th>
-              {(user?.role === 'superadmin' || user?.role === 'admin') && (
-                <th className="px-3 py-3">Admin Tools</th>
+              {(user?.role === 'super_admin' || user?.role === 'admin') && (
+                <th className="px-3 py-3">Upload</th>
+              )}
+              {(user?.role === 'super_admin' || user?.role === 'admin') && (
+                <th className="px-3 py-3">Actions</th>
               )}
             </tr>
           </thead>
@@ -58,16 +81,29 @@ const ListOfRecipientsPage = async () => {
                 return (
                   <tr key={index} className="even:bg-primary-50">
                     <td className="w-[190px]">
-                      <Link href={`/${path_url}`}>
-                        <Image
-                          width={150}
-                          height={150}
-                          quality={100}
-                          src={profile_picture?.url}
-                          alt="profile picture of the recipient"
-                          className="min-w-[100px] md:min-w-[150px]"
-                        />
-                      </Link>
+                      <div
+                        className={
+                          'relative w-full h-full max-w-[150px] max-h-[150px] min-w-[150px] min-h-[150px]'
+                        }
+                      >
+                        <Link href={`/${path_url}`} target="_blank">
+                          <Image
+                            quality={100}
+                            fill
+                            src={
+                              (profile_picture?.fullPath &&
+                                `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/${profile_picture?.fullPath}`) ||
+                              profile_picture?.url ||
+                              profilePlaceholder
+                            }
+                            placeholder="blur"
+                            blurDataURL={profile_picture?.blurDataURL}
+                            sizes="100vw"
+                            alt="profile picture of the recipient"
+                            className="object-cover"
+                          />
+                        </Link>
+                      </div>
                     </td>
                     <td className={'px-3 py-3'}>
                       <div className={'w-fit'}>
@@ -88,9 +124,21 @@ const ListOfRecipientsPage = async () => {
                       {new Date(created_at).toLocaleDateString()}
                     </td>
                     <td className={'px-3 py-3'}>{condition}</td>
-                    {(user?.role === 'superadmin' ||
+                    {(user?.role === 'super_admin' ||
                       user?.role === 'admin') && (
-                      <td className={'px-3 py-3'}>Edit</td>
+                      <td className={'px-3 py-3'}>
+                        <div className={'flex flex-col gap-1'}>
+                          <SetImages user={user} images={gallery} id={id} />
+                        </div>
+                      </td>
+                    )}
+                    {(user?.role === 'super_admin' ||
+                      user?.role === 'admin') && (
+                      <td className={'px-3 py-3'}>
+                        <div className={'flex flex-col gap-1'}>
+                          <Icon_pencil className='' />
+                        </div>
+                      </td>
                     )}
                   </tr>
                 )

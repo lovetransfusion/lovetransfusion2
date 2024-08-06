@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Input from '@/app/components/inputsFields/InputGroup/Input'
 import { useForm } from 'react-hook-form'
 import Button from '@/app/components/Button'
@@ -7,37 +7,91 @@ import Select_Custom from '@/app/components/inputsFields/Select_Custom'
 import AccordingToparagraph from './quill_inputs/AccordingToParagraph'
 import SectionOneParagraph from './quill_inputs/SectionOneParagraph'
 import MoreWaysToSupport from './MoreWaysToSupport'
+import { addRecipient } from './actions'
+import { useStore } from 'zustand'
+import utilityStore from '@/utilities/store/utilityStore'
+import { capitalizeAllFirstLetter } from '@/utilities/capitalizeAllFirstLetter'
+import { formatPageDescription } from './formatPageDescription'
+import Textarea from '@/app/components/inputsFields/Textrea'
 
-const ClientAddNewRecipient = ({ parameters: { setpopup } }) => {
+const ClientAddNewRecipient = ({ parameters: { setpopup, user } }) => {
   // console.log('client rendered')
   const { register, handleSubmit, formState, watch } = useForm()
-  const [selectedItem, setselectedItem] = useState([])
+  const { settoast } = useStore(utilityStore)
+  const [gender, setgender] = useState([])
   const [accordingTo, setaccordingTo] = useState(null)
-  const [sectOneParagrpah, setsectOneParagrpah] = useState(null)
+  const [sectOneParagraph, setsectOneParagraph] = useState(null)
   const [waysToSupport, setwaysToSupport] = useState([])
+  const [pageTitle, setpageTitle] = useState(null)
+  const [pageDescription, setpageDescription] = useState(null)
+  const [path_url, setpath_url] = useState(null)
   const { errors } = formState
 
-  console.log('waysToSupport', waysToSupport)
+  const first_name = watch('first_name')
 
   const items = [
     { name: 'Male', value: 'male' },
     { name: 'Female', value: 'female' },
   ]
 
-  const onSubmit = (unMergedData) => {
+  const onSubmit = async (unMergedData) => {
+    if (!gender || !sectOneParagraph || !accordingTo || !path_url) {
+      settoast({
+        description: 'Please fill in the required fields.',
+        status: 'error',
+      })
+      return
+    }
     const data = {
       ...unMergedData,
-      gender: selectedItem[0]?.value,
-      accordingTo,
-      sectOneParagrpah,
-      waysToSupport,
+      gender: gender[0]?.value,
+      path_url: path_url?.toLowerCase()?.replaceAll(' ', '-'),
+      according_to_paragraph: accordingTo,
+      sec_one_paragraph: sectOneParagraph,
+      more_ways_to_support: waysToSupport,
+      opengraph: {
+        title: pageTitle,
+        description: pageDescription,
+      },
     }
-    console.log('data', data)
+    const { data: recipient, error } = await addRecipient(data)
+    if (recipient) {
+      settoast({
+        description: 'Successfully added new recipient',
+        status: 'success',
+      })
+      setpopup(false)
+    } else if (error) {
+      settoast({
+        description: error,
+        status: 'error',
+      })
+    }
   }
 
   const handlediscard = () => {
     setpopup(false)
   }
+
+  useEffect(() => {
+    setpageTitle(first_name)
+    setpath_url(first_name)
+  }, [first_name])
+
+  useEffect(() => {
+    setpageDescription(formatPageDescription(sectOneParagraph))
+  }, [sectOneParagraph])
+
+  const handleTitleChange = ({ target: { value } }) => {
+    setpageTitle(value)
+  }
+  const handleDescriptionChange = ({ target: { value } }) => {
+    setpageDescription(formatPageDescription(value))
+  }
+  const handlePathChange = ({ target: { value } }) => {
+    setpath_url(value)
+  }
+  console.log('path_url', path_url)
   return (
     <div className="px-5 py-10 w-full">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -66,8 +120,8 @@ const ClientAddNewRecipient = ({ parameters: { setpopup } }) => {
             <Select_Custom
               parameters={{
                 options: items,
-                selectedItem,
-                setselectedItem,
+                selectedItem: gender,
+                setselectedItem: setgender,
                 containerHeight: 132,
                 menuStyle: 'rounded-md',
                 placeholder: '-- Select Gender --',
@@ -96,7 +150,7 @@ const ClientAddNewRecipient = ({ parameters: { setpopup } }) => {
             error={errors?.sub_title?.message}
           />
           <SectionOneParagraph
-            parameters={{ sectOneParagrpah, setsectOneParagrpah }}
+            parameters={{ sectOneParagraph, setsectOneParagraph }}
           />
           <Input
             variant="input2"
@@ -131,11 +185,62 @@ const ClientAddNewRecipient = ({ parameters: { setpopup } }) => {
             />
           </div>
           <MoreWaysToSupport parameters={{ waysToSupport, setwaysToSupport }} />
+          <div className="mt-5 border-neutral-300 border-[1px] px-5 py-6 rounded-md relative">
+            <p className={'absolute left-5 -top-[14px] bg-white px-4'}>
+              SEO Optimization:
+            </p>
+            <div className={'flex flex-col gap-4'}>
+              <Input
+                variant="input2"
+                id="seo_title"
+                value={
+                  (first_name &&
+                    `Welcome to ${capitalizeAllFirstLetter(
+                      pageTitle
+                    )}'s Page`) ||
+                  (first_name &&
+                    `Welcome to ${capitalizeAllFirstLetter(
+                      first_name
+                    )}'s Page`) ||
+                  ''
+                }
+                onChange={handleTitleChange}
+                placeholder="Page title"
+              />
+              <Textarea
+                variant="textarea2"
+                id="seo_description"
+                value={
+                  pageDescription ||
+                  (sectOneParagraph &&
+                    formatPageDescription(sectOneParagraph)) ||
+                  ''
+                }
+                onChange={handleDescriptionChange}
+                placeholder="Page description"
+              />
+              <div className={'flex items-center gap-[2px]'}>
+                <p className={''}>https://www.lovetransfusion.org/</p>
+                <Input
+                  value={
+                    path_url?.toLowerCase()?.replaceAll(' ', '-') ||
+                    first_name?.toLowerCase()?.replaceAll(' ', '-') ||
+                    ''
+                  }
+                  variant="input2"
+                  id="path"
+                  placeholder="auto-generated-path"
+                  className="border-neutral-100 w-fit bg-neutral-50"
+                  onChange={handlePathChange}
+                />
+              </div>
+            </div>
+          </div>
           <div className={'flex justify-between'}>
             <Button className="" variant="button2" onClick={handlediscard}>
               Exit & discard changes
             </Button>
-            <Button type="submit">Submit</Button>
+            <Button type="submit">Save Recipient</Button>
           </div>
         </div>
       </form>

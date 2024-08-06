@@ -4,5 +4,6 @@ export const restrictedPages = [
   '/dashboard',
   '/payments',
   '/account',
+  '/media',
   '/list-of-recipients',
 ]

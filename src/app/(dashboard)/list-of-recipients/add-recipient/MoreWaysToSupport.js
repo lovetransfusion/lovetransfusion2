@@ -45,7 +45,7 @@ const MoreWaysToSupport = ({
         <p className={'absolute left-5 -top-[14px] bg-white px-4'}>
           More ways to support:
         </p>
-        <div className={'flex gap-2'}>
+        <div className={'flex flex-col md:flex-row gap-2'}>
           {items?.map((item, index) => {
             const { name, value, url } = item
             return (
@@ -79,7 +79,6 @@ const MoreWaysToSupport = ({
                   id={value}
                   value={url || 'https://'}
                   type="url"
-                  defaultValue="https://"
                   placeholder={`${name} URL`}
                   variant="input2"
                   onChange={(e) => handleChange({ value, e })}

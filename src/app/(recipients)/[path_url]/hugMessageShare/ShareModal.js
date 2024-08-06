@@ -59,7 +59,7 @@ const ShareModal = ({
           </TwitterShareButton>
           {/* ************** PinterestShareButton ************** */}
           <PinterestShareButton
-            media={packageImage}
+            media={packageImage && packageImage}
             url={`${process.env.NEXT_PUBLIC_ROOT_DOMAIN}/${path_url}`}
           >
             <div className="cursor-pointer shadow-custom3 rounded-[9px]">
