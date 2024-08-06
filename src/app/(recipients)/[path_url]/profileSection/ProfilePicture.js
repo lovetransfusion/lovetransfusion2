@@ -32,6 +32,8 @@ const ProfilePicture = ({
                 : profilePicLocal
             }
             quality={100}
+            placeholder="blur"
+            blurDataURL={profile_picture?.blurDataURL}
             fill
             sizes="(max-width: 768px) 100vw, 100vw"
             alt="Picture of the recipient"
