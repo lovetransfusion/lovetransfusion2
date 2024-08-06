@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 import multipleUseQuery from '@/queries/useQuery/multipleUseQuery'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import profilePlaceholder from '@/app/images/profile_picture_placeholder.jpg'
 
 const ClientRecipientPage = () => {
   const router = useRouter()
@@ -46,14 +47,10 @@ const ClientRecipientPage = () => {
                   category,
                   path_url,
                   opengraph,
-                  profile_picture: { url },
+                  profile_picture,
                 } = item
                 return (
-                  <Link
-                    key={index}
-                    href={`${path_url}`}
-                    prefetch={false}
-                  >
+                  <Link key={index} href={`${path_url}`} prefetch={false}>
                     <div
                       className={
                         'group flex flex-col gap-2 items-center pb-4 rounded-md overflow-hidden bg-neutral-100 shadow-md'
@@ -65,7 +62,11 @@ const ClientRecipientPage = () => {
                         }
                       >
                         <Image
-                          src={url}
+                          src={
+                            profile_picture?.fullPath
+                              ? `${process.env.NEXT_PUBLIC_SUPABASE_STORAGE_URL}/${profile_picture?.fullPath}`
+                              : profilePlaceholder
+                          }
                           fill
                           quality={100}
                           sizes="(max-width: 767px) 100vw, 100vw"
@@ -73,7 +74,7 @@ const ClientRecipientPage = () => {
                           className="object-cover group-hover:scale-[1.03] transition-transform duration-500"
                         />
                       </div>
-                      <div className={'flex flex-col gap-2 px-3 md:px-6'}>
+                      <div className={'flex flex-col w-full gap-2 px-3 md:px-6'}>
                         <p className={'text-xl'}>{first_name}</p>
                         <div
                           className={
